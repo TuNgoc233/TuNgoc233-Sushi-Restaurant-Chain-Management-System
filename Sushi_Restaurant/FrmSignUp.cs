@@ -61,22 +61,6 @@ namespace Sushi_Restaurant
 
         }
 
-        private void text_CCCD_TextChanged(object sender, EventArgs e)
-        {
-            if (text_CCCD.Text.Length > 12) // Kiểm tra nếu độ dài chuỗi vượt quá 12
-            {
-                text_CCCD.Text = text_CCCD.Text.Substring(0, 12);
-                text_CCCD.SelectionStart = text_CCCD.Text.Length; // Đưa con trỏ về cuối
-            }
-        }
-        private void text_CCCD_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true; // Ngừng xử lý nếu ký tự không phải là số
-            }
-        }
-
         private void but_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -85,11 +69,11 @@ namespace Sushi_Restaurant
         private void but_DK_Click(object sender, EventArgs e)
         {
             // Kiểm tra các trường thông tin có bị bỏ trống hay không
-            if (string.IsNullOrWhiteSpace(text_CCCD.Text) ||
-                string.IsNullOrWhiteSpace(text_SDT.Text) ||
+          
+             if  ( string.IsNullOrWhiteSpace(text_SDT.Text) ||
                 string.IsNullOrWhiteSpace(text_HoTen.Text) ||
-                string.IsNullOrWhiteSpace(text_Email.Text) ||
-                (!radioButNam.Checked && !radioButNu.Checked))
+                string.IsNullOrWhiteSpace(text_Email.Text))
+                
             {
                 error_noFullInfor_SignUp.Show("Vui lòng nhập đầy đủ thông tin");
             }

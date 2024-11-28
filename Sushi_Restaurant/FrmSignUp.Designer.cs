@@ -38,18 +38,15 @@ namespace Sushi_Restaurant
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_HoTen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.text_HoTen = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label_GioiTinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.label_CCCD = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.text_CCCD = new Guna.UI2.WinForms.Guna2TextBox();
             this.label_Email = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.text_Email = new Guna.UI2.WinForms.Guna2TextBox();
             this.lablel_SDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.text_SDT = new Guna.UI2.WinForms.Guna2TextBox();
             this.but_DK = new Guna.UI2.WinForms.Guna2Button();
-            this.radioButNam = new System.Windows.Forms.RadioButton();
-            this.radioButNu = new System.Windows.Forms.RadioButton();
             this.SignUp_sucess = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.error_noFullInfor_SignUp = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -140,9 +137,9 @@ namespace Sushi_Restaurant
             // label_HoTen
             // 
             this.label_HoTen.BackColor = System.Drawing.Color.Transparent;
-            this.label_HoTen.Location = new System.Drawing.Point(60, 154);
+            this.label_HoTen.Location = new System.Drawing.Point(59, 174);
             this.label_HoTen.Name = "label_HoTen";
-            this.label_HoTen.Size = new System.Drawing.Size(60, 18);
+            this.label_HoTen.Size = new System.Drawing.Size(77, 25);
             this.label_HoTen.TabIndex = 0;
             this.label_HoTen.Text = "Họ và tên";
             this.label_HoTen.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
@@ -158,7 +155,7 @@ namespace Sushi_Restaurant
             this.text_HoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_HoTen.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.text_HoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_HoTen.Location = new System.Drawing.Point(60, 179);
+            this.text_HoTen.Location = new System.Drawing.Point(59, 199);
             this.text_HoTen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.text_HoTen.Name = "text_HoTen";
             this.text_HoTen.PasswordChar = '\0';
@@ -167,55 +164,12 @@ namespace Sushi_Restaurant
             this.text_HoTen.Size = new System.Drawing.Size(364, 48);
             this.text_HoTen.TabIndex = 1;
             // 
-            // label_GioiTinh
-            // 
-            this.label_GioiTinh.BackColor = System.Drawing.Color.Transparent;
-            this.label_GioiTinh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_GioiTinh.Location = new System.Drawing.Point(61, 498);
-            this.label_GioiTinh.Name = "label_GioiTinh";
-            this.label_GioiTinh.Size = new System.Drawing.Size(78, 30);
-            this.label_GioiTinh.TabIndex = 0;
-            this.label_GioiTinh.Text = "Giới tính";
-            this.label_GioiTinh.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
-            // 
-            // label_CCCD
-            // 
-            this.label_CCCD.BackColor = System.Drawing.Color.Transparent;
-            this.label_CCCD.Location = new System.Drawing.Point(59, 238);
-            this.label_CCCD.Name = "label_CCCD";
-            this.label_CCCD.Size = new System.Drawing.Size(60, 18);
-            this.label_CCCD.TabIndex = 0;
-            this.label_CCCD.Text = "Số CCCD";
-            this.label_CCCD.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
-            // 
-            // text_CCCD
-            // 
-            this.text_CCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_CCCD.DefaultText = "";
-            this.text_CCCD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.text_CCCD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.text_CCCD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.text_CCCD.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.text_CCCD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_CCCD.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.text_CCCD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_CCCD.Location = new System.Drawing.Point(59, 263);
-            this.text_CCCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.text_CCCD.Name = "text_CCCD";
-            this.text_CCCD.PasswordChar = '\0';
-            this.text_CCCD.PlaceholderText = "";
-            this.text_CCCD.SelectedText = "";
-            this.text_CCCD.Size = new System.Drawing.Size(364, 48);
-            this.text_CCCD.TabIndex = 1;
-            this.text_CCCD.TextChanged += new System.EventHandler(this.text_CCCD_TextChanged);
-            this.text_CCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_SDT_KeyPress);
-            // 
             // label_Email
             // 
             this.label_Email.BackColor = System.Drawing.Color.Transparent;
-            this.label_Email.Location = new System.Drawing.Point(60, 324);
+            this.label_Email.Location = new System.Drawing.Point(60, 259);
             this.label_Email.Name = "label_Email";
-            this.label_Email.Size = new System.Drawing.Size(37, 18);
+            this.label_Email.Size = new System.Drawing.Size(44, 25);
             this.label_Email.TabIndex = 0;
             this.label_Email.Text = "Email";
             this.label_Email.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
@@ -231,7 +185,7 @@ namespace Sushi_Restaurant
             this.text_Email.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_Email.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.text_Email.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_Email.Location = new System.Drawing.Point(59, 349);
+            this.text_Email.Location = new System.Drawing.Point(59, 284);
             this.text_Email.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.text_Email.Name = "text_Email";
             this.text_Email.PasswordChar = '\0';
@@ -244,9 +198,9 @@ namespace Sushi_Restaurant
             // lablel_SDT
             // 
             this.lablel_SDT.BackColor = System.Drawing.Color.Transparent;
-            this.lablel_SDT.Location = new System.Drawing.Point(59, 410);
+            this.lablel_SDT.Location = new System.Drawing.Point(59, 345);
             this.lablel_SDT.Name = "lablel_SDT";
-            this.lablel_SDT.Size = new System.Drawing.Size(81, 18);
+            this.lablel_SDT.Size = new System.Drawing.Size(104, 25);
             this.lablel_SDT.TabIndex = 0;
             this.lablel_SDT.Text = "Số điện thoại";
             this.lablel_SDT.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
@@ -262,7 +216,7 @@ namespace Sushi_Restaurant
             this.text_SDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_SDT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.text_SDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_SDT.Location = new System.Drawing.Point(59, 435);
+            this.text_SDT.Location = new System.Drawing.Point(59, 370);
             this.text_SDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.text_SDT.Name = "text_SDT";
             this.text_SDT.PasswordChar = '\0';
@@ -283,36 +237,12 @@ namespace Sushi_Restaurant
             this.but_DK.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
             this.but_DK.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.but_DK.ForeColor = System.Drawing.Color.White;
-            this.but_DK.Location = new System.Drawing.Point(157, 583);
+            this.but_DK.Location = new System.Drawing.Point(157, 561);
             this.but_DK.Name = "but_DK";
             this.but_DK.Size = new System.Drawing.Size(136, 45);
             this.but_DK.TabIndex = 2;
             this.but_DK.Text = "Đăng kí";
             this.but_DK.Click += new System.EventHandler(this.but_DK_Click);
-            // 
-            // radioButNam
-            // 
-            this.radioButNam.AutoSize = true;
-            this.radioButNam.Location = new System.Drawing.Point(187, 501);
-            this.radioButNam.Name = "radioButNam";
-            this.radioButNam.Size = new System.Drawing.Size(68, 27);
-            this.radioButNam.TabIndex = 3;
-            this.radioButNam.TabStop = true;
-            this.radioButNam.Text = "Nam";
-            this.radioButNam.UseVisualStyleBackColor = true;
-            this.radioButNam.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButNu
-            // 
-            this.radioButNu.AutoSize = true;
-            this.radioButNu.Location = new System.Drawing.Point(304, 501);
-            this.radioButNu.Name = "radioButNu";
-            this.radioButNu.Size = new System.Drawing.Size(54, 27);
-            this.radioButNu.TabIndex = 3;
-            this.radioButNu.TabStop = true;
-            this.radioButNu.Text = "Nữ";
-            this.radioButNu.UseVisualStyleBackColor = true;
-            this.radioButNu.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // SignUp_sucess
             // 
@@ -332,21 +262,49 @@ namespace Sushi_Restaurant
             this.error_noFullInfor_SignUp.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
             this.error_noFullInfor_SignUp.Text = null;
             // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(60, 437);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(75, 25);
+            this.guna2HtmlLabel1.TabIndex = 0;
+            this.guna2HtmlLabel1.Text = "Mật khẩu ";
+            this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(60, 462);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(364, 48);
+            this.guna2TextBox1.TabIndex = 1;
+            this.guna2TextBox1.TextChanged += new System.EventHandler(this.text_SDT_TextChanged);
+            // 
             // FrmSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 650);
-            this.Controls.Add(this.radioButNu);
-            this.Controls.Add(this.radioButNam);
             this.Controls.Add(this.but_DK);
+            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.text_SDT);
             this.Controls.Add(this.lablel_SDT);
             this.Controls.Add(this.text_Email);
             this.Controls.Add(this.label_Email);
-            this.Controls.Add(this.text_CCCD);
-            this.Controls.Add(this.label_CCCD);
-            this.Controls.Add(this.label_GioiTinh);
             this.Controls.Add(this.text_HoTen);
             this.Controls.Add(this.label_HoTen);
             this.Controls.Add(this.guna2Panel1);
@@ -370,9 +328,6 @@ namespace Sushi_Restaurant
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_HoTen;
         private Guna.UI2.WinForms.Guna2TextBox text_HoTen;
-        private Guna.UI2.WinForms.Guna2HtmlLabel label_GioiTinh;
-        private Guna.UI2.WinForms.Guna2HtmlLabel label_CCCD;
-        private Guna.UI2.WinForms.Guna2TextBox text_CCCD;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_Email;
         private Guna.UI2.WinForms.Guna2TextBox text_Email;
         private Guna.UI2.WinForms.Guna2HtmlLabel lablel_SDT;
@@ -382,10 +337,10 @@ namespace Sushi_Restaurant
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private System.Windows.Forms.RadioButton radioButNam;
-        private System.Windows.Forms.RadioButton radioButNu;
         private Guna.UI2.WinForms.Guna2Button but_Exit;
         private Guna.UI2.WinForms.Guna2MessageDialog SignUp_sucess;
         private Guna.UI2.WinForms.Guna2MessageDialog error_noFullInfor_SignUp;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
