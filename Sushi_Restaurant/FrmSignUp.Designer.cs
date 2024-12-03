@@ -46,7 +46,7 @@ namespace Sushi_Restaurant
             this.SignUp_sucess = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.error_noFullInfor_SignUp = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.text_pass = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +88,7 @@ namespace Sushi_Restaurant
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.icon_signup1;
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.icon_signup;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(3, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
@@ -139,7 +139,7 @@ namespace Sushi_Restaurant
             this.label_HoTen.BackColor = System.Drawing.Color.Transparent;
             this.label_HoTen.Location = new System.Drawing.Point(59, 174);
             this.label_HoTen.Name = "label_HoTen";
-            this.label_HoTen.Size = new System.Drawing.Size(77, 25);
+            this.label_HoTen.Size = new System.Drawing.Size(60, 18);
             this.label_HoTen.TabIndex = 0;
             this.label_HoTen.Text = "Họ và tên";
             this.label_HoTen.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
@@ -163,13 +163,14 @@ namespace Sushi_Restaurant
             this.text_HoTen.SelectedText = "";
             this.text_HoTen.Size = new System.Drawing.Size(364, 48);
             this.text_HoTen.TabIndex = 1;
+            this.text_HoTen.TextChanged += new System.EventHandler(this.text_HoTen_TextChanged);
             // 
             // label_Email
             // 
             this.label_Email.BackColor = System.Drawing.Color.Transparent;
             this.label_Email.Location = new System.Drawing.Point(60, 259);
             this.label_Email.Name = "label_Email";
-            this.label_Email.Size = new System.Drawing.Size(44, 25);
+            this.label_Email.Size = new System.Drawing.Size(37, 18);
             this.label_Email.TabIndex = 0;
             this.label_Email.Text = "Email";
             this.label_Email.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
@@ -200,7 +201,7 @@ namespace Sushi_Restaurant
             this.lablel_SDT.BackColor = System.Drawing.Color.Transparent;
             this.lablel_SDT.Location = new System.Drawing.Point(59, 345);
             this.lablel_SDT.Name = "lablel_SDT";
-            this.lablel_SDT.Size = new System.Drawing.Size(104, 25);
+            this.lablel_SDT.Size = new System.Drawing.Size(81, 18);
             this.lablel_SDT.TabIndex = 0;
             this.lablel_SDT.Text = "Số điện thoại";
             this.lablel_SDT.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
@@ -267,31 +268,31 @@ namespace Sushi_Restaurant
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(60, 437);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(75, 25);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(57, 18);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Mật khẩu ";
             this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
-            // guna2TextBox1
+            // text_pass
             // 
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(60, 462);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(364, 48);
-            this.guna2TextBox1.TabIndex = 1;
-            this.guna2TextBox1.TextChanged += new System.EventHandler(this.text_SDT_TextChanged);
+            this.text_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.text_pass.DefaultText = "";
+            this.text_pass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.text_pass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.text_pass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_pass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_pass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_pass.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.text_pass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_pass.Location = new System.Drawing.Point(60, 462);
+            this.text_pass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.text_pass.Name = "text_pass";
+            this.text_pass.PasswordChar = '\0';
+            this.text_pass.PlaceholderText = "";
+            this.text_pass.SelectedText = "";
+            this.text_pass.Size = new System.Drawing.Size(364, 48);
+            this.text_pass.TabIndex = 1;
+            this.text_pass.TextChanged += new System.EventHandler(this.text_SDT_TextChanged);
             // 
             // FrmSignUp
             // 
@@ -299,7 +300,7 @@ namespace Sushi_Restaurant
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 650);
             this.Controls.Add(this.but_DK);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.text_pass);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.text_SDT);
             this.Controls.Add(this.lablel_SDT);
@@ -340,7 +341,7 @@ namespace Sushi_Restaurant
         private Guna.UI2.WinForms.Guna2Button but_Exit;
         private Guna.UI2.WinForms.Guna2MessageDialog SignUp_sucess;
         private Guna.UI2.WinForms.Guna2MessageDialog error_noFullInfor_SignUp;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox text_pass;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

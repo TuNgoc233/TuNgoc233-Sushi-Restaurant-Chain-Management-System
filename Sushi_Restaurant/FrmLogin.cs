@@ -52,9 +52,24 @@ namespace Sushi_Restaurant
             {
                 err_noFullInfor_Login.Show("Vui lòng nhập đầy đủ thông tin");
             }
-        }
+            else if (MainClass.IsValidUser(text_User.Text, text_pass.Text) == false)
+            {
+                error_invalid_User.Show("Tài khoản hoặc mật khẩu không đúng");
+            }
+            else
+            {
+                this.Hide();
+                FrmCustomer frm = new FrmCustomer();
+                frm.Show();
+            }
+        }   
 
         private void tex_pass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void text_User_TextChanged(object sender, EventArgs e)
         {
 
         }

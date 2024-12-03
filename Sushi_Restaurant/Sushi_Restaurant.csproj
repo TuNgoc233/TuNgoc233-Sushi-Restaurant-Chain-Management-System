@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCustomer.Designer.cs">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,29 +70,78 @@
     <Compile Include="FrmSignUp.Designer.cs">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainClass.cs" />
+    <Compile Include="Model\FrmDatMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FrmDatMon.Designer.cs">
+      <DependentUpon>FrmDatMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ucProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Model\ucProduct.Designer.cs">
+      <DependentUpon>ucProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\DatBanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DatBanView.Designer.cs">
+      <DependentUpon>DatBanView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GiaoHangView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GiaoHangView.Designer.cs">
+      <DependentUpon>GiaoHangView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmHomeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmHomeView.Designer.cs">
+      <DependentUpon>FrmHomeView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmCustomer.resx">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSignUp.resx">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FrmDatMon.resx">
+      <DependentUpon>FrmDatMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\ucProduct.resx">
+      <DependentUpon>ucProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="View\DatBanView.resx">
+      <DependentUpon>DatBanView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GiaoHangView.resx">
+      <DependentUpon>GiaoHangView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmHomeView.resx">
+      <DependentUpon>FrmHomeView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -100,10 +155,109 @@
     <None Include="Resources\icon_login.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon_signup.jpg" />
+    <None Include="Resources\icon_signup1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon_signup1.jpg" />
+    <None Include="Resources\icon_login1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KhuVuc1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KhuVuc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\welcome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Branch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_dao_nia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dao_nia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\but_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_check_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dat_mon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_dat_ban.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_check_dat_ban.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_check_dat_mon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_mon_an_yeu_thich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_check_mon_an_yeu_thich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_but_account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_check_account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Branch1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KhuVuc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dao_nia1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sushi_logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\welcome1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_nut_nguon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_xoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_sua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ca_hoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rau củ tempura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_search.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_check_mon_an_yeu_thich1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_giao_hang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_delivery.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

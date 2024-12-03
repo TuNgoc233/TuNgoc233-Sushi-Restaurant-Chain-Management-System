@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -72,18 +73,56 @@ namespace Sushi_Restaurant
           
              if  ( string.IsNullOrWhiteSpace(text_SDT.Text) ||
                 string.IsNullOrWhiteSpace(text_HoTen.Text) ||
-                string.IsNullOrWhiteSpace(text_Email.Text))
-                
-            {
+                string.IsNullOrWhiteSpace(text_Email.Text)) {  
+             
                 error_noFullInfor_SignUp.Show("Vui lòng nhập đầy đủ thông tin");
-            }
-            else {
-                SignUp_sucess.Show("Đăng kí thành công vui lòng đăng nhập lại");
-                this.Hide();
-                FrmLogin frm = new FrmLogin();
-                frm.Show();
+             }
+             else {
+                using (SqlConnection con = new SqlConnection(MainClass.con_string))
+                {
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand("sp_ThemKhachHang", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Thêm tham số
+                    cmd.Parameters.AddWithValue("@HoTen", text_HoTen.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Email", text_Email.Text.Trim());
+                    cmd.Parameters.AddWithValue("@SoDienThoai", text_SDT.Text.Trim());
+                    cmd.Parameters.AddWithValue("@MatKhau", text_pass.Text.Trim());
+
+                    // Tham số OUTPUT
+                    SqlParameter resultParam = new SqlParameter("@Result", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(resultParam);
+
+                    // Thực thi procedure
+                    cmd.ExecuteNonQuery();
+
+                    // Kiểm tra kết quả
+                    int result = (int)resultParam.Value;
+
+                    if (result == 1)
+                    {
+                        SignUp_sucess.Show("Đăng ký thành công! Vui lòng đăng nhập lại.");
+                        this.Hide();
+                        FrmLogin frm = new FrmLogin();
+                        frm.Show();
+                    }
+                    else
+                    {
+                        error_noFullInfor_SignUp.Show("Email hoặc số điện thoại đã tồn tại.");
+                    }
+                }
             }
             
+        }
+
+        private void text_HoTen_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
