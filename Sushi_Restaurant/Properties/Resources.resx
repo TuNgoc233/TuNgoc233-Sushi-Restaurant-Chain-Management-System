@@ -220,4 +220,22 @@
   <data name="icon_delivery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_delivery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_invoice.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_person" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_person.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_star" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_star.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="điện_thoại" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\điện thoại.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_form.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -52,11 +52,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chi_Nhanh\addOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\addOrderForm.Designer.cs">
+      <DependentUpon>addOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chi_Nhanh\addStaff.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Chi_Nhanh\addStaff.Designer.cs">
       <DependentUpon>addStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewEnvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewEnvoice.Designer.cs">
+      <DependentUpon>viewEnvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewOrderForm.Designer.cs">
+      <DependentUpon>viewOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewStaff.Designer.cs">
+      <DependentUpon>viewStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCustomer.cs">
       <SubType>Form</SubType>
@@ -97,6 +121,12 @@
     <Compile Include="SampleAdd.Designer.cs">
       <DependentUpon>SampleAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="SampleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleView.Designer.cs">
+      <DependentUpon>SampleView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DatBanView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,8 +145,20 @@
     <Compile Include="View\FrmHomeView.Designer.cs">
       <DependentUpon>FrmHomeView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Chi_Nhanh\addOrderForm.resx">
+      <DependentUpon>addOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\addStaff.resx">
       <DependentUpon>addStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\viewEnvoice.resx">
+      <DependentUpon>viewEnvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\viewOrderForm.resx">
+      <DependentUpon>viewOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\viewStaff.resx">
+      <DependentUpon>viewStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCustomer.resx">
       <DependentUpon>FrmCustomer.cs</DependentUpon>
@@ -140,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SampleAdd.resx">
       <DependentUpon>SampleAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleView.resx">
+      <DependentUpon>SampleView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DatBanView.resx">
       <DependentUpon>DatBanView.cs</DependentUpon>
@@ -276,6 +321,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_del.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\điện thoại.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_invoice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_star.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_form.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

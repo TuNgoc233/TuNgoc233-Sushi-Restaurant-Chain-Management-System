@@ -331,6 +331,7 @@
             this.guna2DateTimePicker1.Size = new System.Drawing.Size(251, 48);
             this.guna2DateTimePicker1.TabIndex = 28;
             this.guna2DateTimePicker1.Value = new System.DateTime(2024, 11, 29, 8, 59, 22, 173);
+
             // 
             // addStaff
             // 

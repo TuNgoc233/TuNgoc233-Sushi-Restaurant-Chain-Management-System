@@ -10,11 +10,10 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.Chi_Nhanh
 {
-    public partial class addStaff : SampleAdd
+    public partial class addOrderForm : SampleAdd
     {
-        public addStaff()
+        public addOrderForm()
         {
-            //base.InitializeComponent();
             InitializeComponent();
         }
 
@@ -44,21 +43,11 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void addStaff_Load(object sender, EventArgs e)
         {
 
-
-
-
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void addOrderForm_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }
