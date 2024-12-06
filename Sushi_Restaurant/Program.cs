@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sushi_Restaurant.NhanVien;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Sushi_Restaurant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new frmMain());
             
         }
     }

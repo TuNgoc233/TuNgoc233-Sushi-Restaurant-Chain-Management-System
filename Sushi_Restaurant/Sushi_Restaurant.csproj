@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -64,6 +64,96 @@
     <Compile Include="FrmSignUp.Designer.cs">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien\CapNhatTrangThai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\CapNhatTrangThai.Designer.cs">
+      <DependentUpon>CapNhatTrangThai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\frmPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\frmPOS.Designer.cs">
+      <DependentUpon>frmPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\HoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\HoaDon.Designer.cs">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\PhieuDatBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\PhieuDatBan.Designer.cs">
+      <DependentUpon>PhieuDatBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\PhieuDatTrucTiep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\PhieuDatTrucTiep.Designer.cs">
+      <DependentUpon>PhieuDatTrucTiep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\PhieuGiaoHangTanNoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\PhieuGiaoHangTanNoi.Designer.cs">
+      <DependentUpon>PhieuGiaoHangTanNoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\SampleAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\SampleAdd.Designer.cs">
+      <DependentUpon>SampleAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\SampleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\SampleView.Designer.cs">
+      <DependentUpon>SampleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\TheKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\TheKhachHang.Designer.cs">
+      <DependentUpon>TheKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ThemDanhGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\ThemDanhGia.Designer.cs">
+      <DependentUpon>ThemDanhGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ThemTheKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\ThemTheKhachHang.Designer.cs">
+      <DependentUpon>ThemTheKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ucProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NhanVien\ucProduct.Designer.cs">
+      <DependentUpon>ucProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\XemDanhGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\XemDanhGia.Designer.cs">
+      <DependentUpon>XemDanhGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLogin.resx">
@@ -71,6 +161,51 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSignUp.resx">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\CapNhatTrangThai.resx">
+      <DependentUpon>CapNhatTrangThai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\frmPOS.resx">
+      <DependentUpon>frmPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\HoaDon.resx">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\PhieuDatBan.resx">
+      <DependentUpon>PhieuDatBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\PhieuDatTrucTiep.resx">
+      <DependentUpon>PhieuDatTrucTiep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\PhieuGiaoHangTanNoi.resx">
+      <DependentUpon>PhieuGiaoHangTanNoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\SampleAdd.resx">
+      <DependentUpon>SampleAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\SampleView.resx">
+      <DependentUpon>SampleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\TheKhachHang.resx">
+      <DependentUpon>TheKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\ThemDanhGia.resx">
+      <DependentUpon>ThemDanhGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\ThemTheKhachHang.resx">
+      <DependentUpon>ThemTheKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\ucProduct.resx">
+      <DependentUpon>ucProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\XemDanhGia.resx">
+      <DependentUpon>XemDanhGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,6 +239,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_signup1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnThem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\txtTimKiem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sushi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sushi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sushi_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\member.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\member_card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\member_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
