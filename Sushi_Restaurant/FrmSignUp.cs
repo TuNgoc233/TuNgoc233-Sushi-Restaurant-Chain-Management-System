@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -73,17 +74,28 @@ namespace Sushi_Restaurant
              if  ( string.IsNullOrWhiteSpace(text_SDT.Text) ||
                 string.IsNullOrWhiteSpace(text_HoTen.Text) ||
                 string.IsNullOrWhiteSpace(text_Email.Text))
-                
+             
             {
                 error_noFullInfor_SignUp.Show("Vui lòng nhập đầy đủ thông tin");
-            }
-            else {
+             }
+             else {
                 SignUp_sucess.Show("Đăng kí thành công vui lòng đăng nhập lại");
-                this.Hide();
-                FrmLogin frm = new FrmLogin();
-                frm.Show();
+                        this.Hide();
+                        FrmLogin frm = new FrmLogin();
+                        frm.Show();
+                    }
+                    else
+                    {
+                        error_noFullInfor_SignUp.Show("Email hoặc số điện thoại đã tồn tại.");
+                    }
+                }
             }
             
+        }
+
+        private void text_HoTen_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Sushi_Restaurant
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -55,22 +56,22 @@ namespace Sushi_Restaurant
             Brand frmBrand = new Brand();
             frmBrand.ShowDialog();  // Hiển thị form Brand theo kiểu hộp thoại
             this.Show();  // Hiển thị lại form Login sau khi đóng form Brand
-        }
+            }
 
         private void tex_pass_TextChanged(object sender, EventArgs e)
-        {
+            {
 
-        }
+        }   
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
     }
 }

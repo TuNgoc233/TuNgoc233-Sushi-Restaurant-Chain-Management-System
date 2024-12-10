@@ -39,6 +39,7 @@
             this.bt_dn = new Guna.UI2.WinForms.Guna2Button();
             this.but_dk = new Guna.UI2.WinForms.Guna2Button();
             this.err_noFullInfor_Login = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.error_invalid_User = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -133,6 +134,7 @@
             this.text_User.SelectedText = "";
             this.text_User.Size = new System.Drawing.Size(321, 48);
             this.text_User.TabIndex = 0;
+            this.text_User.TextChanged += new System.EventHandler(this.text_User_TextChanged);
             // 
             // label2
             // 
@@ -210,6 +212,15 @@
             this.err_noFullInfor_Login.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
             this.err_noFullInfor_Login.Text = null;
             // 
+            // error_invalid_User
+            // 
+            this.error_invalid_User.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.error_invalid_User.Caption = null;
+            this.error_invalid_User.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+            this.error_invalid_User.Parent = this;
+            this.error_invalid_User.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            this.error_invalid_User.Text = null;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -250,6 +261,7 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2MessageDialog err_noFullInfor_Login;
+        private Guna.UI2.WinForms.Guna2MessageDialog error_invalid_User;
     }
 }
 
