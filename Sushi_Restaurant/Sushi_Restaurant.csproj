@@ -85,11 +85,47 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CapNhatThongTinView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CapNhatThongTinView.Designer.cs">
+      <DependentUpon>CapNhatThongTinView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\chonBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\chonBan.Designer.cs">
+      <DependentUpon>chonBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DatBanView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\DatBanView.Designer.cs">
       <DependentUpon>DatBanView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmDSDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmDSDonHang.Designer.cs">
+      <DependentUpon>FrmDSDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmMonAnYeuThichView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMonAnYeuThichView.Designer.cs">
+      <DependentUpon>FrmMonAnYeuThichView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\xemLaiDatBanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\xemLaiDatBanView.Designer.cs">
+      <DependentUpon>xemLaiDatBanView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\xemLaiGiaoHangView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\xemLaiGiaoHangView.Designer.cs">
+      <DependentUpon>xemLaiGiaoHangView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\GiaoHangView.cs">
       <SubType>Form</SubType>
@@ -123,8 +159,26 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CapNhatThongTinView.resx">
+      <DependentUpon>CapNhatThongTinView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\chonBan.resx">
+      <DependentUpon>chonBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DatBanView.resx">
       <DependentUpon>DatBanView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmDSDonHang.resx">
+      <DependentUpon>FrmDSDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMonAnYeuThichView.resx">
+      <DependentUpon>FrmMonAnYeuThichView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\xemLaiDatBanView.resx">
+      <DependentUpon>xemLaiDatBanView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\xemLaiGiaoHangView.resx">
+      <DependentUpon>xemLaiGiaoHangView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GiaoHangView.resx">
       <DependentUpon>GiaoHangView.cs</DependentUpon>
@@ -258,6 +312,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_dsDH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_danhGia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_xemLaiDH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_checkDSDH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_favouriteFood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_thoiGianHoatDong.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using Sushi_Restaurant.View;
+﻿using Sushi_Restaurant.Model;
+using Sushi_Restaurant.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace Sushi_Restaurant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDatMon());
+            Application.Run(new FrmCustomer());
+
             
         }
     }

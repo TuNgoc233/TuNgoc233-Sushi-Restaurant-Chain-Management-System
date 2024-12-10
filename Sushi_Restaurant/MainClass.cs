@@ -39,7 +39,7 @@ namespace Sushi_Restaurant
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Lay_Khu_Vuc_ChiNhanh_SDT", con)
+                SqlCommand cmd = new SqlCommand("LayThongTinVaSDTChiNhanh", con)
                 {
                     CommandType = CommandType.StoredProcedure
                 };

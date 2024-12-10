@@ -63,10 +63,71 @@ namespace Sushi_Restaurant
                 .Select(row => row.Field<string>("SoDienThoai"))
                 .ToList();
 
-            sdtForChiNhanh.Insert(0, "Chọn số điện thoại");
             cmb_SDT.DataSource = sdtForChiNhanh;
             cmb_SDT.SelectedIndex = 0;
 
+
+            // Lọc thông tin địa chỉ chi nhánh từ DataTable
+            var diaChiForChiNhanh = khuVucData.AsEnumerable()
+                .Where(row => row.Field<string>("TenChiNhanh") == selectedChiNhanh)
+                .Select(row => new
+                {
+                    Duong = row.Field<string>("Duong"),
+                    Phuong = row.Field<string>("Phuong"),
+                    Quan = row.Field<string>("Quan"),
+                    ThanhPho = row.Field<string>("ThanhPho")
+                })
+                .FirstOrDefault(); // Dùng FirstOrDefault để lấy 1 giá trị duy nhất (do 1 chi nhánh có 1 địa chỉ)
+
+            // Kiểm tra nếu có thông tin chi nhánh
+            if (diaChiForChiNhanh != null)
+            {
+                // Tạo địa chỉ theo định dạng yêu cầu
+                string diaChi = $"{diaChiForChiNhanh.Duong} - {diaChiForChiNhanh.Phuong} - {diaChiForChiNhanh.Quan} - {diaChiForChiNhanh.ThanhPho}";
+
+                // Gán vào TextBox
+                textbox_diaChi.Text = diaChi;
+            }
+            else
+            {
+                // Nếu không tìm thấy thông tin địa chỉ, xóa nội dung TextBox hoặc hiển thị thông báo
+                textbox_diaChi.Clear();
+            }
+        }
+
+     
+
+        private void text_diaChi_TextChanged(object sender, EventArgs e)
+        {
+            // Lay chi nhanh da chon
+            string selectedChiNhanh = cmb_ChiNhanh.SelectedItem.ToString();
+
+            // Lọc thông tin địa chỉ chi nhánh từ DataTable
+            var diaChiForChiNhanh = khuVucData.AsEnumerable()
+                .Where(row => row.Field<string>("TenChiNhanh") == selectedChiNhanh)
+                .Select(row => new
+                {
+                    Duong = row.Field<string>("Duong"),
+                    Phuong = row.Field<string>("Phuong"),
+                    Quan = row.Field<string>("Quan"),
+                    ThanhPho = row.Field<string>("ThanhPho")
+                })
+                .FirstOrDefault(); // Dùng FirstOrDefault để lấy 1 giá trị duy nhất (do 1 chi nhánh có 1 địa chỉ)
+
+            // Kiểm tra nếu có thông tin chi nhánh
+            if (diaChiForChiNhanh != null)
+            {
+                // Tạo địa chỉ theo định dạng yêu cầu
+                string diaChi = $"{diaChiForChiNhanh.Duong} - {diaChiForChiNhanh.Phuong} - {diaChiForChiNhanh.Quan} - {diaChiForChiNhanh.ThanhPho}";
+
+                // Gán vào TextBox
+                text_diaChi.Text = diaChi;
+            }
+            else
+            {
+                // Nếu không tìm thấy thông tin địa chỉ, xóa nội dung TextBox hoặc hiển thị thông báo
+                text_diaChi.Clear();
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Sushi_Restaurant.View
         public DatBanView()
         {
             InitializeComponent();
+            this.Load += new System.EventHandler(this.DatBanView_Load);
         }
 
         private void but_datBan_Click(object sender, EventArgs e)
@@ -26,5 +27,14 @@ namespace Sushi_Restaurant.View
         {
             this.Close();
         }
+
+        private void DatBanView_Load(object sender, EventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("vi-VN");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("vi-VN");
+        }
+
+
+
     }
 }

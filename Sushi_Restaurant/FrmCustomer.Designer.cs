@@ -34,7 +34,7 @@ namespace Sushi_Restaurant
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.but_cap_nhat_info = new Guna.UI2.WinForms.Guna2Button();
             this.but_mon_yeu_thich = new Guna.UI2.WinForms.Guna2Button();
-            this.but_dat_ban = new Guna.UI2.WinForms.Guna2Button();
+            this.but_DSDH = new Guna.UI2.WinForms.Guna2Button();
             this.but_dat_mon = new Guna.UI2.WinForms.Guna2Button();
             this.but_Home = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@ namespace Sushi_Restaurant
             // 
             this.guna2Panel1.Controls.Add(this.but_cap_nhat_info);
             this.guna2Panel1.Controls.Add(this.but_mon_yeu_thich);
-            this.guna2Panel1.Controls.Add(this.but_dat_ban);
+            this.guna2Panel1.Controls.Add(this.but_DSDH);
             this.guna2Panel1.Controls.Add(this.but_dat_mon);
             this.guna2Panel1.Controls.Add(this.but_Home);
             this.guna2Panel1.Controls.Add(this.label1);
@@ -62,7 +62,7 @@ namespace Sushi_Restaurant
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(244, 800);
+            this.guna2Panel1.Size = new System.Drawing.Size(254, 779);
             this.guna2Panel1.TabIndex = 0;
             // 
             // but_cap_nhat_info
@@ -86,13 +86,14 @@ namespace Sushi_Restaurant
             this.but_cap_nhat_info.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.but_cap_nhat_info.ImageOffset = new System.Drawing.Point(4, 0);
             this.but_cap_nhat_info.ImageSize = new System.Drawing.Size(45, 45);
-            this.but_cap_nhat_info.Location = new System.Drawing.Point(0, 491);
+            this.but_cap_nhat_info.Location = new System.Drawing.Point(-6, 491);
             this.but_cap_nhat_info.Name = "but_cap_nhat_info";
-            this.but_cap_nhat_info.Size = new System.Drawing.Size(244, 70);
+            this.but_cap_nhat_info.Size = new System.Drawing.Size(260, 70);
             this.but_cap_nhat_info.TabIndex = 2;
             this.but_cap_nhat_info.Text = "Cập nhật thông tin";
             this.but_cap_nhat_info.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.but_cap_nhat_info.TextOffset = new System.Drawing.Point(5, 0);
+            this.but_cap_nhat_info.Click += new System.EventHandler(this.but_cap_nhat_info_Click);
             // 
             // but_mon_yeu_thich
             // 
@@ -115,42 +116,44 @@ namespace Sushi_Restaurant
             this.but_mon_yeu_thich.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.but_mon_yeu_thich.ImageOffset = new System.Drawing.Point(-14, 0);
             this.but_mon_yeu_thich.ImageSize = new System.Drawing.Size(80, 80);
-            this.but_mon_yeu_thich.Location = new System.Drawing.Point(0, 415);
+            this.but_mon_yeu_thich.Location = new System.Drawing.Point(-5, 415);
             this.but_mon_yeu_thich.Name = "but_mon_yeu_thich";
-            this.but_mon_yeu_thich.Size = new System.Drawing.Size(244, 70);
+            this.but_mon_yeu_thich.Size = new System.Drawing.Size(259, 70);
             this.but_mon_yeu_thich.TabIndex = 2;
             this.but_mon_yeu_thich.Text = "Món ăn yêu thích";
             this.but_mon_yeu_thich.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.but_mon_yeu_thich.TextOffset = new System.Drawing.Point(-29, -5);
+            this.but_mon_yeu_thich.Click += new System.EventHandler(this.but_mon_yeu_thich_Click);
             // 
-            // but_dat_ban
+            // but_DSDH
             // 
-            this.but_dat_ban.AutoRoundedCorners = true;
-            this.but_dat_ban.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.but_dat_ban.BorderRadius = 34;
-            this.but_dat_ban.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.but_dat_ban.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.but_dat_ban.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.but_dat_ban.CustomizableEdges.BottomRight = false;
-            this.but_dat_ban.CustomizableEdges.TopRight = false;
-            this.but_dat_ban.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.but_dat_ban.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.but_dat_ban.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.but_dat_ban.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.but_dat_ban.FillColor = System.Drawing.Color.Transparent;
-            this.but_dat_ban.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.but_dat_ban.ForeColor = System.Drawing.Color.White;
-            this.but_dat_ban.Image = ((System.Drawing.Image)(resources.GetObject("but_dat_ban.Image")));
-            this.but_dat_ban.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.but_dat_ban.ImageOffset = new System.Drawing.Point(10, 0);
-            this.but_dat_ban.ImageSize = new System.Drawing.Size(30, 30);
-            this.but_dat_ban.Location = new System.Drawing.Point(0, 327);
-            this.but_dat_ban.Name = "but_dat_ban";
-            this.but_dat_ban.Size = new System.Drawing.Size(244, 70);
-            this.but_dat_ban.TabIndex = 2;
-            this.but_dat_ban.Text = "Đặt bàn";
-            this.but_dat_ban.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.but_dat_ban.TextOffset = new System.Drawing.Point(20, 0);
+            this.but_DSDH.AutoRoundedCorners = true;
+            this.but_DSDH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.but_DSDH.BorderRadius = 34;
+            this.but_DSDH.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.but_DSDH.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.but_DSDH.CheckedState.Image = global::Sushi_Restaurant.Properties.Resources.icon_checkDSDH;
+            this.but_DSDH.CustomizableEdges.BottomRight = false;
+            this.but_DSDH.CustomizableEdges.TopRight = false;
+            this.but_DSDH.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.but_DSDH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.but_DSDH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.but_DSDH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.but_DSDH.FillColor = System.Drawing.Color.Transparent;
+            this.but_DSDH.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_DSDH.ForeColor = System.Drawing.Color.White;
+            this.but_DSDH.Image = global::Sushi_Restaurant.Properties.Resources.icon_dsDH;
+            this.but_DSDH.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.but_DSDH.ImageOffset = new System.Drawing.Point(10, 0);
+            this.but_DSDH.ImageSize = new System.Drawing.Size(35, 35);
+            this.but_DSDH.Location = new System.Drawing.Point(-7, 327);
+            this.but_DSDH.Name = "but_DSDH";
+            this.but_DSDH.Size = new System.Drawing.Size(261, 70);
+            this.but_DSDH.TabIndex = 2;
+            this.but_DSDH.Text = "Danh sách đơn hàng";
+            this.but_DSDH.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.but_DSDH.TextOffset = new System.Drawing.Point(20, 0);
+            this.but_DSDH.Click += new System.EventHandler(this.but_DSDH_Click);
             // 
             // but_dat_mon
             // 
@@ -159,7 +162,7 @@ namespace Sushi_Restaurant
             this.but_dat_mon.BorderRadius = 34;
             this.but_dat_mon.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.but_dat_mon.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.but_dat_mon.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.but_dat_mon.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.but_dat_mon.CustomizableEdges.BottomRight = false;
             this.but_dat_mon.CustomizableEdges.TopRight = false;
             this.but_dat_mon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -173,9 +176,9 @@ namespace Sushi_Restaurant
             this.but_dat_mon.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.but_dat_mon.ImageOffset = new System.Drawing.Point(2, 0);
             this.but_dat_mon.ImageSize = new System.Drawing.Size(45, 45);
-            this.but_dat_mon.Location = new System.Drawing.Point(0, 251);
+            this.but_dat_mon.Location = new System.Drawing.Point(-6, 251);
             this.but_dat_mon.Name = "but_dat_mon";
-            this.but_dat_mon.Size = new System.Drawing.Size(244, 70);
+            this.but_dat_mon.Size = new System.Drawing.Size(260, 70);
             this.but_dat_mon.TabIndex = 2;
             this.but_dat_mon.Text = "Đặt món";
             this.but_dat_mon.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -190,7 +193,7 @@ namespace Sushi_Restaurant
             this.but_Home.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.but_Home.Checked = true;
             this.but_Home.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.but_Home.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.but_Home.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.but_Home.CustomizableEdges.BottomRight = false;
             this.but_Home.CustomizableEdges.TopRight = false;
             this.but_Home.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -206,7 +209,7 @@ namespace Sushi_Restaurant
             this.but_Home.ImageSize = new System.Drawing.Size(30, 30);
             this.but_Home.Location = new System.Drawing.Point(0, 175);
             this.but_Home.Name = "but_Home";
-            this.but_Home.Size = new System.Drawing.Size(244, 70);
+            this.but_Home.Size = new System.Drawing.Size(254, 70);
             this.but_Home.TabIndex = 2;
             this.but_Home.Text = "Trang chủ";
             this.but_Home.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -246,9 +249,9 @@ namespace Sushi_Restaurant
             this.panel_center.Controls.Add(this.controlBoxAn);
             this.panel_center.Controls.Add(this.ControlBoxThoat);
             this.panel_center.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_center.Location = new System.Drawing.Point(244, 0);
+            this.panel_center.Location = new System.Drawing.Point(254, 0);
             this.panel_center.Name = "panel_center";
-            this.panel_center.Size = new System.Drawing.Size(1552, 800);
+            this.panel_center.Size = new System.Drawing.Size(874, 779);
             this.panel_center.TabIndex = 1;
             // 
             // ControlBoxThuNho
@@ -257,7 +260,7 @@ namespace Sushi_Restaurant
             this.ControlBoxThuNho.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.ControlBoxThuNho.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.ControlBoxThuNho.IconColor = System.Drawing.Color.White;
-            this.ControlBoxThuNho.Location = new System.Drawing.Point(1470, 2);
+            this.ControlBoxThuNho.Location = new System.Drawing.Point(792, 2);
             this.ControlBoxThuNho.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxThuNho.Name = "ControlBoxThuNho";
             this.ControlBoxThuNho.Size = new System.Drawing.Size(38, 29);
@@ -269,7 +272,7 @@ namespace Sushi_Restaurant
             this.controlBoxAn.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.controlBoxAn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.controlBoxAn.IconColor = System.Drawing.Color.White;
-            this.controlBoxAn.Location = new System.Drawing.Point(1428, 2);
+            this.controlBoxAn.Location = new System.Drawing.Point(750, 2);
             this.controlBoxAn.Margin = new System.Windows.Forms.Padding(2);
             this.controlBoxAn.Name = "controlBoxAn";
             this.controlBoxAn.Size = new System.Drawing.Size(36, 29);
@@ -281,7 +284,7 @@ namespace Sushi_Restaurant
             this.ControlBoxThoat.CustomClick = true;
             this.ControlBoxThoat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.ControlBoxThoat.IconColor = System.Drawing.Color.White;
-            this.ControlBoxThoat.Location = new System.Drawing.Point(1514, 2);
+            this.ControlBoxThoat.Location = new System.Drawing.Point(836, 2);
             this.ControlBoxThoat.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxThoat.Name = "ControlBoxThoat";
             this.ControlBoxThoat.Size = new System.Drawing.Size(34, 29);
@@ -294,7 +297,7 @@ namespace Sushi_Restaurant
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1796, 800);
+            this.ClientSize = new System.Drawing.Size(1128, 779);
             this.Controls.Add(this.panel_center);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -320,7 +323,7 @@ namespace Sushi_Restaurant
         private Guna.UI2.WinForms.Guna2Button but_Home;
         private Guna.UI2.WinForms.Guna2Button but_cap_nhat_info;
         private Guna.UI2.WinForms.Guna2Button but_mon_yeu_thich;
-        private Guna.UI2.WinForms.Guna2Button but_dat_ban;
+        private Guna.UI2.WinForms.Guna2Button but_DSDH;
         private Guna.UI2.WinForms.Guna2Button but_dat_mon;
         private Guna2Panel panel_center;
         private Guna2ControlBox ControlBoxThuNho;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sushi_Restaurant.Model;
+using Sushi_Restaurant.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +18,6 @@ namespace Sushi_Restaurant
         public FrmCustomer()
         {
             InitializeComponent();
-
         }
 
         public void AddControls(Form f)
@@ -59,6 +60,26 @@ namespace Sushi_Restaurant
         {
             FrmDatMon frm = new FrmDatMon();
             frm.Show();
+            but_dat_mon.Checked = false;
+            AddControls(new FrmHomeView());
+            but_Home.Checked = true;
+         
+        }
+
+
+        private void but_DSDH_Click(object sender, EventArgs e)
+        {
+            AddControls(new FrmDSDonHang());
+        }
+
+        private void but_mon_yeu_thich_Click(object sender, EventArgs e)
+        {
+            AddControls(new FrmMonAnYeuThichView());
+        }
+
+        private void but_cap_nhat_info_Click(object sender, EventArgs e)
+        {
+            AddControls(new CapNhatThongTinView());
         }
     }
     

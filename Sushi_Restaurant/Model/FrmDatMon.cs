@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.HtmlControls;
 using System.Windows.Forms;
 
 namespace Sushi_Restaurant
@@ -16,11 +17,10 @@ namespace Sushi_Restaurant
         public FrmDatMon()
         {
             InitializeComponent();
-        }
 
+        }
         private void but_Nguon_Click(object sender, EventArgs e)
         {
-            
             this.Close();
         }
 
@@ -33,12 +33,14 @@ namespace Sushi_Restaurant
         {
             GiaoHangView frm = new GiaoHangView();
             frm.Show();
+            frm.Owner = this;
         }
 
         private void but_dat_ban_Click(object sender, EventArgs e)
         {
-            DatBanView frm = new DatBanView();
+            chonBan frm = new chonBan();
             frm.Show();
+            frm.Owner = this;
         }
     }
 }
