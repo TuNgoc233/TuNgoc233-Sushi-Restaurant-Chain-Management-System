@@ -347,6 +347,7 @@
             this.Controls.Add(this.label2);
             this.Name = "ThemTheKhachHang";
             this.Text = "ThemTheKhachHang";
+            this.Load += new System.EventHandler(this.ThemTheKhachHang_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);

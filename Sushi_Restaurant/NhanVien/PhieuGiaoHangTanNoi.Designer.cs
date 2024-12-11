@@ -46,8 +46,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -263,7 +261,7 @@
             "Chưa Giao",
             "Đang Giao",
             "Đã Giao"});
-            this.guna2ComboBox2.Location = new System.Drawing.Point(582, 366);
+            this.guna2ComboBox2.Location = new System.Drawing.Point(582, 303);
             this.guna2ComboBox2.Name = "guna2ComboBox2";
             this.guna2ComboBox2.Size = new System.Drawing.Size(250, 36);
             this.guna2ComboBox2.TabIndex = 36;
@@ -272,7 +270,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(578, 339);
+            this.label10.Location = new System.Drawing.Point(578, 261);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(174, 23);
             this.label10.TabIndex = 35;
@@ -307,42 +305,11 @@
             this.label11.Text = "Hình Thức Thanh Toán";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(578, 260);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 23);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "Nhân Viên Xác Nhận";
-            // 
-            // guna2TextBox3
-            // 
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(582, 287);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(250, 40);
-            this.guna2TextBox3.TabIndex = 39;
-            // 
             // PhieuGiaoHangTanNoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 513);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.guna2TextBox3);
             this.Controls.Add(this.guna2ComboBox3);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.guna2ComboBox2);
@@ -388,7 +355,5 @@
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox3;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
     }
 }

@@ -83,5 +83,10 @@ namespace Sushi_Restaurant.NhanVien
         {
 
         }
+
+        private void ThemTheKhachHang_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

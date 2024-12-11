@@ -362,15 +362,6 @@
     <None Include="Resources\MA069.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MA070.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MA071.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MA072.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\MA073.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -582,6 +573,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MA051.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA044.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA039.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA038.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA037.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA016.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA071.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA072.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA070.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

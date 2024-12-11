@@ -29,7 +29,10 @@ namespace Sushi_Restaurant.NhanVien
         public event EventHandler onSelect = null;
 
         public string id { get; set; }
-        public string PPrice { get; set; }
+        public string PPrice {
+            get { return lblPrice.Text; }
+            set { lblPrice.Text = value;} 
+        }
         public string PCategory { get; set; }
         public string PName
         {
@@ -52,6 +55,11 @@ namespace Sushi_Restaurant.NhanVien
         private void txtImage_Click(object sender, EventArgs e)
         {
             onSelect?.Invoke(this, e); // Kích hoạt sự kiện `onSelect`
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
