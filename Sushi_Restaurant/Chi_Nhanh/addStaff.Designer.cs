@@ -26,8 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public override void InitializeComponent()
-        {
+        protected new void InitializeComponent()
+        {   
             this.labName = new System.Windows.Forms.Label();
             this.labMark = new System.Windows.Forms.Label();
             this.labID = new System.Windows.Forms.Label();
