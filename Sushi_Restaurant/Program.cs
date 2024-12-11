@@ -18,7 +18,8 @@ namespace Sushi_Restaurant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new addOrderForm());
+            //Application.Run(new addOrderForm());
+            Application.Run(new FrmLogin());
             
         }
     }
