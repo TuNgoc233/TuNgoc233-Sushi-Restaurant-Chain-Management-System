@@ -48,6 +48,30 @@ namespace Sushi_Restaurant
             // Làm sạch các mục cũ trong CategoryPanel
             CategoryPanel.Controls.Clear();
 
+            // Thêm nút "Tất cả"
+            Guna.UI2.WinForms.Guna2Button btnAll = new Guna.UI2.WinForms.Guna2Button
+            {
+                FillColor = Color.FromArgb(50, 55, 89),
+                Size = new Size(134, 45), // Kích thước của button
+                ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton,
+                Text = "Tất cả",
+                Tag = "All" // Gán Tag đặc biệt
+            };
+            btnAll.Click += new EventHandler(_Click);
+            CategoryPanel.Controls.Add(btnAll);
+
+            // Thêm nút "Best-Seller"
+            Guna.UI2.WinForms.Guna2Button btnBestSeller = new Guna.UI2.WinForms.Guna2Button
+            {
+                FillColor = Color.FromArgb(50, 55, 89),
+                Size = new Size(134, 45), // Kích thước của button
+                ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton,
+                Text = "Best-Seller",
+                Tag = "BestSeller" // Gán Tag đặc biệt
+            };
+            btnBestSeller.Click += new EventHandler(_Click);
+            CategoryPanel.Controls.Add(btnBestSeller);
+
             // Kiểm tra nếu có dữ liệu từ bảng MUC
             if (dt.Rows.Count > 0)
             {
@@ -73,41 +97,86 @@ namespace Sushi_Restaurant
         private void _Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
-            string selectedCategory = b.Tag.ToString(); // Lấy mã danh mục từ Tag
+            string selectedCategory = b.Tag.ToString(); // Lấy giá trị Tag của button
 
             foreach (var item in ProductPanel.Controls)
             {
                 if (item is ucProduct pro)
                 {
-                    // Hiển thị món ăn nếu danh mục khớp, ẩn nếu không khớp
-                    pro.Visible = pro.PCategory.Trim() == selectedCategory;
+                    if (selectedCategory == "All")
+                    {
+                        // Hiển thị tất cả các sản phẩm
+                        pro.Visible = true;
+                    }
+                    //else if (selectedCategory == "BestSeller")
+                    //{
+                    //    // Hiển thị sản phẩm Best-Seller (tùy logic của bạn, ví dụ dựa trên thuộc tính BestSeller của ucProduct)
+                    //    //pro.Visible = pro.IsBestSeller; // Giả sử ucProduct có thuộc tính IsBestSeller
+                    //}
+                    else
+                    {
+                        // Hiển thị sản phẩm nếu danh mục khớp, ẩn nếu không khớp
+                        pro.Visible = pro.PCategory.Trim() == selectedCategory;
+                    }
                 }
             }
+
         }
 
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra nếu cột được nhấn là cột DeleteColumn
-            if (e.RowIndex >= 0 && e.ColumnIndex == guna2DataGridView1.Columns["dgvDel"].Index)
+            if (e.RowIndex >= 0)
             {
-                // Hiển thị hộp thoại xác nhận
-                var result = MessageBox.Show(
-                    "Bạn có chắc chắn muốn xóa mục này?",
-                    "Xác nhận",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
-
-                // Nếu người dùng chọn Yes, xóa dòng
-                if (result == DialogResult.Yes)
+                if (guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvTru") // Nút giảm
                 {
-                    guna2DataGridView1.Rows.RemoveAt(e.RowIndex);
+                    var qtyCell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvQty"];
+                    var priceCell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvPrice"];
+                    var amountCell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvAmount"];
 
-                    // Cập nhật tổng giá trị sau khi xóa
-                    GetTotal();
+                    if (int.TryParse(qtyCell.Value.ToString(), out int qty) && qty > 1 &&
+                        double.TryParse(priceCell.Value.ToString(), out double price))
+                    {
+                        qtyCell.Value = --qty; // Giảm số lượng
+                        amountCell.Value = qty * price; // Cập nhật tổng giá trị
+                        GetTotal();
+                    }
+                }
+                else if (guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvCong") // Nút tăng
+                {
+                    var qtyCell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvQty"];
+                    var priceCell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvPrice"];
+                    var amountCell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvAmount"];
+
+                    if (int.TryParse(qtyCell.Value.ToString(), out int qty) &&
+                        double.TryParse(priceCell.Value.ToString(), out double price))
+                    {
+                        qtyCell.Value = ++qty; // Tăng số lượng
+                        amountCell.Value = qty * price; // Cập nhật tổng giá trị
+                        GetTotal();
+                    }
+                }
+                else if (guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDel") // Nút xóa
+                {
+                    // Hiển thị hộp thoại xác nhận
+                    var result = MessageBox.Show(
+                        "Bạn có chắc chắn muốn xóa mục này?",
+                        "Xác nhận",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                    // Nếu người dùng chọn Yes, xóa dòng
+                    if (result == DialogResult.Yes)
+                    {
+                        guna2DataGridView1.Rows.RemoveAt(e.RowIndex);
+
+                        // Cập nhật tổng giá trị sau khi xóa
+                        GetTotal();
+                    }
                 }
             }
         }
+
 
         private void AddItems(string id, string name, string cat, string price, Image pimage)
         {
@@ -146,20 +215,21 @@ namespace Sushi_Restaurant
                 }
 
 
-                // Nếu sản phẩm chưa tồn tại, thêm dòng mới
-                guna2DataGridView1.Rows.Add(new object[] {
-                    guna2DataGridView1.Rows.Count + 1, // Số thứ tự
-                    wdg.id,                            // Mã sản phẩm
-                    wdg.PName,                         // Tên sản phẩm
-                    1,                                 // Số lượng
-                    wdg.PPrice,                        // Giá đơn vị
-                    double.Parse(wdg.PPrice)           // Tổng giá trị ban đầu (Số lượng x Giá)
-                });
+                        // Nếu sản phẩm chưa tồn tại, thêm dòng mới
+                        guna2DataGridView1.Rows.Add(new object[] {
+                        guna2DataGridView1.Rows.Count + 1, // Số thứ tự (dgvSTT)
+                        wdg.id,                            // Mã sản phẩm
+                        wdg.PName,                         // Tên sản phẩm
+                        "-",                               // Button giảm số lượng (dgvTru)
+                        1,                                 // Số lượng ban đầu (dgvQty)
+                        "+",                               // Button tăng số lượng (dgvCong)
+                        wdg.PPrice,                        // Giá đơn vị (dgvPrice)
+                        double.Parse(wdg.PPrice),          // Tổng giá trị (dgvAmount)
+                    });
 
                 // Cập nhật tổng giá trị toàn bộ
                 GetTotal();
             };
-
         }
 
         private void LoadProducts()
@@ -248,7 +318,11 @@ namespace Sushi_Restaurant
             lblTotal.Text = "";
             foreach (DataGridViewRow item in guna2DataGridView1.Rows)
             {
-                tot += double.Parse(item.Cells["dgvAmount"].Value.ToString());
+                var cellValue = item.Cells["dgvAmount"].Value;
+                if (cellValue != null && double.TryParse(cellValue.ToString(), out double cellAmount))
+                {
+                    tot += cellAmount;
+                }
             }
             lblTotal.Text = tot.ToString("N2");
         }
@@ -259,6 +333,7 @@ namespace Sushi_Restaurant
             PhieuDatTrucTiep pdtt = new PhieuDatTrucTiep();
             //MainClass.BlurBackground();
         }
+
 
         //private void btnBill_Click(object sender, EventArgs e)
         //{

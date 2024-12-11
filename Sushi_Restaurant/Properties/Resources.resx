@@ -460,6 +460,9 @@
   <data name="MA101" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA101.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MA016" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA016.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -483,5 +486,8 @@
   </data>
   <data name="MA072" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA072.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tru.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

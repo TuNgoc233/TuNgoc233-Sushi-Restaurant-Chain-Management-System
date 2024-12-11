@@ -78,7 +78,7 @@
             // 
             this.lblName.Location = new System.Drawing.Point(3, -1);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(163, 42);
+            this.lblName.Size = new System.Drawing.Size(163, 55);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Product Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
