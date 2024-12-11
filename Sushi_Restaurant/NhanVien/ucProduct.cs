@@ -14,13 +14,23 @@ namespace Sushi_Restaurant.NhanVien
     {
         public ucProduct()
         {
-            InitializeComponent();
+            InitializeComponent(); // Khởi tạo giao diện
+
+            // Gắn sự kiện Click vào chính `ucProduct`
+            this.Click += OnClickHandler;
+
+            // Gắn sự kiện Click cho tất cả các thành phần con trong `ucProduct`
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.Click += OnClickHandler;
+            }
         }
+
         public event EventHandler onSelect = null;
 
-        public int id { get; set; }
-        public string PPrice { set; get; }
-        public string PCategory { set; get; }
+        public string id { get; set; }
+        public string PPrice { get; set; }
+        public string PCategory { get; set; }
         public string PName
         {
             get { return lblName.Text; }
@@ -32,11 +42,16 @@ namespace Sushi_Restaurant.NhanVien
             set { txtImage.Image = value; }
         }
 
-
-        private void txtImage_Click(object sender, EventArgs e)
+        // Hàm xử lý khi `ucProduct` được nhấn
+        protected void OnClickHandler(object sender, EventArgs e)
         {
-            onSelect?.Invoke(this, e);
+            onSelect?.Invoke(this, e); // Kích hoạt sự kiện `onSelect`
         }
 
+        // Gắn sự kiện Click riêng cho hình ảnh
+        private void txtImage_Click(object sender, EventArgs e)
+        {
+            onSelect?.Invoke(this, e); // Kích hoạt sự kiện `onSelect`
+        }
     }
 }

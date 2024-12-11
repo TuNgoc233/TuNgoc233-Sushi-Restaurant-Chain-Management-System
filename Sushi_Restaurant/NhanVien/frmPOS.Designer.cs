@@ -47,11 +47,13 @@
             this.ProductPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.CategoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dgvSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dvgQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -147,7 +149,6 @@
             this.btnBill.Size = new System.Drawing.Size(78, 68);
             this.btnBill.TabIndex = 4;
             this.btnBill.Text = "Hóa đơn";
-
             // 
             // buttonThem
             // 
@@ -176,7 +177,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(93, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 38);
+            this.label1.Size = new System.Drawing.Size(58, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "POS";
             // 
@@ -213,7 +214,7 @@
             this.lblTotal.ForeColor = System.Drawing.Color.White;
             this.lblTotal.Location = new System.Drawing.Point(1077, 22);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(32, 38);
+            this.lblTotal.Size = new System.Drawing.Size(27, 32);
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "0";
             // 
@@ -226,7 +227,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(916, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 38);
+            this.label2.Size = new System.Drawing.Size(134, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tổng cộng:";
             // 
@@ -249,11 +250,13 @@
             this.guna2DataGridView1.ColumnHeadersHeight = 45;
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvSTT,
             this.dgvId,
             this.dgvName,
-            this.dvgQty,
+            this.dgvQty,
             this.dgvPrice,
-            this.dgvAmount});
+            this.dgvAmount,
+            this.dgvDel});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
@@ -315,9 +318,7 @@
             // 
             // CategoryPanel
             // 
-            this.CategoryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CategoryPanel.AutoScroll = true;
             this.CategoryPanel.Location = new System.Drawing.Point(12, 185);
             this.CategoryPanel.Name = "CategoryPanel";
             this.CategoryPanel.Size = new System.Drawing.Size(187, 410);
@@ -345,52 +346,74 @@
             this.txtTimKiem.TabIndex = 10;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
+            // dgvSTT
+            // 
+            this.dgvSTT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvSTT.FillWeight = 35F;
+            this.dgvSTT.HeaderText = "STT";
+            this.dgvSTT.MinimumWidth = 35;
+            this.dgvSTT.Name = "dgvSTT";
+            this.dgvSTT.ReadOnly = true;
+            this.dgvSTT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvSTT.Width = 35;
+            // 
             // dgvId
             // 
-            this.dgvId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvId.FillWeight = 50F;
-            this.dgvId.HeaderText = "STT";
-            this.dgvId.MinimumWidth = 50;
+            this.dgvId.FillWeight = 1F;
+            this.dgvId.HeaderText = "ID";
+            this.dgvId.MinimumWidth = 6;
             this.dgvId.Name = "dgvId";
             this.dgvId.ReadOnly = true;
-            this.dgvId.Width = 50;
+            this.dgvId.Visible = false;
             // 
             // dgvName
             // 
             this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvName.FillWeight = 150F;
+            this.dgvName.FillWeight = 140F;
             this.dgvName.HeaderText = "Tên món";
-            this.dgvName.MinimumWidth = 150;
+            this.dgvName.MinimumWidth = 140;
             this.dgvName.Name = "dgvName";
             this.dgvName.ReadOnly = true;
             // 
-            // dvgQty
+            // dgvQty
             // 
-            this.dvgQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dvgQty.FillWeight = 60F;
-            this.dvgQty.HeaderText = "SL";
-            this.dvgQty.MinimumWidth = 60;
-            this.dvgQty.Name = "dvgQty";
-            this.dvgQty.ReadOnly = true;
-            this.dvgQty.Width = 60;
+            this.dgvQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvQty.FillWeight = 30F;
+            this.dgvQty.HeaderText = "SL";
+            this.dgvQty.MinimumWidth = 30;
+            this.dgvQty.Name = "dgvQty";
+            this.dgvQty.ReadOnly = true;
+            this.dgvQty.Width = 30;
             // 
             // dgvPrice
             // 
             this.dgvPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvPrice.FillWeight = 80F;
+            this.dgvPrice.FillWeight = 50F;
             this.dgvPrice.HeaderText = "Giá";
-            this.dgvPrice.MinimumWidth = 80;
+            this.dgvPrice.MinimumWidth = 50;
             this.dgvPrice.Name = "dgvPrice";
             this.dgvPrice.ReadOnly = true;
-            this.dgvPrice.Width = 80;
+            this.dgvPrice.Width = 50;
             // 
             // dgvAmount
             // 
             this.dgvAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvAmount.HeaderText = "Tiền";
-            this.dgvAmount.MinimumWidth = 100;
+            this.dgvAmount.FillWeight = 95F;
+            this.dgvAmount.HeaderText = "Thành Tiền";
+            this.dgvAmount.MinimumWidth = 95;
             this.dgvAmount.Name = "dgvAmount";
             this.dgvAmount.ReadOnly = true;
+            this.dgvAmount.Width = 95;
+            // 
+            // dgvDel
+            // 
+            this.dgvDel.FillWeight = 20F;
+            this.dgvDel.HeaderText = "";
+            this.dgvDel.Image = global::Sushi_Restaurant.Properties.Resources.del;
+            this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dgvDel.MinimumWidth = 20;
+            this.dgvDel.Name = "dgvDel";
+            this.dgvDel.ReadOnly = true;
             // 
             // frmPOS
             // 
@@ -409,6 +432,7 @@
             this.Name = "frmPOS";
             this.Text = "frmPOS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPOS_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonExit)).EndInit();
@@ -417,6 +441,8 @@
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
+
+            this.guna2DataGridView1.CellClick += this.guna2DataGridView1_CellClick;
 
         }
 
@@ -437,10 +463,12 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TileButton btnDin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dvgQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
+        private System.Windows.Forms.DataGridViewImageColumn dgvDel;
     }
 }

@@ -100,7 +100,13 @@
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtImage)).EndInit();
             this.ResumeLayout(false);
+            this.txtImage.Click += new System.EventHandler(this.OnClickHandler);
 
+            // Gắn sự kiện Click cho toàn bộ guna2Panel1
+            this.guna2Panel1.Click += new System.EventHandler(this.OnClickHandler);
+
+            // Gắn sự kiện Click cho toàn bộ ucProduct
+            this.Click += new System.EventHandler(this.OnClickHandler);
         }
 
         #endregion

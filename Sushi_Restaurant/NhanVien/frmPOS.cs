@@ -20,6 +20,7 @@ namespace Sushi_Restaurant
         public frmPOS()
         {
             InitializeComponent();
+
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -30,48 +31,81 @@ namespace Sushi_Restaurant
         private void frmPOS_Load(object sender, EventArgs e)
         {
             guna2DataGridView1.BorderStyle = BorderStyle.FixedSingle;
-            //AddCategory();
-            //ProductPanel.Controls.Clear();
-            //LoadProducts();
+            AddCategory();
+            ProductPanel.Controls.Clear();
+            LoadProducts();
         }
 
-        //private void AddCategory()
-        //{
-        //    string qry = "SELECT * FROM category";
-        //    SqlCommand cmd = new SqlCommand(qry, MainClass.con);
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    DataTable dt= new DataTable();
-        //    da.Fill(dt);
+        private void AddCategory()
+        {
+            // Truy vấn dữ liệu từ bảng MUC
+            string qry = "SELECT * FROM MUC";
+            SqlCommand cmd = new SqlCommand(qry, MainClass.con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
-        //    CategoryPanel.Controls.Clear();
-        //    if (dt.Rows.Count > 0)
-        //    {
-        //        foreach(DataRow row in dt.Rows)
-        //        {
-        //            Guna.UI2.WinForms.Guna2Button b = new Guna.UI2.WinForms.Guna2Button();
-        //            b.FillColor = Color.FromArgb(50, 55, 89);
-        //            b.Size = new Size(172, 45);
-        //            b.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-        //            b.Text = dt.Rows["catName"].ToString();
+            // Làm sạch các mục cũ trong CategoryPanel
+            CategoryPanel.Controls.Clear();
 
-        //              //event for click
-        //            b.Click+=new EventHandler(_Click);
-        //            CategoryPanel.Controls.Add(b);
-        //        }
-                
-        //    }
-        //}
+            // Kiểm tra nếu có dữ liệu từ bảng MUC
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    // Tạo button cho mỗi danh mục
+                    Guna.UI2.WinForms.Guna2Button b = new Guna.UI2.WinForms.Guna2Button();
+                    b.FillColor = Color.FromArgb(50, 55, 89);
+                    b.Size = new Size(134, 45); // Kích thước của button
+                    b.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+                    b.Text = row["TenMuc"].ToString();
+                    b.Tag = row["MaMuc"]; // Gán mã danh mục vào Tag
+
+                    // Thêm event click cho button
+                    b.Click += new EventHandler(_Click);
+
+                    // Thêm button vào CategoryPanel (FlowLayoutPanel)
+                    CategoryPanel.Controls.Add(b);
+                }
+            }
+        }
 
         private void _Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
+            string selectedCategory = b.Tag.ToString(); // Lấy mã danh mục từ Tag
+
             foreach (var item in ProductPanel.Controls)
             {
+                if (item is ucProduct pro)
+                {
+                    // Hiển thị món ăn nếu danh mục khớp, ẩn nếu không khớp
+                    pro.Visible = pro.PCategory.Trim() == selectedCategory;
+                }
+            }
+        }
 
-                var pro = (ucProduct)item;
-                pro.Visible = pro.PCategory.ToLower().Contains(b.Text.Trim().ToLower());
+        private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu cột được nhấn là cột DeleteColumn
+            if (e.RowIndex >= 0 && e.ColumnIndex == guna2DataGridView1.Columns["dgvDel"].Index)
+            {
+                // Hiển thị hộp thoại xác nhận
+                var result = MessageBox.Show(
+                    "Bạn có chắc chắn muốn xóa mục này?",
+                    "Xác nhận",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
 
+                // Nếu người dùng chọn Yes, xóa dòng
+                if (result == DialogResult.Yes)
+                {
+                    guna2DataGridView1.Rows.RemoveAt(e.RowIndex);
 
+                    // Cập nhật tổng giá trị sau khi xóa
+                    GetTotal();
+                }
             }
         }
 
@@ -83,7 +117,7 @@ namespace Sushi_Restaurant
                 PPrice = price,
                 PCategory = cat,
                 PImage = pimage,
-                id = Convert.ToInt32(id),
+                id = id
             };
 
             ProductPanel.Controls.Add(w);
@@ -91,76 +125,130 @@ namespace Sushi_Restaurant
             w.onSelect += (SetStyle, ee) =>
             {
                 var wdg = (ucProduct)SetStyle;
-                
+                Debug.WriteLine($"Selected: {wdg.PName}");
 
+                // Logic xử lý khi món ăn được chọn
                 foreach (DataGridViewRow item in guna2DataGridView1.Rows)
                 {
-                    // Check if product is already in the DataGridView
-                    if (Convert.ToInt32(item.Cells["dvgid"].Value) == wdg.id)
+                    if (item.Cells["dgvId"].Value != null && item.Cells["dgvId"].Value.ToString() == wdg.id)
                     {
-                        item.Cells["dvgQty"].Value = int.Parse(item.Cells["dvgQty"].Value.ToString()) + 1;
-                        item.Cells["dvgAmount"].Value =
-                            int.Parse(item.Cells["dvgQty"].Value.ToString()) *
-                            double.Parse(item.Cells["dvgPrice"].Value.ToString());
+                        if (int.TryParse(item.Cells["dgvQty"].Value.ToString(), out int currentQty) &&
+                            double.TryParse(item.Cells["dgvPrice"].Value.ToString(), out double itemPrice))
+                        {
+                            int newQty = currentQty + 1;
+                            item.Cells["dgvQty"].Value = newQty;
+                            item.Cells["dgvAmount"].Value = newQty * itemPrice;
+
+                            GetTotal(); // Cập nhật tổng giá trị sau khi thay đổi
+                        }
                         return;
                     }
                 }
-                // this line add new product
-                guna2DataGridView1.Rows.Add(new object[] {0, wdg.id, wdg.PName, 1, wdg.PPrice, wdg.PPrice });
-                GetTotal();
 
+
+                // Nếu sản phẩm chưa tồn tại, thêm dòng mới
+                guna2DataGridView1.Rows.Add(new object[] {
+                    guna2DataGridView1.Rows.Count + 1, // Số thứ tự
+                    wdg.id,                            // Mã sản phẩm
+                    wdg.PName,                         // Tên sản phẩm
+                    1,                                 // Số lượng
+                    wdg.PPrice,                        // Giá đơn vị
+                    double.Parse(wdg.PPrice)           // Tổng giá trị ban đầu (Số lượng x Giá)
+                });
+
+                // Cập nhật tổng giá trị toàn bộ
+                GetTotal();
             };
+
+        }
+
+        private void LoadProducts()
+        {
+            using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+            {
+                string query = "SELECT * FROM MON_AN";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                conn.Open();
+                da.Fill(dt);
+
+                ProductPanel.Controls.Clear(); // Xóa các sản phẩm cũ trong ProductPanel
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string productCode = row["MaMonAn"].ToString(); // Lấy mã món ăn
+                    Image productImage = LoadImageFromResources(productCode); // Tải hình ảnh từ Resources dựa trên mã món ăn
+
+                    // Thêm sản phẩm vào panel
+                    AddItems(
+                        productCode,                       // Mã món ăn
+                        row["TenMonAn"].ToString(),        // Tên món ăn
+                        row["MaMuc"].ToString(),           // Danh mục món ăn
+                        row["GiaHienTai"].ToString(),      // Giá của món ăn
+                        productImage                       // Hình ảnh của món ăn
+                    );
+                }
+            }
         }
 
 
-        //Getting product from database
-        //private void LoadProducts() 
-        //{
-        //    string qry = "SELECT * FROM product";
-        //    SqlCommand cmd = new SqlCommand(qry, MainClass.con);
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    DataTable dt= new DataTable();
-        //    da.Fill(dt);
+        // Hàm tải ảnh từ đường dẫn
+        private Image LoadImageFromResources(string productCode)
+        {
+            try
+            {
+                // Truy xuất hình ảnh từ Resources bằng mã món ăn (key)
+                var image = (Image)Properties.Resources.ResourceManager.GetObject(productCode);
+                if (image != null)
+                {
+                    Debug.WriteLine($"Image found in Resources: {productCode}");
+                    return image;
+                }
+                else
+                {
+                    Debug.WriteLine($"Image not found in Resources: {productCode}");
+                    return Properties.Resources.bill; // Hình ảnh mặc định nếu không tìm thấy
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error loading image from Resources: {ex.Message}");
+                return Properties.Resources.bill; // Hình ảnh mặc định nếu có lỗi
+            }
+        }
 
-        //    foreach (DataRow items in dt.Rows)
-        //    {
-        //        // Nguoi ta them anh tu database
-        //        Byte[] imagearray = (Byte[])items["pImage"]; 
-        //        Byte[] imagebytearray=imagearray;
-
-        //        AddItems(items["pID"].ToString(), items["pName"].ToString(), items["catName"].ToString(), items["pPrice"].ToString(),Image.FromStream(new MemoryStream(imagearray)));
-        //    }
-
-        //}
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            foreach(var item in ProductPanel.Controls)
+            foreach (var item in ProductPanel.Controls)
             {
-                
-                var pro = (ucProduct)item;
-                pro.Visible=pro.PName.ToLower().Contains(txtTimKiem.Text.Trim().ToLower());
 
-               
+                var pro = (ucProduct)item;
+                pro.Visible = pro.PName.ToLower().Contains(txtTimKiem.Text.Trim().ToLower());
+
+
             }
         }
 
         private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // dat 1 mon nhieu lan
-            int count =0;
+            int count = 0;
             foreach (DataGridViewRow row in guna2DataGridView1.Rows)
             {
                 row.Cells[0].Value = ++count;
             }
         }
 
-        private void GetTotal() {
+        private void GetTotal()
+        {
             double tot = 0;
             lblTotal.Text = "";
-            foreach(DataGridViewRow item in guna2DataGridView1.Rows)
+            foreach (DataGridViewRow item in guna2DataGridView1.Rows)
             {
-                tot += double.Parse(item.Cells["dvgAmount"].Value.ToString());
+                tot += double.Parse(item.Cells["dgvAmount"].Value.ToString());
             }
             lblTotal.Text = tot.ToString("N2");
         }
