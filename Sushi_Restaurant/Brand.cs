@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sushi_Restaurant.Chi_Nhanh;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,22 +18,33 @@ namespace Sushi_Restaurant
             InitializeComponent();
         }
 
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        //Control exit
+        private void exit(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
+
+        private void btnNhanVien(object sender, EventArgs e)
         {
 
+            viewStaff staffPage = new viewStaff(); // Khởi tạo UserControl viewStaff
+            staffPage.Show();
         }
+
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
+            
 
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GradientButton5_Click(object sender, EventArgs e)
         {
 
         }

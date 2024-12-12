@@ -45,6 +45,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(1038, 21);
+            // 
             // btnThem
             // 
             this.btnThem.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -52,13 +56,19 @@
             this.btnThem.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.btnThem.Image = global::Sushi_Restaurant.Properties.Resources.icon_person;
             this.btnThem.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
-            this.btnThem.Location = new System.Drawing.Point(62, 84);
+            this.btnThem.Location = new System.Drawing.Point(12, 13);
             this.btnThem.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             // 
             // label2
             // 
+            this.label2.Location = new System.Drawing.Point(73, 21);
             this.label2.Size = new System.Drawing.Size(238, 32);
             this.label2.Text = "Danh sách nhân viên";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Location = new System.Drawing.Point(54, 121);
             // 
             // guna2DataGridView1
             // 
@@ -94,12 +104,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(49, 198);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(54, 165);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1311, 438);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1186, 196);
             this.guna2DataGridView1.TabIndex = 5;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
