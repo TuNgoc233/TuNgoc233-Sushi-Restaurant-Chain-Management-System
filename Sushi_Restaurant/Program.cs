@@ -1,3 +1,4 @@
+
 ﻿using Sushi_Restaurant.Chi_Nhanh;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Sushi_Restaurant
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new addStaff());
+            //Application.Run(new Brand());
             
         }
     }
