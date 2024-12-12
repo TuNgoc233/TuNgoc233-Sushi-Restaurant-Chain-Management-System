@@ -1,3 +1,4 @@
+
 ﻿using Sushi_Restaurant.Chi_Nhanh;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,8 @@ namespace Sushi_Restaurant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new addOrderForm());
-            Application.Run(new FrmLogin());
+            Application.Run(new addStaff());
+            //Application.Run(new Brand());
             
         }
     }

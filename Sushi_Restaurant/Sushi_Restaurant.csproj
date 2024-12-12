@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brand.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Chi_Nhanh\addOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +84,9 @@
     </Compile>
     <Compile Include="Chi_Nhanh\viewStaff.Designer.cs">
       <DependentUpon>viewStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Brand.Designer.cs">
+      <DependentUpon>Brand.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClass.cs" />
     <Compile Include="Program.cs" />
@@ -112,10 +118,14 @@
     <EmbeddedResource Include="Chi_Nhanh\viewStaff.resx">
       <DependentUpon>viewStaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Brand.resx">
+      <DependentUpon>Brand.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SampleAdd.resx">
       <DependentUpon>SampleAdd.cs</DependentUpon>
@@ -123,6 +133,11 @@
     <EmbeddedResource Include="SampleView.resx">
       <DependentUpon>SampleView.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -146,130 +161,25 @@
     <None Include="Resources\icon_login.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icon_signup.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\icon_signup1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon_login1.jpg" />
+    <None Include="Resources\Screenshot 2024-11-29 063242.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\KhuVuc1.jpg" />
+    <None Include="Resources\1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\KhuVuc.png" />
+    <None Include="Resources\2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\welcome.png" />
+    <None Include="Resources\icon_money.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Branch.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_dao_nia.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dao_nia.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\home.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\but_Home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_check_home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dat_mon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_dat_ban.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_check_dat_ban.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_check_dat_mon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_mon_an_yeu_thich.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_check_mon_an_yeu_thich.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_but_account.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_check_account.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_phone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Branch1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\KhuVuc1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dao_nia1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sushi_logo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\welcome1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_nut_nguon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_xoa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_sua.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ca_hoi.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rau củ tempura.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_search.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_check_mon_an_yeu_thich1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_giao_hang.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_delivery.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_del.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\điện thoại.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_person.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_invoice.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_star.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_form.jpg" />
+    <None Include="Resources\ICON_Nhan_Vien.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_xoa1.png" />
