@@ -27,9 +27,10 @@ namespace Sushi_Restaurant
 
         private void btnNhanVien(object sender, EventArgs e)
         {
-
+            this.Hide();
             viewStaff staffPage = new viewStaff(); // Khởi tạo UserControl viewStaff
             staffPage.Show();
+          
         }
 
 
@@ -45,6 +46,16 @@ namespace Sushi_Restaurant
         }
 
         private void guna2GradientButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -52,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Brand.cs">
+    <Compile Include="BranchMain.cs" />
+    <Compile Include="Chi_Nhanh\Brand.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Chi_Nhanh\addOrderForm.cs">
@@ -66,6 +67,12 @@
     </Compile>
     <Compile Include="Chi_Nhanh\addStaff.Designer.cs">
       <DependentUpon>addStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chi_Nhanh\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\viewEnvoice.cs">
       <SubType>Form</SubType>
@@ -85,12 +92,20 @@
     <Compile Include="Chi_Nhanh\viewStaff.Designer.cs">
       <DependentUpon>viewStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Brand.Designer.cs">
+    <Compile Include="Chi_Nhanh\Brand.Designer.cs">
       <DependentUpon>Brand.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLNH_SUSHI_2024_FINALDataSet.cs">
+      <DependentUpon>QLNH_SUSHI_2024_FINALDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLNH_SUSHI_2024_FINALDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNH_SUSHI_2024_FINALDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SampleAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +124,9 @@
     <EmbeddedResource Include="Chi_Nhanh\addStaff.resx">
       <DependentUpon>addStaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\viewEnvoice.resx">
       <DependentUpon>viewEnvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,7 +136,7 @@
     <EmbeddedResource Include="Chi_Nhanh\viewStaff.resx">
       <DependentUpon>viewStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Brand.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Brand.resx">
       <DependentUpon>Brand.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -158,6 +176,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLNH_SUSHI_2024_FINALDataSet.xsc">
+      <DependentUpon>QLNH_SUSHI_2024_FINALDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLNH_SUSHI_2024_FINALDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNH_SUSHI_2024_FINALDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNH_SUSHI_2024_FINALDataSet.xss">
+      <DependentUpon>QLNH_SUSHI_2024_FINALDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\icon_login.jpg" />
   </ItemGroup>
   <ItemGroup>
