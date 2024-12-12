@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Sushi_Restaurant
 {
@@ -12,6 +13,8 @@ namespace Sushi_Restaurant
     {
         public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
         public static SqlConnection con = new SqlConnection(con_string);
+
+        //Kiểm tra đăng nhập
         public static string CheckLogin(string username, string hashedPassword)
         {
             string branchId = null;
@@ -34,26 +37,30 @@ namespace Sushi_Restaurant
             }
             return branchId;
         }
+
+       
+
+
         // Method to check user validation
-        public static bool IsValidUser(string user, string pass)
-        {
-            bool isValid = false;
+        //public static bool IsValidUser(string user, string pass)
+        //{
+        //    bool isValid = false;
 
-            string qry = @"Select * from CHI
-                    where SoDienThoai = '" + user + "' and MatKhau = '" + pass + "'";
+        //    string qry = @"Select * from CHI
+        //            where SoDienThoai = '" + user + "' and MatKhau = '" + pass + "'";
 
-            SqlCommand cmd = new SqlCommand(qry, con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+        //    SqlCommand cmd = new SqlCommand(qry, con);
+        //    DataTable dt = new DataTable();
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    da.Fill(dt);
 
-            if (dt.Rows.Count > 0)
-            {
-                isValid = true;
-            }
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        isValid = true;
+        //    }
 
-            return isValid;
-        }
+        //    return isValid;
+        //}
         public static DataTable Lay_Khu_Vuc_ChiNhanh_SDT()
         {
             DataTable dt = new DataTable();
