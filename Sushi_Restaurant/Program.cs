@@ -1,5 +1,4 @@
 ﻿using Sushi_Restaurant.Chi_Nhanh;
-using Sushi_Restaurant.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
