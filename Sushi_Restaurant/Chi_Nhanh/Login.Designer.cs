@@ -82,6 +82,7 @@
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(459, 34);
             this.guna2TextBox1.TabIndex = 2;
+            this.guna2TextBox1.TextChanged += new System.EventHandler(this.Username);
             // 
             // guna2HtmlLabel2
             // 
@@ -168,6 +169,7 @@
             this.guna2TextBox2.SelectedText = "";
             this.guna2TextBox2.Size = new System.Drawing.Size(459, 34);
             this.guna2TextBox2.TabIndex = 2;
+            this.guna2TextBox2.TextChanged += new System.EventHandler(this.Password);
             // 
             // textBox1
             // 

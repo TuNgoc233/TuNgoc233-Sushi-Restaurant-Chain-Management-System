@@ -32,8 +32,8 @@ namespace Sushi_Restaurant.Chi_Nhanh
             //this.Hide();
             //Brand branch = new Brand(); // Khởi tạo UserControl viewStaff
             //branch.Show();
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            string username = Username.Text;
+            string password = Password.Text;
 
             // Băm mật khẩu
             string hashedPassword = SecurityUtils.HashPassword(password);
@@ -43,7 +43,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             if (!string.IsNullOrEmpty(branchId))
             {
                 // Mở form thông tin chi nhánh nếu đăng nhập thành công
-                Brand branchForm = new Brand(branchId);
+                Brand branchForm = new Brand();
                 branchForm.Show();
                 this.Hide();
             }
@@ -67,6 +67,16 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Username(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Password(object sender, EventArgs e)
+        {
+
         }
     }
 }

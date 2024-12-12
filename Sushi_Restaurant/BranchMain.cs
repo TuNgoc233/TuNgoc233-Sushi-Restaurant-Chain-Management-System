@@ -12,7 +12,7 @@ namespace Sushi_Restaurant
     {
         public static readonly string con_string = "ServerNHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
         public static SqlConnection con = new SqlConnection(con_string);
-        public string CheckLogin(string username, string hashedPassword)
+        public static string CheckLogin(string username, string hashedPassword)
         {
             string branchId = null;
             {
