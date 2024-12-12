@@ -18,9 +18,9 @@ namespace Sushi_Restaurant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new addStaff());
-            //Application.Run(new Brand());
-            
+            //Application.Run(new addStaff());
+            Application.Run(new Brand());
+
         }
     }
 }
