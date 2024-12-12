@@ -18,6 +18,7 @@ namespace Sushi_Restaurant
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Brand());
             //Application.Run(new Brand());
+            // di
             
         }
     }
