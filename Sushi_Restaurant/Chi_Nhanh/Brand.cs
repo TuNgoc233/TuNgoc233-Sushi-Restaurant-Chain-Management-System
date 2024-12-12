@@ -13,9 +13,12 @@ namespace Sushi_Restaurant
 {
     public partial class Brand : Form
     {
-        public Brand()
+        public string _branchId;  // Biến lưu trữ ID chi nhánh
+        // Constructor nhận ID từ form Login
+        public Brand(string branchId)
         {
             InitializeComponent();
+            _branchId = branchId; // Lưu giá trị ID vào biến toàn cục
         }
 
         //Control exit
@@ -27,10 +30,11 @@ namespace Sushi_Restaurant
 
         private void btnNhanVien(object sender, EventArgs e)
         {
-            this.Hide();
-            viewStaff staffPage = new viewStaff(); // Khởi tạo UserControl viewStaff
+            viewStaff staffPage = new viewStaff();
+            staffPage.Owner = this; // Gán form Brand làm Owner của form con
+            this.Hide(); // Chỉ ẩn form Brand
             staffPage.Show();
-          
+
         }
 
 

@@ -41,5 +41,29 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
 
         }
+
+        private void Btn_Back(object sender, EventArgs e)
+        {
+            this.Close(); // Đóng form viewStaff
+            if (Owner != null) // Kiểm tra nếu Owner tồn tại
+            {
+                Owner.Show(); // Hiển thị lại form Brand
+            }
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Separator1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.dgvPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,19 +57,21 @@
             this.btnThem.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.btnThem.Image = global::Sushi_Restaurant.Properties.Resources.icon_person;
             this.btnThem.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
-            this.btnThem.Location = new System.Drawing.Point(12, 13);
+            this.btnThem.Location = new System.Drawing.Point(225, 12);
             this.btnThem.PressedState.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(73, 21);
+            this.label2.Location = new System.Drawing.Point(219, 91);
             this.label2.Size = new System.Drawing.Size(238, 32);
             this.label2.Text = "Danh sách nhân viên";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // guna2Separator1
             // 
-            this.guna2Separator1.Location = new System.Drawing.Point(54, 121);
+            this.guna2Separator1.Location = new System.Drawing.Point(272, 139);
+            this.guna2Separator1.Click += new System.EventHandler(this.guna2Separator1_Click);
             // 
             // guna2DataGridView1
             // 
@@ -104,12 +107,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(54, 165);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(309, 178);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1186, 196);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(831, 196);
             this.guna2DataGridView1.TabIndex = 5;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -208,19 +211,34 @@
             this.dgvEdit.Name = "dgvEdit";
             this.dgvEdit.Width = 50;
             // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(200, 648);
+            this.guna2CustomGradientPanel1.TabIndex = 6;
+            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
+            // 
             // viewStaff
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1386, 648);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.guna2DataGridView1);
             this.Name = "viewStaff";
             this.Text = "viewStaff";
             this.Load += new System.EventHandler(this.viewStaff_Load);
+            this.Controls.SetChildIndex(this.guna2DataGridView1, 0);
+            this.Controls.SetChildIndex(this.guna2CustomGradientPanel1, 0);
             this.Controls.SetChildIndex(this.guna2Separator1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.btnThem, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.guna2DataGridView1, 0);
+            this.Controls.SetChildIndex(this.btnThem, 0);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -240,5 +258,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPhone;
         private System.Windows.Forms.DataGridViewImageColumn dgvDel;
         private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
     }
 }

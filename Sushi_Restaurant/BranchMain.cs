@@ -10,7 +10,7 @@ namespace Sushi_Restaurant
 {
     internal class BranchMain
     {
-        public static readonly string con_string = "ServerNHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
+        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
         public static SqlConnection con = new SqlConnection(con_string);
         public static string CheckLogin(string username, string hashedPassword)
         {
