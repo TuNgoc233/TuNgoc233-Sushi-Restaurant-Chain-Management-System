@@ -12,7 +12,28 @@ namespace Sushi_Restaurant
     {
         public static readonly string con_string = "ServerNHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
         public static SqlConnection con = new SqlConnection(con_string);
+        public string CheckLogin(string username, string hashedPassword)
+        {
+            string branchId = null;
+            {
+                string query = @"
+            SELECT MaChiNhanh 
+            FROM TaiKhoanChiNhanh 
+            WHERE TenDangNhap = @Username AND MatKhau = @Password";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", hashedPassword);
 
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    branchId = reader["MaChiNhanh"].ToString();
+                }
+                con.Close();
+            }
+            return branchId;
+        }
         // Method to check user validation
         public static bool IsValidUser(string user, string pass)
         {
@@ -60,7 +81,6 @@ namespace Sushi_Restaurant
             return dt;
         }
     }
-
 
 }
 

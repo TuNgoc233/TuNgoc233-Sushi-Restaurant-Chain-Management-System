@@ -32,7 +32,26 @@ namespace Sushi_Restaurant.Chi_Nhanh
             //this.Hide();
             //Brand branch = new Brand(); // Khởi tạo UserControl viewStaff
             //branch.Show();
-            
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            // Băm mật khẩu
+            string hashedPassword = SecurityUtils.HashPassword(password);
+
+            // Kết nối và kiểm tra đăng nhập
+            string branchId = CheckLogin(username, hashedPassword);
+            if (!string.IsNullOrEmpty(branchId))
+            {
+                // Mở form thông tin chi nhánh nếu đăng nhập thành công
+                Brand branchForm = new Brand(branchId);
+                branchForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
+            }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
