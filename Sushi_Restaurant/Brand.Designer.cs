@@ -33,7 +33,7 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.MinimizeBox = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.MinimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -96,7 +96,7 @@
             // 
             // guna2CustomGradientPanel1
             // 
-            this.guna2CustomGradientPanel1.Controls.Add(this.MinimizeBox);
+            this.guna2CustomGradientPanel1.Controls.Add(this.MinimizeControlBox);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2ControlBox2);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2ControlBox1);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -133,14 +133,14 @@
             // 
             // MinimizeBox
             // 
-            this.MinimizeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MinimizeBox.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.MinimizeBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.MinimizeBox.IconColor = System.Drawing.Color.White;
-            this.MinimizeBox.Location = new System.Drawing.Point(1001, 13);
-            this.MinimizeBox.Name = "MinimizeBox";
-            this.MinimizeBox.Size = new System.Drawing.Size(45, 29);
-            this.MinimizeBox.TabIndex = 0;
+            this.MinimizeControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MinimizeControlBox.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.MinimizeControlBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.MinimizeControlBox.IconColor = System.Drawing.Color.White;
+            this.MinimizeControlBox.Location = new System.Drawing.Point(1001, 13);
+            this.MinimizeControlBox.Name = "MinimizeBox";
+            this.MinimizeControlBox.Size = new System.Drawing.Size(45, 29);
+            this.MinimizeControlBox.TabIndex = 0;
             // 
             // guna2Panel3
             // 
@@ -463,7 +463,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
-        private Guna.UI2.WinForms.Guna2ControlBox MinimizeBox;
+        private Guna.UI2.WinForms.Guna2ControlBox MinimizeControlBox;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;

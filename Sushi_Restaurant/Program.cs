@@ -1,6 +1,4 @@
-﻿using Sushi_Restaurant.Chi_Nhanh;
-using Sushi_Restaurant.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +16,7 @@ namespace Sushi_Restaurant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new Brand());
             //Application.Run(new Brand());
             
         }

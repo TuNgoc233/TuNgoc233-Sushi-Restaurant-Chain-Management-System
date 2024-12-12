@@ -58,92 +58,11 @@
     <Compile Include="Brand.Designer.cs">
       <DependentUpon>Brand.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\addStaff.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chi_Nhanh\addStaff.Designer.cs">
-      <DependentUpon>addStaff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewEnvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewEnvoice.Designer.cs">
-      <DependentUpon>viewEnvoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewOrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewOrderForm.Designer.cs">
-      <DependentUpon>viewOrderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewStaff.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewStaff.Designer.cs">
-      <DependentUpon>viewStaff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCustomer.Designer.cs">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSignUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSignUp.Designer.cs">
-      <DependentUpon>FrmSignUp.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainClass.cs" />
-    <Compile Include="Model\FrmDatMon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Model\FrmDatMon.Designer.cs">
-      <DependentUpon>FrmDatMon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ucProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Model\ucProduct.Designer.cs">
-      <DependentUpon>ucProduct.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Brand.resx">
       <DependentUpon>Brand.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\addStaff.resx">
-      <DependentUpon>addStaff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewEnvoice.resx">
-      <DependentUpon>viewEnvoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewOrderForm.resx">
-      <DependentUpon>viewOrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewStaff.resx">
-      <DependentUpon>viewStaff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCustomer.resx">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSignUp.resx">
-      <DependentUpon>FrmSignUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Model\FrmDatMon.resx">
-      <DependentUpon>FrmDatMon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Model\ucProduct.resx">
-      <DependentUpon>ucProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
