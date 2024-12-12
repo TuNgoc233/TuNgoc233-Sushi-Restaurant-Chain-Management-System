@@ -118,124 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icon_sua" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_sua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_dao_nia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_dao_nia.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="welcome" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\welcome.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_check_account" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_check_account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_nut_nguon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_nut_nguon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dao_nia1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dao_nia1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_xoa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_xoa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_but_account" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_but_account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sushi_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sushi_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rau củ tempura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rau củ tempura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_check_home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_check_home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_check_mon_an_yeu_thich" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_check_mon_an_yeu_thich.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="welcome1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\welcome1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_check_dat_mon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_check_dat_mon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_dat_ban" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_dat_ban.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_login1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dao_nia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dao_nia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KhuVuc1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\KhuVuc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Branch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Branch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dat_mon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dat_mon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_check_dat_ban" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_check_dat_ban.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="but_Home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\but_Home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sushi_logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sushi_logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Branch1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Branch1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_signup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_signup1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KhuVuc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\KhuVuc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ca_hoi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ca_hoi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_mon_an_yeu_thich" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_mon_an_yeu_thich.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_phone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_check_mon_an_yeu_thich1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_check_mon_an_yeu_thich1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_delivery" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_delivery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_invoice.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_person" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_person.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_star" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_star.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_form.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="điện_thoại" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\điện thoại.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_form.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_invoice.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_star" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_star.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_person" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_person.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_xoa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_xoa1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_sua" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_sua1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

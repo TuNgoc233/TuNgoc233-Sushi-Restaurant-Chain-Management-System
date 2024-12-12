@@ -82,37 +82,7 @@
     <Compile Include="Chi_Nhanh\viewStaff.Designer.cs">
       <DependentUpon>viewStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCustomer.Designer.cs">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSignUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSignUp.Designer.cs">
-      <DependentUpon>FrmSignUp.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainClass.cs" />
-    <Compile Include="Model\FrmDatMon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Model\FrmDatMon.Designer.cs">
-      <DependentUpon>FrmDatMon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ucProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Model\ucProduct.Designer.cs">
-      <DependentUpon>ucProduct.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleAdd.cs">
@@ -126,24 +96,6 @@
     </Compile>
     <Compile Include="SampleView.Designer.cs">
       <DependentUpon>SampleView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\DatBanView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\DatBanView.Designer.cs">
-      <DependentUpon>DatBanView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GiaoHangView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GiaoHangView.Designer.cs">
-      <DependentUpon>GiaoHangView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\FrmHomeView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FrmHomeView.Designer.cs">
-      <DependentUpon>FrmHomeView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Chi_Nhanh\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
@@ -160,21 +112,6 @@
     <EmbeddedResource Include="Chi_Nhanh\viewStaff.resx">
       <DependentUpon>viewStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCustomer.resx">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSignUp.resx">
-      <DependentUpon>FrmSignUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Model\FrmDatMon.resx">
-      <DependentUpon>FrmDatMon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Model\ucProduct.resx">
-      <DependentUpon>ucProduct.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -185,15 +122,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SampleView.resx">
       <DependentUpon>SampleView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\DatBanView.resx">
-      <DependentUpon>DatBanView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GiaoHangView.resx">
-      <DependentUpon>GiaoHangView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmHomeView.resx">
-      <DependentUpon>FrmHomeView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -342,6 +270,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_form.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_xoa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_sua1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
