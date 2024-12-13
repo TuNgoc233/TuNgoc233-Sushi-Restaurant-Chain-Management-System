@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void viewStaff_Load(object sender, EventArgs e)
         {
-           
+         
         }
 
         public override void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
+        //Danh sách nhân viên
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
@@ -39,7 +41,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Btn_Back(object sender, EventArgs e)
@@ -97,6 +99,16 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.Hide();
             addStaff addStaff = new addStaff();
             addStaff.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

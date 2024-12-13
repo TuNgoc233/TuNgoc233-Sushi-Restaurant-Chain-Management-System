@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;
 
 namespace Sushi_Restaurant
 {
     internal class BranchMain
     {
+        // Chuỗi kết nối với cơ sở dữ liệu
         public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
         public static SqlConnection con = new SqlConnection(con_string);
 
-        //Kiểm tra đăng nhập
+        // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
+        public static string MaChiNhanh { get; set; }
+
+        // Kiểm tra đăng nhập và lấy mã chi nhánh
         public static string CheckLogin(string username, string hashedPassword)
         {
             string branchId = null;
             {
                 string query = @"
-            SELECT MaChiNhanh 
-            FROM TaiKhoanChiNhanh 
-            WHERE TenDangNhap = @Username AND MatKhau = @Password";
+                    SELECT MaChiNhanh 
+                    FROM TaiKhoanChiNhanh 
+                    WHERE TenDangNhap = @Username AND MatKhau = @Password";
+
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Username", username);
                 cmd.Parameters.AddWithValue("@Password", hashedPassword);
@@ -32,35 +32,14 @@ namespace Sushi_Restaurant
                 if (reader.Read())
                 {
                     branchId = reader["MaChiNhanh"].ToString();
+                    MaChiNhanh = branchId; // Lưu mã chi nhánh vào thuộc tính chung
                 }
                 con.Close();
             }
             return branchId;
         }
 
-       
-
-
-        // Method to check user validation
-        //public static bool IsValidUser(string user, string pass)
-        //{
-        //    bool isValid = false;
-
-        //    string qry = @"Select * from CHI
-        //            where SoDienThoai = '" + user + "' and MatKhau = '" + pass + "'";
-
-        //    SqlCommand cmd = new SqlCommand(qry, con);
-        //    DataTable dt = new DataTable();
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    da.Fill(dt);
-
-        //    if (dt.Rows.Count > 0)
-        //    {
-        //        isValid = true;
-        //    }
-
-        //    return isValid;
-        //}
+        // Method to fetch region data
         public static DataTable Lay_Khu_Vuc_ChiNhanh_SDT()
         {
             DataTable dt = new DataTable();
@@ -88,7 +67,4 @@ namespace Sushi_Restaurant
             return dt;
         }
     }
-
 }
-
-
