@@ -40,7 +40,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
             // Kết nối và kiểm tra đăng nhập
             // Kết nối và kiểm tra đăng nhập
-            string branchId = BranchMain.CheckLogin(username, password);
+            string branchId = Branch.CheckLogin(username, password);
             if (!string.IsNullOrEmpty(branchId))
             {
                 this.Hide();
