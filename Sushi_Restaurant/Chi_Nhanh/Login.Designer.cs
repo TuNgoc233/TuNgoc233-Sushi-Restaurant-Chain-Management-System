@@ -111,7 +111,7 @@
             this.btn_login.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_login.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_login.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
+            this.btn_login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.btn_login.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.ForeColor = System.Drawing.Color.White;
             this.btn_login.Location = new System.Drawing.Point(468, 364);
@@ -179,7 +179,7 @@
             // 
             this.pictureBoxEye.Image = global::Sushi_Restaurant.Properties.Resources.close_eyes;
             this.pictureBoxEye.ImageRotate = 0F;
-            this.pictureBoxEye.Location = new System.Drawing.Point(743, 297);
+            this.pictureBoxEye.Location = new System.Drawing.Point(723, 297);
             this.pictureBoxEye.Name = "pictureBoxEye";
             this.pictureBoxEye.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureBoxEye.Size = new System.Drawing.Size(30, 34);
