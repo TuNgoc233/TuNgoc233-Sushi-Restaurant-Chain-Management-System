@@ -140,7 +140,8 @@ namespace Sushi_Restaurant
                     {
                         // Kiểm tra xem tên nhân viên hoặc mã nhân viên có chứa searchTerm không
                         if (reader["MaNhanVien"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                            reader["HoTen"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                            reader["HoTen"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            reader["TenBoPhan"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
                         {
                             Employee emp = new Employee
                             {
