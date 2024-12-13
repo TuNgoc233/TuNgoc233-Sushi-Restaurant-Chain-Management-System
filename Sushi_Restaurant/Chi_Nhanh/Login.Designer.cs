@@ -128,6 +128,8 @@
             this.guna2CheckBox1.UncheckedState.BorderRadius = 0;
             this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
             this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CheckBox1.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
+
             // 
             // SDT
             // 
@@ -164,7 +166,8 @@
             this.TextPassword.Location = new System.Drawing.Point(314, 297);
             this.TextPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextPassword.Name = "TextPassword";
-            this.TextPassword.PasswordChar = '\0';
+            //this.TextPassword.PasswordChar = '\0';
+            this.TextPassword.PasswordChar = '•';
             this.TextPassword.PlaceholderText = "";
             this.TextPassword.SelectedText = "";
             this.TextPassword.Size = new System.Drawing.Size(459, 34);
@@ -200,7 +203,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "BtnLoginBranch";
-            this.Load += new System.EventHandler(this.Login_Load);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Login_Load);    
             this.ResumeLayout(false);
             this.PerformLayout();
 

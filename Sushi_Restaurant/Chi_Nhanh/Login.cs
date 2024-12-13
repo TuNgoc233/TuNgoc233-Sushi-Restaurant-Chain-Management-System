@@ -79,5 +79,30 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Đặt trạng thái mặc định cho TextBox: Ẩn mật khẩu
+            TextPassword.PasswordChar = '•'; // Mặc định dùng ký tự che mật khẩu
+        }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu checkbox được tích
+            if (guna2CheckBox1.Checked)
+            {
+                // Hiển thị mật khẩu
+                TextPassword.PasswordChar = '\0'; // '\0' là ký tự null, không che mật khẩu
+            }
+            else
+            {
+                // Ẩn mật khẩu bằng dấu ...
+                TextPassword.PasswordChar = '•'; // Ký tự để thay thế mật khẩu (ví dụ: '•', '*', ...)
+            }
+        }
+
+       
+
+
     }
 }
