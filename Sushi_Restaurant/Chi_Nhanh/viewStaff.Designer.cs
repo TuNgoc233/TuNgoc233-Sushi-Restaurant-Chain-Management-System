@@ -47,6 +47,7 @@
             this.dgvSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,6 +107,7 @@
             this.dgvSex,
             this.dgvAddress,
             this.dgvPhone,
+            this.dgvDate,
             this.dgvRole,
             this.dgvSalary,
             this.dgvMark,
@@ -317,6 +319,12 @@
             this.dgvPhone.MinimumWidth = 6;
             this.dgvPhone.Name = "dgvPhone";
             // 
+            // dgvDate
+            // 
+            this.dgvDate.HeaderText = "Ngày vào làm";
+            this.dgvDate.MinimumWidth = 6;
+            this.dgvDate.Name = "dgvDate";
+            // 
             // dgvRole
             // 
             this.dgvRole.HeaderText = "Bộ phận";
@@ -400,6 +408,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSalary;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvMark;

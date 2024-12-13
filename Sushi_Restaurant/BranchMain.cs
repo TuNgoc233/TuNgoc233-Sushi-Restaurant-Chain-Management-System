@@ -79,9 +79,10 @@ namespace Sushi_Restaurant
         public string NgaySinh { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
-        public string TenBoPhan { get; set; } // Thêm thuộc tính TenBoPhan để lưu tên bộ phận
-        public int MucLuong { get; set; } // Thêm thuộc tính MucLuong để lưu trữ mức lương của nhân viên
-        public int DiemPhucVu { get; set; } // Thêm thuộc tính DiemPhucVu để lưu điểm phục vụ
+        public string NgayVaoLam { get; set; } // Ngày vào làm
+        public string TenBoPhan { get; set; } // Tên bộ phận
+        public int MucLuong { get; set; } // Mức lương
+        public int DiemPhucVu { get; set; } // Điểm phục vụ
 
         // Phương thức để lấy danh sách nhân viên từ stored procedure
         public static List<Employee> LoadNhanVienFromProcedure(string branchID)
@@ -105,12 +106,13 @@ namespace Sushi_Restaurant
                             MaNhanVien = reader["MaNhanVien"].ToString(),
                             HoTen = reader["HoTen"].ToString(),
                             GioiTinh = reader["GioiTinh"].ToString(),
-                            NgaySinh = reader["NgaySinh"].ToString(),
+                            NgaySinh = Convert.ToDateTime(reader["NgaySinh"]).ToString("dd/MM/yyyy"), // Định dạng ngày sinh
                             DiaChi = reader["DiaChi"].ToString(),
                             SDT = reader["SoDienThoai"].ToString(),
-                            TenBoPhan = reader["TenBoPhan"].ToString(), // Lấy tên bộ phận từ kết quả truy vấn
-                            MucLuong = Convert.ToInt32(reader["MucLuong"]), // Lấy mức lương từ kết quả truy vấn
-                            DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"]) // Lấy điểm phục vụ từ kết quả truy vấn
+                            NgayVaoLam = Convert.ToDateTime(reader["NgayGanNhat"]).ToString("dd/MM/yyyy"), // Định dạng ngày vào làm
+                            TenBoPhan = reader["TenBoPhan"].ToString(),
+                            MucLuong = Convert.ToInt32(reader["MucLuong"]),
+                            DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"])
                         };
                         employees.Add(emp);
                     }

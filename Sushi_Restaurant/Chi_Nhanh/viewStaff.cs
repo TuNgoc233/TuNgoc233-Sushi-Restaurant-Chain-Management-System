@@ -59,7 +59,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             foreach (var emp in employees)
             {
                 // Thêm một dòng mới vào DataGridView
-                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen,emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.TenBoPhan,emp.MucLuong, emp.DiemPhucVu);
+                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen,emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT,emp.NgayVaoLam, emp.TenBoPhan,emp.MucLuong, emp.DiemPhucVu);
             }
         }
         //Danh sách nhân viên
