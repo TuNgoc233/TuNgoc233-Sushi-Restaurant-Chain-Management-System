@@ -11,7 +11,7 @@ namespace Sushi_Restaurant
 {
     internal class BranchMain
     {
-        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
+        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
         public static SqlConnection con = new SqlConnection(con_string);
 
         //Kiểm tra đăng nhập
@@ -20,9 +20,9 @@ namespace Sushi_Restaurant
             string branchId = null;
             {
                 string query = @"
-            SELECT MaChiNhanh 
-            FROM TaiKhoanChiNhanh 
-            WHERE TenDangNhap = @Username AND MatKhau = @Password";
+                SELECT MaChiNhanh 
+                FROM TaiKhoanChiNhanh 
+                WHERE TenDangNhap = @Username AND MatKhau = @Password";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Username", username);
                 cmd.Parameters.AddWithValue("@Password", hashedPassword);

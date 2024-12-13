@@ -95,7 +95,6 @@
     <Compile Include="Chi_Nhanh\Brand.Designer.cs">
       <DependentUpon>Brand.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLNH_SUSHI_2024_FINALDataSet.cs">

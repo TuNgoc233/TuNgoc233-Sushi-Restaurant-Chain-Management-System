@@ -16,6 +16,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
             //base.InitializeComponent();
             InitializeComponent();
+            InitializeCustomButtons();
         }
 
         public override void btnLuu_Click(object sender, EventArgs e)
@@ -41,10 +42,8 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
-        private void addStaff_Load(object sender, EventArgs e)
+        public void addStaff_Load(object sender, EventArgs e)
         {
-
-
 
 
         }
@@ -59,6 +58,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
+        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
