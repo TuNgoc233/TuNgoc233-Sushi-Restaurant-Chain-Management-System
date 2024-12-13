@@ -32,16 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GridViewStaff = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ControlMini = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -51,6 +41,17 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.btn_Insert = new Guna.UI2.WinForms.Guna2Button();
+            this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewStaff)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
@@ -105,6 +106,7 @@
             this.dgvMark,
             this.dgvBirth,
             this.dgvSex,
+            this.dgvSalary,
             this.dgvAddress,
             this.dgvPhone,
             this.dgvDel,
@@ -148,80 +150,6 @@
             this.GridViewStaff.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.GridViewStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
             // 
-            // dgvSno
-            // 
-            this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvSno.FillWeight = 70F;
-            this.dgvSno.HeaderText = "STT";
-            this.dgvSno.MinimumWidth = 70;
-            this.dgvSno.Name = "dgvSno";
-            this.dgvSno.Width = 70;
-            // 
-            // dgvid
-            // 
-            this.dgvid.HeaderText = "Mã nhân viên";
-            this.dgvid.MinimumWidth = 6;
-            this.dgvid.Name = "dgvid";
-            // 
-            // dgvName
-            // 
-            this.dgvName.HeaderText = "Họ tên";
-            this.dgvName.MinimumWidth = 6;
-            this.dgvName.Name = "dgvName";
-            // 
-            // dgvMark
-            // 
-            this.dgvMark.HeaderText = "Điểm phục vụ";
-            this.dgvMark.MinimumWidth = 6;
-            this.dgvMark.Name = "dgvMark";
-            // 
-            // dgvBirth
-            // 
-            this.dgvBirth.HeaderText = "Ngày sinh";
-            this.dgvBirth.MinimumWidth = 6;
-            this.dgvBirth.Name = "dgvBirth";
-            // 
-            // dgvSex
-            // 
-            this.dgvSex.HeaderText = "Giới tính";
-            this.dgvSex.MinimumWidth = 6;
-            this.dgvSex.Name = "dgvSex";
-            this.dgvSex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dgvAddress
-            // 
-            this.dgvAddress.HeaderText = "Địa chỉ";
-            this.dgvAddress.MinimumWidth = 6;
-            this.dgvAddress.Name = "dgvAddress";
-            // 
-            // dgvPhone
-            // 
-            this.dgvPhone.HeaderText = "Số điện thoại ";
-            this.dgvPhone.MinimumWidth = 6;
-            this.dgvPhone.Name = "dgvPhone";
-            // 
-            // dgvDel
-            // 
-            this.dgvDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvDel.FillWeight = 50F;
-            this.dgvDel.HeaderText = "";
-            this.dgvDel.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
-            this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvDel.MinimumWidth = 50;
-            this.dgvDel.Name = "dgvDel";
-            this.dgvDel.Width = 50;
-            // 
-            // dgvEdit
-            // 
-            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvEdit.FillWeight = 50F;
-            this.dgvEdit.HeaderText = "";
-            this.dgvEdit.Image = global::Sushi_Restaurant.Properties.Resources.icon_sua;
-            this.dgvEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvEdit.MinimumWidth = 50;
-            this.dgvEdit.Name = "dgvEdit";
-            this.dgvEdit.Width = 50;
-            // 
             // guna2CustomGradientPanel1
             // 
             this.guna2CustomGradientPanel1.Controls.Add(this.ControlMax);
@@ -237,7 +165,7 @@
             this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1386, 60);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1463, 60);
             this.guna2CustomGradientPanel1.TabIndex = 6;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
@@ -247,7 +175,7 @@
             this.ControlMax.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.ControlMax.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.ControlMax.IconColor = System.Drawing.Color.White;
-            this.ControlMax.Location = new System.Drawing.Point(1227, 12);
+            this.ControlMax.Location = new System.Drawing.Point(1304, 12);
             this.ControlMax.Name = "ControlMax";
             this.ControlMax.Size = new System.Drawing.Size(45, 29);
             this.ControlMax.TabIndex = 3;
@@ -258,7 +186,7 @@
             this.ControlMini.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.ControlMini.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.ControlMini.IconColor = System.Drawing.Color.White;
-            this.ControlMini.Location = new System.Drawing.Point(1278, 12);
+            this.ControlMini.Location = new System.Drawing.Point(1355, 12);
             this.ControlMini.Name = "ControlMini";
             this.ControlMini.Size = new System.Drawing.Size(45, 29);
             this.ControlMini.TabIndex = 3;
@@ -268,7 +196,7 @@
             this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Exit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.Exit.IconColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(1329, 12);
+            this.Exit.Location = new System.Drawing.Point(1406, 12);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(45, 29);
             this.Exit.TabIndex = 3;
@@ -333,7 +261,7 @@
             this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 482);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1386, 166);
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1463, 166);
             this.guna2CustomGradientPanel2.TabIndex = 8;
             // 
             // btn_Insert
@@ -352,10 +280,90 @@
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
+            // dgvSno
+            // 
+            this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvSno.FillWeight = 70F;
+            this.dgvSno.HeaderText = "STT";
+            this.dgvSno.MinimumWidth = 70;
+            this.dgvSno.Name = "dgvSno";
+            this.dgvSno.Width = 70;
+            // 
+            // dgvid
+            // 
+            this.dgvid.HeaderText = "Mã nhân viên";
+            this.dgvid.MinimumWidth = 6;
+            this.dgvid.Name = "dgvid";
+            // 
+            // dgvName
+            // 
+            this.dgvName.HeaderText = "Họ tên";
+            this.dgvName.MinimumWidth = 6;
+            this.dgvName.Name = "dgvName";
+            // 
+            // dgvMark
+            // 
+            this.dgvMark.HeaderText = "Điểm phục vụ";
+            this.dgvMark.MinimumWidth = 6;
+            this.dgvMark.Name = "dgvMark";
+            // 
+            // dgvBirth
+            // 
+            this.dgvBirth.HeaderText = "Ngày sinh";
+            this.dgvBirth.MinimumWidth = 6;
+            this.dgvBirth.Name = "dgvBirth";
+            // 
+            // dgvSex
+            // 
+            this.dgvSex.HeaderText = "Giới tính";
+            this.dgvSex.MinimumWidth = 6;
+            this.dgvSex.Name = "dgvSex";
+            this.dgvSex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dgvSalary
+            // 
+            this.dgvSalary.HeaderText = "Lương";
+            this.dgvSalary.MinimumWidth = 6;
+            this.dgvSalary.Name = "dgvSalary";
+            // 
+            // dgvAddress
+            // 
+            this.dgvAddress.HeaderText = "Địa chỉ";
+            this.dgvAddress.MinimumWidth = 6;
+            this.dgvAddress.Name = "dgvAddress";
+            // 
+            // dgvPhone
+            // 
+            this.dgvPhone.HeaderText = "Số điện thoại ";
+            this.dgvPhone.MinimumWidth = 6;
+            this.dgvPhone.Name = "dgvPhone";
+            // 
+            // dgvDel
+            // 
+            this.dgvDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvDel.FillWeight = 50F;
+            this.dgvDel.HeaderText = "";
+            this.dgvDel.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
+            this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvDel.MinimumWidth = 50;
+            this.dgvDel.Name = "dgvDel";
+            this.dgvDel.Width = 50;
+            // 
+            // dgvEdit
+            // 
+            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvEdit.FillWeight = 50F;
+            this.dgvEdit.HeaderText = "";
+            this.dgvEdit.Image = global::Sushi_Restaurant.Properties.Resources.icon_sua;
+            this.dgvEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvEdit.MinimumWidth = 50;
+            this.dgvEdit.Name = "dgvEdit";
+            this.dgvEdit.Width = 50;
+            // 
             // viewStaff
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1386, 648);
+            this.ClientSize = new System.Drawing.Size(1463, 648);
             this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.GridViewStaff);
@@ -380,16 +388,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView GridViewStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvBirth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPhone;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDel;
-        private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
@@ -399,5 +397,16 @@
         private Guna.UI2.WinForms.Guna2ControlBox Exit;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private Guna.UI2.WinForms.Guna2Button btn_Insert;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvBirth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSalary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPhone;
+        private System.Windows.Forms.DataGridViewImageColumn dgvDel;
+        private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
     }
 }

@@ -44,5 +44,10 @@ namespace Sushi_Restaurant
         {
 
         }
+
+        public virtual void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
