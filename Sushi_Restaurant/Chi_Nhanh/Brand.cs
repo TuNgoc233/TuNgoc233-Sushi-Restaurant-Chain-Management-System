@@ -63,5 +63,28 @@ namespace Sushi_Restaurant
         {
 
         }
+
+        private void Btn_Envoice_click(object sender, EventArgs e)
+        {
+            viewEnvoice viewEnvoice = new viewEnvoice();
+            viewEnvoice.Owner = this; // Gán form Brand làm Owner của form con
+            this.Hide(); // Chỉ ẩn form Brand
+            viewEnvoice.Show();
+        }
+
+        private void guna2GradientButton6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_CardID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Picture_Logo(object sender, EventArgs e)
+        {
+
+        }
     }
 }
