@@ -15,6 +15,12 @@ namespace Sushi_Restaurant.NhanVien
         public frmMain()
         {
             InitializeComponent();
+            // Sử dụng thông tin của người dùng
+            string maNhanVien = MainClass.user.MaNhanVien;
+            string maChiNhanh = MainClass.user.MaChiNhanh;
+            // Hiển thị thông tin người dùng trên màn hình chính
+            nvid.Text = maNhanVien;
+            cnid.Text = maChiNhanh;
         }
 
         
