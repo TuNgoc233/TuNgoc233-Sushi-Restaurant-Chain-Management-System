@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant
 {
-    
+
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL_DGDV; Trusted_Connection=True;";
+        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
         public static SqlConnection con = new SqlConnection(con_string);
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
@@ -70,14 +70,18 @@ namespace Sushi_Restaurant
             return dt;
         }
     }
+    // Phương thức để lấy danh sách nhân viên từ stored procedure
     public class Employee
     {
         public string MaNhanVien { get; set; }
         public string HoTen { get; set; }
         public string GioiTinh { get; set; }
+        public string NgaySinh { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
-        public string MaBoPhan { get; set; }
+        public string TenBoPhan { get; set; } // Thêm thuộc tính TenBoPhan để lưu tên bộ phận
+        public int MucLuong { get; set; } // Thêm thuộc tính MucLuong để lưu trữ mức lương của nhân viên
+        public int DiemPhucVu { get; set; } // Thêm thuộc tính DiemPhucVu để lưu điểm phục vụ
 
         // Phương thức để lấy danh sách nhân viên từ stored procedure
         public static List<Employee> LoadNhanVienFromProcedure(string branchID)
@@ -101,9 +105,12 @@ namespace Sushi_Restaurant
                             MaNhanVien = reader["MaNhanVien"].ToString(),
                             HoTen = reader["HoTen"].ToString(),
                             GioiTinh = reader["GioiTinh"].ToString(),
+                            NgaySinh = reader["NgaySinh"].ToString(),
                             DiaChi = reader["DiaChi"].ToString(),
                             SDT = reader["SoDienThoai"].ToString(),
-                            MaBoPhan = reader["MaBoPhan"].ToString()
+                            TenBoPhan = reader["TenBoPhan"].ToString(), // Lấy tên bộ phận từ kết quả truy vấn
+                            MucLuong = Convert.ToInt32(reader["MucLuong"]), // Lấy mức lương từ kết quả truy vấn
+                            DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"]) // Lấy điểm phục vụ từ kết quả truy vấn
                         };
                         employees.Add(emp);
                     }

@@ -30,6 +30,7 @@
         {
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.TextUser = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_login = new Guna.UI2.WinForms.Guna2Button();
@@ -38,14 +39,11 @@
             this.TextPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBoxEye = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEye)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ControlBox1
@@ -72,6 +70,17 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(289, 450);
             this.guna2CustomGradientPanel1.TabIndex = 1;
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.restaurant;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(289, 450);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // TextUser
             // 
             this.TextUser.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -83,13 +92,13 @@
             this.TextUser.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextUser.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TextUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextUser.Location = new System.Drawing.Point(314, 211);
+            this.TextUser.Location = new System.Drawing.Point(314, 218);
             this.TextUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextUser.Name = "TextUser";
             this.TextUser.PasswordChar = '\0';
             this.TextUser.PlaceholderText = "";
             this.TextUser.SelectedText = "";
-            this.TextUser.Size = new System.Drawing.Size(459, 34);
+            this.TextUser.Size = new System.Drawing.Size(474, 50);
             this.TextUser.TabIndex = 2;
             this.TextUser.TextChanged += new System.EventHandler(this.Username);
             // 
@@ -154,13 +163,13 @@
             this.TextPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TextPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextPassword.Location = new System.Drawing.Point(314, 297);
+            this.TextPassword.Location = new System.Drawing.Point(314, 305);
             this.TextPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextPassword.Name = "TextPassword";
             this.TextPassword.PasswordChar = '•';
             this.TextPassword.PlaceholderText = "";
             this.TextPassword.SelectedText = "";
-            this.TextPassword.Size = new System.Drawing.Size(459, 34);
+            this.TextPassword.Size = new System.Drawing.Size(474, 52);
             this.TextPassword.TabIndex = 2;
             this.TextPassword.TextChanged += new System.EventHandler(this.Password);
             // 
@@ -179,7 +188,7 @@
             // 
             this.pictureBoxEye.Image = global::Sushi_Restaurant.Properties.Resources.close_eyes;
             this.pictureBoxEye.ImageRotate = 0F;
-            this.pictureBoxEye.Location = new System.Drawing.Point(743, 297);
+            this.pictureBoxEye.Location = new System.Drawing.Point(743, 313);
             this.pictureBoxEye.Name = "pictureBoxEye";
             this.pictureBoxEye.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureBoxEye.Size = new System.Drawing.Size(30, 34);
@@ -188,36 +197,13 @@
             this.pictureBoxEye.TabStop = false;
             this.pictureBoxEye.Click += new System.EventHandler(this.pictureBoxEye_Click);
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.restaurant;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(289, 450);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.logo;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(296, 12);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(127, 115);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 7;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("GothicI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(414, 36);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(308, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 40);
+            this.label1.Size = new System.Drawing.Size(168, 32);
             this.label1.TabIndex = 8;
             this.label1.Text = "Chào mừng,";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -225,12 +211,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("GothicI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(415, 85);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(309, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(358, 33);
+            this.label2.Size = new System.Drawing.Size(278, 29);
             this.label2.TabIndex = 9;
             this.label2.Text = "đến với nhà hàng SushiX";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Login
             // 
@@ -240,7 +227,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2CirclePictureBox1);
             this.Controls.Add(this.pictureBoxEye);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.SDT);
@@ -256,9 +242,8 @@
             this.Text = "BtnLoginBranch";
             this.Load += new System.EventHandler(this.Login_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEye)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +262,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxEye;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

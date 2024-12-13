@@ -52,8 +52,8 @@
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(290, 32);
-            this.label2.Text = "Danh sách phiếu đặt món";
+            this.label2.Size = new System.Drawing.Size(221, 32);
+            this.label2.Text = "Danh sách hóa đơn";
             // 
             // guna2DataGridView1
             // 
