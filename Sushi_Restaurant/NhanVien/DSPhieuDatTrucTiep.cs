@@ -1,5 +1,4 @@
-﻿using Guna.UI2.WinForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,30 +11,23 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.NhanVien
 {
-    public partial class TheKhachHang : SampleView
+    public partial class DSPhieuDatTrucTiep : Form
     {
-        public TheKhachHang()
+        public DSPhieuDatTrucTiep()
         {
             InitializeComponent();
         }
 
-
-        public override void btnThem_Click(object sender, EventArgs e)
-        {
-            ThemTheKhachHang frm = new ThemTheKhachHang();
-            MainClass.BlurBackground(frm);
-        }
-
-        private void TheKhachHang_Load(object sender, EventArgs e)
+        public string MainId = "";
+        private void DSPhieuDatTrucTiep_Load(object sender, EventArgs e)
         {
             LoadData();
         }
-
         private void LoadData()
         {
-            string qry = @"SELECT * 
-                           FROM THE_THANH_VIEN TV
-                           JOIN KHACH_HANG KH ON TV.MaKhachHang = KH.MaKhachHang";
+            string qry = @"SELECT PD.MaPhieu,PD.SoBan 
+                           FROM PHIEU_DAT_TRUC_TIEP PD ";
+
             guna2DataGridView1.AutoGenerateColumns = false;
 
             // Kết nối với cơ sở dữ liệu
@@ -54,29 +46,43 @@ namespace Sushi_Restaurant.NhanVien
                     guna2DataGridView1.DataSource = dt;
 
                     // Đặt DataPropertyName cho các cột
-                    guna2DataGridView1.Columns["dgvId"].DataPropertyName = "MaSoThe";
-                    guna2DataGridView1.Columns["dgvName"].DataPropertyName = "HoTen";
-                    guna2DataGridView1.Columns["dgvhang"].DataPropertyName = "LoaiThe";
-                    guna2DataGridView1.Columns["dgvDate"].DataPropertyName = "NgayLap";
-                    guna2DataGridView1.Columns["dgvStaff"].DataPropertyName = "MaNhanVien";
+                    guna2DataGridView1.Columns["dgvId"].DataPropertyName = "MaPhieu";
+                    guna2DataGridView1.Columns["dgvTable"].DataPropertyName = "SoBan";
+           
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
                 }
             }
+
+
         }
 
         private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            Guna.UI2.WinForms.Guna2DataGridView dgv = (Guna.UI2.WinForms.Guna2DataGridView)sender;
             int count = 0;
-            foreach (DataGridViewRow row in dgv.Rows)
+            foreach (DataGridViewRow row in guna2DataGridView1.Rows)
             {
-                row.Cells[0].Value = ++count;
+                count++;
+                row.Cells[0].Value = count;
             }
         }
 
-        
+        private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
+            {
+                MainId = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
+                this.Close();
+            }
+            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvprint")
+            {
+                this.Close();
+
+
+            }
+
+        }
     }
 }

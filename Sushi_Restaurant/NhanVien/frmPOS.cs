@@ -1,4 +1,5 @@
-﻿using Sushi_Restaurant.NhanVien;
+﻿using Guna.UI2.WinForms;
+using Sushi_Restaurant.NhanVien;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,6 @@ namespace Sushi_Restaurant
             InitializeComponent();
 
         }
-
-        private void ButtonExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void frmPOS_Load(object sender, EventArgs e)
         {
             guna2DataGridView1.BorderStyle = BorderStyle.FixedSingle;
@@ -329,15 +324,197 @@ namespace Sushi_Restaurant
 
         private void btnDin_Click(object sender, EventArgs e)
         {
-            // tao phieu dat truc tiep
-            PhieuDatTrucTiep pdtt = new PhieuDatTrucTiep();
-            //MainClass.BlurBackground();
+
+            DSPhieuDatTrucTiep frm = new DSPhieuDatTrucTiep();
+            MainClass.BlurBackground(frm);
+            if (frm.MainId != "")
+            {
+                id = frm.MainId;
+                LoadEntries_PDTT();
+            }
         }
 
+        private void LoadEntries_PDTT()
+        {
+            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
+                   FROM PHIEU_DAT_TRUC_TIEP PD
+                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
+                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
+                   WHERE PD.MaPhieu = @MaPhieu"; // Sử dụng parameter
 
-        //private void btnBill_Click(object sender, EventArgs e)
-        //{
-        //    MainClass.BlurBackground(new HoaDon());
-        //}
+            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
+            {
+                // Thêm tham số để tránh SQL Injection
+                cmd2.Parameters.AddWithValue("@MaPhieu", id);
+
+                DataTable dt2 = new DataTable();
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+
+                try
+                {
+                    da2.Fill(dt2);
+
+                    guna2DataGridView1.Rows.Clear();
+
+                    foreach (DataRow item in dt2.Rows)
+                    {
+                        // Thêm một hàng mới và lấy chỉ số của hàng đó
+                        int rowIndex = guna2DataGridView1.Rows.Add();
+
+                        // Gán giá trị cho từng ô cụ thể theo tên cột
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
+                    }
+                    GetTotal();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
+        }
+
+        public string id = "";
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            HoaDon frm = new HoaDon();
+            MainClass.BlurBackground(frm);
+            if (frm.MainId != "")
+            {
+                id = frm.MainId;
+                
+                LoadEntries_HD();
+
+            }
+        }
+
+        private void LoadEntries_HD()
+        {
+            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
+                   FROM HOA_DON HD
+                   JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon
+                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
+                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
+                   WHERE HD.MaHoaDon = @MaHoaDon"; // Sử dụng parameter
+
+            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
+            {
+                // Thêm tham số để tránh SQL Injection
+                cmd2.Parameters.AddWithValue("@MaHoaDon", id);
+
+                DataTable dt2 = new DataTable();
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+
+                try
+                {
+                    da2.Fill(dt2);
+                    
+
+                    guna2DataGridView1.Rows.Clear();
+
+                    foreach (DataRow item in dt2.Rows)
+                    {
+                        // Thêm một hàng mới và lấy chỉ số của hàng đó
+                        int rowIndex = guna2DataGridView1.Rows.Add();
+
+                        // Gán giá trị cho từng ô cụ thể theo tên cột
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
+                    }
+                    GetTotal();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
+        }
+
+        private void buttonThem_Click(object sender, EventArgs e)
+        {
+            MainClass.BlurBackground(new PhieuDatTrucTiep());
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnThanhtoan_Click(object sender, EventArgs e)
+        {
+            frmThanhtoan frm=new frmThanhtoan();
+            frm.MainID = id;
+            frm.amt=Convert.ToDouble(lblTotal.Text);
+            MainClass.BlurBackground(frm);
+
+            guna2DataGridView1.Rows.Clear();
+            lblTotal.Text = "0";    
+
+        }
+
+        
+
+        private void btnReservation_Click(object sender, EventArgs e)
+        {
+            DsPhieuDatBan frm = new DsPhieuDatBan();
+            MainClass.BlurBackground(frm);
+            if (frm.MainId != "")
+            {
+                id = frm.MainId;
+                LoadEntries_PDB();  
+
+            }
+        }
+
+        private void LoadEntries_PDB()
+        {
+            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
+                   FROM PHIEU_DAT_BAN PD
+                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
+                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
+                   WHERE PD.MaPhieu = @MaPhieu"; // Sử dụng parameter
+
+            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
+            {
+                // Thêm tham số để tránh SQL Injection
+                cmd2.Parameters.AddWithValue("@MaPhieu", id);
+
+                DataTable dt2 = new DataTable();
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+
+                try
+                {
+                    da2.Fill(dt2);
+
+
+                    guna2DataGridView1.Rows.Clear();
+
+                    foreach (DataRow item in dt2.Rows)
+                    {
+                        // Thêm một hàng mới và lấy chỉ số của hàng đó
+                        int rowIndex = guna2DataGridView1.Rows.Add();
+
+                        // Gán giá trị cho từng ô cụ thể theo tên cột
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
+                    }
+                    GetTotal();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
+        }
     }
 }

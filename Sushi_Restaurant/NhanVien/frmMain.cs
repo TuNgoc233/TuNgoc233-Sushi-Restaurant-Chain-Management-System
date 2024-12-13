@@ -17,7 +17,18 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
         }
 
-        
+        static frmMain _obj;
+        public static frmMain Instance
+        {
+            get
+            {
+                if (_obj == null)
+                {
+                    _obj = new frmMain();
+                }
+                return _obj;
+            }
+        }
         public void AddControls(Form f)
         {
             CenterPanel.Controls.Clear();
@@ -34,6 +45,7 @@ namespace Sushi_Restaurant.NhanVien
         private void frmMain_Load(object sender, EventArgs e)
         {
             //lbl.UserName.Text = MainClass.USER
+            _obj=this;
         }
 
         private void btnHome_Click(object sender, EventArgs e)
