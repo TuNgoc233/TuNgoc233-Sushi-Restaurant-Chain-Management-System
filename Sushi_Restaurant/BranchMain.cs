@@ -6,71 +6,7 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant
 {
-    public class Employee
-    {
-        // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
-        public static SqlConnection con = new SqlConnection(con_string);
-        public int MaNhanVien { get; set; }
-        public string TenNV { get; set; }
-        public string HoTen { get; set; }
-        public string GioiTinh { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
-        public string MaBoPhan { get; set; }
-
-        public Employee(int maNhanVien, string tenNV, string hoTen, string gioiTinh, string diaChi, string sdt, string maBoPhan)
-        {
-            MaNhanVien = maNhanVien;
-            TenNV = tenNV;
-            HoTen = hoTen;
-            GioiTinh = gioiTinh;
-            DiaChi = diaChi;
-            SDT = sdt;
-            MaBoPhan = maBoPhan;
-        }
-
-        // Hàm tạo danh sách nhân viên từ dữ liệu trong cơ sở dữ liệu
-        public static List<Employee> LoadNhanVienFromProcedure(string maChiNhanh)
-        {
-            List<Employee> nhanViens = new List<Employee>();
-
-            try
-            {
-                using (SqlConnection con = new SqlConnection(MainClass.con_string))
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("LayLichSuGanNhatNhanVien", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Thêm tham số vào câu lệnh SQL
-                    cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Employee nv = new Employee(
-                            reader.GetInt32(reader.GetOrdinal("MaNhanVien")),
-                            reader.GetString(reader.GetOrdinal("TenNV")),
-                            reader.GetString(reader.GetOrdinal("HoTen")),
-                            reader.GetString(reader.GetOrdinal("GioiTinh")),
-                            reader.GetString(reader.GetOrdinal("DiaChi")),
-                            reader.GetString(reader.GetOrdinal("SDT")),
-                            reader.GetString(reader.GetOrdinal("MaBoPhan"))
-                        );
-                        nhanViens.Add(nv);
-                    }
-                    reader.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu nhân viên: " + ex.Message);
-            }
-
-            return nhanViens;
-        }
-    }
+    
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
@@ -132,6 +68,48 @@ namespace Sushi_Restaurant
             }
 
             return dt;
+        }
+    }
+    public class Employee
+    {
+        public string MaNhanVien { get; set; }
+        public string HoTen { get; set; }
+        public string GioiTinh { get; set; }
+        public string DiaChi { get; set; }
+        public string SDT { get; set; }
+        public string MaBoPhan { get; set; }
+
+        // Phương thức để lấy danh sách nhân viên từ stored procedure
+        public static List<Employee> LoadNhanVienFromProcedure(string branchID)
+        {
+            List<Employee> employees = new List<Employee>();
+            string query = "LayNhanVienCuaChiNhanhTheoLichSu"; // Tên stored procedure
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MaChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Employee emp = new Employee
+                        {
+                            MaNhanVien = reader["MaNhanVien"].ToString(),
+                            HoTen = reader["HoTen"].ToString(),
+                            GioiTinh = reader["GioiTinh"].ToString(),
+                            DiaChi = reader["DiaChi"].ToString(),
+                            SDT = reader["SoDienThoai"].ToString(),
+                            MaBoPhan = reader["MaBoPhan"].ToString()
+                        };
+                        employees.Add(emp);
+                    }
+                }
+            }
+            return employees;
         }
     }
 }

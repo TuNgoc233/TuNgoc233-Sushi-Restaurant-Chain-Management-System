@@ -17,11 +17,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         public viewStaff()
         {
             InitializeComponent();
-        }
-
-        private void viewStaff_Load(object sender, EventArgs e)
-        {
-         
+            this.Load += new EventHandler(viewStaff_Load); // Đăng ký sự kiện Load
         }
 
         public override void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -34,6 +30,38 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
+        private void viewStaff_Load(object sender, EventArgs e)
+        {
+            // Lấy mã chi nhánh từ thuộc tính của lớp Branch
+            string branchID = Branch.MaChiNhanh;
+
+            // Kiểm tra mã chi nhánh có hợp lệ hay không
+            if (string.IsNullOrEmpty(branchID))
+            {
+                MessageBox.Show("Mã chi nhánh không hợp lệ hoặc chưa được xác định.");
+                return;
+            }
+
+            // Lấy danh sách nhân viên từ stored procedure
+            List<Employee> employees = Employee.LoadNhanVienFromProcedure(branchID);
+
+            // Kiểm tra danh sách nhân viên có dữ liệu không
+            if (employees == null || employees.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu nhân viên nào để hiển thị.");
+                return;
+            }
+
+            // Thiết lập DataGridView
+            GridViewStaff.Rows.Clear(); // Xóa các dòng cũ nếu có
+
+            // Lặp qua danh sách nhân viên và thêm vào DataGridView
+            foreach (var emp in employees)
+            {
+                // Thêm một dòng mới vào DataGridView
+                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.MaBoPhan);
+            }
+        }
         //Danh sách nhân viên
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -143,35 +171,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void guna2DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            // Lấy mã chi nhánh từ thuộc tính của lớp Branch
-            string branchID = Branch.MaChiNhanh;
-
-            // Kiểm tra mã chi nhánh có hợp lệ hay không
-            if (string.IsNullOrEmpty(branchID))
-            {
-                MessageBox.Show("Mã chi nhánh không hợp lệ hoặc chưa được xác định.");
-                return;
-            }
-
-            // Lấy danh sách nhân viên từ stored procedure
-            List<Employee> employees = Employee.LoadNhanVienFromProcedure(branchID);
-
-            // Kiểm tra danh sách nhân viên có dữ liệu không
-            if (employees == null || employees.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu nhân viên nào để hiển thị.");
-                return;
-            }
-
-            // Thiết lập DataGridView
-            guna2DataGridView1.Rows.Clear(); // Xóa các dòng cũ nếu có
-
-            // Lặp qua danh sách nhân viên và thêm vào DataGridView
-            foreach (var emp in employees)
-            {
-                // Thêm một dòng mới vào DataGridView
-                guna2DataGridView1.Rows.Add(emp.MaNhanVien, emp.TenNV, emp.HoTen, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.MaBoPhan);
-            }
+            
         }
     }
 }
