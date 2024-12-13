@@ -62,13 +62,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
                 GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen,emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT,emp.NgayVaoLam, emp.TenBoPhan,emp.MucLuong, emp.DiemPhucVu);
             }
         }
-        //Danh sách nhân viên
+        
+        //List
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
         }
 
-
+        //Text
         private void label2_Click(object sender, EventArgs e)
         {
            
@@ -83,6 +84,8 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
         }
 
+
+        //AVT
         private void btnThem_Click_1(object sender, EventArgs e)
         {
 
@@ -108,6 +111,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
+        //Btn_CardID
         private void guna2Button2_Click(object sender, EventArgs e)
         {
 
@@ -131,6 +135,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             addStaff.Show();
         }
 
+        //text
         private void label1_Click(object sender, EventArgs e)
         {
 

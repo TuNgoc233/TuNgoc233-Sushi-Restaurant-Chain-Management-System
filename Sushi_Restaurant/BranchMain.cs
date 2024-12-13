@@ -3,6 +3,7 @@ using System.Data;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Sushi_Restaurant
 {
@@ -120,5 +121,47 @@ namespace Sushi_Restaurant
             }
             return employees;
         }
+        // Phương thức tìm kiếm nhân viên
+        public static List<Employee> SearchEmployees(string searchTerm, string branchID)
+        {
+            List<Employee> employees = new List<Employee>();
+            string query = "LayNhanVienCuaChiNhanhTheoLichSu"; // Tên stored procedure
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MaChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        // Kiểm tra xem tên nhân viên hoặc mã nhân viên có chứa searchTerm không
+                        if (reader["MaNhanVien"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            reader["HoTen"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            Employee emp = new Employee
+                            {
+                                MaNhanVien = reader["MaNhanVien"].ToString(),
+                                HoTen = reader["HoTen"].ToString(),
+                                GioiTinh = reader["GioiTinh"].ToString(),
+                                NgaySinh = Convert.ToDateTime(reader["NgaySinh"]).ToString("dd/MM/yyyy"),
+                                DiaChi = reader["DiaChi"].ToString(),
+                                SDT = reader["SoDienThoai"].ToString(),
+                                NgayVaoLam = Convert.ToDateTime(reader["NgayGanNhat"]).ToString("dd/MM/yyyy"),
+                                TenBoPhan = reader["TenBoPhan"].ToString(),
+                                MucLuong = Convert.ToInt32(reader["MucLuong"]),
+                                DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"])
+                            };
+                            employees.Add(emp);
+                        }
+                    }
+                }
+            }
+            return employees;
+        }
     }
+    
 }
