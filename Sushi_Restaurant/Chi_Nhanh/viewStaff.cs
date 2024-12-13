@@ -22,7 +22,20 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         public override void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
+            string searchTerm = txtTimKiem.Text.Trim(); // Lấy chuỗi tìm kiếm từ TextBox
+            string branchID = Branch.MaChiNhanh; // Lấy mã chi nhánh từ lớp Branch
 
+            // Gọi phương thức tìm kiếm
+            List<Employee> employees = Employee.SearchEmployees(searchTerm, branchID);
+
+            // Xóa các dòng hiện có trong DataGridView
+            GridViewStaff.Rows.Clear();
+
+            // Hiển thị kết quả tìm kiếm
+            foreach (var emp in employees)
+            {
+                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
+            }
         }
 
         public override void btnThem_Click(object sender, EventArgs e)
@@ -62,13 +75,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
                 GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen,emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT,emp.NgayVaoLam, emp.TenBoPhan,emp.MucLuong, emp.DiemPhucVu);
             }
         }
-        //Danh sách nhân viên
+        
+        //List
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
         }
 
-
+        //Text
         private void label2_Click(object sender, EventArgs e)
         {
            
@@ -83,6 +97,8 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
         }
 
+
+        //AVT
         private void btnThem_Click_1(object sender, EventArgs e)
         {
 
@@ -108,6 +124,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
+        //Btn_CardID
         private void guna2Button2_Click(object sender, EventArgs e)
         {
 
@@ -131,6 +148,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             addStaff.Show();
         }
 
+        //text
         private void label1_Click(object sender, EventArgs e)
         {
 
