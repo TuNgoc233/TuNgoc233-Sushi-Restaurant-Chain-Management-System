@@ -37,8 +37,14 @@
             this.dgvText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.Load_Invoice)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(913, 12);
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnThem
             // 
@@ -143,19 +149,37 @@
             this.dgv.MinimumWidth = 6;
             this.dgv.Name = "dgv";
             // 
+            // Date
+            // 
+            this.Date.Checked = true;
+            this.Date.FillColor = System.Drawing.Color.White;
+            this.Date.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.Date.Location = new System.Drawing.Point(1035, 12);
+            this.Date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.Date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(336, 38);
+            this.Date.TabIndex = 6;
+            this.Date.Value = new System.DateTime(2024, 12, 15, 17, 25, 24, 399);
+            this.Date.ValueChanged += new System.EventHandler(this.Date_ValueChanged);
+            // 
             // viewOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1406, 689);
+            this.Controls.Add(this.Date);
             this.Controls.Add(this.Load_Invoice);
             this.Name = "viewOrderForm";
-            this.Text = "viewOrderForm";
+            this.Text = "viewOderForm";
+            this.Load += new System.EventHandler(this.viewOrderForm_Load_1);
             this.Controls.SetChildIndex(this.guna2Separator1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnThem, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.Load_Invoice, 0);
+            this.Controls.SetChildIndex(this.Date, 0);
             ((System.ComponentModel.ISupportInitialize)(this.Load_Invoice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,5 +194,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvText;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv;
+        private Guna.UI2.WinForms.Guna2DateTimePicker Date;
     }
 }

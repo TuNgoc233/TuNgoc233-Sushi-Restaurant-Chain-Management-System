@@ -151,7 +151,7 @@ namespace Sushi_Restaurant
                             NgayVaoLam = Convert.ToDateTime(reader["NgayGanNhat"]).ToString("dd/MM/yyyy"), // Định dạng ngày vào làm
                             TenBoPhan = reader["TenBoPhan"].ToString(),
                             MucLuong = Convert.ToInt32(reader["MucLuong"]),
-                            DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"]) 
+                            DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"])
                         };
                         employees.Add(emp);
                     }
@@ -244,8 +244,83 @@ namespace Sushi_Restaurant
             }
             return invoices;
 
+        }
 
+        public static List<Invoice> SearchInvoicesItem(string searchTerm, string branchID)
+        {
+            List<Invoice> invoices = new List<Invoice>();
+            string query = "sp_LayThongTinHoaDon"; // Tên stored procedure
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        // Kiểm tra xem tên khách hàng có chứa searchTerm không
+                        if (reader["HoTen"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            Invoice invoice = new Invoice
+                            {
+                                MaHoaDon = reader["MaHoaDon"].ToString(),
+                                TenNhanVienLap = reader["TenNhanVienLap"].ToString(),
+                                MaKhachHang = reader["MaKhachHang"].ToString(),
+                                HoTenKhachHang = reader["HoTen"].ToString(),
+                                ThoiGianLap = Convert.ToDateTime(reader["NgayLapHoaDon"]), // Định dạng ngày
+                                TongTien = Convert.ToDecimal(reader["TongTien"]) // Giả sử tổng tiền là kiểu decimal
+                            };
+                            invoices.Add(invoice);
+                        }
+                    }
+                }
+            }
+            return invoices;
+        }
+
+        public static List<Invoice> SearchInvoicesDate(DateTime searchDate, string branchID)
+        {
+            List<Invoice> invoices = new List<Invoice>();
+            string query = "EXEC sp_LayThongTinHoaDon @ChiNhanh, @NgayLapHoaDon";
+
+            using (SqlConnection connection = new SqlConnection(Branch.con_string))
+            {
+ 
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ChiNhanh", branchID);
+                    command.Parameters.AddWithValue("@NgayLapHoaDon", searchDate);
+               
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            Invoice invoice = new Invoice
+                            {
+                                MaHoaDon = reader["MaHoaDon"].ToString(),
+                                TenNhanVienLap = reader["TenNhanVienLap"].ToString(),
+                                MaKhachHang = reader["MaKhachHang"].ToString(),
+                                HoTenKhachHang = reader["HoTen"].ToString(),
+                                ThoiGianLap = Convert.ToDateTime(reader["NgayLapHoaDon"]), // Định dạng ngày
+                                TongTien = Convert.ToDecimal(reader["TongTien"]) // Giả sử tổng tiền là kiểu decimal
+                            };
+                            invoices.Add(invoice);
+                        }
+                    }
+                }
+            }
+
+            return invoices;
         }
     }
+
 
 }

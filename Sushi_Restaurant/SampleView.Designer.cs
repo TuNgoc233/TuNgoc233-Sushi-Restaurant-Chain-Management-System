@@ -30,7 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleView));
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThem = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -117,6 +116,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SampleView";
             this.Text = "SampleView";
+            this.Load += new System.EventHandler(this.SampleView_Load_2);
             this.ResumeLayout(false);
             this.PerformLayout();
 

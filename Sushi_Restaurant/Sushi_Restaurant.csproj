@@ -84,17 +84,17 @@
     <Compile Include="Chi_Nhanh\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewEnvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewEnvoice.Designer.cs">
-      <DependentUpon>viewEnvoice.cs</DependentUpon>
-    </Compile>
     <Compile Include="Chi_Nhanh\viewOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Chi_Nhanh\viewOrderForm.Designer.cs">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewIDCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewIDCard.Designer.cs">
+      <DependentUpon>viewIDCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\viewStaff.cs">
       <SubType>Form</SubType>
@@ -140,11 +140,11 @@
     <EmbeddedResource Include="Chi_Nhanh\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewEnvoice.resx">
-      <DependentUpon>viewEnvoice.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\viewOrderForm.resx">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\viewIDCard.resx">
+      <DependentUpon>viewIDCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\viewStaff.resx">
       <DependentUpon>viewStaff.cs</DependentUpon>

@@ -22,58 +22,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         public override void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            string searchTerm = txtTimKiem.Text.Trim(); // Lấy chuỗi tìm kiếm từ TextBox
-            string branchID = Branch.MaChiNhanh; // Lấy mã chi nhánh từ lớp Branch
-
-            // Gọi phương thức tìm kiếm
-            List<Employee> employees = Employee.SearchEmployees(searchTerm, branchID);
-
-            // Xóa các dòng hiện có trong DataGridView
-            GridViewStaff.Rows.Clear();
-
-            // Hiển thị kết quả tìm kiếm
-            foreach (var emp in employees)
-            {
-                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
-            }
+          
         }
 
-        public override void btnThem_Click(object sender, EventArgs e)
+      
+
+        private void viewIDCard_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void viewStaff_Load(object sender, EventArgs e)
-        {
-            // Lấy mã chi nhánh từ thuộc tính của lớp Branch
-            string branchID = Branch.MaChiNhanh;
-
-            // Kiểm tra mã chi nhánh có hợp lệ hay không
-            if (string.IsNullOrEmpty(branchID))
-            {
-                MessageBox.Show("Mã chi nhánh không hợp lệ hoặc chưa được xác định.");
-                return;
-            }
-
-            // Lấy danh sách nhân viên từ stored procedure
-            List<Employee> employees = Employee.LoadEmployeeFromProcedure(branchID);
-
-            // Kiểm tra danh sách nhân viên có dữ liệu không
-            if (employees == null || employees.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu nhân viên nào để hiển thị.");
-                return;
-            }
-
-            // Thiết lập DataGridView
-            GridViewStaff.Rows.Clear(); // Xóa các dòng cũ nếu có
-
-            // Lặp qua danh sách nhân viên và thêm vào DataGridView
-            foreach (var emp in employees)
-            {
-                // Thêm một dòng mới vào DataGridView
-                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen,emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT,emp.NgayVaoLam, emp.TenBoPhan,emp.MucLuong, emp.DiemPhucVu);
-            }
+          
         }
         
         //List
@@ -164,6 +120,21 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void viewStaff_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2DataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

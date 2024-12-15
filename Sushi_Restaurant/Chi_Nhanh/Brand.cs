@@ -30,7 +30,7 @@ namespace Sushi_Restaurant
 
         private void btnNhanVien(object sender, EventArgs e)
         {
-            viewStaff staffPage = new viewStaff();
+            viewIDCard staffPage = new viewStaff();
             staffPage.Owner = this; // Gán form Brand làm Owner của form con
             this.Hide(); // Chỉ ẩn form Brand
             staffPage.Show();
@@ -66,10 +66,10 @@ namespace Sushi_Restaurant
 
         private void Btn_Envoice_click(object sender, EventArgs e)
         {
-            viewEnvoice viewEnvoice = new viewEnvoice();
-            viewEnvoice.Owner = this; // Gán form Brand làm Owner của form con
-            this.Hide(); // Chỉ ẩn form Brand
-            viewEnvoice.Show();
+            //viewEnvoice viewEnvoice = new viewEnvoice();
+            //viewEnvoice.Owner = this; // Gán form Brand làm Owner của form con
+            //this.Hide(); // Chỉ ẩn form Brand
+            //viewEnvoice.Show();
         }
 
         private void guna2GradientButton6_Click(object sender, EventArgs e)

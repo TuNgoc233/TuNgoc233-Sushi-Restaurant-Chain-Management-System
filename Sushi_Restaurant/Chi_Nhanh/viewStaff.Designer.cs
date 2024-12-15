@@ -1,6 +1,6 @@
 ﻿namespace Sushi_Restaurant.Chi_Nhanh
 {
-    partial class viewStaff
+    partial class viewIDCard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GridViewStaff = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ControlMini = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.btn_Insert = new Guna.UI2.WinForms.Guna2Button();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +43,16 @@
             this.dgvSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.ControlMini = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewStaff)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            this.guna2CustomGradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -87,16 +85,16 @@
             // 
             // GridViewStaff
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.GridViewStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.GridViewStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.GridViewStaff.ColumnHeadersHeight = 40;
             this.GridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.GridViewStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -111,14 +109,14 @@
             this.dgvSalary,
             this.dgvMark,
             this.dgvEdit});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewStaff.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewStaff.DefaultCellStyle = dataGridViewCellStyle6;
             this.GridViewStaff.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.GridViewStaff.Location = new System.Drawing.Point(12, 189);
             this.GridViewStaff.Name = "GridViewStaff";
@@ -149,6 +147,73 @@
             this.GridViewStaff.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.GridViewStaff.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.GridViewStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
+            // 
+            // dgvid
+            // 
+            this.dgvid.HeaderText = "Mã nhân viên";
+            this.dgvid.MinimumWidth = 6;
+            this.dgvid.Name = "dgvid";
+            // 
+            // dgvName
+            // 
+            this.dgvName.HeaderText = "Họ tên";
+            this.dgvName.MinimumWidth = 6;
+            this.dgvName.Name = "dgvName";
+            // 
+            // dgvBirth
+            // 
+            this.dgvBirth.HeaderText = "Ngày sinh";
+            this.dgvBirth.MinimumWidth = 6;
+            this.dgvBirth.Name = "dgvBirth";
+            // 
+            // dgvSex
+            // 
+            this.dgvSex.HeaderText = "Giới tính";
+            this.dgvSex.MinimumWidth = 6;
+            this.dgvSex.Name = "dgvSex";
+            this.dgvSex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dgvAddress
+            // 
+            this.dgvAddress.HeaderText = "Địa chỉ";
+            this.dgvAddress.MinimumWidth = 6;
+            this.dgvAddress.Name = "dgvAddress";
+            // 
+            // dgvPhone
+            // 
+            this.dgvPhone.HeaderText = "Số điện thoại ";
+            this.dgvPhone.MinimumWidth = 6;
+            this.dgvPhone.Name = "dgvPhone";
+            // 
+            // dgvDate
+            // 
+            this.dgvDate.HeaderText = "Ngày vào làm";
+            this.dgvDate.MinimumWidth = 6;
+            this.dgvDate.Name = "dgvDate";
+            // 
+            // dgvRole
+            // 
+            this.dgvRole.HeaderText = "Bộ phận";
+            this.dgvRole.MinimumWidth = 6;
+            this.dgvRole.Name = "dgvRole";
+            // 
+            // dgvSalary
+            // 
+            this.dgvSalary.HeaderText = "Lương";
+            this.dgvSalary.MinimumWidth = 6;
+            this.dgvSalary.Name = "dgvSalary";
+            // 
+            // dgvMark
+            // 
+            this.dgvMark.HeaderText = "Điểm phục vụ";
+            this.dgvMark.MinimumWidth = 6;
+            this.dgvMark.Name = "dgvMark";
+            // 
+            // dgvEdit
+            // 
+            this.dgvEdit.HeaderText = "";
+            this.dgvEdit.MinimumWidth = 6;
+            this.dgvEdit.Name = "dgvEdit";
             // 
             // guna2CustomGradientPanel1
             // 
@@ -253,109 +318,25 @@
             // 
             // guna2CustomGradientPanel2
             // 
-            this.guna2CustomGradientPanel2.Controls.Add(this.btn_Insert);
             this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2CustomGradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 482);
+            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 587);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1463, 166);
+            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1463, 61);
             this.guna2CustomGradientPanel2.TabIndex = 8;
             // 
-            // btn_Insert
-            // 
-            this.btn_Insert.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Insert.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Insert.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Insert.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Insert.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
-            this.btn_Insert.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Insert.ForeColor = System.Drawing.Color.White;
-            this.btn_Insert.Location = new System.Drawing.Point(1253, 25);
-            this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(180, 45);
-            this.btn_Insert.TabIndex = 9;
-            this.btn_Insert.Text = "Thêm";
-            this.btn_Insert.Click += new System.EventHandler(this.guna2Button4_Click);
-            // 
-            // dgvid
-            // 
-            this.dgvid.HeaderText = "Mã nhân viên";
-            this.dgvid.MinimumWidth = 6;
-            this.dgvid.Name = "dgvid";
-            // 
-            // dgvName
-            // 
-            this.dgvName.HeaderText = "Họ tên";
-            this.dgvName.MinimumWidth = 6;
-            this.dgvName.Name = "dgvName";
-            // 
-            // dgvBirth
-            // 
-            this.dgvBirth.HeaderText = "Ngày sinh";
-            this.dgvBirth.MinimumWidth = 6;
-            this.dgvBirth.Name = "dgvBirth";
-            // 
-            // dgvSex
-            // 
-            this.dgvSex.HeaderText = "Giới tính";
-            this.dgvSex.MinimumWidth = 6;
-            this.dgvSex.Name = "dgvSex";
-            this.dgvSex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dgvAddress
-            // 
-            this.dgvAddress.HeaderText = "Địa chỉ";
-            this.dgvAddress.MinimumWidth = 6;
-            this.dgvAddress.Name = "dgvAddress";
-            // 
-            // dgvPhone
-            // 
-            this.dgvPhone.HeaderText = "Số điện thoại ";
-            this.dgvPhone.MinimumWidth = 6;
-            this.dgvPhone.Name = "dgvPhone";
-            // 
-            // dgvDate
-            // 
-            this.dgvDate.HeaderText = "Ngày vào làm";
-            this.dgvDate.MinimumWidth = 6;
-            this.dgvDate.Name = "dgvDate";
-            // 
-            // dgvRole
-            // 
-            this.dgvRole.HeaderText = "Bộ phận";
-            this.dgvRole.MinimumWidth = 6;
-            this.dgvRole.Name = "dgvRole";
-            // 
-            // dgvSalary
-            // 
-            this.dgvSalary.HeaderText = "Lương";
-            this.dgvSalary.MinimumWidth = 6;
-            this.dgvSalary.Name = "dgvSalary";
-            // 
-            // dgvMark
-            // 
-            this.dgvMark.HeaderText = "Điểm phục vụ";
-            this.dgvMark.MinimumWidth = 6;
-            this.dgvMark.Name = "dgvMark";
-            // 
-            // dgvEdit
-            // 
-            this.dgvEdit.HeaderText = "";
-            this.dgvEdit.MinimumWidth = 6;
-            this.dgvEdit.Name = "dgvEdit";
-            // 
-            // viewStaff
+            // viewIDCard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1463, 648);
             this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.GridViewStaff);
-            this.Name = "viewStaff";
-            this.Text = "viewStaff";
+            this.Name = "viewIDCard";
+            this.Text = "viewIDCard";
             this.Load += new System.EventHandler(this.viewStaff_Load);
             this.Controls.SetChildIndex(this.GridViewStaff, 0);
             this.Controls.SetChildIndex(this.guna2CustomGradientPanel1, 0);
@@ -366,7 +347,6 @@
             this.Controls.SetChildIndex(this.btnThem, 0);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewStaff)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
-            this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,7 +363,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox ControlMini;
         private Guna.UI2.WinForms.Guna2ControlBox Exit;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
-        private Guna.UI2.WinForms.Guna2Button btn_Insert;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvBirth;
