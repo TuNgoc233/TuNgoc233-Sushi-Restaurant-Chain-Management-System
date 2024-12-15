@@ -12,9 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace Sushi_Restaurant.Chi_Nhanh
 {
-    public partial class viewIDCard : SampleView
+    public partial class viewStaff : SampleView
     {
-        public viewIDCard()
+        public viewStaff()
         {
             InitializeComponent();
             this.Load += new EventHandler(viewStaff_Load); // Đăng ký sự kiện Load
@@ -66,15 +66,16 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
 
             // Thiết lập DataGridView
-            GridViewStaff.Rows.Clear(); // Xóa các dòng cũ nếu có
+            Dataview.Rows.Clear(); // Xóa các dòng cũ nếu có
 
             // Lặp qua danh sách nhân viên và thêm vào DataGridView
             foreach (var emp in employees)
             {
                 // Thêm một dòng mới vào DataGridView
-                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen,emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT,emp.NgayVaoLam, emp.TenBoPhan,emp.MucLuong, emp.DiemPhucVu);
+                Dataview.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
             }
         }
+    
         
         //List
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -164,6 +165,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void Dataview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

@@ -134,7 +134,7 @@
             this.Btn_Customer.Size = new System.Drawing.Size(180, 45);
             this.Btn_Customer.TabIndex = 2;
             this.Btn_Customer.Text = "Khách hàng";
-            this.Btn_Customer.Click += new System.EventHandler(this.guna2GradientButton6_Click_1);
+            this.Btn_Customer.Click += new System.EventHandler(this.Btn_ID_Card);
             // 
             // guna2PictureBox3
             // 

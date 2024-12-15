@@ -321,6 +321,46 @@ namespace Sushi_Restaurant
             return invoices;
         }
     }
+    public class CustomerCard
+    {
+        public string MaSoThe { get; set; } // Mã số thẻ
+        public string LoaiThe { get; set; } // Loại thẻ
+        public int TongDiemTichLuy { get; set; } // Tổng điểm tích lũy
+        public DateTime NgayLap { get; set; } // Ngày lập thẻ
+        public string HoTenKhachHang { get; set; } // Họ tên khách hàng
+        public string HoTenNhanVien { get; set; } // Họ tên nhân viên lập thẻ
 
+        public static List<CustomerCard> LoadCustomerCardsFromProcedure(string branchID)
+        {
+            List<CustomerCard> customerCards = new List<CustomerCard>();
+            string query = "sp_LayThongTinTheThanhVien"; // Tên stored procedure
 
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        CustomerCard customerCard = new CustomerCard
+                        {
+                            MaSoThe = reader["MaSoThe"].ToString(),
+                            LoaiThe = reader["LoaiThe"].ToString(),
+                            TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]), // Tổng điểm tích lũy  
+                            NgayLap = Convert.ToDateTime(reader["NgayLap"]), // Ngày lập thẻ                         
+                            HoTenKhachHang = reader["HoTenKhachHang"].ToString(),
+                            HoTenNhanVien = reader["TenNhanVienLap"].ToString() // Họ tên nhân viên lập thẻ
+                        };
+                        customerCards.Add(customerCard);
+                    }
+                }
+            }
+            return customerCards;
+        }
+    }
 }
+
