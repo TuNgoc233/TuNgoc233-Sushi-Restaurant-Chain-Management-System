@@ -32,6 +32,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GridViewStaff = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.ControlMini = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btn_Insert = new Guna.UI2.WinForms.Guna2Button();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,17 +51,7 @@
             this.dgvRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ControlMini = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.btn_Insert = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewStaff)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
@@ -111,7 +110,6 @@
             this.dgvRole,
             this.dgvSalary,
             this.dgvMark,
-            this.dgvDel,
             this.dgvEdit});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -151,89 +149,6 @@
             this.GridViewStaff.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.GridViewStaff.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.GridViewStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
-            // 
-            // dgvid
-            // 
-            this.dgvid.HeaderText = "Mã nhân viên";
-            this.dgvid.MinimumWidth = 6;
-            this.dgvid.Name = "dgvid";
-            // 
-            // dgvName
-            // 
-            this.dgvName.HeaderText = "Họ tên";
-            this.dgvName.MinimumWidth = 6;
-            this.dgvName.Name = "dgvName";
-            // 
-            // dgvBirth
-            // 
-            this.dgvBirth.HeaderText = "Ngày sinh";
-            this.dgvBirth.MinimumWidth = 6;
-            this.dgvBirth.Name = "dgvBirth";
-            // 
-            // dgvSex
-            // 
-            this.dgvSex.HeaderText = "Giới tính";
-            this.dgvSex.MinimumWidth = 6;
-            this.dgvSex.Name = "dgvSex";
-            this.dgvSex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dgvAddress
-            // 
-            this.dgvAddress.HeaderText = "Địa chỉ";
-            this.dgvAddress.MinimumWidth = 6;
-            this.dgvAddress.Name = "dgvAddress";
-            // 
-            // dgvPhone
-            // 
-            this.dgvPhone.HeaderText = "Số điện thoại ";
-            this.dgvPhone.MinimumWidth = 6;
-            this.dgvPhone.Name = "dgvPhone";
-            // 
-            // dgvDate
-            // 
-            this.dgvDate.HeaderText = "Ngày vào làm";
-            this.dgvDate.MinimumWidth = 6;
-            this.dgvDate.Name = "dgvDate";
-            // 
-            // dgvRole
-            // 
-            this.dgvRole.HeaderText = "Bộ phận";
-            this.dgvRole.MinimumWidth = 6;
-            this.dgvRole.Name = "dgvRole";
-            // 
-            // dgvSalary
-            // 
-            this.dgvSalary.HeaderText = "Lương";
-            this.dgvSalary.MinimumWidth = 6;
-            this.dgvSalary.Name = "dgvSalary";
-            // 
-            // dgvMark
-            // 
-            this.dgvMark.HeaderText = "Điểm phục vụ";
-            this.dgvMark.MinimumWidth = 6;
-            this.dgvMark.Name = "dgvMark";
-            // 
-            // dgvDel
-            // 
-            this.dgvDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvDel.FillWeight = 50F;
-            this.dgvDel.HeaderText = "";
-            this.dgvDel.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
-            this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvDel.MinimumWidth = 50;
-            this.dgvDel.Name = "dgvDel";
-            this.dgvDel.Width = 50;
-            // 
-            // dgvEdit
-            // 
-            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvEdit.FillWeight = 50F;
-            this.dgvEdit.HeaderText = "";
-            this.dgvEdit.Image = global::Sushi_Restaurant.Properties.Resources.icon_sua;
-            this.dgvEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvEdit.MinimumWidth = 50;
-            this.dgvEdit.Name = "dgvEdit";
-            this.dgvEdit.Width = 50;
             // 
             // guna2CustomGradientPanel1
             // 
@@ -358,12 +273,79 @@
             this.btn_Insert.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
             this.btn_Insert.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Insert.ForeColor = System.Drawing.Color.White;
-            this.btn_Insert.Location = new System.Drawing.Point(1181, 25);
+            this.btn_Insert.Location = new System.Drawing.Point(1253, 25);
             this.btn_Insert.Name = "btn_Insert";
             this.btn_Insert.Size = new System.Drawing.Size(180, 45);
             this.btn_Insert.TabIndex = 9;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
+            // dgvid
+            // 
+            this.dgvid.HeaderText = "Mã nhân viên";
+            this.dgvid.MinimumWidth = 6;
+            this.dgvid.Name = "dgvid";
+            // 
+            // dgvName
+            // 
+            this.dgvName.HeaderText = "Họ tên";
+            this.dgvName.MinimumWidth = 6;
+            this.dgvName.Name = "dgvName";
+            // 
+            // dgvBirth
+            // 
+            this.dgvBirth.HeaderText = "Ngày sinh";
+            this.dgvBirth.MinimumWidth = 6;
+            this.dgvBirth.Name = "dgvBirth";
+            // 
+            // dgvSex
+            // 
+            this.dgvSex.HeaderText = "Giới tính";
+            this.dgvSex.MinimumWidth = 6;
+            this.dgvSex.Name = "dgvSex";
+            this.dgvSex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dgvAddress
+            // 
+            this.dgvAddress.HeaderText = "Địa chỉ";
+            this.dgvAddress.MinimumWidth = 6;
+            this.dgvAddress.Name = "dgvAddress";
+            // 
+            // dgvPhone
+            // 
+            this.dgvPhone.HeaderText = "Số điện thoại ";
+            this.dgvPhone.MinimumWidth = 6;
+            this.dgvPhone.Name = "dgvPhone";
+            // 
+            // dgvDate
+            // 
+            this.dgvDate.HeaderText = "Ngày vào làm";
+            this.dgvDate.MinimumWidth = 6;
+            this.dgvDate.Name = "dgvDate";
+            // 
+            // dgvRole
+            // 
+            this.dgvRole.HeaderText = "Bộ phận";
+            this.dgvRole.MinimumWidth = 6;
+            this.dgvRole.Name = "dgvRole";
+            // 
+            // dgvSalary
+            // 
+            this.dgvSalary.HeaderText = "Lương";
+            this.dgvSalary.MinimumWidth = 6;
+            this.dgvSalary.Name = "dgvSalary";
+            // 
+            // dgvMark
+            // 
+            this.dgvMark.HeaderText = "Điểm phục vụ";
+            this.dgvMark.MinimumWidth = 6;
+            this.dgvMark.Name = "dgvMark";
+            // 
+            // dgvEdit
+            // 
+            this.dgvEdit.HeaderText = "";
+            this.dgvEdit.MinimumWidth = 6;
+            this.dgvEdit.Name = "dgvEdit";
             // 
             // viewStaff
             // 
@@ -412,7 +394,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSalary;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvMark;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDel;
         private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
     }
 }

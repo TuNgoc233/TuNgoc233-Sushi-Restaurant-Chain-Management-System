@@ -86,5 +86,25 @@ namespace Sushi_Restaurant
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void guna2GradientButton6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_Bill_Click(object sender, EventArgs e)
+        {
+            viewOrderForm Page = new viewOrderForm();
+            this.Hide(); // Chỉ ẩn form Brand
+            Page.Show();
+        }
+
+ 
     }
 }

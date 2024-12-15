@@ -56,7 +56,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
 
             // Lấy danh sách nhân viên từ stored procedure
-            List<Employee> employees = Employee.LoadNhanVienFromProcedure(branchID);
+            List<Employee> employees = Employee.LoadEmployeeFromProcedure(branchID);
 
             // Kiểm tra danh sách nhân viên có dữ liệu không
             if (employees == null || employees.Count == 0)
@@ -79,7 +79,9 @@ namespace Sushi_Restaurant.Chi_Nhanh
         //List
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            this.Hide();
+            addStaff addStaff = new addStaff();
+            addStaff.Show();
         }
 
         //Text

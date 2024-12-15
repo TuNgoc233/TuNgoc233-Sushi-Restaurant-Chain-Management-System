@@ -16,6 +16,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         public viewEnvoice()
         {
             InitializeComponent();
+            this.Load += new EventHandler(viewEnvoice_Load); // Đăng ký sự kiện Load
         }
 
         public override void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -45,18 +46,18 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
        private void comboBoxTimKiemTheo_SelectedIndexChanged(object sender, EventArgs e)
        {
-            if (comboBoxTimKiemTheo.SelectedItem.ToString() == "Ngày lập đơn") {
-                txtTimKiem.Visible = false; // Ẩn TextBox Mã Khách Hàng
-                label1.Visible = false;
-                dtpNgayLap.Visible = true;      // Hiển thị DateTimePicker Ngày Lập
-                labSearch.Visible = true;
-            }
-            else if (comboBoxTimKiemTheo.SelectedItem.ToString() == "Mã khách hàng") {
-                dtpNgayLap.Visible = false;     // Ẩn DateTimePicker Ngày Lập
-                labSearch.Visible = false;
-                txtTimKiem.Visible = true; // Hiển thị TextBox Mã Khách Hàng
-                label1.Visible = true;
-            }
+            //if (comboBoxTimKiemTheo.SelectedItem.ToString() == "Ngày lập đơn") {
+            //    txtTimKiem.Visible = false; // Ẩn TextBox Mã Khách Hàng
+            //    label1.Visible = false;
+            //    dtpNgayLap.Visible = true;      // Hiển thị DateTimePicker Ngày Lập
+            //    labSearch.Visible = true;
+            //}
+            //else if (comboBoxTimKiemTheo.SelectedItem.ToString() == "Mã khách hàng") {
+            //    dtpNgayLap.Visible = false;     // Ẩn DateTimePicker Ngày Lập
+            //    labSearch.Visible = false;
+            //    txtTimKiem.Visible = true; // Hiển thị TextBox Mã Khách Hàng
+            //    label1.Visible = true;
+            //}
        }
 
 
@@ -95,78 +96,78 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            string ngayLap = null;
-            string maKhachHang = null;
+        //    string ngayLap = null;
+        //    string maKhachHang = null;
 
-            if (comboBoxTimKiemTheo.SelectedItem?.ToString() == "Tìm kiếm theo ngày lập")
-            {
-                ngayLap = dtpNgayLap.Value.ToString("yyyy-MM-dd");
-            }
-            else if (comboBoxTimKiemTheo.SelectedItem?.ToString() == "Tìm kiếm theo mã khách hàng")
-            {
-                maKhachHang = txtTimKiem.Text.Trim();
-            }
+        //    if (comboBoxTimKiemTheo.SelectedItem?.ToString() == "Tìm kiếm theo ngày lập")
+        //    {
+        //        ngayLap = dtpNgayLap.Value.ToString("yyyy-MM-dd");
+        //    }
+        //    else if (comboBoxTimKiemTheo.SelectedItem?.ToString() == "Tìm kiếm theo mã khách hàng")
+        //    {
+        //        maKhachHang = txtTimKiem.Text.Trim();
+        //    }
 
-            using (SqlConnection con = new SqlConnection(Branch.con_string))
-            {
-                SqlCommand cmd = new SqlCommand("SP_TimKiemHoaDon", con)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.AddWithValue("@NgayLap", string.IsNullOrEmpty(ngayLap) ? (object)DBNull.Value : ngayLap);
-                cmd.Parameters.AddWithValue("@MaKhachHang", string.IsNullOrEmpty(maKhachHang) ? (object)DBNull.Value : maKhachHang);
+        //    using (SqlConnection con = new SqlConnection(Branch.con_string))
+        //    {
+        //        SqlCommand cmd = new SqlCommand("SP_TimKiemHoaDon", con)
+        //        {
+        //            CommandType = CommandType.StoredProcedure
+        //        };
+        //        cmd.Parameters.AddWithValue("@NgayLap", string.IsNullOrEmpty(ngayLap) ? (object)DBNull.Value : ngayLap);
+        //        cmd.Parameters.AddWithValue("@MaKhachHang", string.IsNullOrEmpty(maKhachHang) ? (object)DBNull.Value : maKhachHang);
 
-                try
-                {
-                    con.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
+        //        try
+        //        {
+        //            con.Open();
+        //            SqlDataReader reader = cmd.ExecuteReader();
 
-                    // Phần 1: Đọc dữ liệu hóa đơn chính
-                    if (reader.Read())
-                    {
-                        texEnvID.Text = reader["Mã hoá đơn"].ToString();
-                        texBranchID.Text = reader["Tên nhân viên lập"].ToString();
-                        guna2TextBox1.Text = reader["Mã khách hàng"].ToString();
-                        boxCustomName.Text = reader["Tên khách hàng"].ToString();
-                        dtpNgayLap.Value = Convert.ToDateTime(reader["Ngày lập"]);
-                        boxTypeBuy.Text = reader["Hình thức mua hàng"].ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearFields();
-                        return;
-                    }
+        //            // Phần 1: Đọc dữ liệu hóa đơn chính
+        //            if (reader.Read())
+        //            {
+        //                texEnvID.Text = reader["Mã hoá đơn"].ToString();
+        //                texBranchID.Text = reader["Tên nhân viên lập"].ToString();
+        //                guna2TextBox1.Text = reader["Mã khách hàng"].ToString();
+        //                //boxCustomName.Text = reader["Tên khách hàng"].ToString();
+        //                dtpNgayLap.Value = Convert.ToDateTime(reader["Ngày lập"]);
+        //                //boxTypeBuy.Text = reader["Hình thức mua hàng"].ToString();
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Không tìm thấy hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                ClearFields();
+        //                return;
+        //            }
 
-                    // Phần 2: Đọc dữ liệu chi tiết món ăn
-                    if (reader.NextResult()) // Chuyển sang tập kết quả thứ hai
-                    {
-                        DataTable chiTietMon = new DataTable();
-                        chiTietMon.Load(reader);
-                        gridEnvoice.DataSource = chiTietMon;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    con.Close();
-                }
-            }
-        }
+        //            // Phần 2: Đọc dữ liệu chi tiết món ăn
+        //            if (reader.NextResult()) // Chuyển sang tập kết quả thứ hai
+        //            {
+        //                DataTable chiTietMon = new DataTable();
+        //                chiTietMon.Load(reader);
+        //                gridEnvoice.DataSource = chiTietMon;
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //        finally
+        //        {
+        //            con.Close();
+        //        }
+        //    }
+        //}
 
-        // Hàm xóa sạch giao diện
-        private void ClearFields()
-        {
-            texEnvID.Clear();
-            texBranchID.Clear();
-            guna2TextBox1.Clear();
-            boxCustomName.Clear();
-            boxTypeBuy.Clear();
-            dtpNgayLap.Value = DateTime.Now;
-            gridEnvoice.DataSource = null;
+        //// Hàm xóa sạch giao diện
+        //private void ClearFields()
+        //{
+        //    texEnvID.Clear();
+        //    texBranchID.Clear();
+        //    guna2TextBox1.Clear();
+        //    //boxCustomName.Clear();
+        //    //boxTypeBuy.Clear();
+        //    dtpNgayLap.Value = DateTime.Now;
+        //    gridEnvoice.DataSource = null;
         }
 
 

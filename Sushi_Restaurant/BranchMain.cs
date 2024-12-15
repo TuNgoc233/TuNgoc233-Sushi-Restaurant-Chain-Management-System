@@ -11,7 +11,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=Database_Sushi; Trusted_Connection=True; Connection Timeout=300;";
+        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=300;";
         public static SqlConnection con = new SqlConnection(con_string);
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
@@ -124,7 +124,7 @@ namespace Sushi_Restaurant
         public int DiemPhucVu { get; set; } // Điểm phục vụ
 
         // Phương thức để lấy danh sách nhân viên từ stored procedure
-        public static List<Employee> LoadNhanVienFromProcedure(string branchID)
+        public static List<Employee> LoadEmployeeFromProcedure(string branchID)
         {
             List<Employee> employees = new List<Employee>();
             string query = "LayNhanVienCuaChiNhanhTheoLichSu"; // Tên stored procedure
@@ -151,7 +151,7 @@ namespace Sushi_Restaurant
                             NgayVaoLam = Convert.ToDateTime(reader["NgayGanNhat"]).ToString("dd/MM/yyyy"), // Định dạng ngày vào làm
                             TenBoPhan = reader["TenBoPhan"].ToString(),
                             MucLuong = Convert.ToInt32(reader["MucLuong"]),
-                            DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"])
+                            DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"]) 
                         };
                         employees.Add(emp);
                     }
@@ -202,7 +202,50 @@ namespace Sushi_Restaurant
             return employees;
         }
 
+    }
 
+    public class Invoice
+    {
+        public string MaHoaDon { get; set; }
+        public string TenNhanVienLap { get; set; }
+        public string MaKhachHang { get; set; }
+        public string HoTenKhachHang { get; set; }
+        public DateTime ThoiGianLap { get; set; }
+        public decimal TongTien { get; set; } // Giả sử tổng tiền là kiểu decimal
+
+        public static List<Invoice> LoadInvoicesFromProcedure(string branchID)
+        {
+            List<Invoice> invoices = new List<Invoice>();
+            string query = "sp_LayThongTinHoaDon"; // Tên stored procedure
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Invoice invoice = new Invoice
+                        {
+                            MaHoaDon = reader["MaHoaDon"].ToString(),
+                            TenNhanVienLap = reader["TenNhanVienLap"].ToString(),
+                            MaKhachHang = reader["MaKhachHang"].ToString(),
+                            HoTenKhachHang = reader["HoTen"].ToString(),
+                            ThoiGianLap = Convert.ToDateTime(reader["NgayLapHoaDon"]), // Định dạng ngày
+                            TongTien = Convert.ToDecimal(reader["TongTien"]) // Giả sử tổng tiền là kiểu decimal
+                        };
+                        invoices.Add(invoice);
+                    }
+                }
+            }
+            return invoices;
+
+
+        }
     }
 
 }
