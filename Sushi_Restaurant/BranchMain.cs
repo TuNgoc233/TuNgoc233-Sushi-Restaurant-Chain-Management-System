@@ -11,7 +11,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
+        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=Database_Sushi; Trusted_Connection=True; Connection Timeout=300;";
         public static SqlConnection con = new SqlConnection(con_string);
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
@@ -69,6 +69,44 @@ namespace Sushi_Restaurant
             }
 
             return dt;
+        }
+
+        public static DataTable TimKiemHoaDon(string ngayLap, string maKhachHang)
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                try
+                {
+                    // Mở kết nối
+                    con.Open();
+
+                    // Tạo SqlCommand để gọi stored procedure
+                    SqlCommand cmd = new SqlCommand("SP_TimKiemHoaDon", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Thêm tham số đầu vào
+                    cmd.Parameters.AddWithValue("@ngayLap", string.IsNullOrEmpty(ngayLap) ? (object)DBNull.Value : ngayLap);
+                    cmd.Parameters.AddWithValue("@MaKhachHang", string.IsNullOrEmpty(maKhachHang) ? (object)DBNull.Value : maKhachHang);
+
+                    // Dùng SqlDataAdapter để load dữ liệu vào DataTable
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Đóng kết nối
+                    con.Close();
+                }
+            }
+
+            return dataTable;
         }
     }
     // Phương thức để lấy danh sách nhân viên từ stored procedure
@@ -163,6 +201,8 @@ namespace Sushi_Restaurant
             }
             return employees;
         }
+
+
     }
-    
+
 }

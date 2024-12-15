@@ -26,6 +26,36 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
+
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        public System.Windows.Forms.Label label3;
+        public Guna.UI2.WinForms.Guna2TextBox texEnvID;
+        public Guna.UI2.WinForms.Guna2TextBox texBranchID;
+        public System.Windows.Forms.Label labBranchID;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
+        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        public System.Windows.Forms.Label labCustomerID;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView3;
+        public Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
+        public System.Windows.Forms.Label labDate;
+        public System.Windows.Forms.Label labSearch;
+        public Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayLap;
+        public System.Windows.Forms.Label labTypePurchase;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvFoodName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCost;
+        public Guna.UI2.WinForms.Guna2DataGridView gridEnvoice;
+        public Guna.UI2.WinForms.Guna2TextBox boxTypeBuy;
+        public Guna.UI2.WinForms.Guna2TextBox boxCustomName;
+        public System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView5;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBoxTimKiemTheo;
+        public System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnTimKiem;
+
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -48,7 +78,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labSearch = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpNgayLap = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.texEnvID = new Guna.UI2.WinForms.Guna2TextBox();
@@ -71,8 +101,9 @@
             this.boxCustomName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2DataGridView5 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.comboBoxTimKiemTheo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView3)).BeginInit();
@@ -112,19 +143,19 @@
             this.labSearch.Text = "Ngày tháng";
             this.labSearch.Click += new System.EventHandler(this.label3_Click);
             // 
-            // guna2DateTimePicker1
+            // dtpNgayLap
             // 
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(773, 70);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(227, 48);
-            this.guna2DateTimePicker1.TabIndex = 6;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2024, 11, 29, 9, 19, 45, 271);
+            this.dtpNgayLap.Checked = true;
+            this.dtpNgayLap.FillColor = System.Drawing.Color.White;
+            this.dtpNgayLap.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpNgayLap.Location = new System.Drawing.Point(773, 70);
+            this.dtpNgayLap.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpNgayLap.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpNgayLap.Name = "dtpNgayLap";
+            this.dtpNgayLap.Size = new System.Drawing.Size(227, 48);
+            this.dtpNgayLap.TabIndex = 6;
+            this.dtpNgayLap.Value = new System.DateTime(2024, 11, 29, 9, 19, 45, 271);
             // 
             // guna2DataGridView1
             // 
@@ -645,23 +676,24 @@
             this.guna2DataGridView5.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView5.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // guna2ComboBox1
+            // comboBoxTimKiemTheo
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
+            this.comboBoxTimKiemTheo.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxTimKiemTheo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxTimKiemTheo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTimKiemTheo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxTimKiemTheo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxTimKiemTheo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxTimKiemTheo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comboBoxTimKiemTheo.ItemHeight = 30;
+            this.comboBoxTimKiemTheo.Items.AddRange(new object[] {
             "Ngày lập đơn",
             "Mã khách hàng"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(472, 82);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(197, 36);
-            this.guna2ComboBox1.TabIndex = 26;
+            this.comboBoxTimKiemTheo.Location = new System.Drawing.Point(472, 82);
+            this.comboBoxTimKiemTheo.Name = "comboBoxTimKiemTheo";
+            this.comboBoxTimKiemTheo.Size = new System.Drawing.Size(197, 36);
+            this.comboBoxTimKiemTheo.TabIndex = 26;
+            this.comboBoxTimKiemTheo.SelectedIndexChanged += new System.EventHandler(this.comboBoxTimKiemTheo_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -672,13 +704,23 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Tìm kiếm theo";
             // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Location = new System.Drawing.Point(209, 44);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(123, 46);
+            this.btnTimKiem.TabIndex = 0;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
             // viewEnvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1401, 783);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.comboBoxTimKiemTheo);
             this.Controls.Add(this.boxCustomName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2DataGridView5);
@@ -697,17 +739,19 @@
             this.Controls.Add(this.texEnvID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2DataGridView1);
-            this.Controls.Add(this.guna2DateTimePicker1);
+            this.Controls.Add(this.dtpNgayLap);
             this.Controls.Add(this.labSearch);
+            this.Controls.Add(this.btnTimKiem);
             this.Name = "viewEnvoice";
             this.Text = "viewEnvoice";
             this.Load += new System.EventHandler(this.viewEnvoice_Load);
+            this.Controls.SetChildIndex(this.btnTimKiem, 0);
             this.Controls.SetChildIndex(this.guna2Separator1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnThem, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.labSearch, 0);
-            this.Controls.SetChildIndex(this.guna2DateTimePicker1, 0);
+            this.Controls.SetChildIndex(this.dtpNgayLap, 0);
             this.Controls.SetChildIndex(this.guna2DataGridView1, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.texEnvID, 0);
@@ -726,7 +770,7 @@
             this.Controls.SetChildIndex(this.guna2DataGridView5, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.boxCustomName, 0);
-            this.Controls.SetChildIndex(this.guna2ComboBox1, 0);
+            this.Controls.SetChildIndex(this.comboBoxTimKiemTheo, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).EndInit();
@@ -738,33 +782,9 @@
             this.PerformLayout();
 
         }
+        
 
         #endregion
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        public System.Windows.Forms.Label label3;
-        public Guna.UI2.WinForms.Guna2TextBox texEnvID;
-        public Guna.UI2.WinForms.Guna2TextBox texBranchID;
-        public System.Windows.Forms.Label labBranchID;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        public System.Windows.Forms.Label labCustomerID;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView3;
-        public Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
-        public System.Windows.Forms.Label labDate;
-        public System.Windows.Forms.Label labSearch;
-        public Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
-        public System.Windows.Forms.Label labTypePurchase;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvFoodName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCost;
-        public Guna.UI2.WinForms.Guna2DataGridView gridEnvoice;
-        public Guna.UI2.WinForms.Guna2TextBox boxTypeBuy;
-        public Guna.UI2.WinForms.Guna2TextBox boxCustomName;
-        public System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView5;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        public System.Windows.Forms.Label label5;
+        
     }
 }
