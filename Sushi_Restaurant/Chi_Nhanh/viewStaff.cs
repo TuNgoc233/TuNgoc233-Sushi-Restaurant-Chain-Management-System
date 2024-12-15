@@ -29,12 +29,12 @@ namespace Sushi_Restaurant.Chi_Nhanh
             List<Employee> employees = Employee.SearchEmployees(searchTerm, branchID);
 
             // Xóa các dòng hiện có trong DataGridView
-            GridViewStaff.Rows.Clear();
+            Dataview.Rows.Clear();
 
             // Hiển thị kết quả tìm kiếm
             foreach (var emp in employees)
             {
-                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
+                Dataview.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
             }
         }
 
@@ -124,13 +124,17 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void Btn_Invoice(object sender, EventArgs e)
         {
-
+            viewOrderForm Page = new viewOrderForm();
+            this.Hide(); // Chỉ ẩn form Brand
+            Page.Show();
         }
 
         //Btn_CardID
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-
+            viewID_Card Page = new viewID_Card();
+            this.Hide(); // Chỉ ẩn form Brand
+            Page.Show();
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)

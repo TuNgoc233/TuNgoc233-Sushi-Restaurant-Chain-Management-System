@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         public viewID_Card()
         {
             InitializeComponent();
+            this.Load += new EventHandler(viewID_Card_Load); // Đăng ký sự kiện Load
         }
 
         private void viewID_Card_Load(object sender, EventArgs e)
@@ -58,9 +60,36 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
         }
 
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public override void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
+            string searchTerm = txtTimKiem.Text.Trim(); // Lấy chuỗi tìm kiếm từ TextBox
+            string branchID = Branch.MaChiNhanh; // Lấy mã chi nhánh từ lớp Branch
+
+            // Gọi phương thức tìm kiếm thẻ khách hàng
+            List<CustomerCard> customerCards = CustomerCard.SearchCustomerCards(searchTerm, branchID);
+
+            // Xóa các dòng hiện có trong DataGridView
+            DataLoad.Rows.Clear();
+
+            // Hiển thị kết quả tìm kiếm
+            foreach (var card in customerCards)
+            {
+                DataLoad.Rows.Add(
+                    card.MaSoThe,
+                    card.LoaiThe,
+                    card.TongDiemTichLuy,
+                    card.NgayLap.ToString("dd/MM/yyyy"),
+                    card.HoTenKhachHang,
+                    card.HoTenNhanVien
+                );
+            }
 
         }
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+         
+            
+        }
     }
+    
 }

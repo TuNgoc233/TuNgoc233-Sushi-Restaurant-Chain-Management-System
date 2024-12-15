@@ -107,5 +107,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
 
         }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
