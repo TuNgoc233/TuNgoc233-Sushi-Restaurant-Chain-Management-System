@@ -8,37 +8,64 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sushi_Restaurant.Model
+namespace Sushi_Restaurant.NhanVien
 {
     public partial class ucProduct : UserControl
     {
-        public event EventHandler onSelect = null;
         public ucProduct()
         {
-            InitializeComponent();
+            InitializeComponent(); // Khởi tạo giao diện
+
+            // Gắn sự kiện Click vào chính `ucProduct`
+            this.Click += OnClickHandler;
+
+            // Gắn sự kiện Click cho tất cả các thành phần con trong `ucProduct`
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.Click += OnClickHandler;
+            }
         }
 
-        public int id { get; set; }
-        public int PPrice { get; set; }
+        public event EventHandler onSelect = null;
 
+        public string id { get; set; }
+        public string PPrice {
+            get { return lblPrice.Text; }
+            set { lblPrice.Text = value;} 
+        }
         public string PCategory { get; set; }
-
         public string PName
         {
-            get { return gia.Text; }
-            set { gia.Text = value; }
+            get { return lblName.Text; }
+            set { lblName.Text = value; }
         }
-
-        public string PImage
+        public Image PImage
         {
-            get { return pic_mon_an.Image.ToString(); }
-            set { pic_mon_an.Image = Image.FromFile(value); }
+            get { return txtImage.Image; }
+            set { txtImage.Image = value; }
         }
 
-        private void txt_mon_an_Click(object sender, EventArgs e)
+
+        // Hàm xử lý khi `ucProduct` được nhấn
+        protected void OnClickHandler(object sender, EventArgs e)
         {
-            onSelect?.Invoke(this, e);
+            onSelect?.Invoke(this, e); // Kích hoạt sự kiện `onSelect`
         }
 
+        // Gắn sự kiện Click riêng cho hình ảnh
+        private void txtImage_Click(object sender, EventArgs e)
+        {
+            onSelect?.Invoke(this, e); // Kích hoạt sự kiện `onSelect`
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void but_themDSMAYT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,9 +12,19 @@ namespace Sushi_Restaurant.View
 {
     public partial class xemLaiDatBanView : Form
     {
-        public xemLaiDatBanView()
+        public xemLaiDatBanView(string maDonHang, string trangThai)
         {
             InitializeComponent();
+
+
+            if (trangThai == "Chờ xác nhận")
+            {
+                but_HuyDon.Visible = true;
+            }
+            else
+            {
+                but_HuyDon.Visible = false;
+            }
         }
 
         private void but_huy_Click(object sender, EventArgs e)

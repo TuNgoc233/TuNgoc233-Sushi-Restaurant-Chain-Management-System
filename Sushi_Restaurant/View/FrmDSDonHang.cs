@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,36 +26,90 @@ namespace Sushi_Restaurant.Model
             dataGridViewDSDonHang.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default; // Tắt theme
             dataGridViewDSDonHang.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(50, 55, 89);
             dataGridViewDSDonHang.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold); // Chỉnh font
-            KhoiTaoDuLieu();
-            dataGridViewDSDonHang.DataSource = allOrders;
+            dataGridViewDSDonHang.AutoGenerateColumns = false;
+
         }
 
-        private void KhoiTaoDuLieu()
+        private void FrmDSDonHang_Load_1(object sender, EventArgs e)
         {
+            try
+            {
+                MessageBox.Show("Mã Khách Hàng: " + GlobalVariables.MaKH, "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Gọi procedure để lấy dữ liệu từ DB
+                LoadDataFromDatabase();
 
-            // Tạo cột
-            allOrders.Columns.Add("STT", typeof(int));
-            allOrders.Columns.Add("Loại Đơn Hàng", typeof(string));
-            allOrders.Columns.Add("Mã Đơn Hàng", typeof(string));
-            allOrders.Columns.Add("Trạng Thái", typeof(string));
-            allOrders.Columns.Add("Tổng Tiền", typeof(decimal));
-            allOrders.Columns.Add("Ngày Đặt", typeof(DateTime)); // Thêm cột Ngày Đặt
-
-            // Thêm dữ liệu mẫu
-            allOrders.Rows.Add(1, "Giao hàng tận nơi", "DH001", "Đã giao", 150000, new DateTime(2023, 12, 1));
-            allOrders.Rows.Add(2, "Đặt bàn", "DB002", "Chờ xác nhận", 500000, new DateTime(2023, 12, 2));
-            allOrders.Rows.Add(3, "Giao hàng tận nơi", "DH003", "Đang giao", 200000, new DateTime(2023, 12, 3));
-            allOrders.Rows.Add(4, "Đặt bàn", "DB004", "Hoàn thành", 300000, new DateTime(2023, 12, 4));
-
-            // Phân loại dữ liệu
-            var datBanRows = allOrders.Select("[Loại Đơn Hàng] = 'Đặt bàn'");
-            if (datBanRows.Length > 0)
-                datBanOrders = datBanRows.CopyToDataTable();
-
-            var giaoHangRows = allOrders.Select("[Loại Đơn Hàng] = 'Giao hàng tận nơi'");
-            if (giaoHangRows.Length > 0)
-                giaoHangOrders = giaoHangRows.CopyToDataTable();
+                // Gán dữ liệu mặc định cho DataGridView
+                rbtnAll.Checked = true;
+                dataGridViewDSDonHang.DataSource = allOrders;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        private void LoadDataFromDatabase()
+        {
+            // Xóa dữ liệu cũ nếu có
+            allOrders.Clear();
+            giaoHangOrders.Clear();
+            datBanOrders.Clear();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                {
+                    conn.Open();
+
+                    // Gọi procedure
+                    using (SqlCommand cmd = new SqlCommand("NXHanh_LayDSDonHang", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);
+
+                        // Đổ dữ liệu vào DataTable
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(allOrders); // Nạp toàn bộ dữ liệu vào allOrders
+                        }
+                    }
+                }
+
+                // Thêm cột STT vào đầu nếu chưa có
+                if (!allOrders.Columns.Contains("STT"))
+                {
+                    DataColumn sttColumn = new DataColumn("STT", typeof(int));
+                    allOrders.Columns.Add(sttColumn);
+                    sttColumn.SetOrdinal(0); // Đặt cột "STT" ở vị trí đầu tiên
+                }
+
+                // Gán số thứ tự và chuyển đổi giá trị cột "Loại Đơn Hàng"
+                for (int i = 0; i < allOrders.Rows.Count; i++)
+                {
+                    allOrders.Rows[i]["STT"] = i + 1; // Gán STT bắt đầu từ 1
+
+                    // Chuyển đổi giá trị cột "Loại Đơn Hàng"
+                    if (allOrders.Rows[i]["Loại Đơn Hàng"].ToString() == "GH")
+                        allOrders.Rows[i]["Loại Đơn Hàng"] = "Giao hàng tận nơi";
+                    else if (allOrders.Rows[i]["Loại Đơn Hàng"].ToString() == "DB")
+                        allOrders.Rows[i]["Loại Đơn Hàng"] = "Đặt bàn";
+                    
+                }
+                // Phân loại dữ liệu
+                var datBanRows = allOrders.Select("[Loại Đơn Hàng] = 'Đặt bàn'");
+                if (datBanRows.Length > 0)
+                    datBanOrders = datBanRows.CopyToDataTable();
+
+                var giaoHangRows = allOrders.Select("[Loại Đơn Hàng] = 'Giao hàng tận nơi'");
+                if (giaoHangRows.Length > 0)
+                    giaoHangOrders = giaoHangRows.CopyToDataTable();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi gọi dữ liệu từ Database: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         // Ham danh so thu tu lai cho ca dong
         private void ReindexRows()
         {
@@ -144,17 +199,21 @@ namespace Sushi_Restaurant.Model
                     // Lấy loại Đơn Hàng từ dòng được chọn
                     string loaiDonHang = dataGridViewDSDonHang.Rows[e.RowIndex].Cells["loaiDH"].Value.ToString();
 
+                    // Lấy trạng thái đơn hàng từ dòng được chọn
+                    string trangThai = dataGridViewDSDonHang.Rows[e.RowIndex].Cells["trangThai"].Value.ToString();
+
+
                     if (loaiDonHang == "Giao hàng tận nơi")
                     {
-                        xemLaiGiaoHangView frm = new xemLaiGiaoHangView();
+                        xemLaiGiaoHangView frm = new xemLaiGiaoHangView(maDonHang, trangThai);
                         frm.Show();
-                    } 
+                    }
                     else
                     {
-                        xemLaiDatBanView frm = new xemLaiDatBanView();
+                        xemLaiDatBanView frm = new xemLaiDatBanView(maDonHang, trangThai);
                         frm.Show();
-                    }    
-                        
+                    }
+
                 }
 
                 //// Nếu nhấn vào cột "DanhGia"
@@ -168,5 +227,6 @@ namespace Sushi_Restaurant.Model
                 //}
             }
         }
+
     }
 }

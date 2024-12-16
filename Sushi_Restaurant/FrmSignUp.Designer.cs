@@ -163,7 +163,6 @@ namespace Sushi_Restaurant
             this.text_HoTen.SelectedText = "";
             this.text_HoTen.Size = new System.Drawing.Size(364, 48);
             this.text_HoTen.TabIndex = 1;
-            this.text_HoTen.TextChanged += new System.EventHandler(this.text_HoTen_TextChanged);
             // 
             // label_Email
             // 
@@ -194,7 +193,6 @@ namespace Sushi_Restaurant
             this.text_Email.SelectedText = "";
             this.text_Email.Size = new System.Drawing.Size(364, 48);
             this.text_Email.TabIndex = 1;
-            this.text_Email.TextChanged += new System.EventHandler(this.guna2TextBox4_TextChanged);
             // 
             // lablel_SDT
             // 

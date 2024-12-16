@@ -10,7 +10,7 @@ namespace Sushi_Restaurant
 {
     internal class MainClass
     {
-        public static readonly string con_string = "Server=DESKTOP-TJGBBGQ\\HANHSPRING; Database=QLNH_SUSHI_2024; Trusted_Connection=True;";
+        public static readonly string con_string = "Server=DESKTOP-TJGBBGQ\\HANHSPRING; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True;";
         public static SqlConnection con = new SqlConnection(con_string);
 
         // Method to check user validation
@@ -28,6 +28,14 @@ namespace Sushi_Restaurant
             if (dt.Rows.Count > 0)
             {
                 isValid = true;
+
+                // Lấy thông tin khách hàng và lưu vào GlobalVariables
+                GlobalVariables.MaKH = dt.Rows[0]["MaKhachHang"].ToString();
+                GlobalVariables.HoTenKH = dt.Rows[0]["HoTen"].ToString();
+                GlobalVariables.EmailKH = dt.Rows[0]["Email"].ToString();
+                GlobalVariables.SDTKH = dt.Rows[0]["SoDienThoai"].ToString();
+                GlobalVariables.GioiTinhKH = dt.Rows[0]["GioiTinh"].ToString();
+                GlobalVariables.CCCDKH = dt.Rows[0]["CCCD"].ToString();
             }
 
             return isValid;
@@ -39,7 +47,7 @@ namespace Sushi_Restaurant
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("LayThongTinVaSDTChiNhanh", con)
+                SqlCommand cmd = new SqlCommand("NXHanh_LayThongTinVaSDTChiNhanh", con)
                 {
                     CommandType = CommandType.StoredProcedure
                 };

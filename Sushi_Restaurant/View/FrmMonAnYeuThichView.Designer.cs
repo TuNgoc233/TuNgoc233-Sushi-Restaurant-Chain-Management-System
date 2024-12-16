@@ -30,8 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,6 +39,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMonAnYeuThichView));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new Guna.UI2.WinForms.Guna2Panel();
             this.label_tieuDe = new System.Windows.Forms.Label();
             this.icon_Dat_Mon = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -49,6 +50,7 @@
             this.anhMinhHoa = new System.Windows.Forms.DataGridViewImageColumn();
             this.spacing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.butXoa = new System.Windows.Forms.DataGridViewImageColumn();
+            this.spacing2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_Dat_Mon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMonAn)).BeginInit();
@@ -120,32 +122,32 @@
             this.tenMon,
             this.anhMinhHoa,
             this.spacing,
-            this.butXoa});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewMonAn.DefaultCellStyle = dataGridViewCellStyle9;
+            this.butXoa,
+            this.spacing2});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewMonAn.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewMonAn.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewMonAn.Location = new System.Drawing.Point(109, 140);
             this.dataGridViewMonAn.Name = "dataGridViewMonAn";
             this.dataGridViewMonAn.ReadOnly = true;
             this.dataGridViewMonAn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMonAn.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMonAn.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewMonAn.RowHeadersVisible = false;
             this.dataGridViewMonAn.RowHeadersWidth = 51;
             this.dataGridViewMonAn.RowTemplate.Height = 80;
-            this.dataGridViewMonAn.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridViewMonAn.Size = new System.Drawing.Size(1121, 569);
             this.dataGridViewMonAn.TabIndex = 30;
             this.dataGridViewMonAn.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -237,13 +239,12 @@
             this.spacing.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.spacing.DefaultCellStyle = dataGridViewCellStyle7;
-            this.spacing.FillWeight = 35F;
+            this.spacing.FillWeight = 70F;
             this.spacing.HeaderText = "";
-            this.spacing.MinimumWidth = 35;
+            this.spacing.MinimumWidth = 70;
             this.spacing.Name = "spacing";
             this.spacing.ReadOnly = true;
-            this.spacing.Visible = false;
-            this.spacing.Width = 35;
+            this.spacing.Width = 70;
             // 
             // butXoa
             // 
@@ -261,6 +262,18 @@
             this.butXoa.Name = "butXoa";
             this.butXoa.ReadOnly = true;
             this.butXoa.Width = 50;
+            // 
+            // spacing2
+            // 
+            this.spacing2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.spacing2.DefaultCellStyle = dataGridViewCellStyle9;
+            this.spacing2.FillWeight = 20F;
+            this.spacing2.HeaderText = "";
+            this.spacing2.MinimumWidth = 20;
+            this.spacing2.Name = "spacing2";
+            this.spacing2.ReadOnly = true;
+            this.spacing2.Width = 20;
             // 
             // FrmMonAnYeuThichView
             // 
@@ -292,5 +305,6 @@
         private System.Windows.Forms.DataGridViewImageColumn anhMinhHoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn spacing;
         private System.Windows.Forms.DataGridViewImageColumn butXoa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn spacing2;
     }
 }

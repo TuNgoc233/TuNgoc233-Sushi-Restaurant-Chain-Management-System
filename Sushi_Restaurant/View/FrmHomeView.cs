@@ -57,6 +57,13 @@ namespace Sushi_Restaurant
             // Lay chi nhanh da chon
             string selectedChiNhanh = cmb_ChiNhanh.SelectedItem.ToString();
 
+            //Lay ma chi nhanh tu chi nhanh da chon luu vao bien toan cuc de su dung o form khac
+            var maChiNhanhForTenChiNhanh = khuVucData.AsEnumerable()
+                .Where(row => row.Field<string>("TenChiNhanh") == selectedChiNhanh)
+                .Select(row => row.Field<string>("MaChiNhanh"))
+                .FirstOrDefault();
+            GlobalVariables.MaChiNhanh = maChiNhanhForTenChiNhanh;
+
             // Loc so dien thoai theo chi nhanh da chon
             var sdtForChiNhanh = khuVucData.AsEnumerable()
                 .Where(row => row.Field<string>("TenChiNhanh") == selectedChiNhanh)
@@ -87,6 +94,10 @@ namespace Sushi_Restaurant
 
                 // Gán vào TextBox
                 textbox_diaChi.Text = diaChi;
+
+                string tenDiaChiCN = $"{selectedChiNhanh} - {diaChiForChiNhanh.Duong} - {diaChiForChiNhanh.Phuong} - {diaChiForChiNhanh.Quan} - {diaChiForChiNhanh.ThanhPho}";
+                // gán vào biến toàn cục để sử dụng ở form khác
+                GlobalVariables.tenDiaChiCN = tenDiaChiCN;
             }
             else
             {
@@ -97,37 +108,43 @@ namespace Sushi_Restaurant
 
      
 
-        private void text_diaChi_TextChanged(object sender, EventArgs e)
+//        private void text_diaChi_TextChanged(object sender, EventArgs e)
+//        {
+//            // Lay chi nhanh da chon
+//            string selectedChiNhanh = cmb_ChiNhanh.SelectedItem.ToString();
+
+//            // Lọc thông tin địa chỉ chi nhánh từ DataTable
+//            var diaChiForChiNhanh = khuVucData.AsEnumerable()
+//                .Where(row => row.Field<string>("TenChiNhanh") == selectedChiNhanh)
+//                .Select(row => new
+//                {
+//                    Duong = row.Field<string>("Duong"),
+//                    Phuong = row.Field<string>("Phuong"),
+//                    Quan = row.Field<string>("Quan"),
+//                    ThanhPho = row.Field<string>("ThanhPho")
+//                })
+//                .FirstOrDefault(); // Dùng FirstOrDefault để lấy 1 giá trị duy nhất (do 1 chi nhánh có 1 địa chỉ)
+
+//            // Kiểm tra nếu có thông tin chi nhánh
+//            if (diaChiForChiNhanh != null)
+//            {
+//                // Tạo địa chỉ theo định dạng yêu cầu
+//                string diaChi = $"{diaChiForChiNhanh.Duong} - {diaChiForChiNhanh.Phuong} - {diaChiForChiNhanh.Quan} - {diaChiForChiNhanh.ThanhPho}";
+
+//                // Gán vào TextBox
+//                text_diaChi.Text = diaChi;
+//;
+//            }
+//            else
+//            {
+//                // Nếu không tìm thấy thông tin địa chỉ, xóa nội dung TextBox hoặc hiển thị thông báo
+//                text_diaChi.Clear();
+//            }
+//        }
+
+        private void picture_main_Click(object sender, EventArgs e)
         {
-            // Lay chi nhanh da chon
-            string selectedChiNhanh = cmb_ChiNhanh.SelectedItem.ToString();
 
-            // Lọc thông tin địa chỉ chi nhánh từ DataTable
-            var diaChiForChiNhanh = khuVucData.AsEnumerable()
-                .Where(row => row.Field<string>("TenChiNhanh") == selectedChiNhanh)
-                .Select(row => new
-                {
-                    Duong = row.Field<string>("Duong"),
-                    Phuong = row.Field<string>("Phuong"),
-                    Quan = row.Field<string>("Quan"),
-                    ThanhPho = row.Field<string>("ThanhPho")
-                })
-                .FirstOrDefault(); // Dùng FirstOrDefault để lấy 1 giá trị duy nhất (do 1 chi nhánh có 1 địa chỉ)
-
-            // Kiểm tra nếu có thông tin chi nhánh
-            if (diaChiForChiNhanh != null)
-            {
-                // Tạo địa chỉ theo định dạng yêu cầu
-                string diaChi = $"{diaChiForChiNhanh.Duong} - {diaChiForChiNhanh.Phuong} - {diaChiForChiNhanh.Quan} - {diaChiForChiNhanh.ThanhPho}";
-
-                // Gán vào TextBox
-                text_diaChi.Text = diaChi;
-            }
-            else
-            {
-                // Nếu không tìm thấy thông tin địa chỉ, xóa nội dung TextBox hoặc hiển thị thông báo
-                text_diaChi.Clear();
-            }
         }
     }
 }

@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHomeView));
             this.panel_Header = new Guna.UI2.WinForms.Guna2Panel();
+            this.textbox_diaChi = new Guna.UI2.WinForms.Guna2TextBox();
+            this.text_diaChi = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -48,10 +50,6 @@
             this.cmb_KhuVuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel_center = new Guna.UI2.WinForms.Guna2Panel();
             this.picture_main = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.text_diaChi = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textbox_diaChi = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_phone)).BeginInit();
@@ -90,6 +88,76 @@
             this.panel_Header.Name = "panel_Header";
             this.panel_Header.Size = new System.Drawing.Size(1552, 214);
             this.panel_Header.TabIndex = 4;
+            // 
+            // textbox_diaChi
+            // 
+            this.textbox_diaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textbox_diaChi.AutoRoundedCorners = true;
+            this.textbox_diaChi.AutoSize = true;
+            this.textbox_diaChi.BackColor = System.Drawing.Color.Transparent;
+            this.textbox_diaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.textbox_diaChi.BorderRadius = 19;
+            this.textbox_diaChi.BorderThickness = 2;
+            this.textbox_diaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textbox_diaChi.DefaultText = "";
+            this.textbox_diaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textbox_diaChi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textbox_diaChi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textbox_diaChi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textbox_diaChi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textbox_diaChi.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textbox_diaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textbox_diaChi.Location = new System.Drawing.Point(850, 153);
+            this.textbox_diaChi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textbox_diaChi.Name = "textbox_diaChi";
+            this.textbox_diaChi.PasswordChar = '\0';
+            this.textbox_diaChi.PlaceholderText = "";
+            this.textbox_diaChi.ReadOnly = true;
+            this.textbox_diaChi.SelectedText = "";
+            this.textbox_diaChi.Size = new System.Drawing.Size(504, 40);
+            this.textbox_diaChi.TabIndex = 10;
+            this.textbox_diaChi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // text_diaChi
+            // 
+            this.text_diaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.text_diaChi.AutoRoundedCorners = true;
+            this.text_diaChi.BackColor = System.Drawing.Color.Transparent;
+            this.text_diaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.text_diaChi.BorderRadius = 30;
+            this.text_diaChi.BorderThickness = 0;
+            this.text_diaChi.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.text_diaChi.DefaultText = "";
+            this.text_diaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.text_diaChi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.text_diaChi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_diaChi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_diaChi.FillColor = System.Drawing.Color.Gainsboro;
+            this.text_diaChi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_diaChi.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.text_diaChi.ForeColor = System.Drawing.Color.DimGray;
+            this.text_diaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_diaChi.Location = new System.Drawing.Point(1401, 248);
+            this.text_diaChi.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.text_diaChi.Name = "text_diaChi";
+            this.text_diaChi.PasswordChar = '\0';
+            this.text_diaChi.PlaceholderText = "";
+            this.text_diaChi.ReadOnly = true;
+            this.text_diaChi.SelectedText = "";
+            this.text_diaChi.Size = new System.Drawing.Size(736, 62);
+            this.text_diaChi.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(754, 160);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 31);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Địa chỉ ";
             // 
             // label3
             // 
@@ -354,76 +422,7 @@
             this.picture_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picture_main.TabIndex = 0;
             this.picture_main.TabStop = false;
-            // 
-            // text_diaChi
-            // 
-            this.text_diaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.text_diaChi.AutoRoundedCorners = true;
-            this.text_diaChi.BackColor = System.Drawing.Color.Transparent;
-            this.text_diaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.text_diaChi.BorderRadius = 30;
-            this.text_diaChi.BorderThickness = 0;
-            this.text_diaChi.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.text_diaChi.DefaultText = "";
-            this.text_diaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.text_diaChi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.text_diaChi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.text_diaChi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.text_diaChi.FillColor = System.Drawing.Color.Gainsboro;
-            this.text_diaChi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_diaChi.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.text_diaChi.ForeColor = System.Drawing.Color.DimGray;
-            this.text_diaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_diaChi.Location = new System.Drawing.Point(1401, 248);
-            this.text_diaChi.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.text_diaChi.Name = "text_diaChi";
-            this.text_diaChi.PasswordChar = '\0';
-            this.text_diaChi.PlaceholderText = "";
-            this.text_diaChi.ReadOnly = true;
-            this.text_diaChi.SelectedText = "";
-            this.text_diaChi.Size = new System.Drawing.Size(736, 62);
-            this.text_diaChi.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(754, 160);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 31);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Địa chỉ ";
-            // 
-            // textbox_diaChi
-            // 
-            this.textbox_diaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textbox_diaChi.AutoRoundedCorners = true;
-            this.textbox_diaChi.AutoSize = true;
-            this.textbox_diaChi.BackColor = System.Drawing.Color.Transparent;
-            this.textbox_diaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textbox_diaChi.BorderRadius = 19;
-            this.textbox_diaChi.BorderThickness = 2;
-            this.textbox_diaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textbox_diaChi.DefaultText = "";
-            this.textbox_diaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.textbox_diaChi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.textbox_diaChi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textbox_diaChi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textbox_diaChi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textbox_diaChi.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textbox_diaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textbox_diaChi.Location = new System.Drawing.Point(850, 153);
-            this.textbox_diaChi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textbox_diaChi.Name = "textbox_diaChi";
-            this.textbox_diaChi.PasswordChar = '\0';
-            this.textbox_diaChi.PlaceholderText = "";
-            this.textbox_diaChi.ReadOnly = true;
-            this.textbox_diaChi.SelectedText = "";
-            this.textbox_diaChi.Size = new System.Drawing.Size(504, 40);
-            this.textbox_diaChi.TabIndex = 10;
-            this.textbox_diaChi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.picture_main.Click += new System.EventHandler(this.picture_main_Click);
             // 
             // FrmHomeView
             // 

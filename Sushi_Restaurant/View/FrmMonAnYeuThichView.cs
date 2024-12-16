@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,32 +13,103 @@ namespace Sushi_Restaurant.View
 {
     public partial class FrmMonAnYeuThichView : Form
     {
+        private DataTable monAnYeuThich = new DataTable();
+
         private DataTable allOrders = new DataTable();
         public FrmMonAnYeuThichView()
         {
             InitializeComponent();
-            KhoiTaoDuLieu();
+            LoadMonAnYeuThich(GlobalVariables.MaKH);
 
             dataGridViewMonAn.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default; // Tắt theme
             dataGridViewMonAn.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(50, 55, 89);
             dataGridViewMonAn.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold); // Chỉnh font
+           
         }
 
-        private void KhoiTaoDuLieu()
+        private void LoadMonAnYeuThich(string maKhachHang)
         {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("NXHanh_LayMonAnYeuThichKH", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@MaKhachHang", maKhachHang);
 
-            // Tạo các cột
-            allOrders.Columns.Add("STT", typeof(int));
-            allOrders.Columns.Add("Mã món ăn", typeof(string));
-            allOrders.Columns.Add("Tên Món Ăn", typeof(string));     // Cột Tên Món Ăn
-            allOrders.Columns.Add("Hình ảnh", typeof(Image));      // Cột Hình Ảnh (Loại Image)
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        monAnYeuThich.Clear();
+                        da.Fill(monAnYeuThich);
+                    }
+                }
 
-            // Thêm dữ liệu mẫu vào DataTable
-            allOrders.Rows.Add(1,"MM001" , "Súp Miso", Image.FromFile(@"C:\Users\HanhSpring\Downloads\Khai vị\súp miso.jpg"));
-            allOrders.Rows.Add(2,"MM002", "Trứng Hấp", Image.FromFile(@"C:\Users\HanhSpring\Downloads\Khai vị\trứng hấp.jpg"));
-            allOrders.Rows.Add(3, "MM003","Sashimi Cá Hồi Đặc Biệt", Image.FromFile(@"C:\Users\HanhSpring\Downloads\Sashimi combo\sashimi cá hồi đặt biệt.png"));
-            dataGridViewMonAn.DataSource = allOrders;
+                if (!monAnYeuThich.Columns.Contains("STT"))
+                {
+                    DataColumn sttColumn = new DataColumn("STT", typeof(int));
+                    monAnYeuThich.Columns.Add(sttColumn);
+                    sttColumn.SetOrdinal(0); // Đặt cột STT ở vị trí đầu tiên
+                }
+
+                // Thêm cột hình ảnh vào DataTable
+                if (!monAnYeuThich.Columns.Contains("Hình ảnh"))
+                {
+                    monAnYeuThich.Columns.Add("Hình ảnh", typeof(Image));
+                }
+
+                for (int i = 0; i < monAnYeuThich.Rows.Count; i++)
+                {
+                    monAnYeuThich.Rows[i]["STT"] = i + 1; // Gán số thứ tự
+                    string productCode = monAnYeuThich.Rows[i]["Mã món ăn"].ToString(); // Lấy mã món ăn
+                    monAnYeuThich.Rows[i]["Hình ảnh"] = ResizeImage(LoadImageFromResources(productCode), 150, 100); // Resize ảnh
+                }
+
+                dataGridViewMonAn.AutoGenerateColumns = false;
+
+                // Gán dữ liệu cho DataGridView
+                dataGridViewMonAn.DataSource = monAnYeuThich;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải món ăn yêu thích: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        private Image ResizeImage(Image img, int width, int height)
+        {
+            Bitmap resizedImage = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(img, 0, 0, width, height);
+            }
+            return resizedImage;
+        }
+
+        private Image LoadImageFromResources(string productCode)
+        {
+            try
+            {
+                // Truy xuất hình ảnh từ Resources bằng mã món ăn (key)
+                var image = (Image)Properties.Resources.ResourceManager.GetObject(productCode);
+                if (image != null)
+                {
+                    return image;
+                }
+                else
+                {
+                    return Properties.Resources.icon_login; // Hình ảnh mặc định
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi load hình ảnh: {ex.Message}");
+                return Properties.Resources.icon_login; // Hình ảnh mặc định nếu lỗi
+            }
+        }
+    
 
         private void icon_Dat_Mon_Click(object sender, EventArgs e)
         {

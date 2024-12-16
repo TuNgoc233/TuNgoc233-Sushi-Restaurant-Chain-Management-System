@@ -58,6 +58,9 @@ namespace Sushi_Restaurant
             }
             else
             {
+                // Gán thời điểm truy cập hiện tại vào biến Global
+                GlobalVariables.ThoiDiemTruyCap = DateTime.Now;
+
                 this.Hide();
                 FrmCustomer frm = new FrmCustomer();
                 frm.Show();

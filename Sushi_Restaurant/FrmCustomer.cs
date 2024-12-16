@@ -15,6 +15,7 @@ namespace Sushi_Restaurant
 {
     public partial class FrmCustomer : Form
     {
+        private Dictionary<string, Form> formCache = new Dictionary<string, Form>();
         public FrmCustomer()
         {
             InitializeComponent();
@@ -53,17 +54,44 @@ namespace Sushi_Restaurant
 
         private void but_Home_Click(object sender, EventArgs e)
         {
-            AddControls(new FrmHomeView());
+            //AddControls(new FrmHomeView());
+            // Kiểm tra và lấy form Home từ cache
+            if (!formCache.TryGetValue("FrmHomeView", out Form frmHome))
+            {
+                frmHome = new FrmHomeView();
+                formCache["FrmHomeView"] = frmHome; // Lưu vào cache
+            }
+
+            AddControls(frmHome);
+            but_Home.Checked = true;
+
+
         }
 
         private void but_dat_mon_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(GlobalVariables.MaChiNhanh))
+            {
+                MessageBox.Show("Vui lòng chọn khu vực và chi nhánh trước khi đặt món!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                but_dat_mon.Checked = false;
+                but_Home.Checked = true;
+                return; // Dừng lại nếu chưa chọn khu vực và chi nhánh
+            }
             FrmDatMon frm = new FrmDatMon();
             frm.Show();
             but_dat_mon.Checked = false;
-            AddControls(new FrmHomeView());
+
+            // Kiểm tra và lấy form Đặt Món từ cache
+            if (!formCache.TryGetValue("FrmHomeView", out Form frmHome))
+            {
+                frmHome = new FrmHomeView();
+                formCache["FrmHomeView"] = frmHome; // Lưu vào cache
+            }
+
+            AddControls(frmHome);
+            but_dat_mon.Checked = false;
             but_Home.Checked = true;
-         
+
         }
 
 

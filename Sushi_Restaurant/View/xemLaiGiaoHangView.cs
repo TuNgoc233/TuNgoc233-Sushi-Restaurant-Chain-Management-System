@@ -12,9 +12,10 @@ namespace Sushi_Restaurant.View
 {
     public partial class xemLaiGiaoHangView : Form
     {
-        public xemLaiGiaoHangView()
+        public xemLaiGiaoHangView(string maDonHang, string trangThai)
         {
             InitializeComponent();
+
         }
 
         private void but_huy_Click(object sender, EventArgs e)

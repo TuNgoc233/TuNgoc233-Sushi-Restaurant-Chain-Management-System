@@ -46,27 +46,6 @@ namespace Sushi_Restaurant
                 e.Handled = true; // Ngừng xử lý nếu ký tự không phải là số
             }
         }
-
-        private void guna2TextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void but_Exit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void but_DK_Click(object sender, EventArgs e)
         {
             // Kiểm tra các trường thông tin có bị bỏ trống hay không
@@ -82,7 +61,7 @@ namespace Sushi_Restaurant
                 {
                     con.Open();
 
-                    SqlCommand cmd = new SqlCommand("sp_ThemKhachHang", con);
+                    SqlCommand cmd = new SqlCommand("NXHanh_ThemKhachHang", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Thêm tham số
@@ -119,10 +98,9 @@ namespace Sushi_Restaurant
             }
             
         }
-
-        private void text_HoTen_TextChanged(object sender, EventArgs e)
+        private void but_Exit_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
