@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
+using System.Globalization;
 
 namespace Sushi_Restaurant.Chi_Nhanh
 {
@@ -34,7 +35,17 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // Hiển thị kết quả tìm kiếm
             foreach (var invoice in invoices)
             {
-                Load_Invoice.Rows.Add(invoice.MaHoaDon, invoice.TenNhanVienLap, invoice.HoTenKhachHang, invoice.ThoiGianLap.ToString("dd/MM/yyyy"), invoice.TongTien);
+                // Kiểm tra nếu TongTien không null và định dạng giá trị
+                string formattedTotal = invoice.TongTien.ToString("N0", CultureInfo.InvariantCulture) + " VND";
+
+                // Thêm một dòng mới vào DataGridView với các giá trị được định dạng
+                Load_Invoice.Rows.Add(
+                    invoice.MaHoaDon,
+                    invoice.TenNhanVienLap,
+                    invoice.HoTenKhachHang,
+                    invoice.ThoiGianLap, // Định dạng ngày thành dd/MM/yyyy
+                    formattedTotal
+                );
             }
         }
 
@@ -71,8 +82,17 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // Lặp qua danh sách hóa đơn và thêm vào DataGridView
             foreach (var invoice in invoices)
             {
-                // Thêm một dòng mới vào DataGridView
-                Load_Invoice.Rows.Add(invoice.MaHoaDon, invoice.TenNhanVienLap, invoice.HoTenKhachHang, invoice.ThoiGianLap.ToString("dd/MM/yyyy"), invoice.TongTien);
+                // Kiểm tra nếu TongTien không null và định dạng giá trị
+                string formattedTotal = invoice.TongTien.ToString("N0", CultureInfo.InvariantCulture) + " VND";
+
+                // Thêm một dòng mới vào DataGridView với các giá trị được định dạng
+                Load_Invoice.Rows.Add(
+                    invoice.MaHoaDon,
+                    invoice.TenNhanVienLap,
+                    invoice.HoTenKhachHang,
+                    invoice.ThoiGianLap, // Định dạng ngày thành dd/MM/yyyy
+                    formattedTotal
+                );
             }
         }
 

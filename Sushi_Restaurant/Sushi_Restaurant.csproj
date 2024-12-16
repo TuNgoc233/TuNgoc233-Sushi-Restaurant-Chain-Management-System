@@ -57,49 +57,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BranchMain.cs" />
-    <Compile Include="Chi_Nhanh\viewFood.cs">
+    <Compile Include="Chi_Nhanh\Load_Data\viewFood.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewFood.Designer.cs">
+    <Compile Include="Chi_Nhanh\Load_Data\viewFood.Designer.cs">
       <DependentUpon>viewFood.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\updateStaff.cs">
+    <Compile Include="Chi_Nhanh\Insert_update_delete\updateStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\updateStaff.Designer.cs">
+    <Compile Include="Chi_Nhanh\Insert_update_delete\updateStaff.Designer.cs">
       <DependentUpon>updateStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\Brand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\addOrderForm.cs">
+    <Compile Include="Chi_Nhanh\Insert_update_delete\addOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\addOrderForm.Designer.cs">
+    <Compile Include="Chi_Nhanh\Insert_update_delete\addOrderForm.Designer.cs">
       <DependentUpon>addOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\addStaff.cs">
+    <Compile Include="Chi_Nhanh\Insert_update_delete\addStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\addStaff.Designer.cs">
+    <Compile Include="Chi_Nhanh\Insert_update_delete\addStaff.Designer.cs">
       <DependentUpon>addStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\Login.cs">
+    <Compile Include="Chi_Nhanh\Sign_in_out\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\Login.Designer.cs">
+    <Compile Include="Chi_Nhanh\Sign_in_out\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewID_Card.cs">
+    <Compile Include="Chi_Nhanh\Load_Data\viewID_Card.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewID_Card.Designer.cs">
+    <Compile Include="Chi_Nhanh\Load_Data\viewID_Card.Designer.cs">
       <DependentUpon>viewID_Card.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewOrderForm.cs">
+    <Compile Include="Chi_Nhanh\Load_Data\viewOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewOrderForm.Designer.cs">
+    <Compile Include="Chi_Nhanh\Load_Data\viewOrderForm.Designer.cs">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\viewSaleOff.cs">
@@ -108,10 +108,10 @@
     <Compile Include="Chi_Nhanh\viewSaleOff.Designer.cs">
       <DependentUpon>viewSaleOff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewStaff.cs">
+    <Compile Include="Chi_Nhanh\Load_Data\viewStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewStaff.Designer.cs">
+    <Compile Include="Chi_Nhanh\Load_Data\viewStaff.Designer.cs">
       <DependentUpon>viewStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\Brand.Designer.cs">
@@ -140,31 +140,31 @@
       <DependentUpon>SampleView.cs</DependentUpon>
     </Compile>
     <Compile Include="TienIch.cs" />
-    <EmbeddedResource Include="Chi_Nhanh\addOrderForm.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\updateStaff.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\updateStaff.resx">
       <DependentUpon>updateStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\addStaff.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addStaff.resx">
       <DependentUpon>addStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\Login.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Sign_in_out\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewFood.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Load_Data\viewFood.resx">
       <DependentUpon>viewFood.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewID_Card.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Load_Data\viewID_Card.resx">
       <DependentUpon>viewID_Card.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewOrderForm.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Load_Data\viewOrderForm.resx">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\viewSaleOff.resx">
       <DependentUpon>viewSaleOff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewStaff.resx">
+    <EmbeddedResource Include="Chi_Nhanh\Load_Data\viewStaff.resx">
       <DependentUpon>viewStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Brand.resx">
