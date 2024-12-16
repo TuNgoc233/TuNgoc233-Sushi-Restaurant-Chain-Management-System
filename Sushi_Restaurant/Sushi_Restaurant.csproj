@@ -57,11 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BranchMain.cs" />
-    <Compile Include="Chi_Nhanh\BranchRevenue.cs" />
-    <Compile Include="Chi_Nhanh\BranchRevenue.Designer.cs">
-      <DependentUpon>BranchRevenue.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chi_Nhanh\updateStaff.cs" />
     <Compile Include="Chi_Nhanh\Load_Data\viewFood.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,12 +142,6 @@
     <Compile Include="TienIch.cs" />
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\BranchRevenue.resx">
-      <DependentUpon>BranchRevenue.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\updateStaff.resx">
-      <DependentUpon>updateStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\updateStaff.resx">
       <DependentUpon>updateStaff.cs</DependentUpon>
