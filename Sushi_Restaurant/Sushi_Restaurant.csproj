@@ -57,11 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BranchMain.cs" />
-    <Compile Include="Chi_Nhanh\Form1.cs">
+    <Compile Include="Chi_Nhanh\viewFood.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Chi_Nhanh\viewFood.Designer.cs">
+      <DependentUpon>viewFood.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\updateStaff.cs">
       <SubType>Form</SubType>
@@ -102,6 +102,12 @@
     <Compile Include="Chi_Nhanh\viewOrderForm.Designer.cs">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chi_Nhanh\viewSaleOff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\viewSaleOff.Designer.cs">
+      <DependentUpon>viewSaleOff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chi_Nhanh\viewStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,9 +143,6 @@
     <EmbeddedResource Include="Chi_Nhanh\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\updateStaff.resx">
       <DependentUpon>updateStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,11 +152,17 @@
     <EmbeddedResource Include="Chi_Nhanh\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\viewFood.resx">
+      <DependentUpon>viewFood.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\viewID_Card.resx">
       <DependentUpon>viewID_Card.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\viewOrderForm.resx">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\viewSaleOff.resx">
+      <DependentUpon>viewSaleOff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\viewStaff.resx">
       <DependentUpon>viewStaff.cs</DependentUpon>

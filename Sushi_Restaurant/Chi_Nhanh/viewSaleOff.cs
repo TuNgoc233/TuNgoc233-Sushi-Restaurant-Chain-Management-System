@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.Chi_Nhanh
 {
-    public partial class Form1 : SampleView
+    public partial class viewSaleOff : SampleView
     {
-        public Form1()
+        public viewSaleOff()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnThem_Click_1(object sender, EventArgs e)
+        private void viewSaleOff_Load(object sender, EventArgs e)
         {
 
         }

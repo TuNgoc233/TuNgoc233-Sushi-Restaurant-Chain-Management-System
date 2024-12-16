@@ -47,7 +47,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        public void label2_Click(object sender, EventArgs e)
         {
 
         }
