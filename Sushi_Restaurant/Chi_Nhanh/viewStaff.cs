@@ -29,12 +29,12 @@ namespace Sushi_Restaurant.Chi_Nhanh
             List<Employee> employees = Employee.SearchEmployees(searchTerm, branchID);
 
             // Xóa các dòng hiện có trong DataGridView
-            GridViewStaff.Rows.Clear();
+            Dataview.Rows.Clear();
 
             // Hiển thị kết quả tìm kiếm
             foreach (var emp in employees)
             {
-                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
+                Dataview.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
             }
         }
 
@@ -56,7 +56,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
 
             // Lấy danh sách nhân viên từ stored procedure
-            List<Employee> employees = Employee.LoadNhanVienFromProcedure(branchID);
+            List<Employee> employees = Employee.LoadEmployeeFromProcedure(branchID);
 
             // Kiểm tra danh sách nhân viên có dữ liệu không
             if (employees == null || employees.Count == 0)
@@ -66,20 +66,23 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
 
             // Thiết lập DataGridView
-            GridViewStaff.Rows.Clear(); // Xóa các dòng cũ nếu có
+            Dataview.Rows.Clear(); // Xóa các dòng cũ nếu có
 
             // Lặp qua danh sách nhân viên và thêm vào DataGridView
             foreach (var emp in employees)
             {
                 // Thêm một dòng mới vào DataGridView
-                GridViewStaff.Rows.Add(emp.MaNhanVien, emp.HoTen,emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT,emp.NgayVaoLam, emp.TenBoPhan,emp.MucLuong, emp.DiemPhucVu);
+                Dataview.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
             }
         }
+    
         
         //List
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            this.Hide();
+            addStaff addStaff = new addStaff();
+            addStaff.Show();
         }
 
         //Text
@@ -90,7 +93,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void Btn_Back(object sender, EventArgs e)
         {
-            this.Close(); // Đóng form viewStaff
+            this.Close(); // Đóng form viewIDCard
             if (Owner != null) // Kiểm tra nếu Owner tồn tại
             {
                 Owner.Show(); // Hiển thị lại form Brand
@@ -121,13 +124,17 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void Btn_Invoice(object sender, EventArgs e)
         {
-
+            viewOrderForm Page = new viewOrderForm();
+            this.Hide(); // Chỉ ẩn form Brand
+            Page.Show();
         }
 
         //Btn_CardID
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-
+            viewID_Card Page = new viewID_Card();
+            this.Hide(); // Chỉ ẩn form Brand
+            Page.Show();
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
@@ -162,6 +169,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void Dataview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

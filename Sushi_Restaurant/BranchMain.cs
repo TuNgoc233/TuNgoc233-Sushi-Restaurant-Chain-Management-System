@@ -11,7 +11,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=Database_Sushi; Trusted_Connection=True; Connection Timeout=300;";
+        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=300;";
         public static SqlConnection con = new SqlConnection(con_string);
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
@@ -124,7 +124,7 @@ namespace Sushi_Restaurant
         public int DiemPhucVu { get; set; } // Điểm phục vụ
 
         // Phương thức để lấy danh sách nhân viên từ stored procedure
-        public static List<Employee> LoadNhanVienFromProcedure(string branchID)
+        public static List<Employee> LoadEmployeeFromProcedure(string branchID)
         {
             List<Employee> employees = new List<Employee>();
             string query = "LayNhanVienCuaChiNhanhTheoLichSu"; // Tên stored procedure
@@ -202,7 +202,203 @@ namespace Sushi_Restaurant
             return employees;
         }
 
-
     }
 
+    public class Invoice
+    {
+        public string MaHoaDon { get; set; }
+        public string TenNhanVienLap { get; set; }
+        public string MaKhachHang { get; set; }
+        public string HoTenKhachHang { get; set; }
+        public DateTime ThoiGianLap { get; set; }
+        public decimal TongTien { get; set; } // Giả sử tổng tiền là kiểu decimal
+
+        public static List<Invoice> LoadInvoicesFromProcedure(string branchID)
+        {
+            List<Invoice> invoices = new List<Invoice>();
+            string query = "sp_LayThongTinHoaDon"; // Tên stored procedure
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Invoice invoice = new Invoice
+                        {
+                            MaHoaDon = reader["MaHoaDon"].ToString(),
+                            TenNhanVienLap = reader["TenNhanVienLap"].ToString(),
+                            MaKhachHang = reader["MaKhachHang"].ToString(),
+                            HoTenKhachHang = reader["HoTen"].ToString(),
+                            ThoiGianLap = Convert.ToDateTime(reader["NgayLapHoaDon"]), // Định dạng ngày
+                            TongTien = Convert.ToDecimal(reader["TongTien"]) // Giả sử tổng tiền là kiểu decimal
+                        };
+                        invoices.Add(invoice);
+                    }
+                }
+            }
+            return invoices;
+
+        }
+
+        public static List<Invoice> SearchInvoicesItem(string searchTerm, string branchID)
+        {
+            List<Invoice> invoices = new List<Invoice>();
+            string query = "sp_LayThongTinHoaDon"; // Tên stored procedure
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        // Kiểm tra xem tên khách hàng có chứa searchTerm không
+                        if (reader["HoTen"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            Invoice invoice = new Invoice
+                            {
+                                MaHoaDon = reader["MaHoaDon"].ToString(),
+                                TenNhanVienLap = reader["TenNhanVienLap"].ToString(),
+                                MaKhachHang = reader["MaKhachHang"].ToString(),
+                                HoTenKhachHang = reader["HoTen"].ToString(),
+                                ThoiGianLap = Convert.ToDateTime(reader["NgayLapHoaDon"]), // Định dạng ngày
+                                TongTien = Convert.ToDecimal(reader["TongTien"]) // Giả sử tổng tiền là kiểu decimal
+                            };
+                            invoices.Add(invoice);
+                        }
+                    }
+                }
+            }
+            return invoices;
+        }
+
+        public static List<Invoice> SearchInvoicesDate(DateTime searchDate, string branchID)
+        {
+            List<Invoice> invoices = new List<Invoice>();
+            string query = "EXEC sp_LayThongTinHoaDon @ChiNhanh, @NgayLapHoaDon";
+
+            using (SqlConnection connection = new SqlConnection(Branch.con_string))
+            {
+ 
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ChiNhanh", branchID);
+                    command.Parameters.AddWithValue("@NgayLapHoaDon", searchDate);
+               
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            Invoice invoice = new Invoice
+                            {
+                                MaHoaDon = reader["MaHoaDon"].ToString(),
+                                TenNhanVienLap = reader["TenNhanVienLap"].ToString(),
+                                MaKhachHang = reader["MaKhachHang"].ToString(),
+                                HoTenKhachHang = reader["HoTen"].ToString(),
+                                ThoiGianLap = Convert.ToDateTime(reader["NgayLapHoaDon"]), // Định dạng ngày
+                                TongTien = Convert.ToDecimal(reader["TongTien"]) // Giả sử tổng tiền là kiểu decimal
+                            };
+                            invoices.Add(invoice);
+                        }
+                    }
+                }
+            }
+
+            return invoices;
+        }
+    }
+    public class CustomerCard
+    {
+        public string MaSoThe { get; set; } // Mã số thẻ
+        public string LoaiThe { get; set; } // Loại thẻ
+        public int TongDiemTichLuy { get; set; } // Tổng điểm tích lũy
+        public DateTime NgayLap { get; set; } // Ngày lập thẻ
+        public string HoTenKhachHang { get; set; } // Họ tên khách hàng
+        public string HoTenNhanVien { get; set; } // Họ tên nhân viên lập thẻ
+
+        public static List<CustomerCard> LoadCustomerCardsFromProcedure(string branchID)
+        {
+            List<CustomerCard> customerCards = new List<CustomerCard>();
+            string query = "sp_LayThongTinTheThanhVien"; // Tên stored procedure
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        CustomerCard customerCard = new CustomerCard
+                        {
+                            MaSoThe = reader["MaSoThe"].ToString(),
+                            LoaiThe = reader["LoaiThe"].ToString(),
+                            TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]), // Tổng điểm tích lũy  
+                            NgayLap = Convert.ToDateTime(reader["NgayLap"]), // Ngày lập thẻ                         
+                            HoTenKhachHang = reader["HoTenKhachHang"].ToString(),
+                            HoTenNhanVien = reader["TenNhanVienLap"].ToString() // Họ tên nhân viên lập thẻ
+                        };
+                        customerCards.Add(customerCard);
+                    }
+                }
+            }
+            return customerCards;
+        }
+
+        public static List<CustomerCard> SearchCustomerCards(string searchTerm, string branchID)
+        {
+            List<CustomerCard> customerCards = new List<CustomerCard>();
+            string query = "sp_LayThongTinTheThanhVien"; // Tên stored procedure cho tìm kiếm
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ChiNhanh", branchID);
+                   
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        // Kiểm tra xem mã số thẻ hoặc họ tên khách hàng có chứa searchTerm không
+                        if (reader["MaSoThe"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            reader["HoTenKhachHang"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            CustomerCard customerCard = new CustomerCard
+                            {
+                                MaSoThe = reader["MaSoThe"].ToString(),
+                                LoaiThe = reader["LoaiThe"].ToString(),
+                                TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]), // Tổng điểm tích lũy  
+                                NgayLap = Convert.ToDateTime(reader["NgayLap"]), // Ngày lập thẻ                         
+                                HoTenKhachHang = reader["HoTenKhachHang"].ToString(),
+                                HoTenNhanVien = reader["TenNhanVienLap"].ToString() // Họ tên nhân viên lập thẻ
+                            };
+                            customerCards.Add(customerCard);
+                        }
+                    }
+                }
+            }
+            return customerCards;
+        }
+    }
 }
+

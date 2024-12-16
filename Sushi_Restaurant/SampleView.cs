@@ -36,5 +36,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
 
         }
+
+        private void SampleView_Load_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

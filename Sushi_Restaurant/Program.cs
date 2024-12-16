@@ -20,9 +20,9 @@ namespace Sushi_Restaurant
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new addStaff());
             //Application.Run(new Brand());
-            //Application.Run(new Login());
-            Application.Run(new viewEnvoice());
-            //Application.Run(new viewStaff());
+            Application.Run(new Login());
+            //Application.Run(new viewEnvoice());
+            //Application.Run(new viewIDCard());
         }
     }
 }

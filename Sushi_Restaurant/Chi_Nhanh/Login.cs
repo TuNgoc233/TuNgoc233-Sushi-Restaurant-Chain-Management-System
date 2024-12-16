@@ -30,7 +30,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void BtnLoginBranch(object sender, EventArgs e)
         {
             //this.Hide();
-            //Brand branch = new Brand(); // Khởi tạo UserControl viewStaff
+            //Brand branch = new Brand(); // Khởi tạo UserControl viewIDCard
             //branch.Show();
             string username = TextUser.Text;
             string password = TextPassword.Text;
@@ -130,9 +130,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
         //        TextPassword.PasswordChar = '•'; // Ký tự để thay thế mật khẩu (ví dụ: '•', '*', ...)
         //    }
         //}
-
-
-
 
     }
 }

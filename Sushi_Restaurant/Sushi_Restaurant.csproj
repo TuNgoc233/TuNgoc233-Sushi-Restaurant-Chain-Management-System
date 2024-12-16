@@ -57,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BranchMain.cs" />
+    <Compile Include="Chi_Nhanh\updateStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\updateStaff.Designer.cs">
+      <DependentUpon>updateStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chi_Nhanh\Brand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,11 +84,11 @@
     <Compile Include="Chi_Nhanh\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewEnvoice.cs">
+    <Compile Include="Chi_Nhanh\viewID_Card.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewEnvoice.Designer.cs">
-      <DependentUpon>viewEnvoice.cs</DependentUpon>
+    <Compile Include="Chi_Nhanh\viewID_Card.Designer.cs">
+      <DependentUpon>viewID_Card.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\viewOrderForm.cs">
       <SubType>Form</SubType>
@@ -125,14 +131,17 @@
     <EmbeddedResource Include="Chi_Nhanh\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\updateStaff.resx">
+      <DependentUpon>updateStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\addStaff.resx">
       <DependentUpon>addStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewEnvoice.resx">
-      <DependentUpon>viewEnvoice.cs</DependentUpon>
+    <EmbeddedResource Include="Chi_Nhanh\viewID_Card.resx">
+      <DependentUpon>viewID_Card.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\viewOrderForm.resx">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
