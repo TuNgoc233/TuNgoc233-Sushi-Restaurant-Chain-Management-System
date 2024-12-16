@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using System.Drawing.Drawing2D;
 
 namespace Sushi_Restaurant
 {
@@ -11,7 +12,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=300;";
+        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=60;";
         public static SqlConnection con = new SqlConnection(con_string);
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
@@ -108,6 +109,72 @@ namespace Sushi_Restaurant
 
             return dataTable;
         }
+
+        // Lấy tổng số nhân viên của chi nhánh
+        public static int GetTotalEmployees(string branchId)
+        {
+            return ExecuteScalarCount("SELECT COUNT(MaNhanVien) FROM LICH_SU_LAM_VIEC WHERE MaChiNhanh = @BranchID", branchId);
+        }
+
+        // Lấy tổng số khách hàng của chi nhánh
+        public static int GetTotalCustomers(string branchId)
+        {
+            return ExecuteScalarCount("SELECT COUNT(HOA_DON.MaKhachHang) " +
+                                      "FROM KHACH_HANG JOIN HOA_DON ON KHACH_HANG.MaKhachHang = HOA_DON.MaKhachHang "  +
+                                                      "JOIN CHI_NHANH ON CHI_NHANH.MaChiNhanh = HOA_DON.MaChiNhanh " +
+                                      "WHERE CHI_NHANH.MaChiNhanh = @BranchID", branchId);
+        }
+
+        // Lấy tổng số hóa đơn của chi nhánh
+        public static int GetTotalInvoices(string branchId)
+        {
+            return ExecuteScalarCount("SELECT COUNT(*) FROM HOA_DON WHERE MaChiNhanh = @BranchID", branchId);
+        }
+
+        // Lấy tổng doanh thu của chi nhánh
+        public static decimal GetTotalRevenue(string branchId)
+        {
+            decimal total = 0;
+            string query = "SELECT SUM(CAST(TongTien AS DECIMAL)) FROM HOA_DON WHERE MaChiNhanh = @BranchID";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@BranchID", branchId);
+
+            try
+            {
+                con.Open();
+                var result = cmd.ExecuteScalar();
+                if (result != DBNull.Value)
+                {
+                    total = Convert.ToDecimal(result);
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return total;
+        }
+
+        // Hàm chung để thực thi COUNT
+        private static int ExecuteScalarCount(string query, string branchId)
+        {
+            int count = 0;
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@BranchID", branchId);
+
+            try
+            {
+                con.Open();
+                count = (int)cmd.ExecuteScalar();
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count;
+        }
+
     }
     // Phương thức để lấy danh sách nhân viên từ stored procedure
     public class Employee

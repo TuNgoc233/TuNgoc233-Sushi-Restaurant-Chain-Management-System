@@ -19,6 +19,7 @@ namespace Sushi_Restaurant
         {
             InitializeComponent();
             _branchId = branchId; // Lưu giá trị ID vào biến toàn cục
+            this.Load += Brand_Load; // Gán sự kiện Load
         }
 
         //Control exit
@@ -107,6 +108,41 @@ namespace Sushi_Restaurant
             Page.Show();
         }
 
- 
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
+        private void Brand_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // Gọi các hàm từ lớp Branch và hiển thị lên giao diện
+                lblTotalEmployees.Text = $"Số nhân viên: {Branch.GetTotalEmployees(_branchId)}";
+                lblTotalCustomers.Text = $"Số khách hàng: {Branch.GetTotalCustomers(_branchId)}";
+                lblTotalInvoices.Text = $"Số hóa đơn: {Branch.GetTotalInvoices(_branchId)}";
+                lblTotalRevenue.Text = $"Doanh thu: {Branch.GetTotalRevenue(_branchId):C}"; // Hiển thị theo định dạng tiền tệ
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void guna2GradientButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
