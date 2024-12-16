@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Sushi_Restaurant
@@ -143,6 +144,12 @@ namespace Sushi_Restaurant
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void btn_Food_Click(object sender, EventArgs e)
+        {
+            viewFood Page = new viewFood();
+            this.Hide(); // Chỉ ẩn form Brand
+            Page.Show();
         }
     }
 }

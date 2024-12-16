@@ -38,7 +38,6 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.Dataview = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,20 +65,20 @@
             this.btnThem.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.btnThem.Image = global::Sushi_Restaurant.Properties.Resources.icon_person;
             this.btnThem.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
-            this.btnThem.Location = new System.Drawing.Point(12, 86);
+            this.btnThem.Location = new System.Drawing.Point(61, 38);
             this.btnThem.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(92, 96);
-            this.label2.Size = new System.Drawing.Size(238, 32);
-            this.label2.Text = "Danh sách nhân viên";
+            this.label2.Location = new System.Drawing.Point(25, 115);
+            this.label2.Size = new System.Drawing.Size(124, 32);
+            this.label2.Text = "Nhân viên";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // guna2Separator1
             // 
-            this.guna2Separator1.Location = new System.Drawing.Point(29, 160);
+            this.guna2Separator1.Location = new System.Drawing.Point(232, 134);
             this.guna2Separator1.Click += new System.EventHandler(this.guna2Separator1_Click);
             // 
             // guna2CustomGradientPanel1
@@ -95,9 +94,9 @@
             this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(182, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1463, 60);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1281, 60);
             this.guna2CustomGradientPanel1.TabIndex = 6;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
@@ -107,7 +106,7 @@
             this.ControlMax.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.ControlMax.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.ControlMax.IconColor = System.Drawing.Color.White;
-            this.ControlMax.Location = new System.Drawing.Point(1304, 12);
+            this.ControlMax.Location = new System.Drawing.Point(1122, 12);
             this.ControlMax.Name = "ControlMax";
             this.ControlMax.Size = new System.Drawing.Size(45, 29);
             this.ControlMax.TabIndex = 3;
@@ -118,7 +117,7 @@
             this.ControlMini.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.ControlMini.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.ControlMini.IconColor = System.Drawing.Color.White;
-            this.ControlMini.Location = new System.Drawing.Point(1355, 12);
+            this.ControlMini.Location = new System.Drawing.Point(1173, 12);
             this.ControlMini.Name = "ControlMini";
             this.ControlMini.Size = new System.Drawing.Size(45, 29);
             this.ControlMini.TabIndex = 3;
@@ -128,7 +127,7 @@
             this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Exit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.Exit.IconColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(1406, 12);
+            this.Exit.Location = new System.Drawing.Point(1224, 12);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(45, 29);
             this.Exit.TabIndex = 3;
@@ -183,18 +182,6 @@
             this.guna2Button1.Text = "Nhân viên";
             this.guna2Button1.Click += new System.EventHandler(this.Btn_Staff);
             // 
-            // guna2CustomGradientPanel2
-            // 
-            this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2CustomGradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 587);
-            this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1463, 61);
-            this.guna2CustomGradientPanel2.TabIndex = 8;
-            // 
             // Dataview
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -229,12 +216,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Dataview.DefaultCellStyle = dataGridViewCellStyle3;
             this.Dataview.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Dataview.Location = new System.Drawing.Point(12, 195);
+            this.Dataview.Location = new System.Drawing.Point(199, 163);
             this.Dataview.Name = "Dataview";
             this.Dataview.RowHeadersVisible = false;
             this.Dataview.RowHeadersWidth = 51;
             this.Dataview.RowTemplate.Height = 24;
-            this.Dataview.Size = new System.Drawing.Size(1451, 370);
+            this.Dataview.Size = new System.Drawing.Size(1252, 412);
             this.Dataview.TabIndex = 9;
             this.Dataview.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Dataview.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -324,13 +311,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1463, 648);
             this.Controls.Add(this.Dataview);
-            this.Controls.Add(this.guna2CustomGradientPanel2);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Name = "viewStaff";
             this.Text = "viewIDCard";
             this.Load += new System.EventHandler(this.viewStaff_Load);
             this.Controls.SetChildIndex(this.guna2CustomGradientPanel1, 0);
-            this.Controls.SetChildIndex(this.guna2CustomGradientPanel2, 0);
             this.Controls.SetChildIndex(this.guna2Separator1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
@@ -351,7 +336,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox ControlMax;
         private Guna.UI2.WinForms.Guna2ControlBox ControlMini;
         private Guna.UI2.WinForms.Guna2ControlBox Exit;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private Guna.UI2.WinForms.Guna2DataGridView Dataview;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv1;

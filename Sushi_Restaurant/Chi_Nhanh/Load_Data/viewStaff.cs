@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
+using System.Globalization;
 
 namespace Sushi_Restaurant.Chi_Nhanh
 {
@@ -34,8 +35,24 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // Hiển thị kết quả tìm kiếm
             foreach (var emp in employees)
             {
-                Dataview.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
+                // Kiểm tra nếu MucLuong không null
+                string formattedPrice = emp.MucLuong.ToString("N0", CultureInfo.InvariantCulture) + " VND";
+
+                // Thêm dữ liệu vào DataGridView
+                Dataview.Rows.Add(
+                    emp.MaNhanVien,
+                    emp.HoTen,
+                    emp.NgaySinh, // Định dạng ngày sinh (nếu cần)
+                    emp.GioiTinh,
+                    emp.DiaChi,
+                    emp.SDT,
+                    emp.NgayVaoLam, // Định dạng ngày vào làm
+                    emp.TenBoPhan,
+                    formattedPrice,
+                    emp.DiemPhucVu
+                );
             }
+
         }
 
         public override void btnThem_Click(object sender, EventArgs e)
@@ -71,8 +88,22 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // Lặp qua danh sách nhân viên và thêm vào DataGridView
             foreach (var emp in employees)
             {
-                // Thêm một dòng mới vào DataGridView
-                Dataview.Rows.Add(emp.MaNhanVien, emp.HoTen, emp.NgaySinh, emp.GioiTinh, emp.DiaChi, emp.SDT, emp.NgayVaoLam, emp.TenBoPhan, emp.MucLuong, emp.DiemPhucVu);
+                // Kiểm tra nếu MucLuong không null
+                string formattedPrice = emp.MucLuong.ToString("N0", CultureInfo.InvariantCulture) + " VND";
+
+                // Thêm dữ liệu vào DataGridView
+                Dataview.Rows.Add(
+                    emp.MaNhanVien,
+                    emp.HoTen,
+                    emp.NgaySinh, // Định dạng ngày sinh (nếu cần)
+                    emp.GioiTinh,
+                    emp.DiaChi,
+                    emp.SDT,
+                    emp.NgayVaoLam, // Định dạng ngày vào làm
+                    emp.TenBoPhan,
+                    formattedPrice,
+                    emp.DiemPhucVu
+                );
             }
         }
     

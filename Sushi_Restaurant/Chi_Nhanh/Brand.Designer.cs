@@ -51,6 +51,7 @@
             this.MinimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.gunaExit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btn_Food = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -67,6 +68,9 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.btn_Food);
+            this.guna2Panel1.Controls.Add(this.Btn_Bill);
+            this.guna2Panel1.Controls.Add(this.Btn_Customer);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox3);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
@@ -349,6 +353,25 @@
             this.gunaExit.TabIndex = 0;
             this.gunaExit.Click += new System.EventHandler(this.exit);
             // 
+            // btn_Food
+            // 
+            this.btn_Food.AutoRoundedCorners = true;
+            this.btn_Food.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btn_Food.BorderRadius = 21;
+            this.btn_Food.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Food.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Food.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Food.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Food.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Food.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.btn_Food.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btn_Food.Location = new System.Drawing.Point(12, 474);
+            this.btn_Food.Name = "btn_Food";
+            this.btn_Food.Size = new System.Drawing.Size(180, 45);
+            this.btn_Food.TabIndex = 4;
+            this.btn_Food.Text = "Món ăn";
+            this.btn_Food.Click += new System.EventHandler(this.btn_Food_Click);
+            // 
             // Brand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -407,5 +430,6 @@
         private System.Windows.Forms.Label lblTotalInvoices;
         private System.Windows.Forms.Label lblTotalCustomers;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_Food;
     }
 }

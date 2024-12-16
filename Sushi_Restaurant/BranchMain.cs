@@ -43,38 +43,8 @@ namespace Sushi_Restaurant
             }
             return branchId;
         }
+    }
 
-        // Method to fetch region data
-        public static DataTable Lay_Khu_Vuc_ChiNhanh_SDT()
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Lay_Khu_Vuc_ChiNhanh_SDT", con)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            return dt;
-        }
-
-        public static DataTable TimKiemHoaDon(string ngayLap, string maKhachHang)
-        {
-            DataTable dataTable = new DataTable();
 
             using (SqlConnection con = new SqlConnection(con_string))
             {
@@ -467,5 +437,83 @@ namespace Sushi_Restaurant
             return customerCards;
         }
     }
+
+    public class FoodItem
+    {
+        public string MaMonAn { get; set; } // Mã món ăn
+        public string TenMonAn { get; set; } // Tên món ăn
+        public string MaMuc { get; set; } // Mã mục
+        public decimal GiaHienTai { get; set; } // Giá hiện tại
+        public int TinhTrangPhucVu { get; set; } // Tình trạng phục vụ
+
+        public static List<FoodItem> LoadFoodItemsFromProcedure(string branchID)
+        {
+            List<FoodItem> foodItems = new List<FoodItem>();
+            string query = "CheckMonAnForChiNhanhByMaChiNhanh"; // Tên stored procedure
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MaChiNhanh", branchID);
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        FoodItem foodItem = new FoodItem
+                        {
+                            MaMonAn = reader["MaMonAn"].ToString(),
+                            TenMonAn = reader["TenMonAn"].ToString(),
+                            MaMuc = reader["MaMuc"].ToString(), // Mã mục
+                            GiaHienTai = Convert.ToDecimal(reader["GiaHienTai"]), // Giá hiện tại
+                            TinhTrangPhucVu = Convert.ToInt32(reader["TinhTrangPhucVu"]) // Tình trạng phục vụ
+                        };
+                        foodItems.Add(foodItem);
+                    }
+                }
+            }
+            return foodItems;
+        }
+
+        public static List<FoodItem> SearchFoodItems(string searchTerm, string branchID)
+        {
+            List<FoodItem> foodItems = new List<FoodItem>();
+            string query = "CheckMonAnForChiNhanhByMaChiNhanh"; // Tên stored procedure cho tìm kiếm món ăn
+
+            using (SqlConnection con = new SqlConnection(Branch.con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MaChiNhanh", branchID);
+               
+
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        // Kiểm tra xem mã món ăn hoặc tên món ăn có chứa searchTerm không
+                        if (reader["MaMonAn"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            reader["TenMonAn"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            FoodItem foodItem = new FoodItem
+                            {
+                                MaMonAn = reader["MaMonAn"].ToString(),
+                                TenMonAn = reader["TenMonAn"].ToString(),
+                                MaMuc = reader["MaMuc"].ToString(), // Mã mục
+                                GiaHienTai = Convert.ToDecimal(reader["GiaHienTai"]), // Giá hiện tại
+                                TinhTrangPhucVu = Convert.ToInt32(reader["TinhTrangPhucVu"]) // Tình trạng phục vụ
+                            };
+                            foodItems.Add(foodItem);
+                        }
+                    }
+                }
+            }
+            return foodItems;
+        }
+    }
+
 }
 

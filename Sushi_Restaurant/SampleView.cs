@@ -41,5 +41,15 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
 
         }
+
+        public void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
