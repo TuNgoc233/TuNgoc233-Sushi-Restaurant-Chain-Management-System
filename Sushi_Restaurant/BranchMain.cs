@@ -78,7 +78,7 @@ namespace Sushi_Restaurant
             using (SqlConnection con = new SqlConnection(con_string))
             {
                 try
-                {
+                {   
                     // Mở kết nối
                     con.Open();
 

@@ -83,5 +83,10 @@ namespace Sushi_Restaurant
         {
 
         }
+
+        private void Brand_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

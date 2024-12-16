@@ -532,6 +532,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Brand";
             this.Text = "Brand";
+            this.Load += new System.EventHandler(this.Brand_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
