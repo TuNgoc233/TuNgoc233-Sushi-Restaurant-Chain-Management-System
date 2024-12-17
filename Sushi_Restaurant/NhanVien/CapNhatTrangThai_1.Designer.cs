@@ -1,9 +1,8 @@
-﻿using Guna.UI2.WinForms;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Sushi_Restaurant.NhanVien
 {
-    partial class CapNhatTrangThai
+    partial class CapNhatTrangThai_1
     {
         /// <summary>
         /// Required designer variable.
@@ -32,14 +31,13 @@ namespace Sushi_Restaurant.NhanVien
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CapNhatTrangThai));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnchuaxacnhan = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btndaxacnhan = new Guna.UI2.WinForms.Guna2TileButton();
+            this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
+            this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +45,9 @@ namespace Sushi_Restaurant.NhanVien
             this.dgvmkh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDate = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2TileButton3 = new Guna.UI2.WinForms.Guna2TileButton();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,52 +57,49 @@ namespace Sushi_Restaurant.NhanVien
             this.btnThem.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnThem.Enabled = false;
             this.btnThem.HoverState.ImageSize = new System.Drawing.Size(57, 57);
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.Image = null;
             this.btnThem.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
             this.btnThem.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.btnThem.Visible = false;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(286, 32);
-            this.label2.Text = "Danh Sách Phiếu Đặt Bàn";
+            this.label2.Size = new System.Drawing.Size(405, 32);
+            this.label2.Text = "Danh Sách Phiếu Giao Hàng Tận Nơi";
             // 
-            // btnchuaxacnhan
+            // guna2TileButton1
             // 
-            this.btnchuaxacnhan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnchuaxacnhan.BorderRadius = 10;
-            this.btnchuaxacnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnchuaxacnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnchuaxacnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnchuaxacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnchuaxacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnchuaxacnhan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnchuaxacnhan.ForeColor = System.Drawing.Color.White;
-            this.btnchuaxacnhan.Location = new System.Drawing.Point(36, 84);
-            this.btnchuaxacnhan.Name = "btnchuaxacnhan";
-            this.btnchuaxacnhan.Size = new System.Drawing.Size(131, 55);
-            this.btnchuaxacnhan.TabIndex = 5;
-            this.btnchuaxacnhan.Text = "Chưa Xác Nhận";
-            this.btnchuaxacnhan.Click += new System.EventHandler(this.btnchuaxacnhan_Click);
+            this.guna2TileButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2TileButton1.BorderRadius = 10;
+            this.guna2TileButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2TileButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2TileButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2TileButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TileButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2TileButton1.Location = new System.Drawing.Point(36, 84);
+            this.guna2TileButton1.Name = "guna2TileButton1";
+            this.guna2TileButton1.Size = new System.Drawing.Size(131, 55);
+            this.guna2TileButton1.TabIndex = 5;
+            this.guna2TileButton1.Text = "Chưa Xác Nhận";
             // 
-            // btndaxacnhan
+            // guna2TileButton2
             // 
-            this.btndaxacnhan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btndaxacnhan.BorderRadius = 10;
-            this.btndaxacnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btndaxacnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btndaxacnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btndaxacnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btndaxacnhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btndaxacnhan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btndaxacnhan.ForeColor = System.Drawing.Color.White;
-            this.btndaxacnhan.Location = new System.Drawing.Point(195, 84);
-            this.btndaxacnhan.Name = "btndaxacnhan";
-            this.btndaxacnhan.Size = new System.Drawing.Size(131, 55);
-            this.btndaxacnhan.TabIndex = 6;
-            this.btndaxacnhan.Text = "Đã Xác Nhận";
-            this.btndaxacnhan.Click += new System.EventHandler(this.btndaxacnhan_Click);
+            this.guna2TileButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2TileButton2.BorderRadius = 10;
+            this.guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2TileButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2TileButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2TileButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TileButton2.ForeColor = System.Drawing.Color.White;
+            this.guna2TileButton2.Location = new System.Drawing.Point(195, 84);
+            this.guna2TileButton2.Name = "guna2TileButton2";
+            this.guna2TileButton2.Size = new System.Drawing.Size(131, 55);
+            this.guna2TileButton2.TabIndex = 6;
+            this.guna2TileButton2.Text = "Đang Giao";
             // 
             // guna2DataGridView1
             // 
@@ -226,6 +223,17 @@ namespace Sushi_Restaurant.NhanVien
             this.dgvDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 50F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Sushi_Restaurant.Properties.Resources.del;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 50;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 50;
+            // 
             // dgvDel
             // 
             this.dgvDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -238,22 +246,41 @@ namespace Sushi_Restaurant.NhanVien
             this.dgvDel.ReadOnly = true;
             this.dgvDel.Width = 50;
             // 
-            // CapNhatTrangThai
+            // guna2TileButton3
+            // 
+            this.guna2TileButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2TileButton3.BorderRadius = 10;
+            this.guna2TileButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2TileButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2TileButton3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2TileButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TileButton3.ForeColor = System.Drawing.Color.White;
+            this.guna2TileButton3.Location = new System.Drawing.Point(357, 84);
+            this.guna2TileButton3.Name = "guna2TileButton3";
+            this.guna2TileButton3.Size = new System.Drawing.Size(131, 55);
+            this.guna2TileButton3.TabIndex = 8;
+            this.guna2TileButton3.Text = "Đã Giao";
+            // 
+            // CapNhatTrangThai_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1444, 647);
+            this.Controls.Add(this.guna2TileButton3);
             this.Controls.Add(this.guna2DataGridView1);
-            this.Controls.Add(this.btndaxacnhan);
-            this.Controls.Add(this.btnchuaxacnhan);
-            this.Name = "CapNhatTrangThai";
+            this.Controls.Add(this.guna2TileButton2);
+            this.Controls.Add(this.guna2TileButton1);
+            this.Name = "CapNhatTrangThai_1";
             this.Text = "CapNhatTrangThai";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnThem, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.btnchuaxacnhan, 0);
-            this.Controls.SetChildIndex(this.btndaxacnhan, 0);
+            this.Controls.SetChildIndex(this.guna2TileButton1, 0);
+            this.Controls.SetChildIndex(this.guna2TileButton2, 0);
             this.Controls.SetChildIndex(this.guna2DataGridView1, 0);
+            this.Controls.SetChildIndex(this.guna2TileButton3, 0);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -263,8 +290,8 @@ namespace Sushi_Restaurant.NhanVien
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2TileButton btnchuaxacnhan;
-        private Guna.UI2.WinForms.Guna2TileButton btndaxacnhan;
+        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
+        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton2;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private DataGridViewTextBoxColumn dgvSno;
         private DataGridViewTextBoxColumn dgvId;
@@ -273,5 +300,7 @@ namespace Sushi_Restaurant.NhanVien
         private DataGridViewTextBoxColumn dgvnd;
         private DataGridViewComboBoxColumn dgvDate;
         private DataGridViewImageColumn dgvDel;
+        private DataGridViewImageColumn dataGridViewImageColumn1;
+        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton3;
     }
 }

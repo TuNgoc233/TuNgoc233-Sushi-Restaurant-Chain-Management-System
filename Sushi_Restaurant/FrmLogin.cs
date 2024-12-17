@@ -63,7 +63,7 @@ namespace Sushi_Restaurant
             else if (dt.Rows.Count > 0)
             {
                 // Đăng nhập thành công
-                MessageBox.Show("Đăng nhập thành công!");
+                //MessageBox.Show("Đăng nhập thành công!");
 
                 // Lưu mã nhân viên và mã chi nhánh vào lớp user
                 MainClass.user.MaNhanVien = maNhanVien;

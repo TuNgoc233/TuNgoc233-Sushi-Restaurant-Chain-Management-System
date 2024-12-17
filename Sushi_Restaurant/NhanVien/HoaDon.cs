@@ -1,4 +1,4 @@
-﻿using Sushi_Restaurant.Reports;
+﻿//using Sushi_Restaurant.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,10 +97,10 @@ namespace Sushi_Restaurant.NhanVien
 
 
                 frmPrint frm = new frmPrint();
-                rptHoadon rpt = new rptHoadon();
-                rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
-                frm.crystalReportViewer1.ReportSource = rpt;
-                frm.crystalReportViewer1.Refresh();
+                //rptHoadon rpt = new rptHoadon();
+                //rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
+                //frm.crystalReportViewer1.ReportSource = rpt;
+                //frm.crystalReportViewer1.Refresh();
                 frm.Show();
 
 

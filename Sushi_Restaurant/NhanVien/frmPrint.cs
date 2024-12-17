@@ -14,7 +14,7 @@ namespace Sushi_Restaurant.NhanVien
     {
         public frmPrint()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
         private void frmPrint_Load(object sender, EventArgs e)

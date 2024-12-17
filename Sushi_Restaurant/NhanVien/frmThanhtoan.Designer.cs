@@ -204,7 +204,7 @@
             this.btnLuu.Size = new System.Drawing.Size(125, 45);
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "LƯU";
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            //this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // frmThanhtoan
             // 

@@ -46,6 +46,43 @@ namespace Sushi_Restaurant.NhanVien
         }
 
 
+        // Thuộc tính kiểm tra tình trạng phục vụ
+        public bool isAvailable = true;
+        public bool IsAvailable
+        {
+            get { return isAvailable; }
+            set
+            {
+                isAvailable = value;
+                UpdateAvailability(); // Cập nhật giao diện dựa trên trạng thái
+            }
+        }
+
+        // Hàm cập nhật trạng thái giao diện
+        private void UpdateAvailability()
+        {
+            if (!isAvailable)
+            {
+                // Nếu không phục vụ, tô mờ và vô hiệu hóa
+                this.BackColor = Color.Gray; // Nền mờ
+                this.Enabled = false;        // Vô hiệu hóa
+                foreach (Control ctrl in this.Controls)
+                {
+                    ctrl.ForeColor = Color.LightGray; // Tô chữ mờ
+                }
+            }
+            else
+            {
+                // Nếu phục vụ, khôi phục giao diện
+                this.BackColor = Color.White; // Nền trắng
+                this.Enabled = true;          // Bật chức năng
+                foreach (Control ctrl in this.Controls)
+                {
+                    ctrl.ForeColor = Color.Black; // Tô chữ đen
+                }
+            }
+        }
+
         // Hàm xử lý khi `ucProduct` được nhấn
         protected void OnClickHandler(object sender, EventArgs e)
         {

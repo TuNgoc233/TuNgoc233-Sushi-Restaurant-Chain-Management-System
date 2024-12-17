@@ -15,12 +15,6 @@ namespace Sushi_Restaurant.NhanVien
         public frmMain()
         {
             InitializeComponent();
-            // Sử dụng thông tin của người dùng
-            string maNhanVien = MainClass.user.MaNhanVien;
-            string maChiNhanh = MainClass.user.MaChiNhanh;
-            // Hiển thị thông tin người dùng trên màn hình chính
-            nvid.Text = maNhanVien;
-            cnid.Text = maChiNhanh;
         }
 
         static frmMain _obj;
@@ -59,11 +53,13 @@ namespace Sushi_Restaurant.NhanVien
             AddControls(new frmHome());
         }
 
-       
-
         private void btnTheTV_Click(object sender, EventArgs e)
         {
-            AddControls(new TheKhachHang());
+            TheKhachHang frm = new TheKhachHang
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            MainClass.BlurBackground(frm); // Làm mờ nền
         }
 
         private void btnDatMon_Click(object sender, EventArgs e)
@@ -72,9 +68,14 @@ namespace Sushi_Restaurant.NhanVien
             frm.Show();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnDatBan_Click(object sender, EventArgs e)
         {
             AddControls(new CapNhatTrangThai());
+        }
+
+        private void btnGiaoHang_Click(object sender, EventArgs e)
+        {
+            AddControls(new CapNhatTrangThai_1());
         }
     }
 }

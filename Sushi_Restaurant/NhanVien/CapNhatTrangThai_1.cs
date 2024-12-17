@@ -1,5 +1,4 @@
-﻿using Guna.UI2.WinForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.NhanVien
 {
-    public partial class CapNhatTrangThai : SampleView
+    public partial class CapNhatTrangThai_1 : SampleView
     {
-        public CapNhatTrangThai()
+        public CapNhatTrangThai_1()
         {
             InitializeComponent();
             string machinhanh = MainClass.user.MaChiNhanh;
@@ -37,7 +36,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_LayDanhSachPhieuDatBan", conn))
+                    using (SqlCommand cmd = new SqlCommand("usp_LayDanhSachPhieuGiaoHangTanNoi", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ChiNhanhId", string.IsNullOrEmpty(chiNhanhId) ? (object)DBNull.Value : chiNhanhId);
@@ -68,8 +67,11 @@ namespace Sushi_Restaurant.NhanVien
                             guna2DataGridView1.Columns.Add("dgvNgayDat", "Ngày Đặt"); // Header text: "Tổng Tiền"
                             guna2DataGridView1.Columns["dgvNgayDat"].DataPropertyName = "Ngay"; // Map to DataTable column "TongTien"
 
-                            guna2DataGridView1.Columns.Add("dgvTinhTrang", "Tình Trạng"); // Header text: "Tổng Tiền"
-                            guna2DataGridView1.Columns["dgvTinhTrang"].DataPropertyName = "TinhTrangXacNhan"; // Map to DataTable column "TongTien"
+                            guna2DataGridView1.Columns.Add("dgvTinhTrangxn", "Tình Trạng Xác Nhận"); // Header text: "Tổng Tiền"
+                            guna2DataGridView1.Columns["dgvTinhTrangxn"].DataPropertyName = "TinhTrangXacNhan"; // Map to DataTable column "TongTien"
+
+                            guna2DataGridView1.Columns.Add("dgvTinhTrangdh", "Tình Trạng Đơn Hàng"); // Header text: "Tổng Tiền"
+                            guna2DataGridView1.Columns["dgvTinhTrangdh"].DataPropertyName = "TinhTrangDonHang"; // Map to DataTable column "TongTien"
 
                             // Add delete icon column
                             DataGridViewImageColumn deleteColumn = new DataGridViewImageColumn
@@ -165,56 +167,16 @@ namespace Sushi_Restaurant.NhanVien
             // Kiểm tra nếu người dùng nhấn vào một dòng hợp lệ
             if (e.RowIndex >= 0)
             {
-                // Lấy mã phiếu từ cột dgvMaPhieu
                 string maPhieu = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvMaPhieu"].Value.ToString();
                 // Mở form PhieuDatBan nếu Loại là DB
                 // Truyền mã phiếu vào form PhieuDatBan
                 // Mở form PhieuDatBan và truyền mã phiếu
-                PhieuDatBan formDatBan = new PhieuDatBan(maPhieu); 
-                formDatBan.StartPosition = FormStartPosition.CenterScreen;
-                MainClass.BlurBackground(formDatBan); // Làm mờ nền
-            }
-        }
-
-        private void btnchuaxacnhan_Click(object sender, EventArgs e)
-        {
-            FilterPhieuChuaXacNhan();
-        }
-
-        private void btndaxacnhan_Click(object sender, EventArgs e)
-        {
-            FilterPhieuDaXacNhan();
-        }
-
-        private void FilterPhieuChuaXacNhan()
-        {
-            foreach (DataGridViewRow row in guna2DataGridView1.Rows)
-            {
-                if (row.Cells["dgvTinhTrang"].Value != DBNull.Value)
-                {
-                    // Kiểm tra nếu TìnhTrạngXacNhan là false (Chưa xác nhận)
-                    bool tinhTrangXacNhan = (bool)row.Cells["dgvTinhTrang"].Value;
-
-                    // Hiển thị dòng nếu TìnhTrạngXacNhan = false (Chưa xác nhận)
-                    row.Visible = !tinhTrangXacNhan;
-                }
-            }
-        }
-
-        private void FilterPhieuDaXacNhan()
-        {
-            foreach (DataGridViewRow row in guna2DataGridView1.Rows)
-            {
-                if (row.Cells["dgvTinhTrang"].Value != DBNull.Value)
-                {
-                    // Kiểm tra nếu TìnhTrạngXacNhan là true (Đã xác nhận)
-                    bool tinhTrangXacNhan = (bool)row.Cells["dgvTinhTrang"].Value;
-
-                    // Hiển thị dòng nếu TìnhTrạngXacNhan = true (Đã xác nhận)
-                    row.Visible = tinhTrangXacNhan;
-                }
+                PhieuGiaoHangTanNoi formGH = new PhieuGiaoHangTanNoi(maPhieu);
+                formGH.StartPosition = FormStartPosition.CenterScreen;
+                MainClass.BlurBackground(formGH); // Làm mờ nền
             }
         }
 
     }
 }
+

@@ -76,6 +76,12 @@
     <Compile Include="NhanVien\CapNhatTrangThai.Designer.cs">
       <DependentUpon>CapNhatTrangThai.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien\CapNhatTrangThai_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\CapNhatTrangThai_1.Designer.cs">
+      <DependentUpon>CapNhatTrangThai_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhanVien\DsPhieuDatBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,12 @@
     <Compile Include="NhanVien\ThemTheKhachHang.Designer.cs">
       <DependentUpon>ThemTheKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien\ThemTheKhachHang_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\ThemTheKhachHang_1.Designer.cs">
+      <DependentUpon>ThemTheKhachHang_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhanVien\ucProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\CapNhatTrangThai.resx">
       <DependentUpon>CapNhatTrangThai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\CapNhatTrangThai_1.resx">
+      <DependentUpon>CapNhatTrangThai_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\DsPhieuDatBan.resx">
       <DependentUpon>DsPhieuDatBan.cs</DependentUpon>
@@ -248,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\ThemTheKhachHang.resx">
       <DependentUpon>ThemTheKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\ThemTheKhachHang_1.resx">
+      <DependentUpon>ThemTheKhachHang_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\ucProduct.resx">
       <DependentUpon>ucProduct.cs</DependentUpon>
