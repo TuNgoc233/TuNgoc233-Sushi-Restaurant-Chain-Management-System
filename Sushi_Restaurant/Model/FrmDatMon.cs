@@ -442,6 +442,8 @@ namespace Sushi_Restaurant
                     {
                         panel_dat_hang.Rows.RemoveAt(e.RowIndex);
 
+                        UpdateRowNumbers(); // Cập nhật lại số thứ tự
+
                         // Cập nhật tổng giá trị sau khi xóa
                         GetTotal();
                     }
@@ -449,10 +451,15 @@ namespace Sushi_Restaurant
             }
         }
 
-        private void panel_dat_hang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void UpdateRowNumbers()
+        {
+            for (int i = 0; i < panel_dat_hang.Rows.Count; i++)
+            {
+                panel_dat_hang.Rows[i].Cells["STT"].Value = (i + 1).ToString(); // Cột STT là cột đầu tiên
+            }
         }
+
 
         private void SearchProducts(string searchTerm)
         {

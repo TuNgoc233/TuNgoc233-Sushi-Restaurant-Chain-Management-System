@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,11 +20,16 @@ namespace Sushi_Restaurant.Model
         private DataTable allOrders = new DataTable();
         private DataTable datBanOrders = new DataTable();
         private DataTable giaoHangOrders = new DataTable();
+        private DataTable choXuLyOrders = new DataTable();
+        private DataTable daXacNhanOrders = new DataTable();
+        private DataTable daGiaoOrders = new DataTable();
+
         private string maHoaDon;
+
+        
         public FrmDSDonHang()
         {
             InitializeComponent();
-            cmb_soDong.SelectedItem = "Tất cả";
             dataGridViewDSDonHang.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default; // Tắt theme
             dataGridViewDSDonHang.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(50, 55, 89);
             dataGridViewDSDonHang.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold); // Chỉnh font
@@ -104,8 +110,9 @@ namespace Sushi_Restaurant.Model
                     string trangThai = allOrders.Rows[i]["Trạng thái"].ToString();
 
                     this.maHoaDon = LayMaHoaDonTuMaPhieu(maDonHang);
+                    
 
-                    if (trangThai == "Đã giao" && !KiemTraDaDanhGia(maHoaDon))
+                    if (trangThai == "Đã giao" && !KiemTraDaDanhGia(this.maHoaDon))
                     {
                         allOrders.Rows[i]["Đánh giá"] = Properties.Resources.icon_danhGia; // Thêm hình ảnh Like
                     }
@@ -113,6 +120,18 @@ namespace Sushi_Restaurant.Model
                     {
                         allOrders.Rows[i]["Đánh giá"] = new Bitmap(1, 1);
                     }
+
+                    var choXuLyRows = allOrders.Select("[Trạng thái] = 'Chờ xử lý'");
+                    if (choXuLyRows.Length > 0)
+                        choXuLyOrders = choXuLyRows.CopyToDataTable();
+
+                    var daXacNhanRows = allOrders.Select("[Trạng thái] = 'Đã xác nhận'");
+                    if (daXacNhanRows.Length > 0)
+                        daXacNhanOrders = daXacNhanRows.CopyToDataTable();
+
+                    var daGiaoRows = allOrders.Select("[Trạng thái] = 'Đã giao'");
+                    if (daGiaoRows.Length > 0)
+                        daGiaoOrders = daGiaoRows.CopyToDataTable();
 
                 }
                 // Phân loại dữ liệu
@@ -167,44 +186,6 @@ namespace Sushi_Restaurant.Model
             }
         }
 
-        private void cmb_soDong_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedValue = cmb_soDong.SelectedItem.ToString();
-            DataTable tempListOder = new DataTable();
-
-            // kiem tra xem dang chon loai don hang nao
-            if (rbtnAll.Checked)
-            {
-                tempListOder = allOrders;
-            }
-            if (rbtnGiaoHang.Checked)
-            {
-                tempListOder = giaoHangOrders;
-            }
-            if (rbtnDatBan.Checked)
-            {
-                tempListOder = datBanOrders;
-            }
-
-            // Hien thi dong theo ý muốn của người dùng
-            if (selectedValue == "Tất cả")
-            {
-                // Hiển thị tất cả các dòng
-                dataGridViewDSDonHang.DataSource = allOrders;
-            }
-            else
-            {
-                // Hiển thị số dòng được chọn
-                int rowsToShow = int.Parse(selectedValue);
-
-                // Lọc dữ liệu và tạo bảng tạm để hiển thị
-                DataTable tempTable = tempListOder.AsEnumerable()
-                                                  .Take(rowsToShow)
-                                                  .CopyToDataTable();
-
-                dataGridViewDSDonHang.DataSource = tempTable;
-            }
-        }
 
         private string LayMaHoaDonTuMaPhieu(string maPhieu)
         {
@@ -272,19 +253,19 @@ namespace Sushi_Restaurant.Model
 
                 if (columnName == "danhGia")
                 {
-                    string maDonHang = dataGridViewDSDonHang.Rows[e.RowIndex].Cells["maDH"].Value.ToString();
+                    string maPhieu = dataGridViewDSDonHang.Rows[e.RowIndex].Cells["maDH"].Value.ToString();
 
                     // Lấy mã hóa đơn từ mã phiếu
-                    string maHoaDon = LayMaHoaDonTuMaPhieu(maDonHang);
+                     this.maHoaDon = LayMaHoaDonTuMaPhieu(maPhieu);
 
-                    if (string.IsNullOrEmpty(maHoaDon))
+                    if (string.IsNullOrEmpty(this.maHoaDon))
                     {
                         MessageBox.Show("Không tìm thấy mã hóa đơn cho mã phiếu này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
                     // Hiển thị form đánh giá
-                    using (ThemDanhGia formDanhGia = new ThemDanhGia(maHoaDon))
+                    using (ThemDanhGia formDanhGia = new ThemDanhGia(this.maHoaDon))
                     {
                         if (formDanhGia.ShowDialog() == DialogResult.OK)
                         {
@@ -300,7 +281,7 @@ namespace Sushi_Restaurant.Model
 
         }
 
-        private bool KiemTraDaDanhGia(string maDonHang)
+        private bool KiemTraDaDanhGia(string maHoaDon)
         {
             try
             {
@@ -310,7 +291,7 @@ namespace Sushi_Restaurant.Model
                     string query = "SELECT COUNT(*) FROM DANH_GIA_DICH_VU WHERE MaHoaDon = @MaHoaDon";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaHoaDon", maDonHang);
+                        cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
                         int count = (int)cmd.ExecuteScalar();
                         return count > 0; // Trả về true nếu đã tồn tại đánh giá
                     }
@@ -335,6 +316,33 @@ namespace Sushi_Restaurant.Model
 
             // Đánh dấu lỗi đã xử lý, không cần hiển thị dialog mặc định
             e.ThrowException = false;
+        }
+
+        private void rbtnChoXuLy_Click(object sender, EventArgs e)
+        {
+            if (rbtnChoXuLy.Checked)
+            {
+                dataGridViewDSDonHang.DataSource = choXuLyOrders; // Hiển thị đơn hàng chờ xử lý
+                ReindexRows();
+            }
+        }
+
+        private void rbtnDaXacNhan_Click(object sender, EventArgs e)
+        {
+            if (rbtnDaXacNhan.Checked)
+            {
+                dataGridViewDSDonHang.DataSource = daXacNhanOrders; // Hiển thị đơn hàng đã xác nhận
+                ReindexRows();
+            }
+        }
+
+        private void rbtnDaGiao_Click(object sender, EventArgs e)
+        {
+            if (rbtnDaGiao.Checked)
+            {
+                dataGridViewDSDonHang.DataSource = daGiaoOrders; // Hiển thị đơn hàng đã giao
+                ReindexRows();
+            }
         }
     }
 }

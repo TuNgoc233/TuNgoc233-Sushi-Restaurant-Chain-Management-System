@@ -133,9 +133,6 @@ namespace Sushi_Restaurant.View
                 // Chuyển đổi chuỗi ngày thành kiểu DateTime
                 DateTime ngayDat = DateTime.ParseExact(datePart, "dd/MM/yyyy", null);
 
-                // Kiểm tra kết quả (để debug)
-                MessageBox.Show("Ngày đặt: " + ngayDat.ToShortDateString());
-
                 TimeSpan gioDat = text_GioDat.Value.TimeOfDay;
                 string maKhachHang = GlobalVariables.MaKH;
                 string diaChiGiaoHang = text_diaChiGiao.Text.Trim(); // Địa chỉ giao hàng

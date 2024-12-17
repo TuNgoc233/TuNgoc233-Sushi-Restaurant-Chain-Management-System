@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHomeView));
             this.panel_Header = new Guna.UI2.WinForms.Guna2Panel();
-            this.textbox_diaChi = new Guna.UI2.WinForms.Guna2TextBox();
             this.text_diaChi = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.cmb_KhuVuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel_center = new Guna.UI2.WinForms.Guna2Panel();
             this.picture_main = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.textBoxDiaChi = new System.Windows.Forms.Label();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_phone)).BeginInit();
@@ -63,7 +63,7 @@
             // 
             // panel_Header
             // 
-            this.panel_Header.Controls.Add(this.textbox_diaChi);
+            this.panel_Header.Controls.Add(this.textBoxDiaChi);
             this.panel_Header.Controls.Add(this.text_diaChi);
             this.panel_Header.Controls.Add(this.label1);
             this.panel_Header.Controls.Add(this.label3);
@@ -88,35 +88,6 @@
             this.panel_Header.Name = "panel_Header";
             this.panel_Header.Size = new System.Drawing.Size(1552, 214);
             this.panel_Header.TabIndex = 4;
-            // 
-            // textbox_diaChi
-            // 
-            this.textbox_diaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textbox_diaChi.AutoRoundedCorners = true;
-            this.textbox_diaChi.AutoSize = true;
-            this.textbox_diaChi.BackColor = System.Drawing.Color.Transparent;
-            this.textbox_diaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textbox_diaChi.BorderRadius = 19;
-            this.textbox_diaChi.BorderThickness = 2;
-            this.textbox_diaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textbox_diaChi.DefaultText = "";
-            this.textbox_diaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.textbox_diaChi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.textbox_diaChi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textbox_diaChi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textbox_diaChi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textbox_diaChi.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textbox_diaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textbox_diaChi.Location = new System.Drawing.Point(850, 153);
-            this.textbox_diaChi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textbox_diaChi.Name = "textbox_diaChi";
-            this.textbox_diaChi.PasswordChar = '\0';
-            this.textbox_diaChi.PlaceholderText = "";
-            this.textbox_diaChi.ReadOnly = true;
-            this.textbox_diaChi.SelectedText = "";
-            this.textbox_diaChi.Size = new System.Drawing.Size(504, 40);
-            this.textbox_diaChi.TabIndex = 10;
-            this.textbox_diaChi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // text_diaChi
             // 
@@ -153,7 +124,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(754, 160);
+            this.label1.Location = new System.Drawing.Point(119, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 31);
             this.label1.TabIndex = 8;
@@ -166,7 +137,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(336, 161);
+            this.label3.Location = new System.Drawing.Point(1165, 175);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(226, 28);
             this.label3.TabIndex = 6;
@@ -177,8 +148,8 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(110, 160);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(933, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(222, 31);
             this.label2.TabIndex = 6;
@@ -267,7 +238,7 @@
             this.label_KhuVuc.AutoSize = true;
             this.label_KhuVuc.BackColor = System.Drawing.Color.Transparent;
             this.label_KhuVuc.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_KhuVuc.Location = new System.Drawing.Point(110, 92);
+            this.label_KhuVuc.Location = new System.Drawing.Point(115, 92);
             this.label_KhuVuc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_KhuVuc.Name = "label_KhuVuc";
             this.label_KhuVuc.Size = new System.Drawing.Size(95, 31);
@@ -280,11 +251,11 @@
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.icon_thoiGianHoatDong;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(613, 140);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(866, 164);
             this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(73, 69);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(73, 45);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 4;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -296,7 +267,7 @@
             this.icon_KhuVuc.BackColor = System.Drawing.Color.Transparent;
             this.icon_KhuVuc.Image = global::Sushi_Restaurant.Properties.Resources.KhuVuc1;
             this.icon_KhuVuc.ImageRotate = 0F;
-            this.icon_KhuVuc.Location = new System.Drawing.Point(11, 100);
+            this.icon_KhuVuc.Location = new System.Drawing.Point(17, 107);
             this.icon_KhuVuc.Margin = new System.Windows.Forms.Padding(2);
             this.icon_KhuVuc.Name = "icon_KhuVuc";
             this.icon_KhuVuc.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -422,7 +393,17 @@
             this.picture_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picture_main.TabIndex = 0;
             this.picture_main.TabStop = false;
-            this.picture_main.Click += new System.EventHandler(this.picture_main_Click);
+            // 
+            // textBoxDiaChi
+            // 
+            this.textBoxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxDiaChi.BackColor = System.Drawing.Color.Transparent;
+            this.textBoxDiaChi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDiaChi.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxDiaChi.Location = new System.Drawing.Point(217, 174);
+            this.textBoxDiaChi.Name = "textBoxDiaChi";
+            this.textBoxDiaChi.Size = new System.Drawing.Size(602, 31);
+            this.textBoxDiaChi.TabIndex = 84;
             // 
             // FrmHomeView
             // 
@@ -474,6 +455,6 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox text_diaChi;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox textbox_diaChi;
+        private System.Windows.Forms.Label textBoxDiaChi;
     }
 }

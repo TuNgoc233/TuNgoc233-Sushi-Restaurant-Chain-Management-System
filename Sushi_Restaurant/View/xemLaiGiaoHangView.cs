@@ -54,8 +54,9 @@ namespace Sushi_Restaurant.View
                         if (ds.Tables[0].Rows.Count > 0)
                         {
                             DataRow row = ds.Tables[0].Rows[0];
-                            text_ngayDat.Text = Convert.ToDateTime(row["NgayDatHang"]).ToString("yyyy-MM-dd");
-                            text_ngayGiao.Text = Convert.ToDateTime(row["NgayGiaoHang"]).ToString("yyyy-MM-dd");
+                            text_ngayDat.Text = Convert.ToDateTime(row["NgayDatHang"]).ToString("dd-MM-yyyy");
+                            text_ngayGiao.Text = Convert.ToDateTime(row["NgayGiaoHang"]).ToString("dd-MM-yyyy");
+                            text_gioGiao.Text = row["GioGiaoHang"].ToString();
                             text_diaChiGiao.Text = row["DiaChiGiao"].ToString();
                             text_thanhToan.Text = row["HinhThucThanhToan"].ToString();
                         }

@@ -111,10 +111,6 @@ namespace Sushi_Restaurant.View
         }
     
 
-        private void icon_Dat_Mon_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataGridViewMonAn_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

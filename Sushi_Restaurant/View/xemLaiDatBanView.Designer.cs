@@ -54,6 +54,8 @@
             this.text_ngayDen = new Guna.UI2.WinForms.Guna2TextBox();
             this.text_GioDen = new Guna.UI2.WinForms.Guna2TextBox();
             this.text_sl_KH = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.text_ngayDat = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panel_list_mon)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +101,6 @@
             this.but_HuyDon.Size = new System.Drawing.Size(136, 45);
             this.but_HuyDon.TabIndex = 97;
             this.but_HuyDon.Text = "Hủy đơn";
-            this.but_HuyDon.Click += new System.EventHandler(this.but_HuyDon_Click);
             // 
             // but_huy
             // 
@@ -163,6 +164,7 @@
             this.panel_list_mon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.panel_list_mon.Location = new System.Drawing.Point(42, 384);
             this.panel_list_mon.Name = "panel_list_mon";
+            this.panel_list_mon.ReadOnly = true;
             this.panel_list_mon.RowHeadersVisible = false;
             this.panel_list_mon.RowHeadersWidth = 51;
             this.panel_list_mon.RowTemplate.Height = 24;
@@ -182,7 +184,7 @@
             this.panel_list_mon.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.panel_list_mon.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.panel_list_mon.ThemeStyle.HeaderStyle.Height = 40;
-            this.panel_list_mon.ThemeStyle.ReadOnly = false;
+            this.panel_list_mon.ThemeStyle.ReadOnly = true;
             this.panel_list_mon.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.panel_list_mon.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.panel_list_mon.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,6 +201,7 @@
             this.STT.HeaderText = "STT";
             this.STT.MinimumWidth = 50;
             this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             this.STT.Width = 50;
             // 
             // TenMon
@@ -209,6 +212,7 @@
             this.TenMon.HeaderText = "Tên Món";
             this.TenMon.MinimumWidth = 6;
             this.TenMon.Name = "TenMon";
+            this.TenMon.ReadOnly = true;
             // 
             // SL
             // 
@@ -218,6 +222,7 @@
             this.SL.HeaderText = "S.L";
             this.SL.MinimumWidth = 50;
             this.SL.Name = "SL";
+            this.SL.ReadOnly = true;
             this.SL.Width = 50;
             // 
             // label_gioDen
@@ -225,7 +230,7 @@
             this.label_gioDen.AutoSize = true;
             this.label_gioDen.BackColor = System.Drawing.Color.Transparent;
             this.label_gioDen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_gioDen.Location = new System.Drawing.Point(510, 239);
+            this.label_gioDen.Location = new System.Drawing.Point(437, 237);
             this.label_gioDen.Name = "label_gioDen";
             this.label_gioDen.Size = new System.Drawing.Size(73, 23);
             this.label_gioDen.TabIndex = 93;
@@ -247,7 +252,7 @@
             this.label_sgKH.AutoSize = true;
             this.label_sgKH.BackColor = System.Drawing.Color.Transparent;
             this.label_sgKH.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_sgKH.Location = new System.Drawing.Point(41, 298);
+            this.label_sgKH.Location = new System.Drawing.Point(648, 237);
             this.label_sgKH.Name = "label_sgKH";
             this.label_sgKH.Size = new System.Drawing.Size(135, 23);
             this.label_sgKH.TabIndex = 90;
@@ -390,7 +395,7 @@
             this.text_ngayDen.PlaceholderText = "";
             this.text_ngayDen.ReadOnly = true;
             this.text_ngayDen.SelectedText = "";
-            this.text_ngayDen.Size = new System.Drawing.Size(262, 35);
+            this.text_ngayDen.Size = new System.Drawing.Size(212, 35);
             this.text_ngayDen.TabIndex = 80;
             // 
             // text_GioDen
@@ -404,14 +409,14 @@
             this.text_GioDen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_GioDen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.text_GioDen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_GioDen.Location = new System.Drawing.Point(600, 231);
+            this.text_GioDen.Location = new System.Drawing.Point(522, 230);
             this.text_GioDen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.text_GioDen.Name = "text_GioDen";
             this.text_GioDen.PasswordChar = '\0';
             this.text_GioDen.PlaceholderText = "";
             this.text_GioDen.ReadOnly = true;
             this.text_GioDen.SelectedText = "";
-            this.text_GioDen.Size = new System.Drawing.Size(282, 35);
+            this.text_GioDen.Size = new System.Drawing.Size(120, 35);
             this.text_GioDen.TabIndex = 80;
             // 
             // text_sl_KH
@@ -425,15 +430,47 @@
             this.text_sl_KH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_sl_KH.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.text_sl_KH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_sl_KH.Location = new System.Drawing.Point(213, 286);
+            this.text_sl_KH.Location = new System.Drawing.Point(806, 225);
             this.text_sl_KH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.text_sl_KH.Name = "text_sl_KH";
             this.text_sl_KH.PasswordChar = '\0';
             this.text_sl_KH.PlaceholderText = "";
             this.text_sl_KH.ReadOnly = true;
             this.text_sl_KH.SelectedText = "";
-            this.text_sl_KH.Size = new System.Drawing.Size(126, 35);
+            this.text_sl_KH.Size = new System.Drawing.Size(76, 35);
             this.text_sl_KH.TabIndex = 80;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 294);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 23);
+            this.label1.TabIndex = 89;
+            this.label1.Text = "Ngày đặt";
+            // 
+            // text_ngayDat
+            // 
+            this.text_ngayDat.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.text_ngayDat.DefaultText = "";
+            this.text_ngayDat.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.text_ngayDat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.text_ngayDat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_ngayDat.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_ngayDat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_ngayDat.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text_ngayDat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_ngayDat.Location = new System.Drawing.Point(213, 282);
+            this.text_ngayDat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.text_ngayDat.Name = "text_ngayDat";
+            this.text_ngayDat.PasswordChar = '\0';
+            this.text_ngayDat.PlaceholderText = "";
+            this.text_ngayDat.ReadOnly = true;
+            this.text_ngayDat.SelectedText = "";
+            this.text_ngayDat.Size = new System.Drawing.Size(213, 35);
+            this.text_ngayDat.TabIndex = 80;
             // 
             // xemLaiDatBanView
             // 
@@ -447,6 +484,7 @@
             this.Controls.Add(this.label_gioDen);
             this.Controls.Add(this.label_ghiChu);
             this.Controls.Add(this.label_sgKH);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label_ngayDen);
             this.Controls.Add(this.label_SDT);
             this.Controls.Add(this.label_TenKH);
@@ -455,6 +493,7 @@
             this.Controls.Add(this.text_GioDen);
             this.Controls.Add(this.text_sl_KH);
             this.Controls.Add(this.text_ngayDen);
+            this.Controls.Add(this.text_ngayDat);
             this.Controls.Add(this.text_SDT);
             this.Controls.Add(this.text_KH);
             this.Controls.Add(this.text_dia_chi);
@@ -497,5 +536,7 @@
         private Guna.UI2.WinForms.Guna2TextBox text_ngayDen;
         private Guna.UI2.WinForms.Guna2TextBox text_GioDen;
         private Guna.UI2.WinForms.Guna2TextBox text_sl_KH;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2TextBox text_ngayDat;
     }
 }

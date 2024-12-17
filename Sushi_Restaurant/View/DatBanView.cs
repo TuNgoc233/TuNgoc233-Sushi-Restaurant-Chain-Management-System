@@ -110,9 +110,6 @@ namespace Sushi_Restaurant.View
                 // Chuyển đổi chuỗi ngày thành kiểu DateTime
                 DateTime ngayDat = DateTime.ParseExact(datePart, "dd/MM/yyyy", null);
 
-                // Kiểm tra kết quả (để debug)
-                MessageBox.Show("Ngày đặt: " + ngayDat.ToShortDateString());
-
                 string maKhachHang = GlobalVariables.MaKH;
                 bool soluongKH = text_sl_KH.Value.ToString() == "Thanh toán qua ngân hàng";
                 DateTime thoiDiemTruyCap = GlobalVariables.ThoiDiemTruyCap;

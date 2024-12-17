@@ -104,10 +104,11 @@ namespace Sushi_Restaurant.View
                         {
                             DataRow row = ds.Tables[0].Rows[0];
                             maChiNhanh = row["MaChiNhanh"].ToString();
-                            text_ngayDen.Text = Convert.ToDateTime(row["NgayDen"]).ToString("yyyy-MM-dd");
+                            text_ngayDen.Text = Convert.ToDateTime(row["NgayDen"]).ToString("dd-MM-yyyy");
                             text_GioDen.Text = row["GioDen"].ToString();
                             text_sl_KH.Text = row["SoLuongKhach"].ToString();
                             richBox_ghi_chu.Text = row["GhiChu"].ToString();
+                            text_ngayDat.Text = Convert.ToDateTime(row["NgayDat"]).ToString("dd-MM-yyyy");
                         }
 
                         panel_list_mon.AutoGenerateColumns = false;
@@ -123,11 +124,6 @@ namespace Sushi_Restaurant.View
             {
                 MessageBox.Show("Lỗi khi tải thông tin đặt bàn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void but_HuyDon_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void but_huy_Click_1(object sender, EventArgs e)

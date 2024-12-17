@@ -94,7 +94,6 @@
             this.icon_Dat_Mon.TabIndex = 2;
             this.icon_Dat_Mon.TabStop = false;
             this.icon_Dat_Mon.UseTransparentBackground = true;
-            this.icon_Dat_Mon.Click += new System.EventHandler(this.icon_Dat_Mon_Click);
             // 
             // dataGridViewMonAn
             // 
