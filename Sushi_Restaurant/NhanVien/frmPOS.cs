@@ -408,6 +408,8 @@ namespace Sushi_Restaurant
             lblTotal.Text = tot.ToString("N2");
         }
 
+        public string id = "";
+        DateTime curDate = DateTime.Now;   
         private void btnDin_Click(object sender, EventArgs e)
         {
 
@@ -416,21 +418,17 @@ namespace Sushi_Restaurant
             if (frm.MainId != "")
             {
                 id = frm.MainId;
-                LoadEntries_PDTT();
+                LoadEntries_PhieuDat();
             }
         }
 
-        private void LoadEntries_PDTT()
+        private void LoadEntries_PhieuDat()
         {
-            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
-                   FROM PHIEU_DAT_TRUC_TIEP PD
-                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
-                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
-                   WHERE PD.MaPhieu = @MaPhieu"; // Sử dụng parameter
-
-            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
+            using (SqlCommand cmd2 = new SqlCommand("sp_LayCTDatMon", MainClass.con))
             {
-                // Thêm tham số để tránh SQL Injection
+                cmd2.CommandType = CommandType.StoredProcedure;
+
+                // Thêm tham số cho stored procedure
                 cmd2.Parameters.AddWithValue("@MaPhieu", id);
 
                 DataTable dt2 = new DataTable();
@@ -450,10 +448,13 @@ namespace Sushi_Restaurant
                         // Gán giá trị cho từng ô cụ thể theo tên cột
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvTru"].Value = '-';
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvCong"].Value = '+';
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["Gia"].ToString();
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
                     }
+
                     GetTotal();
                 }
                 catch (Exception ex)
@@ -463,65 +464,15 @@ namespace Sushi_Restaurant
             }
         }
 
-        public string id = "";
+       
 
         private void btnBill_Click(object sender, EventArgs e)
         {
             HoaDon frm = new HoaDon();
             MainClass.BlurBackground(frm);
-            if (frm.MainId != "")
-            {
-                id = frm.MainId;
-                
-                LoadEntries_HD();
-
-            }
+           
         }
 
-        private void LoadEntries_HD()
-        {
-            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
-                   FROM HOA_DON HD
-                   JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon
-                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
-                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
-                   WHERE HD.MaHoaDon = @MaHoaDon"; // Sử dụng parameter
-
-            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
-            {
-                // Thêm tham số để tránh SQL Injection
-                cmd2.Parameters.AddWithValue("@MaHoaDon", id);
-
-                DataTable dt2 = new DataTable();
-                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
-
-                try
-                {
-                    da2.Fill(dt2);
-                    
-
-                    guna2DataGridView1.Rows.Clear();
-
-                    foreach (DataRow item in dt2.Rows)
-                    {
-                        // Thêm một hàng mới và lấy chỉ số của hàng đó
-                        int rowIndex = guna2DataGridView1.Rows.Add();
-
-                        // Gán giá trị cho từng ô cụ thể theo tên cột
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
-                    }
-                    GetTotal();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-                }
-            }
-        }
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
@@ -554,53 +505,23 @@ namespace Sushi_Restaurant
             if (frm.MainId != "")
             {
                 id = frm.MainId;
-                LoadEntries_PDB();  
+                LoadEntries_PhieuDat();  
 
             }
         }
 
-        private void LoadEntries_PDB()
+        private void BtnGiaoHang_Click(object sender, EventArgs e)
         {
-            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
-                   FROM PHIEU_DAT_BAN PD
-                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
-                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
-                   WHERE PD.MaPhieu = @MaPhieu"; // Sử dụng parameter
-
-            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
+            DSPhieuGiaoHang frm = new DSPhieuGiaoHang();
+            MainClass.BlurBackground(frm);
+            if (frm.MainId != "")
             {
-                // Thêm tham số để tránh SQL Injection
-                cmd2.Parameters.AddWithValue("@MaPhieu", id);
+                id = frm.MainId;
+                LoadEntries_PhieuDat();
 
-                DataTable dt2 = new DataTable();
-                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
-
-                try
-                {
-                    da2.Fill(dt2);
-
-
-                    guna2DataGridView1.Rows.Clear();
-
-                    foreach (DataRow item in dt2.Rows)
-                    {
-                        // Thêm một hàng mới và lấy chỉ số của hàng đó
-                        int rowIndex = guna2DataGridView1.Rows.Add();
-
-                        // Gán giá trị cho từng ô cụ thể theo tên cột
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
-                    }
-                    GetTotal();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-                }
             }
         }
+
+        
     }
 }

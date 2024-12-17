@@ -94,6 +94,12 @@
     <Compile Include="NhanVien\DSPhieuDatTrucTiep.Designer.cs">
       <DependentUpon>DSPhieuDatTrucTiep.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien\DSPhieuGiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\DSPhieuGiaoHang.Designer.cs">
+      <DependentUpon>DSPhieuGiaoHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhanVien\frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\DSPhieuDatTrucTiep.resx">
       <DependentUpon>DSPhieuDatTrucTiep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\DSPhieuGiaoHang.resx">
+      <DependentUpon>DSPhieuGiaoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
@@ -714,6 +723,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\reservation1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order-food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

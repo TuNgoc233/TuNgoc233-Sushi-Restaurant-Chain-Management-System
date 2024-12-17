@@ -58,5 +58,8 @@ namespace Sushi_Restaurant.NhanVien
         {
             txtTongTien.Text = amt.ToString();
         }
+
+        
+
     }
 }

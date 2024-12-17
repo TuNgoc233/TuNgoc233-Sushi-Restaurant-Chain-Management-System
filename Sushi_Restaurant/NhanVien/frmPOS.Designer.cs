@@ -34,7 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btnReservation = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnDin = new Guna.UI2.WinForms.Guna2TileButton();
+            this.BtnGiaoHang = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnBill = new Guna.UI2.WinForms.Guna2TileButton();
+            this.buttonThem = new Guna.UI2.WinForms.Guna2TileButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnThanhtoan = new Guna.UI2.WinForms.Guna2Button();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -48,23 +54,17 @@
             this.dgvCong = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.ProductPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.CategoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnReservation = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnDin = new Guna.UI2.WinForms.Guna2TileButton();
-            this.BtnGiaoHang = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnBill = new Guna.UI2.WinForms.Guna2TileButton();
-            this.buttonThem = new Guna.UI2.WinForms.Guna2TileButton();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -98,6 +98,112 @@
             this.btnExit.TabIndex = 11;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnReservation
+            // 
+            this.btnReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnReservation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnReservation.BorderRadius = 10;
+            this.btnReservation.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnReservation.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReservation.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReservation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReservation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReservation.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnReservation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnReservation.ForeColor = System.Drawing.Color.White;
+            this.btnReservation.Image = global::Sushi_Restaurant.Properties.Resources.reservation__1_;
+            this.btnReservation.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnReservation.Location = new System.Drawing.Point(707, 14);
+            this.btnReservation.Name = "btnReservation";
+            this.btnReservation.Size = new System.Drawing.Size(101, 68);
+            this.btnReservation.TabIndex = 10;
+            this.btnReservation.Text = "Đặt bàn";
+            this.btnReservation.Click += new System.EventHandler(this.btnReservation_Click);
+            // 
+            // btnDin
+            // 
+            this.btnDin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnDin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnDin.BorderRadius = 10;
+            this.btnDin.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnDin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnDin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDin.ForeColor = System.Drawing.Color.White;
+            this.btnDin.Image = global::Sushi_Restaurant.Properties.Resources.restaurant;
+            this.btnDin.Location = new System.Drawing.Point(600, 14);
+            this.btnDin.Name = "btnDin";
+            this.btnDin.Size = new System.Drawing.Size(101, 68);
+            this.btnDin.TabIndex = 5;
+            this.btnDin.Text = "Tại chỗ";
+            this.btnDin.Click += new System.EventHandler(this.btnDin_Click);
+            // 
+            // BtnGiaoHang
+            // 
+            this.BtnGiaoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.BtnGiaoHang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.BtnGiaoHang.BorderRadius = 10;
+            this.BtnGiaoHang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.BtnGiaoHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnGiaoHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnGiaoHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnGiaoHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnGiaoHang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.BtnGiaoHang.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnGiaoHang.ForeColor = System.Drawing.Color.White;
+            this.BtnGiaoHang.Image = global::Sushi_Restaurant.Properties.Resources.delivery;
+            this.BtnGiaoHang.Location = new System.Drawing.Point(493, 14);
+            this.BtnGiaoHang.Name = "BtnGiaoHang";
+            this.BtnGiaoHang.Size = new System.Drawing.Size(101, 68);
+            this.BtnGiaoHang.TabIndex = 5;
+            this.BtnGiaoHang.Text = "Giao hàng";
+            this.BtnGiaoHang.Click += new System.EventHandler(this.BtnGiaoHang_Click);
+            // 
+            // btnBill
+            // 
+            this.btnBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnBill.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnBill.BorderRadius = 10;
+            this.btnBill.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnBill.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBill.ForeColor = System.Drawing.Color.White;
+            this.btnBill.Image = global::Sushi_Restaurant.Properties.Resources.invoice;
+            this.btnBill.Location = new System.Drawing.Point(386, 14);
+            this.btnBill.Name = "btnBill";
+            this.btnBill.Size = new System.Drawing.Size(101, 68);
+            this.btnBill.TabIndex = 4;
+            this.btnBill.Text = "Hóa đơn";
+            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
+            // 
+            // buttonThem
+            // 
+            this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.buttonThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.buttonThem.BorderRadius = 10;
+            this.buttonThem.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.buttonThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.buttonThem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonThem.ForeColor = System.Drawing.Color.White;
+            this.buttonThem.Image = global::Sushi_Restaurant.Properties.Resources._new;
+            this.buttonThem.Location = new System.Drawing.Point(279, 14);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.Size = new System.Drawing.Size(101, 68);
+            this.buttonThem.TabIndex = 2;
+            this.buttonThem.Text = "Thêm";
+            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -109,6 +215,19 @@
             this.label1.Size = new System.Drawing.Size(58, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "POS";
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.sushi_logo;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(12, 14);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 68);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.UseTransparentBackground = true;
             // 
             // guna2Panel2
             // 
@@ -327,6 +446,16 @@
             this.dgvAmount.ReadOnly = true;
             this.dgvAmount.Width = 95;
             // 
+            // dgvDel
+            // 
+            this.dgvDel.FillWeight = 20F;
+            this.dgvDel.HeaderText = "";
+            this.dgvDel.Image = global::Sushi_Restaurant.Properties.Resources.del;
+            this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvDel.MinimumWidth = 20;
+            this.dgvDel.Name = "dgvDel";
+            this.dgvDel.ReadOnly = true;
+            // 
             // ProductPanel
             // 
             this.ProductPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -357,16 +486,6 @@
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Width = 20;
             // 
-            // dgvDel
-            // 
-            this.dgvDel.FillWeight = 20F;
-            this.dgvDel.HeaderText = "";
-            this.dgvDel.Image = global::Sushi_Restaurant.Properties.Resources.del;
-            this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvDel.MinimumWidth = 20;
-            this.dgvDel.Name = "dgvDel";
-            this.dgvDel.ReadOnly = true;
-            // 
             // txtTimKiem
             // 
             this.txtTimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -388,124 +507,6 @@
             this.txtTimKiem.Size = new System.Drawing.Size(391, 48);
             this.txtTimKiem.TabIndex = 10;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
-            // 
-            // btnReservation
-            // 
-            this.btnReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnReservation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnReservation.BorderRadius = 10;
-            this.btnReservation.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnReservation.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnReservation.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnReservation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnReservation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnReservation.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnReservation.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnReservation.ForeColor = System.Drawing.Color.White;
-            this.btnReservation.Image = global::Sushi_Restaurant.Properties.Resources.reservation__1_;
-            this.btnReservation.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnReservation.Location = new System.Drawing.Point(707, 14);
-            this.btnReservation.Name = "btnReservation";
-            this.btnReservation.Size = new System.Drawing.Size(101, 68);
-            this.btnReservation.TabIndex = 10;
-            this.btnReservation.Text = "Đặt bàn";
-            this.btnReservation.Click += new System.EventHandler(this.btnReservation_Click);
-            // 
-            // btnDin
-            // 
-            this.btnDin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnDin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnDin.BorderRadius = 10;
-            this.btnDin.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnDin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnDin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDin.ForeColor = System.Drawing.Color.White;
-            this.btnDin.Image = global::Sushi_Restaurant.Properties.Resources.restaurant;
-            this.btnDin.Location = new System.Drawing.Point(600, 14);
-            this.btnDin.Name = "btnDin";
-            this.btnDin.Size = new System.Drawing.Size(101, 68);
-            this.btnDin.TabIndex = 5;
-            this.btnDin.Text = "Tại chỗ";
-            this.btnDin.Click += new System.EventHandler(this.btnDin_Click);
-            // 
-            // BtnGiaoHang
-            // 
-            this.BtnGiaoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.BtnGiaoHang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.BtnGiaoHang.BorderRadius = 10;
-            this.BtnGiaoHang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.BtnGiaoHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnGiaoHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnGiaoHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnGiaoHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnGiaoHang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.BtnGiaoHang.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BtnGiaoHang.ForeColor = System.Drawing.Color.White;
-            this.BtnGiaoHang.Image = global::Sushi_Restaurant.Properties.Resources.delivery;
-            this.BtnGiaoHang.Location = new System.Drawing.Point(493, 14);
-            this.BtnGiaoHang.Name = "BtnGiaoHang";
-            this.BtnGiaoHang.Size = new System.Drawing.Size(101, 68);
-            this.BtnGiaoHang.TabIndex = 5;
-            this.BtnGiaoHang.Text = "Giao hàng";
-            // 
-            // btnBill
-            // 
-            this.btnBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnBill.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnBill.BorderRadius = 10;
-            this.btnBill.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnBill.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnBill.ForeColor = System.Drawing.Color.White;
-            this.btnBill.Image = global::Sushi_Restaurant.Properties.Resources.invoice;
-            this.btnBill.Location = new System.Drawing.Point(386, 14);
-            this.btnBill.Name = "btnBill";
-            this.btnBill.Size = new System.Drawing.Size(101, 68);
-            this.btnBill.TabIndex = 4;
-            this.btnBill.Text = "Hóa đơn";
-            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
-            // 
-            // buttonThem
-            // 
-            this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.buttonThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.buttonThem.BorderRadius = 10;
-            this.buttonThem.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.buttonThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.buttonThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.buttonThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.buttonThem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonThem.ForeColor = System.Drawing.Color.White;
-            this.buttonThem.Image = global::Sushi_Restaurant.Properties.Resources._new;
-            this.buttonThem.Location = new System.Drawing.Point(279, 14);
-            this.buttonThem.Name = "buttonThem";
-            this.buttonThem.Size = new System.Drawing.Size(101, 68);
-            this.buttonThem.TabIndex = 2;
-            this.buttonThem.Text = "Thêm";
-            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.sushi_logo;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(12, 14);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 68);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
             // 
             // dataGridViewImageColumn2
             // 
@@ -548,10 +549,10 @@
             this.Load += new System.EventHandler(this.frmPOS_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
