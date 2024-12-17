@@ -1,6 +1,6 @@
 ﻿namespace Sushi_Restaurant.NhanVien
 {
-    partial class HoaDon
+    partial class DSPhieuDatTrucTiep
     {
         /// <summary>
         /// Required designer variable.
@@ -39,10 +39,9 @@
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgvstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvedit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgvprint = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvdel = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel1.SuspendLayout();
@@ -59,8 +58,8 @@
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1119, 97);
-            this.guna2Panel1.TabIndex = 1;
+            this.guna2Panel1.Size = new System.Drawing.Size(585, 97);
+            this.guna2Panel1.TabIndex = 8;
             // 
             // guna2ControlBox1
             // 
@@ -68,7 +67,7 @@
             this.guna2ControlBox1.BorderColor = System.Drawing.Color.White;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Silver;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1049, 37);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(515, 37);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 4;
@@ -81,15 +80,15 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(110, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 32);
+            this.label1.Size = new System.Drawing.Size(289, 32);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Hóa đơn";
+            this.label1.Text = "Danh sách phiếu trực tiếp";
             // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.ErrorImage = null;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.bill;
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.restaurant_pink;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
@@ -118,10 +117,9 @@
             this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvstt,
             this.dgvId,
-            this.dgvType,
-            this.dgvTotal,
+            this.dgvTable,
             this.dgvedit,
-            this.dgvprint});
+            this.dgvdel});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,7 +129,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(93, 141);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(61, 125);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -144,9 +142,9 @@
             this.guna2DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
-            this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(815, 388);
-            this.guna2DataGridView1.TabIndex = 6;
+            this.guna2DataGridView1.RowTemplate.Height = 30;
+            this.guna2DataGridView1.Size = new System.Drawing.Size(459, 388);
+            this.guna2DataGridView1.TabIndex = 9;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -165,7 +163,7 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 24;
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 30;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
@@ -184,31 +182,21 @@
             // dgvId
             // 
             this.dgvId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvId.FillWeight = 180F;
-            this.dgvId.HeaderText = "Mã HD";
-            this.dgvId.MinimumWidth = 180;
+            this.dgvId.FillWeight = 150F;
+            this.dgvId.HeaderText = "Mã phiếu";
+            this.dgvId.MinimumWidth = 150;
             this.dgvId.Name = "dgvId";
             this.dgvId.ReadOnly = true;
-            this.dgvId.Width = 180;
+            this.dgvId.Width = 150;
             // 
-            // dgvType
+            // dgvTable
             // 
-            this.dgvType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvType.HeaderText = "Loại";
-            this.dgvType.MinimumWidth = 100;
-            this.dgvType.Name = "dgvType";
-            this.dgvType.ReadOnly = true;
-            this.dgvType.Width = 125;
-            // 
-            // dgvTotal
-            // 
-            this.dgvTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvTotal.FillWeight = 200F;
-            this.dgvTotal.HeaderText = "Tổng tiền";
-            this.dgvTotal.MinimumWidth = 200;
-            this.dgvTotal.Name = "dgvTotal";
-            this.dgvTotal.ReadOnly = true;
-            this.dgvTotal.Width = 200;
+            this.dgvTable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvTable.HeaderText = "Số bàn";
+            this.dgvTable.MinimumWidth = 100;
+            this.dgvTable.Name = "dgvTable";
+            this.dgvTable.ReadOnly = true;
+            this.dgvTable.Width = 125;
             // 
             // dgvedit
             // 
@@ -224,62 +212,58 @@
             this.dgvedit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgvedit.Width = 50;
             // 
-            // dgvprint
+            // dgvdel
             // 
-            this.dgvprint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvprint.FillWeight = 50F;
-            this.dgvprint.HeaderText = "";
-            this.dgvprint.Image = global::Sushi_Restaurant.Properties.Resources.printer;
-            this.dgvprint.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvprint.MinimumWidth = 50;
-            this.dgvprint.Name = "dgvprint";
-            this.dgvprint.ReadOnly = true;
-            this.dgvprint.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvprint.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgvprint.Width = 50;
+            this.dgvdel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvdel.FillWeight = 50F;
+            this.dgvdel.HeaderText = "";
+            this.dgvdel.Image = global::Sushi_Restaurant.Properties.Resources.bin;
+            this.dgvdel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvdel.MinimumWidth = 50;
+            this.dgvdel.Name = "dgvdel";
+            this.dgvdel.ReadOnly = true;
+            this.dgvdel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgvdel.Width = 50;
             // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewImageColumn1.FillWeight = 50F;
             this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Sushi_Restaurant.Properties.Resources.icon_sua;
+            this.dataGridViewImageColumn1.Image = global::Sushi_Restaurant.Properties.Resources.pencil;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.MinimumWidth = 50;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Visible = false;
-            this.dataGridViewImageColumn1.Width = 125;
+            this.dataGridViewImageColumn1.Width = 50;
             // 
             // dataGridViewImageColumn2
             // 
             this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewImageColumn2.FillWeight = 50F;
             this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::Sushi_Restaurant.Properties.Resources.del;
+            this.dataGridViewImageColumn2.Image = global::Sushi_Restaurant.Properties.Resources.printer;
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.MinimumWidth = 50;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn2.Width = 50;
             // 
-            // HoaDon
+            // DSPhieuDatTrucTiep
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1119, 652);
-            this.Controls.Add(this.guna2DataGridView1);
+            this.ClientSize = new System.Drawing.Size(585, 564);
             this.Controls.Add(this.guna2Panel1);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.guna2DataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "HoaDon";
+            this.Name = "DSPhieuDatTrucTiep";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HoaDon";
-            this.Load += new System.EventHandler(this.HoaDon_Load);
+            this.Text = "DSPhieuDatTrucTiep";
+            this.Load += new System.EventHandler(this.DSPhieuDatTrucTiep_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
@@ -291,17 +275,16 @@
         #endregion
 
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         public System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvstt;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTable;
         private System.Windows.Forms.DataGridViewImageColumn dgvedit;
-        private System.Windows.Forms.DataGridViewImageColumn dgvprint;
+        private System.Windows.Forms.DataGridViewImageColumn dgvdel;
     }
 }

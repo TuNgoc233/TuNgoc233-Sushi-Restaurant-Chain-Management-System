@@ -33,23 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.ButtonExit = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnDin = new Guna.UI2.WinForms.Guna2TileButton();
-            this.ButtonGiaoHang = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnBill = new Guna.UI2.WinForms.Guna2TileButton();
-            this.buttonThem = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnThanhtoan = new Guna.UI2.WinForms.Guna2Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ProductPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.CategoryPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,19 +48,31 @@
             this.dgvCong = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.CategoryPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnReservation = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnDin = new Guna.UI2.WinForms.Guna2TileButton();
+            this.BtnGiaoHang = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnBill = new Guna.UI2.WinForms.Guna2TileButton();
+            this.buttonThem = new Guna.UI2.WinForms.Guna2TileButton();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ButtonExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.ButtonExit);
+            this.guna2Panel1.Controls.Add(this.btnExit);
+            this.guna2Panel1.Controls.Add(this.btnReservation);
             this.guna2Panel1.Controls.Add(this.btnDin);
-            this.guna2Panel1.Controls.Add(this.ButtonGiaoHang);
+            this.guna2Panel1.Controls.Add(this.BtnGiaoHang);
             this.guna2Panel1.Controls.Add(this.btnBill);
             this.guna2Panel1.Controls.Add(this.buttonThem);
             this.guna2Panel1.Controls.Add(this.label1);
@@ -82,97 +84,19 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1297, 100);
             this.guna2Panel1.TabIndex = 1;
             // 
-            // ButtonExit
+            // btnExit
             // 
-            this.ButtonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonExit.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonExit.Image = global::Sushi_Restaurant.Properties.Resources.power_off;
-            this.ButtonExit.ImageRotate = 0F;
-            this.ButtonExit.Location = new System.Drawing.Point(1217, 27);
-            this.ButtonExit.Name = "ButtonExit";
-            this.ButtonExit.Size = new System.Drawing.Size(57, 51);
-            this.ButtonExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ButtonExit.TabIndex = 9;
-            this.ButtonExit.TabStop = false;
-            this.ButtonExit.UseTransparentBackground = true;
-            this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
-            // 
-            // btnDin
-            // 
-            this.btnDin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnDin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnDin.BorderRadius = 10;
-            this.btnDin.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnDin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnDin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDin.ForeColor = System.Drawing.Color.White;
-            this.btnDin.Location = new System.Drawing.Point(548, 14);
-            this.btnDin.Name = "btnDin";
-            this.btnDin.Size = new System.Drawing.Size(78, 68);
-            this.btnDin.TabIndex = 5;
-            this.btnDin.Text = "Tại chỗ";
-            this.btnDin.Click += new System.EventHandler(this.btnDin_Click);
-            // 
-            // ButtonGiaoHang
-            // 
-            this.ButtonGiaoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.ButtonGiaoHang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.ButtonGiaoHang.BorderRadius = 10;
-            this.ButtonGiaoHang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.ButtonGiaoHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ButtonGiaoHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ButtonGiaoHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ButtonGiaoHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ButtonGiaoHang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.ButtonGiaoHang.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ButtonGiaoHang.ForeColor = System.Drawing.Color.White;
-            this.ButtonGiaoHang.Location = new System.Drawing.Point(464, 14);
-            this.ButtonGiaoHang.Name = "ButtonGiaoHang";
-            this.ButtonGiaoHang.Size = new System.Drawing.Size(78, 68);
-            this.ButtonGiaoHang.TabIndex = 5;
-            this.ButtonGiaoHang.Text = "Giao hàng";
-            // 
-            // btnBill
-            // 
-            this.btnBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnBill.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnBill.BorderRadius = 10;
-            this.btnBill.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnBill.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnBill.ForeColor = System.Drawing.Color.White;
-            this.btnBill.Location = new System.Drawing.Point(380, 14);
-            this.btnBill.Name = "btnBill";
-            this.btnBill.Size = new System.Drawing.Size(78, 68);
-            this.btnBill.TabIndex = 4;
-            this.btnBill.Text = "Hóa đơn";
-            // 
-            // buttonThem
-            // 
-            this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.buttonThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.buttonThem.BorderRadius = 10;
-            this.buttonThem.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.buttonThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.buttonThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.buttonThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.buttonThem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonThem.ForeColor = System.Drawing.Color.White;
-            this.buttonThem.Location = new System.Drawing.Point(296, 14);
-            this.buttonThem.Name = "buttonThem";
-            this.buttonThem.Size = new System.Drawing.Size(78, 68);
-            this.buttonThem.TabIndex = 2;
-            this.buttonThem.Text = "Thêm";
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExit.CustomClick = true;
+            this.btnExit.FillColor = System.Drawing.Color.Gainsboro;
+            this.btnExit.IconColor = System.Drawing.Color.Black;
+            this.btnExit.Location = new System.Drawing.Point(1236, 14);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(38, 24);
+            this.btnExit.TabIndex = 11;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label1
             // 
@@ -186,21 +110,9 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "POS";
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.sushi_logo;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(12, 14);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 68);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
-            // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Controls.Add(this.btnThanhtoan);
             this.guna2Panel2.Controls.Add(this.lblTotal);
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -210,6 +122,27 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1297, 100);
             this.guna2Panel2.TabIndex = 2;
             // 
+            // btnThanhtoan
+            // 
+            this.btnThanhtoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThanhtoan.AutoRoundedCorners = true;
+            this.btnThanhtoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnThanhtoan.BorderRadius = 21;
+            this.btnThanhtoan.CustomizableEdges.TopRight = false;
+            this.btnThanhtoan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThanhtoan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThanhtoan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThanhtoan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThanhtoan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnThanhtoan.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnThanhtoan.ForeColor = System.Drawing.Color.White;
+            this.btnThanhtoan.Location = new System.Drawing.Point(804, 20);
+            this.btnThanhtoan.Name = "btnThanhtoan";
+            this.btnThanhtoan.Size = new System.Drawing.Size(125, 45);
+            this.btnThanhtoan.TabIndex = 12;
+            this.btnThanhtoan.Text = "Thanh toán";
+            this.btnThanhtoan.Click += new System.EventHandler(this.btnThanhtoan_Click);
+            // 
             // lblTotal
             // 
             this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -217,7 +150,7 @@
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(1077, 22);
+            this.lblTotal.Location = new System.Drawing.Point(1168, 28);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(27, 32);
             this.lblTotal.TabIndex = 1;
@@ -230,7 +163,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(916, 22);
+            this.label2.Location = new System.Drawing.Point(964, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 32);
             this.label2.TabIndex = 1;
@@ -286,7 +219,8 @@
             this.guna2DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
-            this.guna2DataGridView1.RowTemplate.Height = 24;
+            this.guna2DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.guna2DataGridView1.RowTemplate.Height = 35;
             this.guna2DataGridView1.Size = new System.Drawing.Size(470, 410);
             this.guna2DataGridView1.TabIndex = 11;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -307,84 +241,11 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 24;
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 35;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
             this.guna2DataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridView1_CellFormatting);
-            // 
-            // ProductPanel
-            // 
-            this.ProductPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProductPanel.AutoScroll = true;
-            this.ProductPanel.Location = new System.Drawing.Point(205, 185);
-            this.ProductPanel.Name = "ProductPanel";
-            this.ProductPanel.Size = new System.Drawing.Size(593, 410);
-            this.ProductPanel.TabIndex = 6;
-            // 
-            // CategoryPanel
-            // 
-            this.CategoryPanel.AutoScroll = true;
-            this.CategoryPanel.Location = new System.Drawing.Point(12, 185);
-            this.CategoryPanel.Name = "CategoryPanel";
-            this.CategoryPanel.Size = new System.Drawing.Size(187, 410);
-            this.CategoryPanel.TabIndex = 5;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.FillWeight = 20F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Sushi_Restaurant.Properties.Resources.del;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 20;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 20;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::Sushi_Restaurant.Properties.Resources.cong;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 60;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.FillWeight = 20F;
-            this.dataGridViewImageColumn3.HeaderText = "";
-            this.dataGridViewImageColumn3.Image = global::Sushi_Restaurant.Properties.Resources.del;
-            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn3.MinimumWidth = 20;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.ReadOnly = true;
-            this.dataGridViewImageColumn3.Width = 20;
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTimKiem.DefaultText = "";
-            this.txtTimKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.IconLeft = global::Sushi_Restaurant.Properties.Resources.search;
-            this.txtTimKiem.Location = new System.Drawing.Point(193, 115);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.PasswordChar = '\0';
-            this.txtTimKiem.PlaceholderText = "Tìm kiếm ở đây";
-            this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.Size = new System.Drawing.Size(391, 48);
-            this.txtTimKiem.TabIndex = 10;
-            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // dgvSTT
             // 
@@ -466,6 +327,36 @@
             this.dgvAmount.ReadOnly = true;
             this.dgvAmount.Width = 95;
             // 
+            // ProductPanel
+            // 
+            this.ProductPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProductPanel.AutoScroll = true;
+            this.ProductPanel.Location = new System.Drawing.Point(205, 185);
+            this.ProductPanel.Name = "ProductPanel";
+            this.ProductPanel.Size = new System.Drawing.Size(593, 410);
+            this.ProductPanel.TabIndex = 6;
+            // 
+            // CategoryPanel
+            // 
+            this.CategoryPanel.AutoScroll = true;
+            this.CategoryPanel.Location = new System.Drawing.Point(12, 185);
+            this.CategoryPanel.Name = "CategoryPanel";
+            this.CategoryPanel.Size = new System.Drawing.Size(187, 410);
+            this.CategoryPanel.TabIndex = 5;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 20F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Sushi_Restaurant.Properties.Resources.del;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 20;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 20;
+            // 
             // dgvDel
             // 
             this.dgvDel.FillWeight = 20F;
@@ -475,6 +366,167 @@
             this.dgvDel.MinimumWidth = 20;
             this.dgvDel.Name = "dgvDel";
             this.dgvDel.ReadOnly = true;
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTimKiem.DefaultText = "";
+            this.txtTimKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTimKiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTimKiem.IconLeft = global::Sushi_Restaurant.Properties.Resources.search;
+            this.txtTimKiem.Location = new System.Drawing.Point(193, 115);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.PasswordChar = '\0';
+            this.txtTimKiem.PlaceholderText = "Tìm kiếm ở đây";
+            this.txtTimKiem.SelectedText = "";
+            this.txtTimKiem.Size = new System.Drawing.Size(391, 48);
+            this.txtTimKiem.TabIndex = 10;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            // 
+            // btnReservation
+            // 
+            this.btnReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnReservation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnReservation.BorderRadius = 10;
+            this.btnReservation.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnReservation.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReservation.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReservation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReservation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReservation.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnReservation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnReservation.ForeColor = System.Drawing.Color.White;
+            this.btnReservation.Image = global::Sushi_Restaurant.Properties.Resources.reservation__1_;
+            this.btnReservation.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnReservation.Location = new System.Drawing.Point(707, 14);
+            this.btnReservation.Name = "btnReservation";
+            this.btnReservation.Size = new System.Drawing.Size(101, 68);
+            this.btnReservation.TabIndex = 10;
+            this.btnReservation.Text = "Đặt bàn";
+            this.btnReservation.Click += new System.EventHandler(this.btnReservation_Click);
+            // 
+            // btnDin
+            // 
+            this.btnDin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnDin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnDin.BorderRadius = 10;
+            this.btnDin.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnDin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnDin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDin.ForeColor = System.Drawing.Color.White;
+            this.btnDin.Image = global::Sushi_Restaurant.Properties.Resources.restaurant;
+            this.btnDin.Location = new System.Drawing.Point(600, 14);
+            this.btnDin.Name = "btnDin";
+            this.btnDin.Size = new System.Drawing.Size(101, 68);
+            this.btnDin.TabIndex = 5;
+            this.btnDin.Text = "Tại chỗ";
+            this.btnDin.Click += new System.EventHandler(this.btnDin_Click);
+            // 
+            // BtnGiaoHang
+            // 
+            this.BtnGiaoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.BtnGiaoHang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.BtnGiaoHang.BorderRadius = 10;
+            this.BtnGiaoHang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.BtnGiaoHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnGiaoHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnGiaoHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnGiaoHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnGiaoHang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.BtnGiaoHang.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnGiaoHang.ForeColor = System.Drawing.Color.White;
+            this.BtnGiaoHang.Image = global::Sushi_Restaurant.Properties.Resources.delivery;
+            this.BtnGiaoHang.Location = new System.Drawing.Point(493, 14);
+            this.BtnGiaoHang.Name = "BtnGiaoHang";
+            this.BtnGiaoHang.Size = new System.Drawing.Size(101, 68);
+            this.BtnGiaoHang.TabIndex = 5;
+            this.BtnGiaoHang.Text = "Giao hàng";
+            // 
+            // btnBill
+            // 
+            this.btnBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnBill.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnBill.BorderRadius = 10;
+            this.btnBill.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnBill.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBill.ForeColor = System.Drawing.Color.White;
+            this.btnBill.Image = global::Sushi_Restaurant.Properties.Resources.invoice;
+            this.btnBill.Location = new System.Drawing.Point(386, 14);
+            this.btnBill.Name = "btnBill";
+            this.btnBill.Size = new System.Drawing.Size(101, 68);
+            this.btnBill.TabIndex = 4;
+            this.btnBill.Text = "Hóa đơn";
+            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
+            // 
+            // buttonThem
+            // 
+            this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.buttonThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.buttonThem.BorderRadius = 10;
+            this.buttonThem.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.buttonThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.buttonThem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonThem.ForeColor = System.Drawing.Color.White;
+            this.buttonThem.Image = global::Sushi_Restaurant.Properties.Resources._new;
+            this.buttonThem.Location = new System.Drawing.Point(279, 14);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.Size = new System.Drawing.Size(101, 68);
+            this.buttonThem.TabIndex = 2;
+            this.buttonThem.Text = "Thêm";
+            this.buttonThem.Click += new System.EventHandler(this.buttonThem_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.sushi_logo;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(12, 14);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 68);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.UseTransparentBackground = true;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::Sushi_Restaurant.Properties.Resources.cong;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 60;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.FillWeight = 20F;
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::Sushi_Restaurant.Properties.Resources.del;
+            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn3.MinimumWidth = 20;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Width = 20;
             // 
             // frmPOS
             // 
@@ -496,11 +548,10 @@
             this.Load += new System.EventHandler(this.frmPOS_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ButtonExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -508,8 +559,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2PictureBox ButtonExit;
-        private Guna.UI2.WinForms.Guna2TileButton ButtonGiaoHang;
+        private Guna.UI2.WinForms.Guna2TileButton BtnGiaoHang;
         private Guna.UI2.WinForms.Guna2TileButton btnBill;
         private Guna.UI2.WinForms.Guna2TileButton buttonThem;
         private System.Windows.Forms.Label label1;
@@ -534,5 +584,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
         private System.Windows.Forms.DataGridViewImageColumn dgvDel;
+        private Guna.UI2.WinForms.Guna2TileButton btnReservation;
+        private Guna.UI2.WinForms.Guna2ControlBox btnExit;
+        public Guna.UI2.WinForms.Guna2Button btnThanhtoan;
     }
 }

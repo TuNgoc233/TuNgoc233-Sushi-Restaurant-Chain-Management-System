@@ -48,7 +48,7 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(192, 38);
+            this.label1.Size = new System.Drawing.Size(165, 32);
             this.label1.Text = "Phiếu Đặt Bàn";
             // 
             // label2
@@ -57,7 +57,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 107);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 28);
+            this.label2.Size = new System.Drawing.Size(82, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mã Phiếu";
             // 
@@ -67,7 +67,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(20, 196);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 28);
+            this.label3.Size = new System.Drawing.Size(82, 23);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ngày Đặt";
             // 
@@ -75,9 +75,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 291);
+            this.label4.Location = new System.Drawing.Point(300, 196);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 28);
+            this.label4.Size = new System.Drawing.Size(72, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Giờ Đến";
             // 
@@ -85,9 +85,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 389);
+            this.label5.Location = new System.Drawing.Point(300, 107);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 28);
+            this.label5.Size = new System.Drawing.Size(132, 23);
             this.label5.TabIndex = 5;
             this.label5.Text = "Mã Khách Hàng";
             // 
@@ -109,7 +109,7 @@
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.ReadOnly = true;
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(250, 40);
+            this.guna2TextBox1.Size = new System.Drawing.Size(225, 40);
             this.guna2TextBox1.TabIndex = 6;
             this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
@@ -124,7 +124,7 @@
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(250, 40);
+            this.guna2DateTimePicker1.Size = new System.Drawing.Size(225, 40);
             this.guna2DateTimePicker1.TabIndex = 8;
             this.guna2DateTimePicker1.Value = new System.DateTime(2024, 11, 29, 13, 30, 56, 390);
             // 
@@ -134,11 +134,11 @@
             this.guna2DateTimePicker2.FillColor = System.Drawing.Color.White;
             this.guna2DateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(25, 330);
+            this.guna2DateTimePicker2.Location = new System.Drawing.Point(304, 237);
             this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(250, 40);
+            this.guna2DateTimePicker2.Size = new System.Drawing.Size(226, 40);
             this.guna2DateTimePicker2.TabIndex = 9;
             this.guna2DateTimePicker2.Value = new System.DateTime(2024, 11, 29, 13, 31, 57, 116);
             // 
@@ -153,14 +153,14 @@
             this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(25, 423);
+            this.guna2TextBox2.Location = new System.Drawing.Point(304, 141);
             this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderText = "";
             this.guna2TextBox2.ReadOnly = true;
             this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(250, 40);
+            this.guna2TextBox2.Size = new System.Drawing.Size(226, 40);
             this.guna2TextBox2.TabIndex = 10;
             // 
             // guna2TextBox3
@@ -174,14 +174,14 @@
             this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(323, 141);
+            this.guna2TextBox3.Location = new System.Drawing.Point(582, 141);
             this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox3.Name = "guna2TextBox3";
             this.guna2TextBox3.PasswordChar = '\0';
             this.guna2TextBox3.PlaceholderText = "";
             this.guna2TextBox3.ReadOnly = true;
             this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(200, 40);
+            this.guna2TextBox3.Size = new System.Drawing.Size(130, 40);
             this.guna2TextBox3.TabIndex = 11;
             // 
             // guna2TextBox4
@@ -195,14 +195,14 @@
             this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Location = new System.Drawing.Point(323, 237);
+            this.guna2TextBox4.Location = new System.Drawing.Point(25, 427);
             this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox4.Name = "guna2TextBox4";
             this.guna2TextBox4.PasswordChar = '\0';
             this.guna2TextBox4.PlaceholderText = "";
             this.guna2TextBox4.ReadOnly = true;
             this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.Size = new System.Drawing.Size(200, 226);
+            this.guna2TextBox4.Size = new System.Drawing.Size(505, 40);
             this.guna2TextBox4.TabIndex = 12;
             this.guna2TextBox4.TextChanged += new System.EventHandler(this.guna2TextBox4_TextChanged);
             // 
@@ -217,22 +217,22 @@
             this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Location = new System.Drawing.Point(581, 141);
+            this.guna2TextBox5.Location = new System.Drawing.Point(25, 340);
             this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox5.Name = "guna2TextBox5";
             this.guna2TextBox5.PasswordChar = '\0';
             this.guna2TextBox5.PlaceholderText = "";
             this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.Size = new System.Drawing.Size(250, 40);
+            this.guna2TextBox5.Size = new System.Drawing.Size(225, 36);
             this.guna2TextBox5.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(319, 107);
+            this.label6.Location = new System.Drawing.Point(578, 107);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 28);
+            this.label6.Size = new System.Drawing.Size(134, 23);
             this.label6.TabIndex = 14;
             this.label6.Text = "Số Lượng Khách";
             // 
@@ -240,10 +240,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(323, 196);
+            this.label7.Location = new System.Drawing.Point(24, 400);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(81, 28);
+            this.label7.Size = new System.Drawing.Size(72, 23);
             this.label7.TabIndex = 15;
             this.label7.Text = "Ghi Chú";
             // 
@@ -251,9 +251,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(577, 107);
+            this.label8.Location = new System.Drawing.Point(21, 304);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(190, 28);
+            this.label8.Size = new System.Drawing.Size(170, 23);
             this.label8.TabIndex = 16;
             this.label8.Text = "Nhân Viên Xác Nhận";
             // 
@@ -261,9 +261,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(576, 196);
+            this.label9.Location = new System.Drawing.Point(300, 314);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 28);
+            this.label9.Size = new System.Drawing.Size(91, 23);
             this.label9.TabIndex = 17;
             this.label9.Text = "Tình Trạng";
             // 
@@ -280,14 +280,14 @@
             this.guna2ComboBox1.Items.AddRange(new object[] {
             "Chưa Xác Nhận",
             "Đã Xác Nhận"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(581, 237);
+            this.guna2ComboBox1.Location = new System.Drawing.Point(304, 340);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(250, 36);
+            this.guna2ComboBox1.Size = new System.Drawing.Size(226, 36);
             this.guna2ComboBox1.TabIndex = 18;
             // 
             // PhieuDatBan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 566);
             this.Controls.Add(this.guna2ComboBox1);
@@ -307,6 +307,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "PhieuDatBan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PhieuDatBan";
             this.ResumeLayout(false);
             this.PerformLayout();

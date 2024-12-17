@@ -17,16 +17,6 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         public virtual void btnLuu_Click(object sender, EventArgs e)
         {
             // Thực hiện các hành động khi nhấn nút "LƯU"
@@ -40,15 +30,9 @@ namespace Sushi_Restaurant.NhanVien
             this.Close();
         }
 
-        public virtual void label1_Click(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        public virtual void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         
     }

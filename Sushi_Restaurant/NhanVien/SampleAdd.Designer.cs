@@ -45,15 +45,14 @@ namespace Sushi_Restaurant.NhanVien
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(855, 97);
             this.guna2Panel1.TabIndex = 0;
- 
             // 
             // label1
             // 
@@ -63,10 +62,9 @@ namespace Sushi_Restaurant.NhanVien
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(110, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 38);
+            this.label1.Size = new System.Drawing.Size(91, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "Header";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // guna2Panel2
             // 
@@ -121,16 +119,12 @@ namespace Sushi_Restaurant.NhanVien
             // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.ErrorImage = null;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 75);
-            this.guna2PictureBox1.TabIndex = 2;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 71);
+            this.guna2PictureBox1.TabIndex = 4;
             this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // SampleAdd
             // 
@@ -157,9 +151,9 @@ namespace Sushi_Restaurant.NhanVien
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         public System.Windows.Forms.Label label1;
-        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         public Guna.UI2.WinForms.Guna2Button btnDong;
         public Guna.UI2.WinForms.Guna2Button btnLuu;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 
 }

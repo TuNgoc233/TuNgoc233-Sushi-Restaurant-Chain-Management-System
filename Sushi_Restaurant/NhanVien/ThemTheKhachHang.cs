@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,76 +18,46 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
         }
 
-        public int id = 0;
+        DateTime date = DateTime.Now;
+        public string MaThe = "";
         public override void btnLuu_Click(object sender, EventArgs e)
         {
             // Thực hiện các hành động khi nhấn nút "LƯU"
             MessageBox.Show("Lưu thành công!");
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private string LayMaTheTiepTheo()
         {
+            string nextId = "";
 
-        }
+            try
+            {
+                using (SqlConnection con = new SqlConnection(MainClass.con_string))
+                {
+                    con.Open();
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+                    using (SqlCommand cmd = new SqlCommand("SELECT dbo.LayMaTheTiepTheo()", con))
+                    {
+                        nextId = cmd.ExecuteScalar().ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy mã hóa đơn: " + ex.Message);
+            }
+            MaThe = nextId;
 
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2RadioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox5_TextChanged(object sender, EventArgs e)
-        {
-
+            return nextId;
         }
 
         private void ThemTheKhachHang_Load(object sender, EventArgs e)
         {
+            txtMaThe.Text = LayMaTheTiepTheo();
+            guna2DateTimePicker1.Value = date;
 
         }
+
+
     }
 }
