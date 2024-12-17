@@ -40,6 +40,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.dgv4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvImage = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataLoad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,8 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.dgv3,
             this.dgv4,
             this.dgv1,
-            this.dgv5});
+            this.dgv5,
+            this.dgvImage});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,7 +116,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.DataLoad.ThemeStyle.RowsStyle.Height = 24;
             this.DataLoad.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataLoad.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataLoad.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
+            this.DataLoad.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.icon_Delete_click);
             // 
             // dgv
             // 
@@ -152,6 +154,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.dgv5.MinimumWidth = 6;
             this.dgv5.Name = "dgv5";
             // 
+            // dgvImage
+            // 
+            this.dgvImage.HeaderText = "Xóa";
+            this.dgvImage.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
+            this.dgvImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvImage.MinimumWidth = 6;
+            this.dgvImage.Name = "dgvImage";
+            // 
             // viewID_Card
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -181,5 +191,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv5;
+        private System.Windows.Forms.DataGridViewImageColumn dgvImage;
     }
 }

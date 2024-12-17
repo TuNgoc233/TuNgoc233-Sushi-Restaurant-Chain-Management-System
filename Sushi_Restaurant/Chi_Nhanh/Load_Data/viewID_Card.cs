@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -85,12 +86,68 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
 
         }
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void icon_Delete_click(object sender, DataGridViewCellEventArgs e)
         {
-         
-            
+            // Kiểm tra xem người dùng có chọn một hàng không
+            if (e.RowIndex < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để xóa.");
+                return;
+            }
+
+            // Lấy thông tin từ hàng được chọn
+            string maSoThe = DataLoad.Rows[e.RowIndex].Cells[0].Value.ToString(); // Nếu "Mã số thẻ" là cột đầu tiên
+            string maChiNhanh = Branch.MaChiNhanh;
+
+            // Xác nhận trước khi xóa
+            var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa thẻ này không?",
+                                                 "Xác nhận xóa",
+                                                 MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                // Gọi phương thức xóa thẻ
+                XoaThe(maChiNhanh, maSoThe);
+            }
         }
 
+        private void XoaThe(string maChiNhanh, string maSoThe)
+        {
+            // Kết nối đến cơ sở dữ liệu
+            string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+
+            using (SqlConnection connection = new SqlConnection(con_string))
+            {
+                using (SqlCommand command = new SqlCommand("SP_XoaMotTheThanhVien", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Thêm tham số
+                    command.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);
+                    command.Parameters.AddWithValue("@MaSoThe", maSoThe);
+
+                    try
+                    {
+                        // Mở kết nối
+                        connection.Open();
+
+                        // Thực thi thủ tục
+                        command.ExecuteNonQuery();
+
+                        // Thông báo thành công
+                        MessageBox.Show("Xóa thẻ thành công.");
+
+                        // Cập nhật lại DataGridView
+                        viewID_Card_Load(this, EventArgs.Empty); // Gọi lại phương thức Load
+                    }
+                    catch (Exception ex)
+                    {
+                        // Xử lý lỗi
+                        MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+                    }
+                }
+            }
+        }
+        
         private void guna2Button3_Click(object sender, EventArgs e)
         {
 
