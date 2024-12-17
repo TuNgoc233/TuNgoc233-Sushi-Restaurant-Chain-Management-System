@@ -97,17 +97,43 @@ namespace Sushi_Restaurant
 
         private void but_DSDH_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(GlobalVariables.MaChiNhanh))
+            {
+                MessageBox.Show("Vui lòng chọn khu vực và chi nhánh trước khi đặt món!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                but_DSDH.Checked = false;
+                but_Home.Checked = true;
+                return; // Dừng lại nếu chưa chọn khu vực và chi nhánh
+            }
             AddControls(new FrmDSDonHang());
         }
 
         private void but_mon_yeu_thich_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(GlobalVariables.MaChiNhanh))
+            {
+                MessageBox.Show("Vui lòng chọn khu vực và chi nhánh trước khi đặt món!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                but_mon_yeu_thich.Checked = false;
+                but_Home.Checked = true;
+                return; // Dừng lại nếu chưa chọn khu vực và chi nhánh
+            }
             AddControls(new FrmMonAnYeuThichView());
         }
 
         private void but_cap_nhat_info_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(GlobalVariables.MaChiNhanh))
+            {
+                MessageBox.Show("Vui lòng chọn khu vực và chi nhánh trước khi đặt món!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                but_cap_nhat_info.Checked = false;
+                but_Home.Checked = true;
+                return; // Dừng lại nếu chưa chọn khu vực và chi nhánh
+            }
             AddControls(new CapNhatThongTinView());
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
     

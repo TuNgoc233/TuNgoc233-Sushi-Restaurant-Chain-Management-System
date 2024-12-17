@@ -34,7 +34,6 @@ namespace Sushi_Restaurant.Model
         {
             try
             {
-                MessageBox.Show("Mã Khách Hàng: " + GlobalVariables.MaKH, "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Gọi procedure để lấy dữ liệu từ DB
                 LoadDataFromDatabase();
 
@@ -82,6 +81,12 @@ namespace Sushi_Restaurant.Model
                     sttColumn.SetOrdinal(0); // Đặt cột "STT" ở vị trí đầu tiên
                 }
 
+                if (!allOrders.Columns.Contains("Đánh giá"))
+                {
+                    DataColumn danhGiaColumn = new DataColumn("Đánh giá", typeof(object));
+                    allOrders.Columns.Add(danhGiaColumn);
+                }
+
                 // Gán số thứ tự và chuyển đổi giá trị cột "Loại Đơn Hàng"
                 for (int i = 0; i < allOrders.Rows.Count; i++)
                 {
@@ -92,7 +97,20 @@ namespace Sushi_Restaurant.Model
                         allOrders.Rows[i]["Loại Đơn Hàng"] = "Giao hàng tận nơi";
                     else if (allOrders.Rows[i]["Loại Đơn Hàng"].ToString() == "DB")
                         allOrders.Rows[i]["Loại Đơn Hàng"] = "Đặt bàn";
-                    
+
+                    // Kiểm tra trạng thái và đánh giá
+                    string maDonHang = allOrders.Rows[i]["Mã đơn hàng"].ToString();
+                    string trangThai = allOrders.Rows[i]["Trạng thái"].ToString();
+
+                    if (trangThai == "Đã giao" && !KiemTraDaDanhGia(maDonHang))
+                    {
+                        allOrders.Rows[i]["Đánh giá"] = Properties.Resources.icon_danhGia; // Thêm hình ảnh Like
+                    }
+                    else
+                    {
+                        allOrders.Rows[i]["Đánh giá"] = new Bitmap(1, 1);
+                    }
+
                 }
                 // Phân loại dữ liệu
                 var datBanRows = allOrders.Select("[Loại Đơn Hàng] = 'Đặt bàn'");
@@ -102,6 +120,8 @@ namespace Sushi_Restaurant.Model
                 var giaoHangRows = allOrders.Select("[Loại Đơn Hàng] = 'Giao hàng tận nơi'");
                 if (giaoHangRows.Length > 0)
                     giaoHangOrders = giaoHangRows.CopyToDataTable();
+
+
 
             }
             catch (Exception ex)
@@ -183,6 +203,37 @@ namespace Sushi_Restaurant.Model
             }
         }
 
+        private string LayMaHoaDonTuMaPhieu(string maPhieu)
+        {
+            string maHoaDon = null;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                {
+                    conn.Open();
+
+                    string query = "SELECT MaHoaDon FROM HOA_DON WHERE MaPhieuDatMon = @MaPhieuDatMon";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaPhieuDatMon", maPhieu);
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            maHoaDon = result.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi lấy mã hóa đơn: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return maHoaDon;
+        }
+
         private void dataGridViewDSDonHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra xem người dùng có click vào cột hình ảnh không
@@ -216,17 +267,72 @@ namespace Sushi_Restaurant.Model
 
                 }
 
-                //// Nếu nhấn vào cột "DanhGia"
-                //else if (columnName == "danhGia")
-                //{
-                //    // Lấy mã đơn hàng từ dòng được chọn
-                //    string maDonHang = dataGridViewDSDonHang.Rows[e.RowIndex].Cells["maDH"].Value.ToString();
+                if (columnName == "danhGia")
+                {
+                    string maDonHang = dataGridViewDSDonHang.Rows[e.RowIndex].Cells["maDH"].Value.ToString();
 
-                //    danhGiaDView frm = new danhGiaDHView(maDonHang);
-                //    frm.Show();
-                //}
+                    // Lấy mã hóa đơn từ mã phiếu
+                    string maHoaDon = LayMaHoaDonTuMaPhieu(maDonHang);
+
+                    if (string.IsNullOrEmpty(maHoaDon))
+                    {
+                        MessageBox.Show("Không tìm thấy mã hóa đơn cho mã phiếu này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Hiển thị form đánh giá
+                    using (ThemDanhGia formDanhGia = new ThemDanhGia(maHoaDon))
+                    {
+                        if (formDanhGia.ShowDialog() == DialogResult.OK)
+                        {
+                            // Nếu đánh giá thành công => Xóa hình ảnh "Like"
+                            dataGridViewDSDonHang.Rows[e.RowIndex].Cells["danhGia"].Value = new Bitmap(1, 1); ;
+                        }
+                    }
+                }
+
+
+            }
+
+
+        }
+
+        private bool KiemTraDaDanhGia(string maDonHang)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                {
+                    conn.Open();
+                    string query = "SELECT COUNT(*) FROM DANH_GIA_DICH_VU WHERE MaHoaDon = @MaHoaDon";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaHoaDon", maDonHang);
+                        int count = (int)cmd.ExecuteScalar();
+                        MessageBox.Show(count.ToString());
+                        return count > 0; // Trả về true nếu đã tồn tại đánh giá
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi kiểm tra đánh giá: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
+        private void dataGridViewDSDonHang_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // Lấy thông tin lỗi
+            string columnName = dataGridViewDSDonHang.Columns[e.ColumnIndex].Name;
+            int rowIndex = e.RowIndex + 1; // Dòng bị lỗi (bắt đầu từ 1)
+
+            // Hiển thị thông báo lỗi chi tiết
+            MessageBox.Show($"Lỗi tại dòng {rowIndex}, cột '{columnName}'.\nChi tiết lỗi: {e.Exception.Message}",
+                            "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            // Đánh dấu lỗi đã xử lý, không cần hiển thị dialog mặc định
+            e.ThrowException = false;
+        }
     }
 }

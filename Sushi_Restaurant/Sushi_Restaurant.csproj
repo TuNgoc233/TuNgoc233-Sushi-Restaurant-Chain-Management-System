@@ -117,6 +117,12 @@
     <Compile Include="View\FrmMonAnYeuThichView.Designer.cs">
       <DependentUpon>FrmMonAnYeuThichView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ThemDanhGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ThemDanhGia.Designer.cs">
+      <DependentUpon>ThemDanhGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\xemLaiDatBanView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmMonAnYeuThichView.resx">
       <DependentUpon>FrmMonAnYeuThichView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ThemDanhGia.resx">
+      <DependentUpon>ThemDanhGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\xemLaiDatBanView.resx">
       <DependentUpon>xemLaiDatBanView.cs</DependentUpon>
@@ -622,6 +631,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MA015.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_check_logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,11 @@ namespace Sushi_Restaurant.View
 {
     public partial class CapNhatThongTinView : Form
     {
+        // Biến tạm để lưu trữ thông tin ban đầu
+        private string _fullName, _idNumber, _email, _phoneNumber, _password, _gender;
         public CapNhatThongTinView()
         {
             InitializeComponent();
-            text_gioiTinh.SelectedItem = "Nam";
         }
 
         private void but_edit_FullName_Click(object sender, EventArgs e)
@@ -79,6 +81,105 @@ namespace Sushi_Restaurant.View
             }
         }
 
+        private void CapNhatThongTinView_Load(object sender, EventArgs e)
+        {
+            LoadInitialData();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra thông tin có thay đổi không
+            if (IsInformationUnchanged())
+            {
+                MessageBox.Show("Bạn chưa chỉnh sửa thông tin nào!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Thực hiện cập nhật thông tin
+            if (UpdateCustomerInfo())
+            {
+                // Lưu thông tin mới vào các biến tạm
+                _fullName = text_User.Text.Trim();
+                _email = text_email.Text.Trim();
+                _phoneNumber = text_SDT.Text.Trim();
+                _password = text_pass.Text.Trim();
+                _gender = text_gioiTinh.SelectedItem.ToString();
+
+                MessageBox.Show("Cập nhật thông tin thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thông tin thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool IsInformationUnchanged()
+        {
+            return text_User.Text.Trim() == _fullName &&
+                   text_email.Text.Trim() == _email &&
+                   text_SDT.Text.Trim() == _phoneNumber &&
+                   text_pass.Text.Trim() == _password &&
+                   text_gioiTinh.Text.Trim() == _gender &&
+                   text_CCCD.Text.Trim() == _idNumber;
+        }
+
+        //Hàm thực hiện gọi stored procedure để cập nhật thông tin
+        private bool UpdateCustomerInfo()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("NXHanh_CapNhatKhachHang", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Thêm các tham số cho stored procedure
+                        cmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);
+                        cmd.Parameters.AddWithValue("@HoTen", text_User.Text.Trim());
+                        cmd.Parameters.AddWithValue("@CCCD", text_CCCD.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Email", text_email.Text.Trim());
+                        cmd.Parameters.AddWithValue("@SoDienThoai", text_SDT.Text.Trim());
+                        cmd.Parameters.AddWithValue("@MatKhau", text_pass.Text.Trim());
+                        cmd.Parameters.AddWithValue("@GioiTinh", text_gioiTinh.SelectedItem.ToString());
+
+                        // Thực thi stored procedure
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        // Nếu có ít nhất một dòng bị ảnh hưởng => thành công
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (SqlException ex) when (ex.Number == 50000) // Xử lý lỗi từ RAISERROR
+            {
+                MessageBox.Show(ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Xóa thông tin gây lỗi dựa trên thông báo lỗi
+                if (ex.Message.Contains("Số điện thoại đã tồn tại"))
+                {
+                    text_SDT.Text = string.Empty;
+                    text_SDT.Focus(); // Đưa con trỏ về ô TextBox
+                }
+                else if (ex.Message.Contains("Số CCCD đã tồn tại"))
+                {
+                    text_CCCD.Text = string.Empty;
+                    text_CCCD.Focus(); // Đưa con trỏ về ô TextBox
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+    
+
+
         private void but_pass_Click(object sender, EventArgs e)
         {
             text_pass.Enabled = true;
@@ -94,14 +195,63 @@ namespace Sushi_Restaurant.View
             }
         }
 
-        private void text_gioiTinh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void but_edit_gioiTinh_Click(object sender, EventArgs e)
         {
             text_gioiTinh.Enabled = true;
         }
+
+        private void LoadInitialData()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                {
+                    conn.Open();
+
+                    // Truy vấn lấy thông tin khách hàng dựa trên một điều kiện (ví dụ: ID khách hàng)
+                    string query = @"SELECT HoTen, CCCD, Email, SoDienThoai, MatKhau, GioiTinh 
+                                FROM KHACH_HANG 
+                                WHERE MaKhachHang = @MaKhachHang"; // MaKhachHang là ID khách hàng cần lấy
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Thêm tham số MaKhachHang
+                        cmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Đọc thông tin từ database và gán vào biến tạm
+                                _fullName = reader["HoTen"].ToString();
+                                _idNumber = reader["CCCD"].ToString();
+                                _email = reader["Email"].ToString();
+                                _phoneNumber = reader["SoDienThoai"].ToString();
+                                _password = reader["MatKhau"].ToString();
+                                _gender = reader["GioiTinh"].ToString();
+
+                                // Hiển thị thông tin lên các TextBox và ComboBox
+                                text_User.Text = _fullName;
+                                text_email.Text = _email;
+                                text_CCCD.Text = _idNumber;
+                                text_SDT.Text = _phoneNumber;
+                                text_pass.Text = _password;
+                                text_gioiTinh.Text = _gender;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy thông tin khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
+
+    
 }

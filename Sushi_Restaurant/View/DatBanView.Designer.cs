@@ -132,7 +132,7 @@
             this.label_ghiChu.AutoSize = true;
             this.label_ghiChu.BackColor = System.Drawing.Color.Transparent;
             this.label_ghiChu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ghiChu.Location = new System.Drawing.Point(574, 356);
+            this.label_ghiChu.Location = new System.Drawing.Point(626, 360);
             this.label_ghiChu.Name = "label_ghiChu";
             this.label_ghiChu.Size = new System.Drawing.Size(70, 23);
             this.label_ghiChu.TabIndex = 58;
@@ -235,7 +235,7 @@
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.panel_list_mon.DefaultCellStyle = dataGridViewCellStyle3;
             this.panel_list_mon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.panel_list_mon.Location = new System.Drawing.Point(60, 386);
@@ -244,7 +244,7 @@
             this.panel_list_mon.RowHeadersWidth = 51;
             this.panel_list_mon.RowTemplate.Height = 24;
             this.panel_list_mon.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.panel_list_mon.Size = new System.Drawing.Size(498, 299);
+            this.panel_list_mon.Size = new System.Drawing.Size(548, 299);
             this.panel_list_mon.TabIndex = 57;
             this.panel_list_mon.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.panel_list_mon.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -270,9 +270,11 @@
             // 
             // richBox_ghi_chu
             // 
-            this.richBox_ghi_chu.Location = new System.Drawing.Point(578, 385);
+            this.richBox_ghi_chu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richBox_ghi_chu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richBox_ghi_chu.Location = new System.Drawing.Point(630, 385);
             this.richBox_ghi_chu.Name = "richBox_ghi_chu";
-            this.richBox_ghi_chu.Size = new System.Drawing.Size(321, 301);
+            this.richBox_ghi_chu.Size = new System.Drawing.Size(286, 301);
             this.richBox_ghi_chu.TabIndex = 56;
             this.richBox_ghi_chu.Text = "";
             // 
@@ -437,11 +439,11 @@
             // STT
             // 
             this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.STT.FillWeight = 50F;
+            this.STT.FillWeight = 40F;
             this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 50;
+            this.STT.MinimumWidth = 40;
             this.STT.Name = "STT";
-            this.STT.Width = 50;
+            this.STT.Width = 40;
             // 
             // dgvId
             // 
@@ -462,11 +464,11 @@
             // soLuong
             // 
             this.soLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.soLuong.FillWeight = 50F;
+            this.soLuong.FillWeight = 35F;
             this.soLuong.HeaderText = "S.L";
-            this.soLuong.MinimumWidth = 50;
+            this.soLuong.MinimumWidth = 35;
             this.soLuong.Name = "soLuong";
-            this.soLuong.Width = 50;
+            this.soLuong.Width = 35;
             // 
             // donGia
             // 
@@ -480,11 +482,11 @@
             // thanhTien
             // 
             this.thanhTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.thanhTien.FillWeight = 70F;
+            this.thanhTien.FillWeight = 85F;
             this.thanhTien.HeaderText = "T.Tiền";
-            this.thanhTien.MinimumWidth = 70;
+            this.thanhTien.MinimumWidth = 85;
             this.thanhTien.Name = "thanhTien";
-            this.thanhTien.Width = 70;
+            this.thanhTien.Width = 85;
             // 
             // DatBanView
             // 

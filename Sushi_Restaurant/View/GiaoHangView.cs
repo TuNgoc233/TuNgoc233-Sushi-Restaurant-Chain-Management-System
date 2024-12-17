@@ -46,14 +46,14 @@ namespace Sushi_Restaurant.View
         }
 
         // Phương thức để thêm món ăn vào danh sách DataGridView
-        public void AddMonAn(string maMon, string tenMon, int soLuong, double donGia, double thanhTien)
+        public void AddMonAn(string maMon, string tenMon, int soLuong, double DonGia, double thanhTien)
         {
-            panel_dat_hang_view.Rows.Add(new object[] {
-            panel_dat_hang_view.Rows.Count + 1, // STT
+            panel_dat_hang.Rows.Add(new object[] {
+            panel_dat_hang.Rows.Count + 1, // STT
             maMon,
             tenMon,
             soLuong,
-            donGia.ToString("N0", GlobalVariables.AppCultureInfo),
+            DonGia.ToString("N0", GlobalVariables.AppCultureInfo),
             thanhTien.ToString("N0", GlobalVariables.AppCultureInfo)
             });
         }
@@ -62,12 +62,12 @@ namespace Sushi_Restaurant.View
         {
             double tongTien = 0;
 
-            foreach (DataGridViewRow row in panel_dat_hang_view.Rows)
+            foreach (DataGridViewRow row in panel_dat_hang.Rows)
             {
-                if (row.Cells["thanh_tien"] != null && row.Cells["thanh_tien"].Value != null)
+                if (row.Cells["thanhTien"] != null && row.Cells["thanhTien"].Value != null)
                 {
                     // Cộng dồn giá trị trong cột "T.Tiền" (thanh_tien)
-                    if (double.TryParse(row.Cells["thanh_tien"].Value.ToString().Replace(".", ""), out double tien))
+                    if (double.TryParse(row.Cells["thanhTien"].Value.ToString().Replace(".", ""), out double tien))
                     {
                         tongTien += tien;
                     }
@@ -90,8 +90,14 @@ namespace Sushi_Restaurant.View
             this.Close();
         }
 
-        private void but_datHang_Click(object sender, EventArgs e)
+        private void but_huy_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+
             try
             {
                 // Kiểm tra xem khách hàng đã nhập đủ thông tin hay chưa
@@ -123,18 +129,19 @@ namespace Sushi_Restaurant.View
                 chiTietDatMon.Columns.Add("Gia", typeof(int));
 
                 // Thêm dữ liệu từ DataGridView vào DataTable
-                foreach (DataGridViewRow row in panel_dat_hang_view.Rows)
+                foreach (DataGridViewRow row in panel_dat_hang.Rows)
                 {
-                    
-                    if (row.Cells["dgvID"] != null && row.Cells["so_luong"] != null && row.Cells["don_gia"] != null)
+
+                    if (row.Cells["dgvID"] != null && row.Cells["soLuong"] != null && row.Cells["donGia"] != null)
                     {
 
                         string maMonAn = row.Cells["dgvID"].Value.ToString();
-                        int soLuong = Convert.ToInt32(row.Cells["so_luong"].Value);
-                        string giaString = row.Cells["don_gia"].Value?.ToString();
+                        int soLuong = Convert.ToInt32(row.Cells["soLuong"].Value);
+                        string giaString = row.Cells["donGia"].Value?.ToString();
                         giaString = giaString.Replace(".", ""); // Loại bỏ dấu .
 
                         int gia = Convert.ToInt32(giaString);
+
                         chiTietDatMon.Rows.Add(maMonAn, soLuong, gia);
                     }
                 }

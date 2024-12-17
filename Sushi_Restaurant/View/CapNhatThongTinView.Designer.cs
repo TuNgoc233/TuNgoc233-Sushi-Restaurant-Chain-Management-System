@@ -32,7 +32,9 @@
             this.label_tieuDe = new System.Windows.Forms.Label();
             this.icon_Dat_Mon = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel_center = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.text_gioiTinh = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.but_edit_gioiTinh = new Guna.UI2.WinForms.Guna2Button();
             this.but_pass = new Guna.UI2.WinForms.Guna2Button();
             this.but_edit_SDT = new Guna.UI2.WinForms.Guna2Button();
             this.but_edit_Email = new Guna.UI2.WinForms.Guna2Button();
@@ -49,7 +51,6 @@
             this.text_User = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.UserName = new System.Windows.Forms.Label();
-            this.but_edit_gioiTinh = new Guna.UI2.WinForms.Guna2Button();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_Dat_Mon)).BeginInit();
             this.panel_center.SuspendLayout();
@@ -99,6 +100,7 @@
             // panel_center
             // 
             this.panel_center.BackColor = System.Drawing.Color.Transparent;
+            this.panel_center.Controls.Add(this.guna2Button1);
             this.panel_center.Controls.Add(this.text_gioiTinh);
             this.panel_center.Controls.Add(this.but_edit_gioiTinh);
             this.panel_center.Controls.Add(this.but_pass);
@@ -123,6 +125,24 @@
             this.panel_center.Size = new System.Drawing.Size(1341, 666);
             this.panel_center.TabIndex = 30;
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BorderRadius = 21;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Red;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(911, 558);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(121, 45);
+            this.guna2Button1.TabIndex = 74;
+            this.guna2Button1.Text = "Cập nhật";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // text_gioiTinh
             // 
             this.text_gioiTinh.BackColor = System.Drawing.Color.Transparent;
@@ -141,7 +161,25 @@
             this.text_gioiTinh.Name = "text_gioiTinh";
             this.text_gioiTinh.Size = new System.Drawing.Size(140, 36);
             this.text_gioiTinh.TabIndex = 41;
-            this.text_gioiTinh.SelectedIndexChanged += new System.EventHandler(this.text_gioiTinh_SelectedIndexChanged);
+            // 
+            // but_edit_gioiTinh
+            // 
+            this.but_edit_gioiTinh.BackColor = System.Drawing.Color.Transparent;
+            this.but_edit_gioiTinh.BorderColor = System.Drawing.Color.Transparent;
+            this.but_edit_gioiTinh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.but_edit_gioiTinh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.but_edit_gioiTinh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.but_edit_gioiTinh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.but_edit_gioiTinh.FillColor = System.Drawing.Color.Transparent;
+            this.but_edit_gioiTinh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.but_edit_gioiTinh.ForeColor = System.Drawing.Color.White;
+            this.but_edit_gioiTinh.Image = global::Sushi_Restaurant.Properties.Resources.icon_sua;
+            this.but_edit_gioiTinh.ImageSize = new System.Drawing.Size(40, 35);
+            this.but_edit_gioiTinh.Location = new System.Drawing.Point(538, 495);
+            this.but_edit_gioiTinh.Name = "but_edit_gioiTinh";
+            this.but_edit_gioiTinh.Size = new System.Drawing.Size(38, 36);
+            this.but_edit_gioiTinh.TabIndex = 40;
+            this.but_edit_gioiTinh.Click += new System.EventHandler(this.but_edit_gioiTinh_Click);
             // 
             // but_pass
             // 
@@ -241,7 +279,7 @@
             // text_pass
             // 
             this.text_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_pass.DefaultText = "123";
+            this.text_pass.DefaultText = "";
             this.text_pass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.text_pass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.text_pass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -264,7 +302,7 @@
             // text_SDT
             // 
             this.text_SDT.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_SDT.DefaultText = "0973973267";
+            this.text_SDT.DefaultText = "";
             this.text_SDT.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.text_SDT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.text_SDT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -287,7 +325,7 @@
             // text_email
             // 
             this.text_email.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_email.DefaultText = "hanhtyr@gmail.com";
+            this.text_email.DefaultText = "";
             this.text_email.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.text_email.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.text_email.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -340,7 +378,7 @@
             // text_CCCD
             // 
             this.text_CCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_CCCD.DefaultText = "052204011036";
+            this.text_CCCD.DefaultText = "";
             this.text_CCCD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.text_CCCD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.text_CCCD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -373,7 +411,7 @@
             // text_User
             // 
             this.text_User.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_User.DefaultText = "Nguyễn Văn A";
+            this.text_User.DefaultText = "";
             this.text_User.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.text_User.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.text_User.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -390,7 +428,7 @@
             this.text_User.PlaceholderText = "";
             this.text_User.SelectedText = "";
             this.text_User.Size = new System.Drawing.Size(750, 40);
-            this.text_User.TabIndex = 34;   
+            this.text_User.TabIndex = 34;
             this.text_User.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_User_KeyDown);
             // 
             // label2
@@ -413,25 +451,6 @@
             this.UserName.TabIndex = 36;
             this.UserName.Text = "Họ và tên";
             // 
-            // but_edit_gioiTinh
-            // 
-            this.but_edit_gioiTinh.BackColor = System.Drawing.Color.Transparent;
-            this.but_edit_gioiTinh.BorderColor = System.Drawing.Color.Transparent;
-            this.but_edit_gioiTinh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.but_edit_gioiTinh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.but_edit_gioiTinh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.but_edit_gioiTinh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.but_edit_gioiTinh.FillColor = System.Drawing.Color.Transparent;
-            this.but_edit_gioiTinh.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.but_edit_gioiTinh.ForeColor = System.Drawing.Color.White;
-            this.but_edit_gioiTinh.Image = global::Sushi_Restaurant.Properties.Resources.icon_sua;
-            this.but_edit_gioiTinh.ImageSize = new System.Drawing.Size(40, 35);
-            this.but_edit_gioiTinh.Location = new System.Drawing.Point(538, 495);
-            this.but_edit_gioiTinh.Name = "but_edit_gioiTinh";
-            this.but_edit_gioiTinh.Size = new System.Drawing.Size(38, 36);
-            this.but_edit_gioiTinh.TabIndex = 40;
-            this.but_edit_gioiTinh.Click += new System.EventHandler(this.but_edit_gioiTinh_Click);
-            // 
             // CapNhatThongTinView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -442,6 +461,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CapNhatThongTinView";
             this.Text = "CapNhatThongTinView";
+            this.Load += new System.EventHandler(this.CapNhatThongTinView_Load);
             this.panel_Header.ResumeLayout(false);
             this.panel_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_Dat_Mon)).EndInit();
@@ -475,5 +495,6 @@
         private Guna.UI2.WinForms.Guna2TextBox text_pass;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button but_edit_gioiTinh;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

@@ -10,10 +10,12 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.HtmlControls;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace Sushi_Restaurant
 {
@@ -147,6 +149,49 @@ namespace Sushi_Restaurant
                 id = id
             };
 
+            // Gắn event "onAddFavorite" một lần duy nhất
+            //w.onAddFavorite -= AddFavoriteHandler; // Xóa handler cũ nếu có
+            w.onAddFavorite += (SetStyle, ee)=>
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                    {
+                        conn.Open();
+
+                        // Kiểm tra xem món ăn đã tồn tại trong danh sách yêu thích chưa
+                        using (SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM DANH_SACH_MON_AN_YEU_THICH WHERE MaKhachHang = @MaKhachHang AND MaMon = @MaMon", conn))
+                        {
+                            checkCmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);
+                            checkCmd.Parameters.AddWithValue("@MaMon", id);
+
+                            int count = (int)checkCmd.ExecuteScalar();
+                            if (count > 0)
+                            {
+                                MessageBox.Show("Món ăn này đã nằm trong danh sách yêu thích!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return; // Dừng lại nếu món ăn đã tồn tại
+                            }
+                        }
+
+                        // Thêm món ăn vào danh sách yêu thích
+                        using (SqlCommand cmd = new SqlCommand("NXHanh_ThemMonAnYeuThich", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);
+                            cmd.Parameters.AddWithValue("@MaMon", id);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            MessageBox.Show("Đã thêm món ăn vào danh sách yêu thích!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi thêm vào danh sách yêu thích: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+
+
             panel_Product.Controls.Add(w);
 
             w.onSelect += (SetStyle, ee) =>
@@ -172,9 +217,12 @@ namespace Sushi_Restaurant
                     }
                 }
 
+               
+
+
 
                 // Nếu sản phẩm chưa tồn tại, thêm dòng mới
-                    panel_dat_hang.Rows.Add(new object[] {
+                panel_dat_hang.Rows.Add(new object[] {
                             panel_dat_hang.Rows.Count + 1, // Số thứ tự (dgvSTT)
                             wdg.id,
                             wdg.PName,
@@ -184,9 +232,9 @@ namespace Sushi_Restaurant
                             "",
                             wdg.PPrice,
                             wdg.PPrice
-                    });
+                });
 
-                    // Cập nhật tổng giá trị toàn bộ
+                    // Cập nhật tổng giá trị toàn bộ   
                     GetTotal();
             };
         }
@@ -405,5 +453,53 @@ namespace Sushi_Restaurant
         {
 
         }
+
+        private void SearchProducts(string searchTerm)
+        {
+            using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+            {
+                string query = @"
+                SELECT MA.*
+                FROM MON_AN MA
+                JOIN CHI_NHANH_MON_AN CNMA ON MA.MaMonAn = CNMA.MaMonAn
+                WHERE CNMA.MaChiNhanh = @MaChiNhanh 
+                AND MA.GiaoMon = 1
+                AND (MA.TenMonAn LIKE @SearchTerm OR MA.MaMonAn LIKE @SearchTerm)";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaChiNhanh", GlobalVariables.MaChiNhanh);
+                cmd.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%"); // Tìm kiếm mờ với LIKE
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                conn.Open();
+                da.Fill(dt);
+
+                panel_Product.Controls.Clear(); // Xóa kết quả cũ
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string productCode = row["MaMonAn"].ToString();
+                    Image productImage = LoadImageFromResources(productCode);
+                    string formattedPrice = double.TryParse(row["GiaHienTai"].ToString(), out double price)
+                                            ? price.ToString("N0", GlobalVariables.AppCultureInfo) : "0";
+
+                    AddItems(
+                        productCode,
+                        row["TenMonAn"].ToString(),
+                        row["MaMuc"].ToString(),
+                        formattedPrice,
+                        productImage
+                    );
+                }
+            }
+        }   
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+            string searchTerm = guna2TextBox1.Text.Trim(); // Lấy từ khóa tìm kiếm
+            SearchProducts(searchTerm); // Gọi hàm tìm kiếm
+        }
+       
     }
 }

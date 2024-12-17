@@ -57,7 +57,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(175, 175);
             this.guna2Panel1.TabIndex = 0;
-            this.guna2Panel1.Click += new System.EventHandler(this.OnClickHandler);
             // 
             // guna2Panel2
             // 
@@ -96,7 +95,6 @@
             this.txtImage.TabIndex = 0;
             this.txtImage.TabStop = false;
             this.txtImage.UseTransparentBackground = true;
-            this.txtImage.Click += new System.EventHandler(this.OnClickHandler);
             // 
             // label1
             // 
@@ -116,7 +114,6 @@
             this.lblPrice.TabIndex = 2;
             this.lblPrice.Text = "ProductPrice";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblPrice.Click += new System.EventHandler(this.label2_Click);
             // 
             // label2
             // 
@@ -151,7 +148,6 @@
             this.but_themDSMAYT.Size = new System.Drawing.Size(163, 30);
             this.but_themDSMAYT.TabIndex = 3;
             this.but_themDSMAYT.Text = "Thêm vào yêu thích";
-            this.but_themDSMAYT.Click += new System.EventHandler(this.but_themDSMAYT_Click);
             // 
             // ucProduct
             // 
@@ -162,7 +158,6 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ucProduct";
             this.Size = new System.Drawing.Size(180, 260);
-            this.Click += new System.EventHandler(this.OnClickHandler);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtImage)).EndInit();

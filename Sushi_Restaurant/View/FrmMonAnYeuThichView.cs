@@ -118,7 +118,75 @@ namespace Sushi_Restaurant.View
 
         private void dataGridViewMonAn_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Kiểm tra xem cột được click có phải cột hình ảnh không (giả sử cột hình ảnh là cột cuối cùng)
+                if (dataGridViewMonAn.Columns[e.ColumnIndex].Name == "butXoa")
+                {
+                    // Lấy mã món ăn từ dòng được click
+                    string maMonAn = dataGridViewMonAn.Rows[e.RowIndex].Cells["maMon"].Value.ToString();
 
+                    // Hiển thị xác nhận xóa
+                    var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa món ăn này khỏi danh sách yêu thích?",
+                                                        "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        // Gọi stored procedure xóa món ăn yêu thích
+                        if (DeleteFavoriteItem(maMonAn))
+                        {
+                            // Xóa dòng khỏi DataGridView
+                            dataGridViewMonAn.Rows.RemoveAt(e.RowIndex);
+
+                            // Cập nhật lại số thứ tự
+                            UpdateRowNumbers();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể xóa món ăn. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool DeleteFavoriteItem(string maMonAn)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("NXHanh_XoaMonAnYeuThich", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Thêm tham số
+                        cmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);
+                        cmd.Parameters.AddWithValue("@MaMon", maMonAn);
+
+                        // Thực thi stored procedure
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        return rowsAffected > 0; // Trả về true nếu xóa thành công
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xóa món ăn: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        private void UpdateRowNumbers()
+        {
+            for (int i = 0; i < dataGridViewMonAn.Rows.Count; i++)
+            {
+                dataGridViewMonAn.Rows[i].Cells["STT"].Value = (i + 1).ToString(); // Cột STT là cột đầu tiên
+            }
         }
     }
+    
 }
