@@ -32,21 +32,21 @@ namespace Sushi_Restaurant
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomer));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel_center = new Guna.UI2.WinForms.Guna2Panel();
-            this.ControlBoxThuNho = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.controlBoxAn = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ControlBoxThoat = new Guna.UI2.WinForms.Guna2ControlBox();
             this.but_logOut = new Guna.UI2.WinForms.Guna2Button();
             this.but_cap_nhat_info = new Guna.UI2.WinForms.Guna2Button();
             this.but_mon_yeu_thich = new Guna.UI2.WinForms.Guna2Button();
             this.but_DSDH = new Guna.UI2.WinForms.Guna2Button();
             this.but_dat_mon = new Guna.UI2.WinForms.Guna2Button();
             this.but_Home = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.panel_center = new Guna.UI2.WinForms.Guna2Panel();
+            this.ControlBoxThuNho = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.controlBoxAn = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.ControlBoxThoat = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1.SuspendLayout();
-            this.panel_center.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.panel_center.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -66,67 +66,6 @@ namespace Sushi_Restaurant
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(254, 779);
             this.guna2Panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(45, 100);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 35);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SUSHI X";
-            // 
-            // panel_center
-            // 
-            this.panel_center.Controls.Add(this.ControlBoxThuNho);
-            this.panel_center.Controls.Add(this.controlBoxAn);
-            this.panel_center.Controls.Add(this.ControlBoxThoat);
-            this.panel_center.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_center.Location = new System.Drawing.Point(254, 0);
-            this.panel_center.Name = "panel_center";
-            this.panel_center.Size = new System.Drawing.Size(874, 779);
-            this.panel_center.TabIndex = 1;
-            // 
-            // ControlBoxThuNho
-            // 
-            this.ControlBoxThuNho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlBoxThuNho.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.ControlBoxThuNho.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.ControlBoxThuNho.IconColor = System.Drawing.Color.White;
-            this.ControlBoxThuNho.Location = new System.Drawing.Point(792, 2);
-            this.ControlBoxThuNho.Margin = new System.Windows.Forms.Padding(2);
-            this.ControlBoxThuNho.Name = "ControlBoxThuNho";
-            this.ControlBoxThuNho.Size = new System.Drawing.Size(38, 29);
-            this.ControlBoxThuNho.TabIndex = 1;
-            // 
-            // controlBoxAn
-            // 
-            this.controlBoxAn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.controlBoxAn.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.controlBoxAn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.controlBoxAn.IconColor = System.Drawing.Color.White;
-            this.controlBoxAn.Location = new System.Drawing.Point(750, 2);
-            this.controlBoxAn.Margin = new System.Windows.Forms.Padding(2);
-            this.controlBoxAn.Name = "controlBoxAn";
-            this.controlBoxAn.Size = new System.Drawing.Size(36, 29);
-            this.controlBoxAn.TabIndex = 2;
-            // 
-            // ControlBoxThoat
-            // 
-            this.ControlBoxThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlBoxThoat.CustomClick = true;
-            this.ControlBoxThoat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.ControlBoxThoat.IconColor = System.Drawing.Color.White;
-            this.ControlBoxThoat.Location = new System.Drawing.Point(836, 2);
-            this.ControlBoxThoat.Margin = new System.Windows.Forms.Padding(2);
-            this.ControlBoxThoat.Name = "ControlBoxThoat";
-            this.ControlBoxThoat.Size = new System.Drawing.Size(34, 29);
-            this.ControlBoxThoat.TabIndex = 3;
-            this.ControlBoxThoat.Click += new System.EventHandler(this.ControlBoxThoat_Click_1);
             // 
             // but_logOut
             // 
@@ -156,7 +95,7 @@ namespace Sushi_Restaurant
             this.but_logOut.Text = "Đăng xuất";
             this.but_logOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.but_logOut.TextOffset = new System.Drawing.Point(5, 0);
-            this.but_logOut.Click += new System.EventHandler(this.but_cap_nhat_info_Click);
+            this.but_logOut.Click += new System.EventHandler(this.but_logOut_Click);
             // 
             // but_cap_nhat_info
             // 
@@ -309,6 +248,19 @@ namespace Sushi_Restaurant
             this.but_Home.TextOffset = new System.Drawing.Point(15, 0);
             this.but_Home.Click += new System.EventHandler(this.but_Home_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(45, 100);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 35);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "SUSHI X";
+            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -322,6 +274,54 @@ namespace Sushi_Restaurant
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
+            // 
+            // panel_center
+            // 
+            this.panel_center.Controls.Add(this.ControlBoxThuNho);
+            this.panel_center.Controls.Add(this.controlBoxAn);
+            this.panel_center.Controls.Add(this.ControlBoxThoat);
+            this.panel_center.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_center.Location = new System.Drawing.Point(254, 0);
+            this.panel_center.Name = "panel_center";
+            this.panel_center.Size = new System.Drawing.Size(874, 779);
+            this.panel_center.TabIndex = 1;
+            // 
+            // ControlBoxThuNho
+            // 
+            this.ControlBoxThuNho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ControlBoxThuNho.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.ControlBoxThuNho.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.ControlBoxThuNho.IconColor = System.Drawing.Color.White;
+            this.ControlBoxThuNho.Location = new System.Drawing.Point(792, 2);
+            this.ControlBoxThuNho.Margin = new System.Windows.Forms.Padding(2);
+            this.ControlBoxThuNho.Name = "ControlBoxThuNho";
+            this.ControlBoxThuNho.Size = new System.Drawing.Size(38, 29);
+            this.ControlBoxThuNho.TabIndex = 1;
+            // 
+            // controlBoxAn
+            // 
+            this.controlBoxAn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.controlBoxAn.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.controlBoxAn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.controlBoxAn.IconColor = System.Drawing.Color.White;
+            this.controlBoxAn.Location = new System.Drawing.Point(750, 2);
+            this.controlBoxAn.Margin = new System.Windows.Forms.Padding(2);
+            this.controlBoxAn.Name = "controlBoxAn";
+            this.controlBoxAn.Size = new System.Drawing.Size(36, 29);
+            this.controlBoxAn.TabIndex = 2;
+            // 
+            // ControlBoxThoat
+            // 
+            this.ControlBoxThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ControlBoxThoat.CustomClick = true;
+            this.ControlBoxThoat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.ControlBoxThoat.IconColor = System.Drawing.Color.White;
+            this.ControlBoxThoat.Location = new System.Drawing.Point(836, 2);
+            this.ControlBoxThoat.Margin = new System.Windows.Forms.Padding(2);
+            this.ControlBoxThoat.Name = "ControlBoxThoat";
+            this.ControlBoxThoat.Size = new System.Drawing.Size(34, 29);
+            this.ControlBoxThoat.TabIndex = 3;
+            this.ControlBoxThoat.Click += new System.EventHandler(this.ControlBoxThoat_Click_1);
             // 
             // FrmCustomer
             // 
@@ -341,8 +341,8 @@ namespace Sushi_Restaurant
             this.Load += new System.EventHandler(this.FrmCustomer_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.panel_center.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.panel_center.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

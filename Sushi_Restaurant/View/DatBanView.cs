@@ -27,10 +27,15 @@ namespace Sushi_Restaurant.View
             // Hiển thị thông tin chi nhánh
             text_dia_chi.Text = GlobalVariables.tenDiaChiCN;
 
-            text_NgayDen.Value = DateTime.Now.Date;
+            // Xóa các mục cũ trong ComboBox (nếu có)
+            text_NgayDen.Items.Clear();
 
-            // Chặn chọn ngày trong quá khứ
-            text_NgayDen.MinDate = DateTime.Now.Date;
+            // Thêm ngày hôm nay và ngày mai vào ComboBox
+            text_NgayDen.Items.Add("Hôm nay - " + DateTime.Now.ToString("dd/MM/yyyy"));
+            text_NgayDen.Items.Add("Ngày mai - " + DateTime.Now.AddDays(1).ToString("dd/MM/yyyy"));
+
+            // Đặt giá trị mặc định là ngày hôm nay
+            text_NgayDen.SelectedIndex = 0;
 
             // Set giờ mặc định là 8:00 sáng
             text_GioDat.Value = DateTime.Today.AddHours(8);
@@ -94,7 +99,20 @@ namespace Sushi_Restaurant.View
                 }
 
                 // 1. Lấy dữ liệu từ các trường trên giao diện
-                DateTime ngayDat = text_NgayDen.Value.Date;
+
+                // Lấy chuỗi từ ComboBox
+                string selectedText = text_NgayDen.SelectedItem.ToString();
+
+                // Tách ngày từ chuỗi: Lấy phần sau dấu '-'
+                string[] parts = selectedText.Split('-');
+                string datePart = parts[1].Trim(); // "17/12/2024"
+
+                // Chuyển đổi chuỗi ngày thành kiểu DateTime
+                DateTime ngayDat = DateTime.ParseExact(datePart, "dd/MM/yyyy", null);
+
+                // Kiểm tra kết quả (để debug)
+                MessageBox.Show("Ngày đặt: " + ngayDat.ToShortDateString());
+
                 string maKhachHang = GlobalVariables.MaKH;
                 bool soluongKH = text_sl_KH.Value.ToString() == "Thanh toán qua ngân hàng";
                 DateTime thoiDiemTruyCap = GlobalVariables.ThoiDiemTruyCap;

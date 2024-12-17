@@ -26,10 +26,19 @@ namespace Sushi_Restaurant.View
             //Tính tồng tiền hóa đơn
             CapNhatTongTien();
 
-            text_NgayDen.Value = DateTime.Now.Date;
+            // Xóa các mục cũ trong ComboBox (nếu có)
+            cmb_ngayGiao.Items.Clear();
 
-            // Chặn chọn ngày trong quá khứ
-            text_NgayDen.MinDate = DateTime.Now.Date;
+            // Thêm ngày hôm nay và ngày mai vào ComboBox
+            cmb_ngayGiao.Items.Add("Hôm nay - " + DateTime.Now.ToString("dd/MM/yyyy"));
+            cmb_ngayGiao.Items.Add("Ngày mai - " + DateTime.Now.AddDays(1).ToString("dd/MM/yyyy"));
+
+            // Đặt giá trị mặc định là ngày hôm nay
+            cmb_ngayGiao.SelectedIndex = 0;
+
+            // Giới hạn giờ từ 8:00 đến 21:30
+            text_GioDat.MinDate = DateTime.Today.AddHours(9);
+            text_GioDat.MaxDate = DateTime.Today.AddHours(21);
         }
 
         // Thêm tên số điện thoại khách hàng vào phiếu giao hàng
@@ -114,7 +123,20 @@ namespace Sushi_Restaurant.View
                 }
 
                 // 1. Lấy dữ liệu từ các trường trên giao diện
-                DateTime ngayDat = text_NgayDen.Value.Date;
+                // Lấy chuỗi từ ComboBox
+                string selectedText = cmb_ngayGiao.SelectedItem.ToString();
+
+                // Tách ngày từ chuỗi: Lấy phần sau dấu '-'
+                string[] parts = selectedText.Split('-');
+                string datePart = parts[1].Trim(); // "17/12/2024"
+
+                // Chuyển đổi chuỗi ngày thành kiểu DateTime
+                DateTime ngayDat = DateTime.ParseExact(datePart, "dd/MM/yyyy", null);
+
+                // Kiểm tra kết quả (để debug)
+                MessageBox.Show("Ngày đặt: " + ngayDat.ToShortDateString());
+
+                TimeSpan gioDat = text_GioDat.Value.TimeOfDay;
                 string maKhachHang = GlobalVariables.MaKH;
                 string diaChiGiaoHang = text_diaChiGiao.Text.Trim(); // Địa chỉ giao hàng
                 bool hinhThucThanhToan = cmb_thanhToan.SelectedItem.ToString() == "Thanh toán qua ngân hàng";
@@ -159,7 +181,7 @@ namespace Sushi_Restaurant.View
                         cmd.Parameters.AddWithValue("@NgayDat", ngayDat);
                         cmd.Parameters.AddWithValue("@MaKhachHang", maKhachHang);
                         cmd.Parameters.AddWithValue("@DiaChiGiaoHang", diaChiGiaoHang);
-                        cmd.Parameters.AddWithValue("@ThoiGianNhanHang", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@ThoiGianNhanHang", gioDat);
                         cmd.Parameters.AddWithValue("@HinhThucThanhToan", hinhThucThanhToan);
                         cmd.Parameters.AddWithValue("@ThoiDiemTruyCap", thoiDiemTruyCap);
                         cmd.Parameters.AddWithValue("@ThoiGianTruyCap", thoiGianTruyCap);

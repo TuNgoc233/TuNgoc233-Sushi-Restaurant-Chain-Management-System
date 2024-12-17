@@ -49,6 +49,12 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_dat_hang = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.panel_Product = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel_Category = new System.Windows.Forms.FlowLayoutPanel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ten_mon = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,12 +65,6 @@
             this.don_gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanh_tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.but_Xoa = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel_Product = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel_Category = new System.Windows.Forms.FlowLayoutPanel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.but_Nguon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_Dat_Mon)).BeginInit();
@@ -317,113 +317,6 @@
             this.panel_dat_hang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.panel_dat_hang_CellClick);
             this.panel_dat_hang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.panel_dat_hang_CellContentClick);
             // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STT.DefaultCellStyle = dataGridViewCellStyle3;
-            this.STT.FillWeight = 40F;
-            this.STT.Frozen = true;
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 40;
-            this.STT.Name = "STT";
-            this.STT.Width = 40;
-            // 
-            // dgvId
-            // 
-            this.dgvId.HeaderText = "dgvId";
-            this.dgvId.MinimumWidth = 6;
-            this.dgvId.Name = "dgvId";
-            this.dgvId.Visible = false;
-            this.dgvId.Width = 125;
-            // 
-            // ten_mon
-            // 
-            this.ten_mon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ten_mon.DataPropertyName = "ten_mon";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.ten_mon.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ten_mon.HeaderText = "Tên Món";
-            this.ten_mon.MinimumWidth = 6;
-            this.ten_mon.Name = "ten_mon";
-            // 
-            // but_giam
-            // 
-            this.but_giam.DataPropertyName = "but_giam";
-            this.but_giam.FillWeight = 20F;
-            this.but_giam.HeaderText = "";
-            this.but_giam.MinimumWidth = 20;
-            this.but_giam.Name = "but_giam";
-            this.but_giam.Text = "-";
-            this.but_giam.Width = 37;
-            // 
-            // so_luong
-            // 
-            this.so_luong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.so_luong.DataPropertyName = "so_luong";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.so_luong.DefaultCellStyle = dataGridViewCellStyle5;
-            this.so_luong.FillWeight = 30F;
-            this.so_luong.HeaderText = "S.L";
-            this.so_luong.MinimumWidth = 30;
-            this.so_luong.Name = "so_luong";
-            this.so_luong.Width = 30;
-            // 
-            // but_tang
-            // 
-            this.but_tang.DataPropertyName = "but_tang";
-            this.but_tang.FillWeight = 20F;
-            this.but_tang.HeaderText = "";
-            this.but_tang.MinimumWidth = 20;
-            this.but_tang.Name = "but_tang";
-            this.but_tang.Text = "+";
-            this.but_tang.Width = 37;
-            // 
-            // space
-            // 
-            this.space.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.space.FillWeight = 15F;
-            this.space.HeaderText = "";
-            this.space.MinimumWidth = 15;
-            this.space.Name = "space";
-            this.space.Width = 15;
-            // 
-            // don_gia
-            // 
-            this.don_gia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.don_gia.DataPropertyName = "don_gia";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.don_gia.DefaultCellStyle = dataGridViewCellStyle6;
-            this.don_gia.FillWeight = 90F;
-            this.don_gia.HeaderText = "Đ.Giá";
-            this.don_gia.MinimumWidth = 90;
-            this.don_gia.Name = "don_gia";
-            this.don_gia.Width = 90;
-            // 
-            // thanh_tien
-            // 
-            this.thanh_tien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.thanh_tien.DataPropertyName = "thanh_tien";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.thanh_tien.DefaultCellStyle = dataGridViewCellStyle7;
-            this.thanh_tien.FillWeight = 90F;
-            this.thanh_tien.HeaderText = "T.tiền";
-            this.thanh_tien.MinimumWidth = 90;
-            this.thanh_tien.Name = "thanh_tien";
-            this.thanh_tien.Width = 90;
-            // 
-            // but_Xoa
-            // 
-            this.but_Xoa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.but_Xoa.DataPropertyName = "but_Xoa";
-            this.but_Xoa.FillWeight = 50F;
-            this.but_Xoa.HeaderText = "";
-            this.but_Xoa.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
-            this.but_Xoa.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.but_Xoa.MinimumWidth = 50;
-            this.but_Xoa.Name = "but_Xoa";
-            this.but_Xoa.Width = 50;
-            // 
             // panel_Product
             // 
             this.panel_Product.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -467,6 +360,115 @@
             this.dataGridViewImageColumn2.MinimumWidth = 50;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 50;
+            // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle3;
+            this.STT.FillWeight = 40F;
+            this.STT.Frozen = true;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 40;
+            this.STT.Name = "STT";
+            this.STT.Width = 40;
+            // 
+            // dgvId
+            // 
+            this.dgvId.HeaderText = "dgvId";
+            this.dgvId.MinimumWidth = 6;
+            this.dgvId.Name = "dgvId";
+            this.dgvId.Visible = false;
+            this.dgvId.Width = 125;
+            // 
+            // ten_mon
+            // 
+            this.ten_mon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ten_mon.DataPropertyName = "ten_mon";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ten_mon.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ten_mon.HeaderText = "Tên Món";
+            this.ten_mon.MinimumWidth = 6;
+            this.ten_mon.Name = "ten_mon";
+            // 
+            // but_giam
+            // 
+            this.but_giam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.but_giam.DataPropertyName = "but_giam";
+            this.but_giam.FillWeight = 20F;
+            this.but_giam.HeaderText = "";
+            this.but_giam.MinimumWidth = 20;
+            this.but_giam.Name = "but_giam";
+            this.but_giam.Text = "-";
+            this.but_giam.Width = 20;
+            // 
+            // so_luong
+            // 
+            this.so_luong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.so_luong.DataPropertyName = "so_luong";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.so_luong.DefaultCellStyle = dataGridViewCellStyle5;
+            this.so_luong.FillWeight = 30F;
+            this.so_luong.HeaderText = "S.L";
+            this.so_luong.MinimumWidth = 30;
+            this.so_luong.Name = "so_luong";
+            this.so_luong.Width = 30;
+            // 
+            // but_tang
+            // 
+            this.but_tang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.but_tang.DataPropertyName = "but_tang";
+            this.but_tang.FillWeight = 20F;
+            this.but_tang.HeaderText = "";
+            this.but_tang.MinimumWidth = 20;
+            this.but_tang.Name = "but_tang";
+            this.but_tang.Text = "+";
+            this.but_tang.Width = 20;
+            // 
+            // space
+            // 
+            this.space.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.space.FillWeight = 15F;
+            this.space.HeaderText = "";
+            this.space.MinimumWidth = 15;
+            this.space.Name = "space";
+            this.space.Width = 15;
+            // 
+            // don_gia
+            // 
+            this.don_gia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.don_gia.DataPropertyName = "don_gia";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.don_gia.DefaultCellStyle = dataGridViewCellStyle6;
+            this.don_gia.FillWeight = 80F;
+            this.don_gia.HeaderText = "Đ.Giá";
+            this.don_gia.MinimumWidth = 80;
+            this.don_gia.Name = "don_gia";
+            this.don_gia.Width = 80;
+            // 
+            // thanh_tien
+            // 
+            this.thanh_tien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.thanh_tien.DataPropertyName = "thanh_tien";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.thanh_tien.DefaultCellStyle = dataGridViewCellStyle7;
+            this.thanh_tien.FillWeight = 80F;
+            this.thanh_tien.HeaderText = "T.tiền";
+            this.thanh_tien.MinimumWidth = 80;
+            this.thanh_tien.Name = "thanh_tien";
+            this.thanh_tien.Width = 80;
+            // 
+            // but_Xoa
+            // 
+            this.but_Xoa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.but_Xoa.DataPropertyName = "but_Xoa";
+            this.but_Xoa.FillWeight = 40F;
+            this.but_Xoa.HeaderText = "";
+            this.but_Xoa.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
+            this.but_Xoa.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.but_Xoa.MinimumWidth = 40;
+            this.but_Xoa.Name = "but_Xoa";
+            this.but_Xoa.Width = 40;
             // 
             // FrmDatMon
             // 

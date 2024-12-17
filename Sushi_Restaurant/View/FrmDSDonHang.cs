@@ -19,6 +19,7 @@ namespace Sushi_Restaurant.Model
         private DataTable allOrders = new DataTable();
         private DataTable datBanOrders = new DataTable();
         private DataTable giaoHangOrders = new DataTable();
+        private string maHoaDon;
         public FrmDSDonHang()
         {
             InitializeComponent();
@@ -102,7 +103,9 @@ namespace Sushi_Restaurant.Model
                     string maDonHang = allOrders.Rows[i]["Mã đơn hàng"].ToString();
                     string trangThai = allOrders.Rows[i]["Trạng thái"].ToString();
 
-                    if (trangThai == "Đã giao" && !KiemTraDaDanhGia(maDonHang))
+                    this.maHoaDon = LayMaHoaDonTuMaPhieu(maDonHang);
+
+                    if (trangThai == "Đã giao" && !KiemTraDaDanhGia(maHoaDon))
                     {
                         allOrders.Rows[i]["Đánh giá"] = Properties.Resources.icon_danhGia; // Thêm hình ảnh Like
                     }
@@ -309,7 +312,6 @@ namespace Sushi_Restaurant.Model
                     {
                         cmd.Parameters.AddWithValue("@MaHoaDon", maDonHang);
                         int count = (int)cmd.ExecuteScalar();
-                        MessageBox.Show(count.ToString());
                         return count > 0; // Trả về true nếu đã tồn tại đánh giá
                     }
                 }

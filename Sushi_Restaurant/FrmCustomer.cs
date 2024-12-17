@@ -131,10 +131,17 @@ namespace Sushi_Restaurant
             AddControls(new CapNhatThongTinView());
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void but_logOut_Click(object sender, EventArgs e)
         {
+            // Tạo form đăng nhập mới
+            FrmLogin loginForm = new FrmLogin();
+
+            // Ẩn form hiện tại
+            this.Close();
+
+            // Hiển thị form đăng nhập dưới dạng modal (ngăn các form khác hoạt động)
+            loginForm.ShowDialog();
 
         }
     }
-    
 }
