@@ -151,5 +151,12 @@ namespace Sushi_Restaurant
             this.Hide(); // Chỉ ẩn form Brand
             Page.Show();
         }
+
+        private void btn_Statistic_Click(object sender, EventArgs e)
+        {
+            BranchRevenue form = new BranchRevenue(_branchId);
+            form.Show();
+            this.Hide(); // Ẩn form đăng nhập
+        }
     }
 }
