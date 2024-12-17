@@ -37,6 +37,7 @@
             this.dgv2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Insert_Item = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.Data_Load)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,11 +147,27 @@
             this.dgv4.MinimumWidth = 6;
             this.dgv4.Name = "dgv4";
             // 
+            // Insert_Item
+            // 
+            this.Insert_Item.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Insert_Item.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Insert_Item.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Insert_Item.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Insert_Item.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Insert_Item.ForeColor = System.Drawing.Color.White;
+            this.Insert_Item.Location = new System.Drawing.Point(1191, 628);
+            this.Insert_Item.Name = "Insert_Item";
+            this.Insert_Item.Size = new System.Drawing.Size(180, 45);
+            this.Insert_Item.TabIndex = 7;
+            this.Insert_Item.Text = "Thêm món ăn";
+            this.Insert_Item.Click += new System.EventHandler(this.Insert_Item_Click);
+            // 
             // viewFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1406, 689);
+            this.Controls.Add(this.Insert_Item);
             this.Controls.Add(this.Data_Load);
             this.Name = "viewFood";
             this.Text = "Form1";
@@ -160,6 +177,7 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.guna2Separator1, 0);
             this.Controls.SetChildIndex(this.Data_Load, 0);
+            this.Controls.SetChildIndex(this.Insert_Item, 0);
             ((System.ComponentModel.ISupportInitialize)(this.Data_Load)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -174,5 +192,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv4;
+        private Guna.UI2.WinForms.Guna2Button Insert_Item;
     }
 }

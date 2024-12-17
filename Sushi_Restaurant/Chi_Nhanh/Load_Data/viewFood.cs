@@ -90,5 +90,12 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
           
         }
+
+        private void Insert_Item_Click(object sender, EventArgs e)
+        {
+            addFood Page = new addFood();
+            this.Hide(); // Chỉ ẩn form Brand
+            Page.Show();
+        }
     }
 }
