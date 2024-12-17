@@ -34,25 +34,19 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.components = new System.ComponentModel.Container();
             this.labName = new System.Windows.Forms.Label();
             this.labID = new System.Windows.Forms.Label();
-            this.labBirth = new System.Windows.Forms.Label();
             this.labGener = new System.Windows.Forms.Label();
-            this.labPhone = new System.Windows.Forms.Label();
-            this.labAddress = new System.Windows.Forms.Label();
             this.texName = new Guna.UI2.WinForms.Guna2TextBox();
             this.texID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.texAddress = new Guna.UI2.WinForms.Guna2TextBox();
-            this.texPhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.labRole = new System.Windows.Forms.Label();
-            this.texRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.chooseBranch = new Guna.UI2.WinForms.Guna2ComboBox();
             this.labBranch = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.textRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -65,9 +59,9 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.labName.AutoSize = true;
             this.labName.Location = new System.Drawing.Point(37, 125);
             this.labName.Name = "labName";
-            this.labName.Size = new System.Drawing.Size(62, 23);
+            this.labName.Size = new System.Drawing.Size(74, 23);
             this.labName.TabIndex = 3;
-            this.labName.Text = "Họ tên";
+            this.labName.Text = "Mã món";
             this.labName.Click += new System.EventHandler(this.label2_Click);
             // 
             // labID
@@ -75,45 +69,18 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.labID.AutoSize = true;
             this.labID.Location = new System.Drawing.Point(35, 228);
             this.labID.Name = "labID";
-            this.labID.Size = new System.Drawing.Size(114, 23);
+            this.labID.Size = new System.Drawing.Size(76, 23);
             this.labID.TabIndex = 7;
-            this.labID.Text = "Mã nhân viên";
-            // 
-            // labBirth
-            // 
-            this.labBirth.AutoSize = true;
-            this.labBirth.Location = new System.Drawing.Point(527, 125);
-            this.labBirth.Name = "labBirth";
-            this.labBirth.Size = new System.Drawing.Size(86, 23);
-            this.labBirth.TabIndex = 9;
-            this.labBirth.Text = "Ngày sinh";
+            this.labID.Text = "Tên món";
             // 
             // labGener
             // 
             this.labGener.AutoSize = true;
-            this.labGener.Location = new System.Drawing.Point(527, 228);
+            this.labGener.Location = new System.Drawing.Point(488, 334);
             this.labGener.Name = "labGener";
-            this.labGener.Size = new System.Drawing.Size(75, 23);
+            this.labGener.Size = new System.Drawing.Size(85, 23);
             this.labGener.TabIndex = 11;
-            this.labGener.Text = "Giới tính";
-            // 
-            // labPhone
-            // 
-            this.labPhone.AutoSize = true;
-            this.labPhone.Location = new System.Drawing.Point(530, 346);
-            this.labPhone.Name = "labPhone";
-            this.labPhone.Size = new System.Drawing.Size(111, 23);
-            this.labPhone.TabIndex = 13;
-            this.labPhone.Text = "Số điện thoại";
-            // 
-            // labAddress
-            // 
-            this.labAddress.AutoSize = true;
-            this.labAddress.Location = new System.Drawing.Point(37, 442);
-            this.labAddress.Name = "labAddress";
-            this.labAddress.Size = new System.Drawing.Size(62, 23);
-            this.labAddress.TabIndex = 15;
-            this.labAddress.Text = "Địa chỉ";
+            this.labGener.Text = "Giao món";
             // 
             // texName
             // 
@@ -157,70 +124,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.texID.TabIndex = 17;
             this.texID.TextChanged += new System.EventHandler(this.texID_TextChanged);
             // 
-            // texAddress
-            // 
-            this.texAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.texAddress.DefaultText = "";
-            this.texAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.texAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.texAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.texAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.texAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.texAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texAddress.Location = new System.Drawing.Point(39, 484);
-            this.texAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.texAddress.Name = "texAddress";
-            this.texAddress.PasswordChar = '\0';
-            this.texAddress.PlaceholderText = "";
-            this.texAddress.SelectedText = "";
-            this.texAddress.Size = new System.Drawing.Size(789, 48);
-            this.texAddress.TabIndex = 21;
-            // 
-            // texPhone
-            // 
-            this.texPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.texPhone.DefaultText = "";
-            this.texPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.texPhone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.texPhone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.texPhone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.texPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.texPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texPhone.Location = new System.Drawing.Point(531, 383);
-            this.texPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.texPhone.Name = "texPhone";
-            this.texPhone.PasswordChar = '\0';
-            this.texPhone.PlaceholderText = "";
-            this.texPhone.SelectedText = "";
-            this.texPhone.Size = new System.Drawing.Size(297, 48);
-            this.texPhone.TabIndex = 22;
-            // 
             // labRole
             // 
             this.labRole.AutoSize = true;
-            this.labRole.Location = new System.Drawing.Point(37, 331);
+            this.labRole.Location = new System.Drawing.Point(37, 346);
             this.labRole.Name = "labRole";
             this.labRole.Size = new System.Drawing.Size(43, 23);
             this.labRole.TabIndex = 24;
             this.labRole.Text = "Mục";
-            // 
-            // texRole
-            // 
-            this.texRole.BackColor = System.Drawing.Color.Transparent;
-            this.texRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.texRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.texRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texRole.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.texRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.texRole.ItemHeight = 30;
-            this.texRole.Location = new System.Drawing.Point(39, 383);
-            this.texRole.Name = "texRole";
-            this.texRole.Size = new System.Drawing.Size(140, 36);
-            this.texRole.TabIndex = 25;
-            this.texRole.SelectedIndexChanged += new System.EventHandler(this.texRole_SelectedIndexChanged);
             // 
             // chooseBranch
             // 
@@ -246,20 +157,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.labBranch.TabIndex = 27;
             this.labBranch.Text = "Chi nhánh";
             // 
-            // guna2DateTimePicker1
-            // 
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(531, 151);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(251, 48);
-            this.guna2DateTimePicker1.TabIndex = 28;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2024, 11, 29, 8, 59, 22, 173);
-            // 
             // guna2RadioButton1
             // 
             this.guna2RadioButton1.AutoSize = true;
@@ -268,11 +165,11 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.guna2RadioButton1.CheckedState.InnerOffset = -4;
-            this.guna2RadioButton1.Location = new System.Drawing.Point(531, 275);
+            this.guna2RadioButton1.Location = new System.Drawing.Point(492, 381);
             this.guna2RadioButton1.Name = "guna2RadioButton1";
-            this.guna2RadioButton1.Size = new System.Drawing.Size(68, 27);
+            this.guna2RadioButton1.Size = new System.Drawing.Size(52, 27);
             this.guna2RadioButton1.TabIndex = 29;
-            this.guna2RadioButton1.Text = "Nam";
+            this.guna2RadioButton1.Text = "Có";
             this.guna2RadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2RadioButton1.UncheckedState.BorderThickness = 2;
             this.guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -287,11 +184,11 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.guna2RadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2RadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.guna2RadioButton2.CheckedState.InnerOffset = -4;
-            this.guna2RadioButton2.Location = new System.Drawing.Point(662, 275);
+            this.guna2RadioButton2.Location = new System.Drawing.Point(623, 381);
             this.guna2RadioButton2.Name = "guna2RadioButton2";
-            this.guna2RadioButton2.Size = new System.Drawing.Size(54, 27);
+            this.guna2RadioButton2.Size = new System.Drawing.Size(81, 27);
             this.guna2RadioButton2.TabIndex = 30;
-            this.guna2RadioButton2.Text = "Nữ";
+            this.guna2RadioButton2.Text = "Không";
             this.guna2RadioButton2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2RadioButton2.UncheckedState.BorderThickness = 2;
             this.guna2RadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -320,7 +217,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(213, 383);
+            this.guna2TextBox1.Location = new System.Drawing.Point(492, 253);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
@@ -328,37 +225,51 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(297, 48);
             this.guna2TextBox1.TabIndex = 33;
+            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(212, 346);
+            this.label2.Location = new System.Drawing.Point(491, 216);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 23);
+            this.label2.Size = new System.Drawing.Size(97, 23);
             this.label2.TabIndex = 32;
-            this.label2.Text = "Số điện thoại";
+            this.label2.Text = "Giá hiện tại";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // textRole
+            // 
+            this.textRole.BackColor = System.Drawing.Color.Transparent;
+            this.textRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.textRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textRole.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.textRole.ItemHeight = 30;
+            this.textRole.Items.AddRange(new object[] {
+            "TenMuc"});
+            this.textRole.Location = new System.Drawing.Point(41, 383);
+            this.textRole.Name = "textRole";
+            this.textRole.Size = new System.Drawing.Size(140, 36);
+            this.textRole.TabIndex = 34;
+            this.textRole.SelectedIndexChanged += new System.EventHandler(this.RoleBox_SelectedIndexChanged);
             // 
             // addFood
             // 
             this.ClientSize = new System.Drawing.Size(853, 685);
+            this.Controls.Add(this.textRole);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2RadioButton2);
             this.Controls.Add(this.guna2RadioButton1);
-            this.Controls.Add(this.guna2DateTimePicker1);
             this.Controls.Add(this.labBranch);
             this.Controls.Add(this.chooseBranch);
-            this.Controls.Add(this.texRole);
             this.Controls.Add(this.labRole);
-            this.Controls.Add(this.texPhone);
-            this.Controls.Add(this.texAddress);
             this.Controls.Add(this.texID);
             this.Controls.Add(this.texName);
-            this.Controls.Add(this.labAddress);
-            this.Controls.Add(this.labPhone);
             this.Controls.Add(this.labGener);
-            this.Controls.Add(this.labBirth);
             this.Controls.Add(this.labID);
             this.Controls.Add(this.labName);
             this.Name = "addFood";
@@ -437,24 +348,18 @@ namespace Sushi_Restaurant.Chi_Nhanh
         #endregion
         private System.Windows.Forms.Label labName;
         private System.Windows.Forms.Label labID;
-        private System.Windows.Forms.Label labBirth;
         private System.Windows.Forms.Label labGener;
-        private System.Windows.Forms.Label labPhone;
-        private System.Windows.Forms.Label labAddress;
         public Guna.UI2.WinForms.Guna2TextBox texName;
         public Guna.UI2.WinForms.Guna2TextBox texID;
-        public Guna.UI2.WinForms.Guna2TextBox texPhone;
-        public Guna.UI2.WinForms.Guna2TextBox texAddress;
         public System.Windows.Forms.Label labRole;
-        public Guna.UI2.WinForms.Guna2ComboBox texRole;
         private Guna.UI2.WinForms.Guna2ComboBox chooseBranch;
         private System.Windows.Forms.Label labBranch;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         public Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Label label2;
+        private Guna.UI2.WinForms.Guna2ComboBox textRole;
     }
 }

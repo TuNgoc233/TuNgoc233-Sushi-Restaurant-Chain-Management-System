@@ -109,11 +109,6 @@ namespace Sushi_Restaurant
             Page.Show();
         }
 
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -125,10 +120,13 @@ namespace Sushi_Restaurant
             try
             {
                 // Gọi các hàm từ lớp Branch và hiển thị lên giao diện
-                lblTotalEmployees.Text = $"Số nhân viên: {Branch.GetTotalEmployees(_branchId)}";
-                lblTotalCustomers.Text = $"Số khách hàng: {Branch.GetTotalCustomers(_branchId)}";
-                lblTotalInvoices.Text = $"Số hóa đơn: {Branch.GetTotalInvoices(_branchId)}";
-                lblTotalRevenue.Text = $"Doanh thu: {Branch.GetTotalRevenue(_branchId):C}"; // Hiển thị theo định dạng tiền tệ
+                lblTotalEmployees.Text = Branch.GetTotalEmployees(_branchId).ToString("N0"); // Định dạng số nguyên (1,234)
+                lblTotalCustomers.Text = Branch.GetTotalCustomers(_branchId).ToString("N0"); // Định dạng số nguyên (1,234)
+                lblTotalInvoices.Text = Branch.GetTotalInvoices(_branchId).ToString("N0"); // Định dạng số nguyên (1,234)
+
+                // Hiển thị doanh thu theo định dạng tiền tệ (1,234,567 VND)
+                lblTotalRevenue.Text = string.Format("{0:N0} VND", Branch.GetTotalRevenue(_branchId));
+
             }
             catch (Exception ex)
             {
@@ -150,6 +148,11 @@ namespace Sushi_Restaurant
             viewFood Page = new viewFood();
             this.Hide(); // Chỉ ẩn form Brand
             Page.Show();
+        }
+
+        private void lblTotalEmployees_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
