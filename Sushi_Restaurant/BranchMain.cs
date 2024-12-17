@@ -12,7 +12,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=60;";
+        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
@@ -446,7 +446,7 @@ namespace Sushi_Restaurant
     {
         public string MaMonAn { get; set; } // Mã món ăn
         public string TenMonAn { get; set; } // Tên món ăn
-        public string MaMuc { get; set; } // Mã mục
+        public string TenMuc { get; set; } // Mã mục
         public decimal GiaHienTai { get; set; } // Giá hiện tại
         public int TinhTrangPhucVu { get; set; } // Tình trạng phục vụ
 
@@ -470,7 +470,7 @@ namespace Sushi_Restaurant
                         {
                             MaMonAn = reader["MaMonAn"].ToString(),
                             TenMonAn = reader["TenMonAn"].ToString(),
-                            MaMuc = reader["MaMuc"].ToString(), // Mã mục
+                            TenMuc = reader["TenMuc"].ToString(), // Mã mục
                             GiaHienTai = Convert.ToDecimal(reader["GiaHienTai"]), // Giá hiện tại
                             TinhTrangPhucVu = Convert.ToInt32(reader["TinhTrangPhucVu"]) // Tình trạng phục vụ
                         };
@@ -506,7 +506,7 @@ namespace Sushi_Restaurant
                             {
                                 MaMonAn = reader["MaMonAn"].ToString(),
                                 TenMonAn = reader["TenMonAn"].ToString(),
-                                MaMuc = reader["MaMuc"].ToString(), // Mã mục
+                                TenMuc = reader["MaMuc"].ToString(), // Mã mục
                                 GiaHienTai = Convert.ToDecimal(reader["GiaHienTai"]), // Giá hiện tại
                                 TinhTrangPhucVu = Convert.ToInt32(reader["TinhTrangPhucVu"]) // Tình trạng phục vụ
                             };
@@ -594,7 +594,7 @@ namespace Sushi_Restaurant
     public class Statistic
     {
         // Kết nối đến cơ sở dữ liệu
-        private string connectionString = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=60;";
+        private string connectionString = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Hàm để gọi stored procedure và lấy doanh thu theo chi nhánh
         public decimal GetDoanhThuTheoChiNhanh(string thoiGian, string branchID)

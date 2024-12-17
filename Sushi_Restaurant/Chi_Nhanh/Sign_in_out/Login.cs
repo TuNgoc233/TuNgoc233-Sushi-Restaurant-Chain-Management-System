@@ -52,7 +52,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
             }
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

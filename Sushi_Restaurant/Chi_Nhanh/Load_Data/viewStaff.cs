@@ -112,7 +112,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             this.Hide();
-            addStaff addStaff = new addStaff();
+            addFood addStaff = new addFood();
             addStaff.Show();
         }
 
@@ -182,7 +182,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2Button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            addStaff addStaff = new addStaff();
+            addFood addStaff = new addFood();
             addStaff.Show();
         }
 

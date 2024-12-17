@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.Chi_Nhanh
 {
-    public partial class addStaff : SampleAdd
+    public partial class updateIDCard : SampleAdd
     {
-        public addStaff()
+        public updateIDCard()
         {
             //base.InitializeComponent();
             InitializeComponent();
-            InitializeCustomButtons();
+            //InitializeCustomButtons();
         }
 
         public override void btnLuu_Click(object sender, EventArgs e)
@@ -66,31 +66,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void texName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void texID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2RadioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void texMark_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
