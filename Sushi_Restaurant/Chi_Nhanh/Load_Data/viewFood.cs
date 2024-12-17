@@ -20,7 +20,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
             InitializeComponent();
             this.Load += new EventHandler(viewAdd_Load); // Đăng ký sự kiện Load
-            texRole.SelectedIndexChanged += textRole_SelectedIndexChanged;
+            //texRole.SelectedIndexChanged += textRole_SelectedIndexChanged;
 
         }
 
@@ -41,13 +41,16 @@ namespace Sushi_Restaurant.Chi_Nhanh
                 // Định dạng giá theo định dạng 000.000 VND
                 string formattedPrice = item.GiaHienTai.ToString("N0", CultureInfo.InvariantCulture) + " VND";
 
+                // Chuyển đổi tình trạng phục vụ từ BIT sang "Có" hoặc "Không"
+                string serviceStatus = item.TinhTrangPhucVu == 1 ? "Có" : "Không";
+
                 // Thêm dữ liệu vào DataGridView
                 Data_Load.Rows.Add(
                     item.MaMonAn,
                     item.TenMonAn,
-                    item.MaMuc,
+                    item.TenMuc,
                     formattedPrice,
-                    item.TinhTrangPhucVu
+                    serviceStatus // Sử dụng biến serviceStatus
                 );
             }
         }
@@ -68,14 +71,16 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // Hiển thị kết quả tìm kiếm
             foreach (var item in foodItems)
             {
+                // Chuyển đổi tình trạng phục vụ từ BIT sang "Có" hoặc "Không"
+                string serviceStatus = item.TinhTrangPhucVu == 1 ? "Có" : "Không";
                 string formattedPrice = item.GiaHienTai.ToString("N0") + " VND";
 
                 Data_Load.Rows.Add(
                     item.MaMonAn,
                     item.TenMonAn,
-                    item.MaMuc,
+                    item.TenMuc,
                     formattedPrice,
-                    item.TinhTrangPhucVu
+                    serviceStatus
                 );
             }
         }
@@ -97,80 +102,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void Insert_Item_Click(object sender, EventArgs e)
         {
-            //// Kiểm tra xem các trường dữ liệu có rỗng không
-            //if (string.IsNullOrWhiteSpace(texName.Text) ||
-            //    string.IsNullOrWhiteSpace(texID.Text) ||
-            //    string.IsNullOrWhiteSpace(texMark.Text)  == null)
-            //    //||
-            //    //textRole.SelectedItem == null)
-            //{
-            //    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //// Kiểm tra giá trị có hợp lệ không
-            //if (!decimal.TryParse(texMark.Text, out decimal gia))
-            //{
-            //    MessageBox.Show("Giá trị không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //// Lấy giá trị từ các trường nhập liệu
-            //string maMonAn = texID.Text.Trim();
-            //string tenMonAn = texName.Text.Trim();
-            ////string muc = textRole.SelectedItem.ToString();
-            //string giaoMon = guna2RadioButton1.Checked ? "Có" : "Không";
-
-            //// Chuỗi kết nối với cơ sở dữ liệu
-            //string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
-
-            //// Truy vấn thêm dữ liệu vào bảng Food
-            //string query = @"
-            //    INSERT INTO MON_AN (MaMonAn, TenMonAn, GiaHienTai)
-            //    VALUES (@MaMonAn, @TenMonAn, @GiaHienTai)";
-
-
-            //try
-            //{
-            //    using (SqlConnection conn = new SqlConnection(con_string))
-            //    {
-            //        conn.Open();
-            //        using (SqlCommand cmd = new SqlCommand(query, conn))
-            //        {
-            //            // Thêm tham số cho truy vấn
-            //            cmd.Parameters.AddWithValue("@MaMonAn", maMonAn);
-            //            cmd.Parameters.AddWithValue("@TenMonAn", tenMonAn);
-            //            cmd.Parameters.AddWithValue("@GiaHienTai", gia);
-            //            //cmd.Parameters.AddWithValue("@MaMuc", maMuc);
-            //            //cmd.Parameters.AddWithValue("@GiaoMon", giaoMon);
-            //            //cmd.Parameters.AddWithValue("@Category", muc);
-
-            //            // Thực thi lệnh SQL
-            //            cmd.ExecuteNonQuery();
-            //        }
-            //    }
-
-            //    // Hiển thị thông báo thành công
-            //    MessageBox.Show("Thêm món ăn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //    // Thêm dữ liệu vào DataGridView
-            //    string formattedPrice = gia.ToString("N0", CultureInfo.InvariantCulture) + " VND";
-            //    Data_Load.Rows.Add(maMonAn, tenMonAn, formattedPrice, giaoMon);
-
-            //    // Làm mới các trường nhập liệu
-            //    texName.Text = "";
-            //    texID.Text = "";
-            //    texMark.Text = "";
-            //    textRole.SelectedIndex = -1;
-            //    //guna2RadioButton1.Checked = false;
-            //    //guna2RadioButton2.Checked = false;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Lỗi khi thêm món ăn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-            // Kiểm tra xem các trường dữ liệu có rỗng không
             // Kiểm tra xem các trường dữ liệu có rỗng không
             if (string.IsNullOrWhiteSpace(texName.Text) ||
                 string.IsNullOrWhiteSpace(texID.Text) ||
@@ -249,25 +180,25 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void texRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadRoles();
+
         }
-        private void LoadRoles()
+        private void AddRoles()
         {
             // Chuỗi kết nối với cơ sở dữ liệu
             string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
             // Truy vấn SQL
             string query = @"
-                            SELECT 
-                                M.TenMuc
-                            FROM 
-                                CHI_NHANH CN
-                            JOIN 
-                                THUC_DON_MUC TDM ON CN.MaThucDon = TDM.MaThucDon AND CN.ThanhPho = TDM.KhuVuc
-                            JOIN 
-                                MUC M ON TDM.MaMuc = M.MaMuc
-                            WHERE 
-                                CN.MaChiNhanh = @MaChiNhanh";
+                    SELECT 
+                        M.TenMuc
+                    FROM 
+                        CHI_NHANH CN
+                    JOIN 
+                        THUC_DON_MUC TDM ON CN.MaThucDon = TDM.MaThucDon AND CN.ThanhPho = TDM.KhuVuc
+                    JOIN 
+                        MUC M ON TDM.MaMuc = M.MaMuc
+                    WHERE 
+                        CN.MaChiNhanh = @MaChiNhanh";
 
             // Giá trị tham số
             string branchID = Branch.MaChiNhanh; // Lấy mã chi nhánh từ lớp Branch
@@ -306,11 +237,12 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
 
+
         }
 
         private void guna2CustomGradientPanel1_Paint_1(object sender, PaintEventArgs e)
         {
-
+           
         }
 
         private void texName_TextChanged(object sender, EventArgs e)
@@ -331,6 +263,11 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+            AddRoles();
         }
     }
 }

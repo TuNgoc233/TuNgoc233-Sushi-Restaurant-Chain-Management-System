@@ -446,7 +446,7 @@ namespace Sushi_Restaurant
     {
         public string MaMonAn { get; set; } // Mã món ăn
         public string TenMonAn { get; set; } // Tên món ăn
-        public string MaMuc { get; set; } // Mã mục
+        public string TenMuc { get; set; } // Mã mục
         public decimal GiaHienTai { get; set; } // Giá hiện tại
         public int TinhTrangPhucVu { get; set; } // Tình trạng phục vụ
 
@@ -470,7 +470,7 @@ namespace Sushi_Restaurant
                         {
                             MaMonAn = reader["MaMonAn"].ToString(),
                             TenMonAn = reader["TenMonAn"].ToString(),
-                            MaMuc = reader["MaMuc"].ToString(), // Mã mục
+                            TenMuc = reader["TenMuc"].ToString(), // Mã mục
                             GiaHienTai = Convert.ToDecimal(reader["GiaHienTai"]), // Giá hiện tại
                             TinhTrangPhucVu = Convert.ToInt32(reader["TinhTrangPhucVu"]) // Tình trạng phục vụ
                         };
@@ -506,7 +506,7 @@ namespace Sushi_Restaurant
                             {
                                 MaMonAn = reader["MaMonAn"].ToString(),
                                 TenMonAn = reader["TenMonAn"].ToString(),
-                                MaMuc = reader["MaMuc"].ToString(), // Mã mục
+                                TenMuc = reader["MaMuc"].ToString(), // Mã mục
                                 GiaHienTai = Convert.ToDecimal(reader["GiaHienTai"]), // Giá hiện tại
                                 TinhTrangPhucVu = Convert.ToInt32(reader["TinhTrangPhucVu"]) // Tình trạng phục vụ
                             };
