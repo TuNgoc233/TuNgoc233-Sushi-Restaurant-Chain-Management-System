@@ -59,7 +59,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // 
             this.label1.Size = new System.Drawing.Size(131, 32);
             this.label1.Text = "Thêm món";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // labName
             // 
