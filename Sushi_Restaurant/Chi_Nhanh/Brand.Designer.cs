@@ -38,7 +38,6 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lblTotalRevenue = new System.Windows.Forms.Label();
-            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lblTotalInvoices = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.MinimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.gunaExit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btn_Statistic = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -111,7 +111,7 @@
             // Btn_Bill
             // 
             this.Btn_Bill.AutoRoundedCorners = true;
-            this.Btn_Bill.BackColor = System.Drawing.Color.White;
+            this.Btn_Bill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.Btn_Bill.BorderRadius = 21;
             this.Btn_Bill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Btn_Bill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -122,7 +122,7 @@
             this.Btn_Bill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.Btn_Bill.Location = new System.Drawing.Point(88, 13);
             this.Btn_Bill.Name = "Btn_Bill";
-            this.Btn_Bill.Size = new System.Drawing.Size(154, 45);
+            this.Btn_Bill.Size = new System.Drawing.Size(171, 45);
             this.Btn_Bill.TabIndex = 3;
             this.Btn_Bill.Text = "Hóa đơn";
             this.Btn_Bill.Click += new System.EventHandler(this.Btn_Bill_Click);
@@ -130,7 +130,7 @@
             // Btn_Customer
             // 
             this.Btn_Customer.AutoRoundedCorners = true;
-            this.Btn_Customer.BackColor = System.Drawing.Color.White;
+            this.Btn_Customer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.Btn_Customer.BorderRadius = 21;
             this.Btn_Customer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Btn_Customer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -142,14 +142,14 @@
             this.Btn_Customer.Location = new System.Drawing.Point(71, 13);
             this.Btn_Customer.Name = "Btn_Customer";
             this.Btn_Customer.Size = new System.Drawing.Size(171, 45);
-            this.Btn_Customer.TabIndex = 2;
+            this.Btn_Customer.TabIndex = 3;
             this.Btn_Customer.Text = "Khách hàng";
             this.Btn_Customer.Click += new System.EventHandler(this.Btn_ID_Card);
             // 
             // Btn_Employee
             // 
             this.Btn_Employee.AutoRoundedCorners = true;
-            this.Btn_Employee.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_Employee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.Btn_Employee.BorderRadius = 21;
             this.Btn_Employee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Btn_Employee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -160,8 +160,8 @@
             this.Btn_Employee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.Btn_Employee.Location = new System.Drawing.Point(65, 13);
             this.Btn_Employee.Name = "Btn_Employee";
-            this.Btn_Employee.Size = new System.Drawing.Size(177, 45);
-            this.Btn_Employee.TabIndex = 0;
+            this.Btn_Employee.Size = new System.Drawing.Size(171, 45);
+            this.Btn_Employee.TabIndex = 3;
             this.Btn_Employee.Text = "Nhân viên";
             this.Btn_Employee.Click += new System.EventHandler(this.btnNhanVien);
             // 
@@ -190,8 +190,8 @@
             // 
             // guna2CustomGradientPanel5
             // 
+            this.guna2CustomGradientPanel5.Controls.Add(this.btn_Statistic);
             this.guna2CustomGradientPanel5.Controls.Add(this.lblTotalRevenue);
-            this.guna2CustomGradientPanel5.Controls.Add(this.guna2GradientButton4);
             this.guna2CustomGradientPanel5.Controls.Add(this.guna2PictureBox4);
             this.guna2CustomGradientPanel5.Location = new System.Drawing.Point(888, 10);
             this.guna2CustomGradientPanel5.Name = "guna2CustomGradientPanel5";
@@ -207,26 +207,7 @@
             this.lblTotalRevenue.Name = "lblTotalRevenue";
             this.lblTotalRevenue.Size = new System.Drawing.Size(147, 54);
             this.lblTotalRevenue.TabIndex = 3;
-            this.lblTotalRevenue.Text = "label3";
-            // 
-            // guna2GradientButton4
-            // 
-            this.guna2GradientButton4.AutoRoundedCorners = true;
-            this.guna2GradientButton4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.guna2GradientButton4.BorderRadius = 21;
-            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2GradientButton4.Location = new System.Drawing.Point(83, 13);
-            this.guna2GradientButton4.Name = "guna2GradientButton4";
-            this.guna2GradientButton4.Size = new System.Drawing.Size(139, 45);
-            this.guna2GradientButton4.TabIndex = 2;
-            this.guna2GradientButton4.Text = "Doanh thu";
-            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click);
+            this.lblTotalRevenue.Text = "Doanh thu";
             // 
             // guna2PictureBox4
             // 
@@ -259,7 +240,7 @@
             this.lblTotalInvoices.Name = "lblTotalInvoices";
             this.lblTotalInvoices.Size = new System.Drawing.Size(147, 54);
             this.lblTotalInvoices.TabIndex = 3;
-            this.lblTotalInvoices.Text = "label2";
+            this.lblTotalInvoices.Text = "Hoá đơn";
             // 
             // guna2CustomGradientPanel3
             // 
@@ -280,7 +261,7 @@
             this.lblTotalCustomers.Name = "lblTotalCustomers";
             this.lblTotalCustomers.Size = new System.Drawing.Size(147, 54);
             this.lblTotalCustomers.TabIndex = 1;
-            this.lblTotalCustomers.Text = "label1";
+            this.lblTotalCustomers.Text = "Khách hàng";
             // 
             // guna2PictureBox1
             // 
@@ -378,6 +359,25 @@
             this.gunaExit.TabIndex = 0;
             this.gunaExit.Click += new System.EventHandler(this.exit);
             // 
+            // btn_Statistic
+            // 
+            this.btn_Statistic.AutoRoundedCorners = true;
+            this.btn_Statistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btn_Statistic.BorderRadius = 21;
+            this.btn_Statistic.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Statistic.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Statistic.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Statistic.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Statistic.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Statistic.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.btn_Statistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btn_Statistic.Location = new System.Drawing.Point(62, 13);
+            this.btn_Statistic.Name = "btn_Statistic";
+            this.btn_Statistic.Size = new System.Drawing.Size(171, 45);
+            this.btn_Statistic.TabIndex = 3;
+            this.btn_Statistic.Text = "Doanh thu";
+            this.btn_Statistic.Click += new System.EventHandler(this.btn_Statistic_Click);
+            // 
             // Brand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -427,7 +427,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
         private Guna.UI2.WinForms.Guna2GradientButton Btn_Customer;
         private Guna.UI2.WinForms.Guna2GradientButton Btn_Bill;
         private System.Windows.Forms.Label lblTotalEmployees;
@@ -436,5 +435,6 @@
         private System.Windows.Forms.Label lblTotalCustomers;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Food;
+        private Guna.UI2.WinForms.Guna2GradientButton btn_Statistic;
     }
 }

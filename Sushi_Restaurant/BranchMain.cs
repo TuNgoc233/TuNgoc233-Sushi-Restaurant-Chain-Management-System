@@ -12,7 +12,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
@@ -517,6 +517,124 @@ namespace Sushi_Restaurant
             }
             return foodItems;
         }
+    }
+
+
+    //public class Statistic
+    //{
+         
+    //    public string MaChiNhanh { get; set; }
+    //    public string TenChiNhanh { get; set; }
+    //    public string ThoiGian { get; set; }
+    //    public decimal TongDoanhThu { get; set; }
+
+    //    private string connectionString = Branch.con_string; // Kết nối từ Branch
+
+    //    // Phương thức thực hiện gọi stored procedure để lấy doanh thu theo thời gian và chi nhánh
+    //    public List<Statistic> GetDoanhThu(string thoiGian, string branchID)
+    //    {
+    //        List<Statistic> doanhThus = new List<Statistic>();
+    //        string query = "SP_ThongKeDoanhThuTheoChiNhanh"; // Tên stored procedure
+
+    //        using (SqlConnection con = new SqlConnection(connectionString))
+    //        {
+    //            using (SqlCommand cmd = new SqlCommand(query, con))
+    //            {
+    //                cmd.CommandType = CommandType.StoredProcedure;
+
+    //                // Thêm tham số cho stored procedure
+    //                cmd.Parameters.AddWithValue("@ThoiGian", thoiGian); // 'NGAY', 'THANG', 'QUY', 'NAM'
+    //                if (!string.IsNullOrEmpty(branchID))
+    //                {
+    //                    cmd.Parameters.AddWithValue("@MaChiNhanh", branchID); // Tham số cho mã chi nhánh, nếu có
+    //                }
+    //                else
+    //                {
+    //                    cmd.Parameters.AddWithValue("@MaChiNhanh", DBNull.Value); // Nếu không có mã chi nhánh, truyền NULL
+    //                }
+
+    //                con.Open();
+    //                SqlDataReader reader = cmd.ExecuteReader();
+    //                while (reader.Read())
+    //                {
+    //                    Statistic doanhThu = new Statistic
+    //                    {
+    //                        MaChiNhanh = reader["MaChiNhanh"].ToString(),
+    //                        TenChiNhanh = reader["TenChiNhanh"].ToString(),
+    //                        ThoiGian = reader["Ngay"].ToString(), // Có thể là Ngày, Tháng, Quý, Năm
+    //                        TongDoanhThu = Convert.ToDecimal(reader["TongDoanhThu"])
+    //                    };
+    //                    doanhThus.Add(doanhThu);
+    //                }
+    //            }
+    //        }
+    //        return doanhThus;
+    //    }
+
+    //    public class StatisticBLL
+    //    {
+    //        private Statistic statistic;
+
+    //        public StatisticBLL()
+    //        {
+    //            statistic = new Statistic(); // Khởi tạo lớp Statistic (DAL)
+    //        }
+
+    //        // Phương thức gọi Statistic để lấy doanh thu theo thời gian và chi nhánh
+    //        public List<Statistic> GetDoanhThu(string thoiGian, string maChiNhanh = null)
+    //        {
+    //            return statistic.GetDoanhThu(thoiGian, maChiNhanh); // Gọi phương thức trong DAL
+    //        }
+    //    }
+    //}
+
+    // Đảm bảo đã khai báo các thư viện cần thiết ở đầu file
+
+
+    public class Statistic
+    {
+        // Kết nối đến cơ sở dữ liệu
+        private string connectionString = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+
+        // Hàm để gọi stored procedure và lấy doanh thu theo chi nhánh
+        public decimal GetDoanhThuTheoChiNhanh(string thoiGian, string branchID)
+        {
+            decimal doanhThu = 0;
+
+            // Cấu trúc câu lệnh SQL để gọi stored procedure
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("SP_ThongKeDoanhThuTheoChiNhanh", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Thêm các tham số cho stored procedure
+                    command.Parameters.AddWithValue("@ThoiGian", thoiGian); // 'NGAY', 'THANG', 'QUY', hoặc 'NAM'
+                    command.Parameters.AddWithValue("@MaChiNhanh", branchID ?? (object)DBNull.Value);
+
+                    // Mở kết nối và thực thi câu lệnh
+                    connection.Open();
+
+                    // Thực hiện truy vấn và lấy kết quả trả về
+                    var result = command.ExecuteScalar();
+                    // Kiểm tra và chuyển đổi kết quả trả về
+                    if (result != null && result != DBNull.Value)
+                    {
+                        if (decimal.TryParse(result.ToString(), out decimal tempDoanhThu))
+                        {
+                            doanhThu = tempDoanhThu;
+                        }
+                        else
+                        {
+                            doanhThu = 0; // Xử lý an toàn khi kết quả không hợp lệ
+                        }
+                    }
+                }
+            }
+
+            return doanhThu;
+        }
+
     }
 
 }

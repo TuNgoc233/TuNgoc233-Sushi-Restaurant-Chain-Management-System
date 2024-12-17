@@ -150,6 +150,13 @@ namespace Sushi_Restaurant
             Page.Show();
         }
 
+        private void btn_Statistic_Click(object sender, EventArgs e)
+        {
+            BranchRevenue form = new BranchRevenue(_branchId);
+            form.Show();
+            this.Hide(); // Ẩn form đăng nhập
+        }
+
         private void lblTotalEmployees_Click(object sender, EventArgs e)
         {
 
