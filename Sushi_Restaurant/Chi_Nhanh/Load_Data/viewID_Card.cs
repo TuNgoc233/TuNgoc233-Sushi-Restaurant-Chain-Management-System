@@ -152,6 +152,51 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
 
         }
+
+        private void ThemThe(string maChiNhanh)
+        {
+            string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+
+            using (SqlConnection connection = new SqlConnection(con_string))
+            {
+                using (SqlCommand command = new SqlCommand("sp_CapNhatPhanHangKhachHang", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Thêm tham số
+                    command.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);
+                    try
+                    {
+                        // Mở kết nối
+                        connection.Open();
+
+                        // Thực thi thủ tục
+                        command.ExecuteNonQuery();
+
+                        // Thông báo cập nhật thành công
+                        MessageBox.Show("Cập nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Cập nhật lại DataGridView
+                        viewID_Card_Load(this, EventArgs.Empty); // Gọi lại phương thức Load
+                    }
+                    catch (Exception ex)
+                    {
+                        // Xử lý lỗi
+                        MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+                    }
+                }
+            }
+        }
+        private void Btn_Update(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            string maChiNhanh = Branch.MaChiNhanh;
+            ThemThe(maChiNhanh);
+        }
     }
     
 }

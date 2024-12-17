@@ -12,7 +12,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
@@ -594,7 +594,7 @@ namespace Sushi_Restaurant
     public class Statistic
     {
         // Kết nối đến cơ sở dữ liệu
-        private string connectionString = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Hàm để gọi stored procedure và lấy doanh thu theo chi nhánh
         public decimal GetDoanhThuTheoChiNhanh(string thoiGian, string branchID)

@@ -41,6 +41,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataLoad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +94,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.DataLoad.RowHeadersVisible = false;
             this.DataLoad.RowHeadersWidth = 51;
             this.DataLoad.RowTemplate.Height = 24;
-            this.DataLoad.Size = new System.Drawing.Size(1196, 462);
+            this.DataLoad.Size = new System.Drawing.Size(1196, 354);
             this.DataLoad.TabIndex = 5;
             this.DataLoad.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DataLoad.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -162,12 +163,28 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.dgvImage.MinimumWidth = 6;
             this.dgvImage.Name = "dgvImage";
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(1214, 632);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 6;
+            this.guna2Button1.Text = "Cập nhật loại thẻ";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // viewID_Card
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1406, 689);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.DataLoad);
             this.Name = "viewID_Card";
             this.Text = "viewID_Card";
@@ -177,6 +194,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.guna2Separator1, 0);
             this.Controls.SetChildIndex(this.DataLoad, 0);
+            this.Controls.SetChildIndex(this.guna2Button1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DataLoad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,5 +210,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv5;
         private System.Windows.Forms.DataGridViewImageColumn dgvImage;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
