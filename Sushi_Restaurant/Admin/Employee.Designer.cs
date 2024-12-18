@@ -34,14 +34,14 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.Dataview = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvOffice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDateStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUpdate = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Dataview)).BeginInit();
@@ -74,14 +74,14 @@
             this.Dataview.ColumnHeadersHeight = 25;
             this.Dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.Dataview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgv,
-            this.dgv1,
-            this.dgv3,
-            this.dgv10,
-            this.dgv11,
-            this.dgv100,
-            this.dgv8,
-            this.dgv111,
+            this.dgvID,
+            this.dgvName,
+            this.dgvDateOfBirth,
+            this.dgvOffice,
+            this.dgvSalary,
+            this.dgvBranch,
+            this.dgvDateStart,
+            this.dgvDateEnd,
             this.dgvUpdate,
             this.dgvDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -138,53 +138,53 @@
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // dgv
+            // dgvID
             // 
-            this.dgv.HeaderText = "Mã nhân viên";
-            this.dgv.MinimumWidth = 6;
-            this.dgv.Name = "dgv";
+            this.dgvID.HeaderText = "Mã nhân viên";
+            this.dgvID.MinimumWidth = 6;
+            this.dgvID.Name = "dgvID";
             // 
-            // dgv1
+            // dgvName
             // 
-            this.dgv1.HeaderText = "Họ tên";
-            this.dgv1.MinimumWidth = 6;
-            this.dgv1.Name = "dgv1";
+            this.dgvName.HeaderText = "Họ tên";
+            this.dgvName.MinimumWidth = 6;
+            this.dgvName.Name = "dgvName";
             // 
-            // dgv3
+            // dgvDateOfBirth
             // 
-            this.dgv3.HeaderText = "Ngày sinh";
-            this.dgv3.MinimumWidth = 6;
-            this.dgv3.Name = "dgv3";
+            this.dgvDateOfBirth.HeaderText = "Ngày sinh";
+            this.dgvDateOfBirth.MinimumWidth = 6;
+            this.dgvDateOfBirth.Name = "dgvDateOfBirth";
             // 
-            // dgv10
+            // dgvOffice
             // 
-            this.dgv10.HeaderText = "Bộ phận";
-            this.dgv10.MinimumWidth = 6;
-            this.dgv10.Name = "dgv10";
+            this.dgvOffice.HeaderText = "Bộ phận";
+            this.dgvOffice.MinimumWidth = 6;
+            this.dgvOffice.Name = "dgvOffice";
             // 
-            // dgv11
+            // dgvSalary
             // 
-            this.dgv11.HeaderText = "Lương";
-            this.dgv11.MinimumWidth = 6;
-            this.dgv11.Name = "dgv11";
+            this.dgvSalary.HeaderText = "Lương";
+            this.dgvSalary.MinimumWidth = 6;
+            this.dgvSalary.Name = "dgvSalary";
             // 
-            // dgv100
+            // dgvBranch
             // 
-            this.dgv100.HeaderText = "Chi nhánh";
-            this.dgv100.MinimumWidth = 6;
-            this.dgv100.Name = "dgv100";
+            this.dgvBranch.HeaderText = "Chi nhánh";
+            this.dgvBranch.MinimumWidth = 6;
+            this.dgvBranch.Name = "dgvBranch";
             // 
-            // dgv8
+            // dgvDateStart
             // 
-            this.dgv8.HeaderText = "Ngày vào làm";
-            this.dgv8.MinimumWidth = 6;
-            this.dgv8.Name = "dgv8";
+            this.dgvDateStart.HeaderText = "Ngày vào làm";
+            this.dgvDateStart.MinimumWidth = 6;
+            this.dgvDateStart.Name = "dgvDateStart";
             // 
-            // dgv111
+            // dgvDateEnd
             // 
-            this.dgv111.HeaderText = "Ngày kết thúc";
-            this.dgv111.MinimumWidth = 6;
-            this.dgv111.Name = "dgv111";
+            this.dgvDateEnd.HeaderText = "Ngày kết thúc";
+            this.dgvDateEnd.MinimumWidth = 6;
+            this.dgvDateEnd.Name = "dgvDateEnd";
             // 
             // dgvUpdate
             // 
@@ -224,14 +224,14 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2DataGridView Dataview;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv100;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv111;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvDateOfBirth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvOffice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSalary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvBranch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvDateStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvDateEnd;
         private System.Windows.Forms.DataGridViewImageColumn dgvUpdate;
         private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
     }
