@@ -60,7 +60,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
-        private void viewStaff_Load(object sender, EventArgs e)
+        public void viewStaff_Load(object sender, EventArgs e)
         {
             // Lấy mã chi nhánh từ thuộc tính của lớp Branch
             string branchID = Branch.MaChiNhanh;
@@ -109,7 +109,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
     
         
         //List
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             this.Hide();
             addFood addStaff = new addFood();
@@ -122,7 +122,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
            
         }
 
-        private void Btn_Back(object sender, EventArgs e)
+        public void Btn_Back(object sender, EventArgs e)
         {
             this.Close(); // Đóng form viewIDCard
             if (Owner != null) // Kiểm tra nếu Owner tồn tại
@@ -148,12 +148,12 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
-        private void Btn_Staff(object sender, EventArgs e)
+        public void Btn_Staff(object sender, EventArgs e)
         {
 
         }
 
-        private void Btn_Invoice(object sender, EventArgs e)
+        public void Btn_Invoice(object sender, EventArgs e)
         {
             viewOrderForm Page = new viewOrderForm();
             this.Hide(); // Chỉ ẩn form Brand
@@ -161,14 +161,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
         }
 
         //Btn_CardID
-        private void guna2Button2_Click(object sender, EventArgs e)
+        public void guna2Button2_Click(object sender, EventArgs e)
         {
             viewID_Card Page = new viewID_Card();
             this.Hide(); // Chỉ ẩn form Brand
             Page.Show();
         }
 
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        public void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -179,7 +179,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         }
 
         //Insert
-        private void guna2Button4_Click(object sender, EventArgs e)
+        public void guna2Button4_Click(object sender, EventArgs e)
         {
             this.Hide();
             addFood addStaff = new addFood();

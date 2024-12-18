@@ -262,5 +262,8 @@
     <Content Include="Resources\open_eyes.png" />
     <Content Include="Resources\restaurant.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
