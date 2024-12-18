@@ -76,7 +76,6 @@
       <DependentUpon>Tranfer.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\BranchMain.cs" />
-    <Compile Include="BranchMain.cs" />
     <Compile Include="branch_revenue.cs">
       <SubType>Form</SubType>
     </Compile>
