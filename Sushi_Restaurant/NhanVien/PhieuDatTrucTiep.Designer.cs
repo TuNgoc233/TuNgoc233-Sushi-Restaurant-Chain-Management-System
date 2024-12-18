@@ -74,7 +74,6 @@
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.ErrorImage = null;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.menu;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
@@ -249,7 +248,6 @@
             this.txtSoBan.Size = new System.Drawing.Size(250, 40);
             this.txtSoBan.TabIndex = 23;
             this.txtSoBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoBan_KeyPress);
-            this.txtSoBan.Leave += new System.EventHandler(this.txtSoBan_Leave);
             // 
             // PhieuDatTrucTiep
             // 

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Sushi_Restaurant.NhanVien
 {
 
@@ -55,7 +56,6 @@ namespace Sushi_Restaurant.NhanVien
                         cmd.Parameters.AddWithValue("@MaHoaDon", MaHD);
                         cmd.Parameters.AddWithValue("@NgayLap", date);
                         cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
-                        //cmd.Parameters.AddWithValue("@MaKH", MaKH);
                         cmd.Parameters.AddWithValue("@MaNV", MaNV);
                         cmd.Parameters.AddWithValue("@MaPhieu", MaPhieuCanTT);
                         cmd.Parameters.AddWithValue("@MaKM", MaKM);
@@ -86,13 +86,13 @@ namespace Sushi_Restaurant.NhanVien
                         SqlDataAdapter da = new SqlDataAdapter(cmd2);
                         da.Fill(dt);
 
-                        // Hiển thị báo cáo
-                        frmPrint frm = new frmPrint();
-                        rptHoadon rpt = new rptHoadon();
-                        rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
-                        frm.crystalReportViewer1.ReportSource = rpt;
-                        frm.crystalReportViewer1.Refresh();
-                        frm.Show();
+                        //// Hiển thị báo cáo
+                        //frmPrint frm = new frmPrint();
+                        //rptHoadon rpt = new rptHoadon();
+                        //rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
+                        //frm.crystalReportViewer1.ReportSource = rpt;
+                        //frm.crystalReportViewer1.Refresh();
+                        //frm.Show();
                     }
                 }
                 catch (Exception ex)

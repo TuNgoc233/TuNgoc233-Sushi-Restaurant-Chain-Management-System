@@ -192,7 +192,7 @@
             this.BtnGiaoHang.Size = new System.Drawing.Size(101, 68);
             this.BtnGiaoHang.TabIndex = 5;
             this.BtnGiaoHang.Text = "Giao hàng";
-            this.BtnGiaoHang.Click += new System.EventHandler(this.BtnGiaoHang_Click);
+           // this.BtnGiaoHang.Click += new System.EventHandler(this.BtnGiaoHang_Click);
             // 
             // btnLuuCTDatMon
             // 

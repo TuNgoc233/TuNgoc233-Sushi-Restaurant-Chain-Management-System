@@ -98,13 +98,13 @@ namespace Sushi_Restaurant.NhanVien
                 MainClass.con.Close();
 
 
-                frmPrint frm = new frmPrint();
-                MainClass.CurMaHD = MaHD;
-                rptHoadon rpt = new rptHoadon();
-                rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
-                frm.crystalReportViewer1.ReportSource = rpt;
-                frm.crystalReportViewer1.Refresh();
-                frm.Show();
+                //frmPrint frm = new frmPrint();
+                //MainClass.CurMaHD = MaHD;
+                //rptHoadon rpt = new rptHoadon();
+                //rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
+                //frm.crystalReportViewer1.ReportSource = rpt;
+                //frm.crystalReportViewer1.Refresh();
+                //frm.Show();
 
             }
         }

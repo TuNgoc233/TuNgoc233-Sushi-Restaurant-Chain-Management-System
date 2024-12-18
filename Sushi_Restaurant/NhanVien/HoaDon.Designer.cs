@@ -188,7 +188,7 @@
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.ErrorImage = null;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.bill;
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.MA001;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";

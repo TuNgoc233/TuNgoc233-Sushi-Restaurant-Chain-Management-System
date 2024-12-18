@@ -346,13 +346,13 @@ namespace Sushi_Restaurant
                 else
                 {
                     Debug.WriteLine($"Image not found in Resources: {productCode}");
-                    return Properties.Resources.bill; // Hình ảnh mặc định nếu không tìm thấy
+                    return Properties.Resources.MA001; // Hình ảnh mặc định nếu không tìm thấy
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error loading image from Resources: {ex.Message}");
-                return Properties.Resources.bill; // Hình ảnh mặc định nếu có lỗi
+                return Properties.Resources.MA001; // Hình ảnh mặc định nếu có lỗi
             }
         }
 
@@ -405,7 +405,7 @@ namespace Sushi_Restaurant
             }
         }
 
-        private void LoadEntries_PDTT()
+        private void LoadEntries_PhieuDat()
         {
             using (SqlCommand cmd2 = new SqlCommand("sp_LayCTDatMon", MainClass.con))
             {
@@ -498,19 +498,19 @@ namespace Sushi_Restaurant
             }
         }
 
-        private void BtnGiaoHang_Click(object sender, EventArgs e)
-        {
-            MaPhieuDangXet = "";
-            DSPhieuGiaoHang frm = new DSPhieuGiaoHang();
-            MainClass.BlurBackground(frm);
-            if (frm.MaPhieu != "")
-            {
-                MainClass.CurMaPhieuDat = frm.MaPhieu;
-                LoadEntries_PhieuDat();
-                lblMaPhieu.Text = frm.MaPhieu;
+        //private void BtnGiaoHang_Click(object sender, EventArgs e)
+        //{
+        //    MaPhieuDangXet = "";
+        //    DSPhieuGiaoHang frm = new DSPhieuGiaoHang();
+        //    MainClass.BlurBackground(frm);
+        //    if (frm.MaPhieu != "")
+        //    {
+        //        MainClass.CurMaPhieuDat = frm.MaPhieu;
+        //        LoadEntries_PhieuDat();
+        //        lblMaPhieu.Text = frm.MaPhieu;
 
-            }
-        }
+        //    }
+        //}
         private void btnLuuCTDatMon_Click(object sender, EventArgs e)
         {
             if (MaPhieuDangXet == "")
