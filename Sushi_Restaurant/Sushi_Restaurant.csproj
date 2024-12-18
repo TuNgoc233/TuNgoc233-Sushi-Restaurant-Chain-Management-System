@@ -57,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BranchMain.cs" />
+    <Compile Include="branch_revenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="branch_revenue.Designer.cs">
+      <DependentUpon>branch_revenue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chi_Nhanh\BranchRevenue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLNH_SUSHI_2024_FINALDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RevenueStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevenueStatistics.Designer.cs">
+      <DependentUpon>RevenueStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="SampleAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +156,9 @@
       <DependentUpon>SampleView.cs</DependentUpon>
     </Compile>
     <Compile Include="TienIch.cs" />
+    <EmbeddedResource Include="branch_revenue.resx">
+      <DependentUpon>branch_revenue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\BranchRevenue.resx" />
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
@@ -180,6 +195,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevenueStatistics.resx">
+      <DependentUpon>RevenueStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SampleAdd.resx">
       <DependentUpon>SampleAdd.cs</DependentUpon>
