@@ -18,15 +18,15 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
         }
 
-        public string MainId = "";
+        public string MaPhieu_TT = "";
+        
         private void DSPhieuDatTrucTiep_Load(object sender, EventArgs e)
         {
             LoadData();
         }
         private void LoadData()
         {
-            string qry = @"SELECT PD.MaPhieu,PD.SoBan 
-                           FROM PHIEU_DAT_TRUC_TIEP PD ";
+            
 
             guna2DataGridView1.AutoGenerateColumns = false;
 
@@ -35,8 +35,11 @@ namespace Sushi_Restaurant.NhanVien
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand(qry, con);
-                    cmd.CommandType = CommandType.Text;
+                    // Gọi stored procedure
+                    SqlCommand cmd = new SqlCommand("LayDsPhieuTrucTiep", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NgayLap", MainClass.curDate);
+                    cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -48,7 +51,8 @@ namespace Sushi_Restaurant.NhanVien
                     // Đặt DataPropertyName cho các cột
                     guna2DataGridView1.Columns["dgvId"].DataPropertyName = "MaPhieu";
                     guna2DataGridView1.Columns["dgvTable"].DataPropertyName = "SoBan";
-           
+                    guna2DataGridView1.Columns["dgvStatus"].DataPropertyName = "DaLapHoaDon";
+
                 }
                 catch (Exception ex)
                 {
@@ -73,11 +77,62 @@ namespace Sushi_Restaurant.NhanVien
         {
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
             {
-                MainId = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
+                // Kiểm tra trạng thái "Đã lập hóa đơn"
+                bool daLapHoaDon = Convert.ToBoolean(guna2DataGridView1.CurrentRow.Cells["dgvStatus"].Value);
+                if (daLapHoaDon)
+                {
+                    MessageBox.Show("Phiếu đặt này đã lập hóa đơn và không thể chỉnh sửa.");
+                    return;
+                }
+
+                // Nếu chưa lập hóa đơn, cho phép chỉnh sửa
+                MaPhieu_TT = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
                 this.Close();
             }
-            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvprint")
+            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
             {
+                // Lấy MaPhieu từ dòng hiện tại
+                string maPhieu = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
+
+                // Hiển thị hộp thoại xác nhận xóa
+                var result = MessageBox.Show(
+                    "Bạn có chắc chắn muốn xóa mục này?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Tạo và mở kết nối SQL
+                        using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                        {
+                            conn.Open();
+
+                            // Tạo SqlCommand để gọi Stored Procedure
+                            using (SqlCommand cmd = new SqlCommand("sp_XoaPhieuDatMon", conn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@MaPhieu", maPhieu);
+
+
+                                // Thực thi Stored Procedure
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        // Xóa dòng khỏi DataGridView sau khi xóa thành công trong database
+                        guna2DataGridView1.Rows.RemoveAt(e.RowIndex);
+
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xóa dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
                 this.Close();
 
 

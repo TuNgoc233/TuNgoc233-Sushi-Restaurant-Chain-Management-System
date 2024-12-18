@@ -252,6 +252,12 @@ namespace Sushi_Restaurant
                     // Nếu người dùng chọn Yes, xóa dòng
                     if (result == DialogResult.Yes)
                     {
+                        
+                        var maMonAnCell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvID"];
+                        string maMonAn = maMonAnCell.Value.ToString();
+
+                        // Gọi Stored Procedure để xóa dữ liệu trong database
+                        XoaCTDatMon(maMonAn);
                         guna2DataGridView1.Rows.RemoveAt(e.RowIndex);
 
                         // Cập nhật tổng giá trị sau khi xóa
@@ -325,38 +331,6 @@ namespace Sushi_Restaurant
             };
         }
 
-        //private void LoadProducts()
-        //{
-        //    using (SqlConnection conn = new SqlConnection(MainClass.con_string))
-        //    {
-        //        string query = "SELECT * FROM MON_AN";
-        //        SqlCommand cmd = new SqlCommand(query, conn);
-        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //        DataTable dt = new DataTable();
-
-        //        conn.Open();
-        //        da.Fill(dt);
-
-        //        ProductPanel.Controls.Clear(); // Xóa các sản phẩm cũ trong ProductPanel
-
-        //        foreach (DataRow row in dt.Rows)
-        //        {
-        //            string productCode = row["MaMonAn"].ToString(); // Lấy mã món ăn
-        //            Image productImage = LoadImageFromResources(productCode); // Tải hình ảnh từ Resources dựa trên mã món ăn
-
-        //            // Thêm sản phẩm vào panel
-        //            AddItems(
-        //                productCode,                       // Mã món ăn
-        //                row["TenMonAn"].ToString(),        // Tên món ăn
-        //                row["MaMuc"].ToString(),           // Danh mục món ăn
-        //                row["GiaHienTai"].ToString(),      // Giá của món ăn
-        //                productImage                       // Hình ảnh của món ăn
-        //            );
-        //        }
-        //    }
-        //}
-
-
         // Hàm tải ảnh từ đường dẫn
         private Image LoadImageFromResources(string productCode)
         {
@@ -372,13 +346,13 @@ namespace Sushi_Restaurant
                 else
                 {
                     Debug.WriteLine($"Image not found in Resources: {productCode}");
-                    return Properties.Resources.bill; // Hình ảnh mặc định nếu không tìm thấy
+                    return Properties.Resources.MA001; // Hình ảnh mặc định nếu không tìm thấy
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error loading image from Resources: {ex.Message}");
-                return Properties.Resources.bill; // Hình ảnh mặc định nếu có lỗi
+                return Properties.Resources.MA001; // Hình ảnh mặc định nếu có lỗi
             }
         }
 
@@ -390,8 +364,6 @@ namespace Sushi_Restaurant
 
                 var pro = (ucProduct)item;
                 pro.Visible = pro.PName.ToLower().Contains(txtTimKiem.Text.Trim().ToLower());
-
-
             }
         }
 
@@ -420,16 +392,15 @@ namespace Sushi_Restaurant
             lblTotal.Text = tot.ToString("N2");
         }
 
-        public string id = "";
-        DateTime curDate = DateTime.Now;   
+        public string MaPhieuDangXet;
         private void btnDin_Click(object sender, EventArgs e)
         {
-
+            MaPhieuDangXet = "";
             DSPhieuDatTrucTiep frm = new DSPhieuDatTrucTiep();
             MainClass.BlurBackground(frm);
-            if (frm.MainId != "")
+            if (frm.MaPhieu_TT != "")
             {
-                id = frm.MainId;
+                MaPhieuDangXet = frm.MaPhieu_TT;
                 LoadEntries_PhieuDat();
             }
         }
@@ -441,7 +412,7 @@ namespace Sushi_Restaurant
                 cmd2.CommandType = CommandType.StoredProcedure;
 
                 // Thêm tham số cho stored procedure
-                cmd2.Parameters.AddWithValue("@MaPhieu", id);
+                cmd2.Parameters.AddWithValue("@MaPhieu", MaPhieuDangXet);
 
                 DataTable dt2 = new DataTable();
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
@@ -476,19 +447,30 @@ namespace Sushi_Restaurant
             }
         }
 
-       
+
 
         private void btnBill_Click(object sender, EventArgs e)
         {
             HoaDon frm = new HoaDon();
             MainClass.BlurBackground(frm);
-           
         }
 
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            MainClass.BlurBackground(new PhieuDatTrucTiep());
+            MaPhieuDangXet = "";
+            PhieuDatTrucTiep frm = new PhieuDatTrucTiep();
+            MainClass.BlurBackground(frm);
+            if (frm.MaPhieu != "")
+            {
+                MaPhieuDangXet = frm.MaPhieu;
+                lblMaPhieu.Text = MaPhieuDangXet;
+                lblTotal.Text = "0";    
+                lblMaPhieu.Visible = true;
+                guna2DataGridView1.Rows.Clear();
+            }
+            
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -498,42 +480,124 @@ namespace Sushi_Restaurant
 
         private void btnThanhtoan_Click(object sender, EventArgs e)
         {
-            frmThanhtoan frm=new frmThanhtoan();
-            frm.MainID = id;
-            frm.amt=Convert.ToDouble(lblTotal.Text);
+            frmThanhtoan frm = new frmThanhtoan();
+            frm.MaPhieuCanTT = MaPhieuDangXet;
             MainClass.BlurBackground(frm);
-
             guna2DataGridView1.Rows.Clear();
-            lblTotal.Text = "0";    
-
+           
         }
-
-        
 
         private void btnReservation_Click(object sender, EventArgs e)
         {
+            MaPhieuDangXet = "";
             DsPhieuDatBan frm = new DsPhieuDatBan();
             MainClass.BlurBackground(frm);
-            if (frm.MainId != "")
+            if (frm.MaPhieu != "")
             {
-                id = frm.MainId;
-                LoadEntries_PhieuDat();  
-
-            }
-        }
-
-        private void BtnGiaoHang_Click(object sender, EventArgs e)
-        {
-            DSPhieuGiaoHang frm = new DSPhieuGiaoHang();
-            MainClass.BlurBackground(frm);
-            if (frm.MainId != "")
-            {
-                id = frm.MainId;
+                MaPhieuDangXet = frm.MaPhieu;
                 LoadEntries_PhieuDat();
+                lblMaPhieu.Text = frm.MaPhieu;
 
             }
         }
 
-        
+        //private void BtnGiaoHang_Click(object sender, EventArgs e)
+        //{
+        //    MaPhieuDangXet = "";
+        //    DSPhieuGiaoHang frm = new DSPhieuGiaoHang();
+        //    MainClass.BlurBackground(frm);
+        //    if (frm.MaPhieu != "")
+        //    {
+        //        MainClass.CurMaPhieuDat = frm.MaPhieu;
+        //        LoadEntries_PhieuDat();
+        //        lblMaPhieu.Text = frm.MaPhieu;
+
+        //    }
+        //}
+        private void btnLuuCTDatMon_Click(object sender, EventArgs e)
+        {
+            if (MaPhieuDangXet == "")
+            {
+                MessageBox.Show("Chưa chọn phiếu đặt món");
+                return;
+            }
+
+            using (SqlCommand cmd = new SqlCommand("sp_Them_CapNhat_CTDatMon", MainClass.con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    foreach (DataGridViewRow item in guna2DataGridView1.Rows)
+                    {
+                        // Thêm tham số cho stored procedure
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@MaPhieu", MaPhieuDangXet);
+                        cmd.Parameters.AddWithValue("@MaMonAn", item.Cells["dgvId"].Value.ToString());
+                        cmd.Parameters.AddWithValue("@SoLuong", Convert.ToInt32(item.Cells["dgvQty"].Value));
+                        cmd.Parameters.AddWithValue("@Gia", Convert.ToInt32(item.Cells["dgvPrice"].Value));
+                        cmd.Parameters.AddWithValue("@ThanhTien", Convert.ToInt32(item.Cells["dgvAmount"].Value));
+
+                        // Thực thi lệnh
+                        if(MainClass.con.State != ConnectionState.Open)
+                            MainClass.con.Open();
+                        cmd.ExecuteNonQuery();
+                        if(MainClass.con.State == ConnectionState.Open)
+                            MainClass.con.Close();
+                    }
+                    // Thông báo thành công khi lưu xong tất cả dữ liệu
+                    MessageBox.Show("Dữ liệu đã được lưu thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Xóa dữ liệu trong DataGridView và reset các controls
+                    guna2DataGridView1.Rows.Clear();
+                    lblMaPhieu.Text = "";   
+                    lblMaPhieu.Visible = false;
+                    MaPhieuDangXet = "";
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private void XoaCTDatMon(string maMonAn)
+        {
+            try
+            {
+                
+                if (MainClass.con.State != ConnectionState.Open)
+                {
+                    MainClass.con.Open();
+                }
+
+                using (SqlCommand cmd = new SqlCommand("sp_XoaCTDatMon", MainClass.con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Thêm tham số
+                    cmd.Parameters.AddWithValue("@MaPhieu", MaPhieuDangXet);
+                    cmd.Parameters.AddWithValue("@MaMonAn", maMonAn);
+
+                    // Thực thi Stored Procedure
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xóa dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Đóng kết nối sau khi thực hiện xong
+                if (MainClass.con.State == ConnectionState.Open)
+                {
+                    MainClass.con.Close();
+                }
+            }
+        }
+
     }
 }

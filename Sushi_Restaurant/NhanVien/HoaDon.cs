@@ -1,4 +1,4 @@
-﻿//using Sushi_Restaurant.Reports;
+﻿using Sushi_Restaurant.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,8 +19,8 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
         }
 
-        public string MainId = "";
-        public string MaChiNhanh = "CN001";
+        public string MaHD = "";
+       
         DateTime date = new DateTime(2024, 7, 30);
 
         private void HoaDon_Load(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace Sushi_Restaurant.NhanVien
 
                         // Thêm tham số cho stored procedure
                         cmd.Parameters.AddWithValue("@NgayLap", date);
-                        cmd.Parameters.AddWithValue("@MaChiNhanh", MaChiNhanh);
+                        cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -80,7 +80,7 @@ namespace Sushi_Restaurant.NhanVien
 
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvprint")
             {
-                MainId = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
+                MaHD = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
                 string qry = @"SELECT * 
                 FROM HOA_DON HD 
                 JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon
@@ -90,25 +90,22 @@ namespace Sushi_Restaurant.NhanVien
 
                 SqlCommand cmd2 = new SqlCommand(qry, MainClass.con);
                 MainClass.con.Open();
-                cmd2.Parameters.AddWithValue("@MaHoaDon", MainId);
+                cmd2.Parameters.AddWithValue("@MaHoaDon", MaHD);
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
                 da.Fill(dt);
                 MainClass.con.Close();
 
 
-                frmPrint frm = new frmPrint();
+                //frmPrint frm = new frmPrint();
+                //MainClass.CurMaHD = MaHD;
                 //rptHoadon rpt = new rptHoadon();
                 //rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
                 //frm.crystalReportViewer1.ReportSource = rpt;
                 //frm.crystalReportViewer1.Refresh();
-                frm.Show();
+                //frm.Show();
 
             }
-
-
         }
-
-
     }
 }

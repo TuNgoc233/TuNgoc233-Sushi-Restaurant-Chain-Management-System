@@ -18,16 +18,18 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
         }
 
-        public string MaChiNhanh = "CN001";
-        public string NhanVien = "NV000051";
+        public string MaChiNhanh = MainClass.user.MaChiNhanh;
+        public string MaPhieu = "";
+
+        public string NhanVien = MainClass.user.MaNhanVien;
         DateTime date = DateTime.Now;
 
         private void btnDong_Click(object sender, EventArgs e)
         {
+            MaPhieu = "";
             this.Close();
         }
        
-        public string MainID = "";
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtSoBan.Text, out int soBan) || soBan < 1 || soBan > 100)
@@ -61,6 +63,8 @@ namespace Sushi_Restaurant.NhanVien
 
                         // Thông báo lưu thành công
                         MessageBox.Show("Lưu thành công!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
                     }
                 }
                 catch (Exception ex)
@@ -92,7 +96,8 @@ namespace Sushi_Restaurant.NhanVien
             {
                 MessageBox.Show("Lỗi khi lấy mã phiếu tiếp theo: " + ex.Message);
             }
-            MainID = nextId;
+            MaPhieu = nextId;
+            
 
             return nextId;
         }
