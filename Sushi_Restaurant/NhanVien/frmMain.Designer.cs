@@ -31,7 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.but_logOut = new Guna.UI2.WinForms.Guna2Button();
+            this.btnGiaoHang = new Guna.UI2.WinForms.Guna2Button();
+            this.btnttmonan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDatBan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDatMon = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTheTV = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.gunaPanel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblUser = new System.Windows.Forms.Label();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -39,17 +47,9 @@
             this.btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.CenterPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnttmonan = new Guna.UI2.WinForms.Guna2Button();
-            this.btnGiaoHang = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDatBan = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDatMon = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTheTV = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.but_logOut = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
-            this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.gunaPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -71,131 +71,35 @@
             this.guna2Panel1.Size = new System.Drawing.Size(249, 700);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // label1
+            // but_logOut
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 14F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(61, 93);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "SuShiX";
-            // 
-            // gunaPanel1
-            // 
-            this.gunaPanel1.Controls.Add(this.lblUser);
-            this.gunaPanel1.Controls.Add(this.guna2ControlBox3);
-            this.gunaPanel1.Controls.Add(this.guna2ControlBox2);
-            this.gunaPanel1.Controls.Add(this.btnExit);
-            this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel1.FillColor = System.Drawing.Color.Gainsboro;
-            this.gunaPanel1.Location = new System.Drawing.Point(249, 0);
-            this.gunaPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.gunaPanel1.Name = "gunaPanel1";
-            this.gunaPanel1.Size = new System.Drawing.Size(951, 53);
-            this.gunaPanel1.TabIndex = 1;
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.BackColor = System.Drawing.Color.Transparent;
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(29, 10);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(108, 28);
-            this.lblUser.TabIndex = 3;
-            this.lblUser.Text = "Dashboard";
-            // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.guna2ControlBox3.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(819, 10);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(38, 24);
-            this.guna2ControlBox3.TabIndex = 2;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(861, 10);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(38, 24);
-            this.guna2ControlBox2.TabIndex = 1;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
-            this.btnExit.CustomClick = true;
-            this.btnExit.FillColor = System.Drawing.Color.Gainsboro;
-            this.btnExit.IconColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(904, 10);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(38, 24);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // CenterPanel
-            // 
-            this.CenterPanel.AutoSize = true;
-            this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CenterPanel.Location = new System.Drawing.Point(249, 53);
-            this.CenterPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.CenterPanel.Name = "CenterPanel";
-            this.CenterPanel.Size = new System.Drawing.Size(951, 647);
-            this.CenterPanel.TabIndex = 2;
-            // 
-            // btnttmonan
-            // 
-            this.btnttmonan.AutoRoundedCorners = true;
-            this.btnttmonan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnttmonan.BorderRadius = 34;
-            this.btnttmonan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnttmonan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnttmonan.CheckedState.Image = global::Sushi_Restaurant.Properties.Resources.home_1;
-            this.btnttmonan.CustomizableEdges.BottomRight = false;
-            this.btnttmonan.CustomizableEdges.TopRight = false;
-            this.btnttmonan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnttmonan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnttmonan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnttmonan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnttmonan.FillColor = System.Drawing.Color.Transparent;
-            this.btnttmonan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnttmonan.ForeColor = System.Drawing.Color.White;
-            this.btnttmonan.Image = global::Sushi_Restaurant.Properties.Resources.home;
-            this.btnttmonan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnttmonan.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnttmonan.Location = new System.Drawing.Point(2, 544);
-            this.btnttmonan.Margin = new System.Windows.Forms.Padding(2);
-            this.btnttmonan.Name = "btnttmonan";
-            this.btnttmonan.Size = new System.Drawing.Size(257, 70);
-            this.btnttmonan.TabIndex = 3;
-            this.btnttmonan.Text = "Món ăn";
-            this.btnttmonan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnttmonan.TextOffset = new System.Drawing.Point(10, 0);
-            this.btnttmonan.Click += new System.EventHandler(this.btnttmonan_Click);
+            this.but_logOut.AutoRoundedCorners = true;
+            this.but_logOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.but_logOut.BorderRadius = 34;
+            this.but_logOut.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.but_logOut.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.but_logOut.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.but_logOut.CustomizableEdges.BottomRight = false;
+            this.but_logOut.CustomizableEdges.TopRight = false;
+            this.but_logOut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.but_logOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.but_logOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.but_logOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.but_logOut.FillColor = System.Drawing.Color.Transparent;
+            this.but_logOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_logOut.ForeColor = System.Drawing.Color.White;
+            this.but_logOut.Image = ((System.Drawing.Image)(resources.GetObject("but_logOut.Image")));
+            this.but_logOut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.but_logOut.ImageOffset = new System.Drawing.Point(4, 0);
+            this.but_logOut.ImageSize = new System.Drawing.Size(30, 30);
+            this.but_logOut.Location = new System.Drawing.Point(0, 619);
+            this.but_logOut.Name = "but_logOut";
+            this.but_logOut.Size = new System.Drawing.Size(257, 70);
+            this.but_logOut.TabIndex = 3;
+            this.but_logOut.Text = "Đăng xuất";
+            this.but_logOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.but_logOut.TextOffset = new System.Drawing.Point(10, 0);
+            this.but_logOut.Click += new System.EventHandler(this.but_logOut_Click);
             // 
             // btnGiaoHang
             // 
@@ -226,6 +130,36 @@
             this.btnGiaoHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGiaoHang.TextOffset = new System.Drawing.Point(10, 0);
             this.btnGiaoHang.Click += new System.EventHandler(this.btnGiaoHang_Click);
+            // 
+            // btnttmonan
+            // 
+            this.btnttmonan.AutoRoundedCorners = true;
+            this.btnttmonan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnttmonan.BorderRadius = 34;
+            this.btnttmonan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnttmonan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnttmonan.CheckedState.Image = global::Sushi_Restaurant.Properties.Resources.home_1;
+            this.btnttmonan.CustomizableEdges.BottomRight = false;
+            this.btnttmonan.CustomizableEdges.TopRight = false;
+            this.btnttmonan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnttmonan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnttmonan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnttmonan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnttmonan.FillColor = System.Drawing.Color.Transparent;
+            this.btnttmonan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnttmonan.ForeColor = System.Drawing.Color.White;
+            this.btnttmonan.Image = global::Sushi_Restaurant.Properties.Resources.home;
+            this.btnttmonan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnttmonan.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnttmonan.Location = new System.Drawing.Point(2, 544);
+            this.btnttmonan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnttmonan.Name = "btnttmonan";
+            this.btnttmonan.Size = new System.Drawing.Size(257, 70);
+            this.btnttmonan.TabIndex = 3;
+            this.btnttmonan.Text = "Món ăn";
+            this.btnttmonan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnttmonan.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnttmonan.Click += new System.EventHandler(this.btnttmonan_Click);
             // 
             // btnDatBan
             // 
@@ -342,10 +276,23 @@
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(257, 70);
             this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Dashboard";
+            this.btnHome.Text = "Trang chủ";
             this.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHome.TextOffset = new System.Drawing.Point(10, 0);
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 14F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(61, 93);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "SuShiX";
             // 
             // guna2PictureBox1
             // 
@@ -360,35 +307,88 @@
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // but_logOut
+            // gunaPanel1
             // 
-            this.but_logOut.AutoRoundedCorners = true;
-            this.but_logOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.but_logOut.BorderRadius = 34;
-            this.but_logOut.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.but_logOut.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.but_logOut.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.but_logOut.CustomizableEdges.BottomRight = false;
-            this.but_logOut.CustomizableEdges.TopRight = false;
-            this.but_logOut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.but_logOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.but_logOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.but_logOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.but_logOut.FillColor = System.Drawing.Color.Transparent;
-            this.but_logOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.but_logOut.ForeColor = System.Drawing.Color.White;
-            this.but_logOut.Image = ((System.Drawing.Image)(resources.GetObject("but_logOut.Image")));
-            this.but_logOut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.but_logOut.ImageOffset = new System.Drawing.Point(4, 0);
-            this.but_logOut.ImageSize = new System.Drawing.Size(30, 30);
-            this.but_logOut.Location = new System.Drawing.Point(0, 619);
-            this.but_logOut.Name = "but_logOut";
-            this.but_logOut.Size = new System.Drawing.Size(257, 70);
-            this.but_logOut.TabIndex = 3;
-            this.but_logOut.Text = "Đăng xuất";
-            this.but_logOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.but_logOut.TextOffset = new System.Drawing.Point(10, 0);
-            this.but_logOut.Click += new System.EventHandler(this.but_logOut_Click);
+            this.gunaPanel1.Controls.Add(this.lblUser);
+            this.gunaPanel1.Controls.Add(this.guna2ControlBox3);
+            this.gunaPanel1.Controls.Add(this.guna2ControlBox2);
+            this.gunaPanel1.Controls.Add(this.btnExit);
+            this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaPanel1.FillColor = System.Drawing.Color.Gainsboro;
+            this.gunaPanel1.Location = new System.Drawing.Point(249, 0);
+            this.gunaPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaPanel1.Name = "gunaPanel1";
+            this.gunaPanel1.Size = new System.Drawing.Size(951, 53);
+            this.gunaPanel1.TabIndex = 1;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(29, 10);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(73, 28);
+            this.lblUser.TabIndex = 3;
+            this.lblUser.Text = "SuShiX";
+            // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.guna2ControlBox3.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.Gainsboro;
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(819, 10);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(38, 24);
+            this.guna2ControlBox3.TabIndex = 2;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.Gainsboro;
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(861, 10);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(38, 24);
+            this.guna2ControlBox2.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExit.CustomClick = true;
+            this.btnExit.FillColor = System.Drawing.Color.Gainsboro;
+            this.btnExit.IconColor = System.Drawing.Color.Black;
+            this.btnExit.Location = new System.Drawing.Point(904, 10);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(38, 24);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // CenterPanel
+            // 
+            this.CenterPanel.AutoSize = true;
+            this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CenterPanel.Location = new System.Drawing.Point(249, 53);
+            this.CenterPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.CenterPanel.Name = "CenterPanel";
+            this.CenterPanel.Size = new System.Drawing.Size(951, 647);
+            this.CenterPanel.TabIndex = 2;
             // 
             // frmMain
             // 
@@ -408,9 +408,9 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
