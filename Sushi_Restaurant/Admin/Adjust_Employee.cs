@@ -1,32 +1,64 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sushi_Restaurant.Admin
 {
     public partial class Adjust_Employee : SampleAdd
     {
-        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;"; // Thay thế bằng chuỗi kết nối của bạn
+        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;"; // Chuỗi kết nối CSDL
         private string maNhanVien;
         public event Action Adjust_Completed;
 
-     
-
-        // Constructor mới
+        // Constructor
         public Adjust_Employee(string maNhanVien)
         {
             InitializeComponent();
-            this.maNhanVien = maNhanVien; // Gán mã nhân viên
-            LoadEmployeeData(maNhanVien); // Tải dữ liệu nhân viên
-
+            this.maNhanVien = maNhanVien;
+            LoadEmployeeData(maNhanVien);
         }
+
+        // --- SỰ KIỆN UI ---
+        public override void btnLuu_Click(object sender, EventArgs e)
+        {
+            UpdateEmployee();
+        }
+
+        public override void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public override void label1_Click(object sender, EventArgs e) { }
+
+        public override void guna2PictureBox1_Click(object sender, EventArgs e) { }
+
+        public void addStaff_Load(object sender, EventArgs e)
+        {
+            LoadTenBoPhan();
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void texName_TextChanged(object sender, EventArgs e) { }
+
+        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e) { }
+
+        private void texRole_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e) { }
+
+        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e) { }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e) { }
+
+        private void label2_Click(object sender, EventArgs e) { }
+
+        // --- XỬ LÝ CƠ SỞ DỮ LIỆU ---
 
         private void UpdateEmployee()
         {
@@ -42,18 +74,18 @@ namespace Sushi_Restaurant.Admin
                     cmd.Parameters.AddWithValue("@DiaChi", texAddress.Text.Trim());
                     cmd.Parameters.AddWithValue("@SoDienThoai", texPhone.Text.Trim());
 
-                    // Lấy mã bộ phận từ tên bộ phận
                     string maBoPhan = GetMaBoPhan(texRole.Text.Trim());
-                    cmd.Parameters.AddWithValue("@MaBoPhan", maBoPhan); // Sửa lại tham số
+                    cmd.Parameters.AddWithValue("@MaBoPhan", maBoPhan);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật thông tin nhân viên thành công!");
-                    Adjust_Completed?.Invoke(); // Gọi sự kiện sau khi thành công
-                    this.Close(); // Đóng form
+                    Adjust_Completed?.Invoke();
+                    this.Close();
                 }
             }
         }
+
         private string GetMaBoPhan(string tenBoPhan)
         {
             string maBoPhan = string.Empty;
@@ -73,24 +105,25 @@ namespace Sushi_Restaurant.Admin
             }
             return maBoPhan;
         }
+
         private void LoadEmployeeData(string maNhanVien)
         {
-            using (SqlConnection conn = new SqlConnection("Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;"))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-            SELECT 
-                NV.HoTen, 
-                NV.NgaySinh, 
-                NV.GioiTinh, 
-                NV.DiaChi, 
-                NV.SoDienThoai, 
-                BP.TenBoPhan 
-            FROM 
-                NHAN_VIEN NV
-            JOIN 
-                BO_PHAN BP ON NV.MaBoPhan = BP.MaBoPhan 
-            WHERE 
-                NV.MaNhanVien = @MaNhanVien";
+                    SELECT 
+                        NV.HoTen, 
+                        NV.NgaySinh, 
+                        NV.GioiTinh, 
+                        NV.DiaChi, 
+                        NV.SoDienThoai, 
+                        BP.TenBoPhan 
+                    FROM 
+                        NHAN_VIEN NV
+                    JOIN 
+                        BO_PHAN BP ON NV.MaBoPhan = BP.MaBoPhan 
+                    WHERE 
+                        NV.MaNhanVien = @MaNhanVien";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -104,7 +137,7 @@ namespace Sushi_Restaurant.Admin
                         guna2RadioButton1.Checked = reader["GioiTinh"].ToString() == "Nam";
                         texAddress.Text = reader["DiaChi"].ToString();
                         texPhone.Text = reader["SoDienThoai"].ToString();
-                        texRole.Text = reader["TenBoPhan"].ToString(); // Hiển thị tên bộ phận
+                        texRole.Text = reader["TenBoPhan"].ToString();
                     }
                     else
                     {
@@ -128,9 +161,7 @@ namespace Sushi_Restaurant.Admin
                         texRole.Items.Clear();
                         while (reader.Read())
                         {
-                            var tenBoPhan = reader["TenBoPhan"].ToString();
-                            texRole.Items.Add(tenBoPhan);
-                            //MessageBox.Show("Đã thêm bộ phận: " + tenBoPhan); // Kiểm tra
+                            texRole.Items.Add(reader["TenBoPhan"].ToString());
                         }
                     }
                 }
@@ -139,110 +170,6 @@ namespace Sushi_Restaurant.Admin
                     MessageBox.Show("Lỗi: " + ex.Message);
                 }
             }
-        }
-
-
-        public override void btnLuu_Click(object sender, EventArgs e)
-        {
-            // Thực hiện các hành động khi nhấn nút "LƯU"
-            UpdateEmployee();
-            MessageBox.Show("Lưu thành công!");
-        }
-
-        // Phương thức xử lý sự kiện khi nhấn nút "ĐÓNG"
-        public override void btnDong_Click(object sender, EventArgs e)
-        {
-            // Đóng cửa sổ hiện tại
-            this.Close();
-        }
-
-        public override void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public override void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void addStaff_Load(object sender, EventArgs e)
-        {
-            LoadTenBoPhan(); // Tải danh sách bộ phận
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void texName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void texRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //// Chuỗi kết nối với cơ sở dữ liệu
-            //string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
-
-            //// Truy vấn SQL
-            //string query = "SELECT TenMuc FROM MUC";
-
-            //try
-            //{
-            //    using (SqlConnection conn = new SqlConnection(con_string))
-            //    {
-            //        conn.Open();
-            //        using (SqlCommand cmd = new SqlCommand(query, conn))
-            //        {
-            //            // Đọc dữ liệu
-            //            using (SqlDataReader reader = cmd.ExecuteReader())
-            //            {
-            //                texRole.Items.Clear(); // Xóa các mục hiện có trong ComboBox
-
-            //                // Đổ dữ liệu vào ComboBox
-            //                while (reader.Read())
-            //                {
-            //                    // Kiểm tra xem giá trị có null không trước khi thêm vào ComboBox
-            //                    if (reader["TenMuc"] != DBNull.Value)
-            //                    {
-            //                        texRole.Items.Add(reader["TenMuc"].ToString());
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-            //}
-        }
-
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

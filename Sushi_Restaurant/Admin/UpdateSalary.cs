@@ -1,0 +1,116 @@
+﻿using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+
+namespace Sushi_Restaurant.Admin
+{
+    public partial class UpdateSalary : Form
+    {
+        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+
+        public UpdateSalary()
+        {
+            InitializeComponent();
+            LoadTenBoPhan(); // Tải danh sách bộ phận khi khởi động form
+        }
+
+        private void LoadTenBoPhan()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT TenBoPhan FROM BO_PHAN";
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        conn.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        Combox_.Items.Clear(); // Sử dụng Guna2ComboBox
+                        while (reader.Read())
+                        {
+                            Combox_.Items.Add(reader["TenBoPhan"].ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+
+        private void UpdateSalaryForDepartment(string departmentName, decimal newSalary)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE BO_PHAN SET MucLuong = @NewSalary WHERE TenBoPhan = @DepartmentName";
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@NewSalary", newSalary);
+                        cmd.Parameters.AddWithValue("@DepartmentName", departmentName);
+
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Cập nhật lương thành công.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy bộ phận để cập nhật.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi cập nhật lương: " + ex.Message);
+                }
+            }
+        }
+
+        private void Combox__SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Có thể thực hiện các hành động khác khi người dùng chọn bộ phận
+        }
+
+        private void txtRole_TextChanged(object sender, EventArgs e)
+        {
+            // Nếu bạn có một TextBox để nhập lương mới, xử lý ở đây
+        }
+
+        private void BtnUpdate_Click_1(object sender, EventArgs e)
+        {
+            // Lấy tên bộ phận đã chọn từ ComboBox
+            string selectedDepartment = Combox_.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedDepartment))
+            {
+                MessageBox.Show("Vui lòng chọn một bộ phận.");
+                return;
+            }
+
+            // Kiểm tra và lấy lương mới từ TextBox
+            if (string.IsNullOrWhiteSpace(txtRole.Text))
+            {
+                MessageBox.Show("Vui lòng nhập lương mới.");
+                return;
+            }
+
+            if (!decimal.TryParse(txtRole.Text, out decimal newSalary) || newSalary <= 0)
+            {
+                MessageBox.Show("Vui lòng nhập số tiền hợp lệ và lớn hơn 0.");
+                return;
+            }
+
+            // Cập nhật lương cho bộ phận đã chọn
+            UpdateSalaryForDepartment(selectedDepartment, newSalary);
+        }
+
+
+        private void UpdateSalary_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

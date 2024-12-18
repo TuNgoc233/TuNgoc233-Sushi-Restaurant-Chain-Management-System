@@ -75,11 +75,11 @@
     <Compile Include="Admin\Tranfer.Designer.cs">
       <DependentUpon>Tranfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Update_Employee.cs">
+    <Compile Include="Admin\UpdateSalary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Update_Employee.Designer.cs">
-      <DependentUpon>Update_Employee.cs</DependentUpon>
+    <Compile Include="Admin\UpdateSalary.Designer.cs">
+      <DependentUpon>UpdateSalary.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\BranchMain.cs" />
     <Compile Include="branch_revenue.cs">
@@ -137,12 +137,6 @@
     <Compile Include="Chi_Nhanh\Load_Data\viewOrderForm.Designer.cs">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\viewSaleOff.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewSaleOff.Designer.cs">
-      <DependentUpon>viewSaleOff.cs</DependentUpon>
-    </Compile>
     <Compile Include="Chi_Nhanh\Load_Data\viewStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,8 +184,8 @@
     <EmbeddedResource Include="Admin\Tranfer.resx">
       <DependentUpon>Tranfer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Update_Employee.resx">
-      <DependentUpon>Update_Employee.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\UpdateSalary.resx">
+      <DependentUpon>UpdateSalary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="branch_revenue.resx">
       <DependentUpon>branch_revenue.cs</DependentUpon>
@@ -217,9 +211,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Load_Data\viewOrderForm.resx">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewSaleOff.resx">
-      <DependentUpon>viewSaleOff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Load_Data\viewStaff.resx">
       <DependentUpon>viewStaff.cs</DependentUpon>

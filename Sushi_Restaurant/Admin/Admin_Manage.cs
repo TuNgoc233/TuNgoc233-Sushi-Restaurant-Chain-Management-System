@@ -17,6 +17,7 @@ namespace Sushi_Restaurant.Admin
         public Admin_Manage()
         {
             InitializeComponent();
+
         }
 
         private void Admin_Load(object sender, EventArgs e)
@@ -43,6 +44,13 @@ namespace Sushi_Restaurant.Admin
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            UpdateSalary updateSalary = new UpdateSalary();
+            updateSalary.Show();
 
         }
     }

@@ -198,7 +198,7 @@
             // 
             // dgvDelete
             // 
-            this.dgvDelete.HeaderText = "Xóa nhân viên";
+            this.dgvDelete.HeaderText = "Xóa";
             this.dgvDelete.MinimumWidth = 6;
             this.dgvDelete.Name = "dgvDelete";
             this.dgvDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
