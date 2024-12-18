@@ -1,6 +1,6 @@
 ﻿namespace Sushi_Restaurant.Admin
 {
-    partial class Tranfer
+    partial class Tranfer_Employee
     {
         /// <summary>
         /// Required designer variable.

@@ -33,7 +33,7 @@ namespace Sushi_Restaurant.Admin
         private void Employee(object sender, EventArgs e)
         {
             this.Hide();
-            Employee emp = new Employee();
+            Load_Employee emp = new Load_Employee();
             emp.Show();
         }
 
@@ -49,7 +49,7 @@ namespace Sushi_Restaurant.Admin
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            UpdateSalary updateSalary = new UpdateSalary();
+            UpdateSalary_Employeee updateSalary = new UpdateSalary_Employeee();
             updateSalary.Show();
 
         }

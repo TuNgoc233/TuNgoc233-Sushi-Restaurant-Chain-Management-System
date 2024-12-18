@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.Admin
 {
-    public partial class Employee : Form
+    public partial class Load_Employee : Form
     {
-        public Employee()
+        public Load_Employee()
         {
             InitializeComponent();
             this.Load += new EventHandler(Employee_Load); // Đăng ký sự kiện Load
@@ -66,7 +66,7 @@ namespace Sushi_Restaurant.Admin
                 {
                     string dgvID = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); 
                     // Tạo đối tượng Tranfer và truyền tham số
-                    Tranfer tranfer = new Tranfer(dgvID);
+                    Tranfer_Employee tranfer = new Tranfer_Employee(dgvID);
                     tranfer.TransferCompleted += ReloadEmployeeData;
                     tranfer.ShowDialog();
                 }
@@ -122,6 +122,13 @@ namespace Sushi_Restaurant.Admin
                     }
                 }
             }
+        }
+
+        private void AddEmp_Click(object sender, EventArgs e)
+        {
+            Add_Employee add = new Add_Employee();
+            add.Add_Completed += ReloadEmployeeData;
+            add.ShowDialog();
         }
     }
 }

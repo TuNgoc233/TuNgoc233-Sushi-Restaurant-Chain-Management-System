@@ -49,7 +49,6 @@ namespace Sushi_Restaurant.Admin
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -143,6 +142,7 @@ namespace Sushi_Restaurant.Admin
             this.texAddress.SelectedText = "";
             this.texAddress.Size = new System.Drawing.Size(789, 48);
             this.texAddress.TabIndex = 21;
+            this.texAddress.TextChanged += new System.EventHandler(this.texAddress_TextChanged);
             // 
             // texPhone
             // 
@@ -276,18 +276,9 @@ namespace Sushi_Restaurant.Admin
             this.guna2ControlBox1.TabIndex = 31;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
-            // guna2CustomGradientPanel1
-            // 
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(296, 240);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(200, 200);
-            this.guna2CustomGradientPanel1.TabIndex = 32;
-            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
-            // 
             // Adjust_Employee
             // 
             this.ClientSize = new System.Drawing.Size(853, 685);
-            this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2RadioButton2);
             this.Controls.Add(this.guna2RadioButton1);
@@ -395,6 +386,5 @@ namespace Sushi_Restaurant.Admin
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
     }
 }

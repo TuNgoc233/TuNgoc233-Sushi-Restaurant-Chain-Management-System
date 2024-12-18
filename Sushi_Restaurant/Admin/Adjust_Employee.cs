@@ -171,5 +171,10 @@ namespace Sushi_Restaurant.Admin
                 }
             }
         }
+
+        private void texAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
