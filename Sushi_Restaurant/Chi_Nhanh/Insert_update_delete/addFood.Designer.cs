@@ -44,7 +44,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.texMark = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
@@ -93,7 +93,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.texName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texName.Location = new System.Drawing.Point(39, 152);
+            this.texName.Location = new System.Drawing.Point(41, 280);
             this.texName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texName.Name = "texName";
             this.texName.PasswordChar = '\0';
@@ -114,7 +114,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.texID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texID.Location = new System.Drawing.Point(39, 255);
+            this.texID.Location = new System.Drawing.Point(41, 176);
             this.texID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texID.Name = "texID";
             this.texID.PasswordChar = '\0';
@@ -206,26 +206,26 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.guna2ControlBox1.TabIndex = 31;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
-            // guna2TextBox1
+            // texMark
             // 
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(492, 253);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(297, 48);
-            this.guna2TextBox1.TabIndex = 33;
-            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.texMark.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.texMark.DefaultText = "";
+            this.texMark.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.texMark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.texMark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.texMark.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.texMark.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.texMark.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.texMark.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.texMark.Location = new System.Drawing.Point(492, 253);
+            this.texMark.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.texMark.Name = "texMark";
+            this.texMark.PasswordChar = '\0';
+            this.texMark.PlaceholderText = "";
+            this.texMark.SelectedText = "";
+            this.texMark.Size = new System.Drawing.Size(297, 48);
+            this.texMark.TabIndex = 33;
+            this.texMark.TextChanged += new System.EventHandler(this.textMark_TextChanged);
             // 
             // label2
             // 
@@ -253,13 +253,12 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.textRole.Name = "textRole";
             this.textRole.Size = new System.Drawing.Size(140, 36);
             this.textRole.TabIndex = 34;
-            this.textRole.SelectedIndexChanged += new System.EventHandler(this.RoleBox_SelectedIndexChanged);
             // 
             // addFood
             // 
             this.ClientSize = new System.Drawing.Size(853, 685);
             this.Controls.Add(this.textRole);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.texMark);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2RadioButton2);
@@ -273,7 +272,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.Controls.Add(this.labID);
             this.Controls.Add(this.labName);
             this.Name = "addFood";
-            this.Load += new System.EventHandler(this.addStaff_Load);
+            this.Load += new System.EventHandler(this.addFood_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,7 +357,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        public Guna.UI2.WinForms.Guna2TextBox texMark;
         private Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox textRole;
     }

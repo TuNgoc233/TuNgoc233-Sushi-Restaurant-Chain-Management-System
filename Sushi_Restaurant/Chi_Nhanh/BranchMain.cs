@@ -517,9 +517,9 @@ namespace Sushi_Restaurant
                         {
                             MaMonAn = reader["MaMonAn"].ToString(),
                             TenMonAn = reader["TenMonAn"].ToString(),
-                            TenMuc = reader["TenMuc"].ToString(), // Mã mục
-                            GiaHienTai = Convert.ToDecimal(reader["GiaHienTai"]), // Giá hiện tại
-                            TinhTrangPhucVu = Convert.ToInt32(reader["TinhTrangPhucVu"]) // Tình trạng phục vụ
+                            TenMuc = reader["TenMuc"] != DBNull.Value ? reader["TenMuc"].ToString() : string.Empty,
+                            GiaHienTai = reader["GiaHienTai"] != DBNull.Value ? Convert.ToDecimal(reader["GiaHienTai"]) : 0m,
+                            TinhTrangPhucVu = reader["TinhTrangPhucVu"] != DBNull.Value ? Convert.ToInt32(reader["TinhTrangPhucVu"]) : 0
                         };
                         foodItems.Add(foodItem);
                     }
@@ -539,7 +539,7 @@ namespace Sushi_Restaurant
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@MaChiNhanh", branchID);
-               
+
 
                     con.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -569,7 +569,7 @@ namespace Sushi_Restaurant
 
     //public class Statistic
     //{
-         
+
     //    public string MaChiNhanh { get; set; }
     //    public string TenChiNhanh { get; set; }
     //    public string ThoiGian { get; set; }

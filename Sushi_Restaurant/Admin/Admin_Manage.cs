@@ -39,7 +39,8 @@ namespace Sushi_Restaurant.Admin
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-
+            addFood food = new addFood();
+            food.Show();
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)

@@ -98,6 +98,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Chi_Nhanh\BranchRevenue.Designer.cs" />
+    <Compile Include="Chi_Nhanh\Load_Data\Staff_Score.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\Load_Data\Staff_Score.Designer.cs">
+      <DependentUpon>Staff_Score.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chi_Nhanh\Load_Data\viewFood.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addFood.resx">
       <DependentUpon>addFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\Load_Data\Staff_Score.resx">
+      <DependentUpon>Staff_Score.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Sign_in_out\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

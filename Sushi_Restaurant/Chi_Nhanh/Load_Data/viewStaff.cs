@@ -48,8 +48,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
                     emp.SDT,
                     emp.NgayVaoLam, // Định dạng ngày vào làm
                     emp.TenBoPhan,
-                    formattedPrice,
-                    emp.DiemPhucVu
+                    formattedPrice
                 );
             }
 
@@ -101,8 +100,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
                     emp.SDT,
                     emp.NgayVaoLam, // Định dạng ngày vào làm
                     emp.TenBoPhan,
-                    formattedPrice,
-                    emp.DiemPhucVu
+                    formattedPrice
                 );
             }
         }
