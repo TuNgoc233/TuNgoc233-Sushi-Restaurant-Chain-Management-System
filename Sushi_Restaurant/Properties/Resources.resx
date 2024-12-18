@@ -199,8 +199,8 @@
   <data name="MA084" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA084.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MA098" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MA098.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="restaurant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restaurant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MA089" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA089.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,9 +256,6 @@
   <data name="MA082" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA082.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MA042" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MA042.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="MA049" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA049.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -273,9 +270,6 @@
   </data>
   <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="order" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\order.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MA100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA100.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -352,6 +346,9 @@
   <data name="MA017" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA017.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_sua" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_sua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MA083" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA083.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -417,12 +414,6 @@
   </data>
   <data name="MA043" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA043.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MA050" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MA050.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MA095" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA095.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -523,8 +514,8 @@
   <data name="MA060" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MA060.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MA030" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MA030.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="order" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\order.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

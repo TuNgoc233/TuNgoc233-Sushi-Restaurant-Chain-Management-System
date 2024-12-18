@@ -34,10 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblMaPhieu = new System.Windows.Forms.Label();
             this.btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnReservation = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnDin = new Guna.UI2.WinForms.Guna2TileButton();
             this.BtnGiaoHang = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnLuuCTDatMon = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnBill = new Guna.UI2.WinForms.Guna2TileButton();
             this.buttonThem = new Guna.UI2.WinForms.Guna2TileButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,10 +73,13 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.label3);
+            this.guna2Panel1.Controls.Add(this.lblMaPhieu);
             this.guna2Panel1.Controls.Add(this.btnExit);
             this.guna2Panel1.Controls.Add(this.btnReservation);
             this.guna2Panel1.Controls.Add(this.btnDin);
             this.guna2Panel1.Controls.Add(this.BtnGiaoHang);
+            this.guna2Panel1.Controls.Add(this.btnLuuCTDatMon);
             this.guna2Panel1.Controls.Add(this.btnBill);
             this.guna2Panel1.Controls.Add(this.buttonThem);
             this.guna2Panel1.Controls.Add(this.label1);
@@ -84,6 +90,31 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1297, 100);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(836, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 32);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Mã phiếu:";
+            // 
+            // lblMaPhieu
+            // 
+            this.lblMaPhieu.AutoSize = true;
+            this.lblMaPhieu.BackColor = System.Drawing.Color.Transparent;
+            this.lblMaPhieu.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblMaPhieu.ForeColor = System.Drawing.Color.White;
+            this.lblMaPhieu.Location = new System.Drawing.Point(963, 27);
+            this.lblMaPhieu.Name = "lblMaPhieu";
+            this.lblMaPhieu.Size = new System.Drawing.Size(116, 32);
+            this.lblMaPhieu.TabIndex = 12;
+            this.lblMaPhieu.Text = "Mã phiếu";
+            this.lblMaPhieu.Visible = false;
             // 
             // btnExit
             // 
@@ -114,7 +145,7 @@
             this.btnReservation.ForeColor = System.Drawing.Color.White;
             this.btnReservation.Image = global::Sushi_Restaurant.Properties.Resources.reservation__1_;
             this.btnReservation.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnReservation.Location = new System.Drawing.Point(707, 14);
+            this.btnReservation.Location = new System.Drawing.Point(727, 14);
             this.btnReservation.Name = "btnReservation";
             this.btnReservation.Size = new System.Drawing.Size(101, 68);
             this.btnReservation.TabIndex = 10;
@@ -135,7 +166,7 @@
             this.btnDin.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDin.ForeColor = System.Drawing.Color.White;
             this.btnDin.Image = global::Sushi_Restaurant.Properties.Resources.restaurant;
-            this.btnDin.Location = new System.Drawing.Point(600, 14);
+            this.btnDin.Location = new System.Drawing.Point(620, 14);
             this.btnDin.Name = "btnDin";
             this.btnDin.Size = new System.Drawing.Size(101, 68);
             this.btnDin.TabIndex = 5;
@@ -156,12 +187,33 @@
             this.BtnGiaoHang.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnGiaoHang.ForeColor = System.Drawing.Color.White;
             this.BtnGiaoHang.Image = global::Sushi_Restaurant.Properties.Resources.delivery;
-            this.BtnGiaoHang.Location = new System.Drawing.Point(493, 14);
+            this.BtnGiaoHang.Location = new System.Drawing.Point(513, 14);
             this.BtnGiaoHang.Name = "BtnGiaoHang";
             this.BtnGiaoHang.Size = new System.Drawing.Size(101, 68);
             this.BtnGiaoHang.TabIndex = 5;
             this.BtnGiaoHang.Text = "Giao hàng";
             this.BtnGiaoHang.Click += new System.EventHandler(this.BtnGiaoHang_Click);
+            // 
+            // btnLuuCTDatMon
+            // 
+            this.btnLuuCTDatMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnLuuCTDatMon.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnLuuCTDatMon.BorderRadius = 10;
+            this.btnLuuCTDatMon.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnLuuCTDatMon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuuCTDatMon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuuCTDatMon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLuuCTDatMon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLuuCTDatMon.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnLuuCTDatMon.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLuuCTDatMon.ForeColor = System.Drawing.Color.White;
+            this.btnLuuCTDatMon.Image = global::Sushi_Restaurant.Properties.Resources._new;
+            this.btnLuuCTDatMon.Location = new System.Drawing.Point(301, 14);
+            this.btnLuuCTDatMon.Name = "btnLuuCTDatMon";
+            this.btnLuuCTDatMon.Size = new System.Drawing.Size(101, 68);
+            this.btnLuuCTDatMon.TabIndex = 2;
+            this.btnLuuCTDatMon.Text = "Lưu";
+            this.btnLuuCTDatMon.Click += new System.EventHandler(this.btnLuuCTDatMon_Click);
             // 
             // btnBill
             // 
@@ -177,7 +229,7 @@
             this.btnBill.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBill.ForeColor = System.Drawing.Color.White;
             this.btnBill.Image = global::Sushi_Restaurant.Properties.Resources.invoice;
-            this.btnBill.Location = new System.Drawing.Point(386, 14);
+            this.btnBill.Location = new System.Drawing.Point(406, 14);
             this.btnBill.Name = "btnBill";
             this.btnBill.Size = new System.Drawing.Size(101, 68);
             this.btnBill.TabIndex = 4;
@@ -198,7 +250,7 @@
             this.buttonThem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonThem.ForeColor = System.Drawing.Color.White;
             this.buttonThem.Image = global::Sushi_Restaurant.Properties.Resources._new;
-            this.buttonThem.Location = new System.Drawing.Point(279, 14);
+            this.buttonThem.Location = new System.Drawing.Point(194, 14);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.Size = new System.Drawing.Size(101, 68);
             this.buttonThem.TabIndex = 2;
@@ -591,5 +643,8 @@
         private Guna.UI2.WinForms.Guna2TileButton btnReservation;
         private Guna.UI2.WinForms.Guna2ControlBox btnExit;
         public Guna.UI2.WinForms.Guna2Button btnThanhtoan;
+        private System.Windows.Forms.Label lblMaPhieu;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TileButton btnLuuCTDatMon;
     }
 }

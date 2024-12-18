@@ -1,5 +1,4 @@
-﻿//using Sushi_Restaurant.Reports;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,21 +11,21 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.NhanVien
 {
-    public partial class DsPhieuDatBan : Form
+    public partial class DSPhieuGiaoHang : Form
     {
-        public DsPhieuDatBan()
+        public DSPhieuGiaoHang()
         {
             InitializeComponent();
         }
 
         public string MaPhieu = "";
-        
-        private void DSPhieuDatBan_Load(object sender, EventArgs e)
+        private void DSPhieuDatGiaoHang_Load(object sender, EventArgs e)
         {
             LoadData();
         }
         private void LoadData()
         {
+           
             guna2DataGridView1.AutoGenerateColumns = false;
 
             // Kết nối với cơ sở dữ liệu
@@ -35,7 +34,7 @@ namespace Sushi_Restaurant.NhanVien
                 try
                 {
                     // Gọi stored procedure
-                    SqlCommand cmd = new SqlCommand("LayDsPhieuDatBan", con);
+                    SqlCommand cmd = new SqlCommand("LayDsPhieuGiaoHang", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@NgayLap", MainClass.curDate);
                     cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
@@ -49,9 +48,11 @@ namespace Sushi_Restaurant.NhanVien
 
                     // Đặt DataPropertyName cho các cột
                     guna2DataGridView1.Columns["dgvId"].DataPropertyName = "MaPhieu";
-                    guna2DataGridView1.Columns["dgvCustomer"].DataPropertyName = "HoTen";
-                    guna2DataGridView1.Columns["dgvNoCus"].DataPropertyName = "SoLuongKhach";
+                    guna2DataGridView1.Columns["dgvCus"].DataPropertyName = "HoTen";
+                    guna2DataGridView1.Columns["dgvDate"].DataPropertyName = "ThoiDiemTruyCap";
+                    guna2DataGridView1.Columns["dgvAddress"].DataPropertyName = "DiaChiGiaoHang";
                     guna2DataGridView1.Columns["dgvStatus"].DataPropertyName = "DaLapHoaDon";
+
                 }
                 catch (Exception ex)
                 {
@@ -75,11 +76,12 @@ namespace Sushi_Restaurant.NhanVien
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
-            {   // Kiểm tra trạng thái "Đã lập hóa đơn"
+            {
+                // Kiểm tra trạng thái "Đã lập hóa đơn"
                 bool daLapHoaDon = Convert.ToBoolean(guna2DataGridView1.CurrentRow.Cells["dgvStatus"].Value);
                 if (daLapHoaDon)
                 {
-                    MessageBox.Show("Phiếu đặt bàn này đã lập hóa đơn và không thể chỉnh sửa.");
+                    MessageBox.Show("Phiếu giao hàng này đã lập hóa đơn và không thể chỉnh sửa.");
                     return;
                 }
 
@@ -89,7 +91,6 @@ namespace Sushi_Restaurant.NhanVien
             }
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
             {
-
                 // Lấy MaPhieu từ dòng hiện tại
                 string maPhieu = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
 
@@ -115,7 +116,7 @@ namespace Sushi_Restaurant.NhanVien
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.AddWithValue("@MaPhieu", maPhieu);
-                                
+
 
                                 // Thực thi Stored Procedure
                                 cmd.ExecuteNonQuery();
@@ -132,7 +133,6 @@ namespace Sushi_Restaurant.NhanVien
                         MessageBox.Show("Lỗi khi xóa dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
                 this.Close();
 
 

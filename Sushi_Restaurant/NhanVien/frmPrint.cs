@@ -14,12 +14,20 @@ namespace Sushi_Restaurant.NhanVien
     {
         public frmPrint()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
-
+        
         private void frmPrint_Load(object sender, EventArgs e)
         {
             btnMax.PerformClick();
+        }
+
+        
+        private void btnDanhGia_Click(object sender, EventArgs e)
+        {
+            ThemDanhGia frm = new ThemDanhGia();
+            MainClass.BlurBackground(frm);
+            
         }
     }
 }

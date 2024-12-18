@@ -1,6 +1,6 @@
 ﻿namespace Sushi_Restaurant.NhanVien
 {
-    partial class DsPhieuDatBan
+    partial class DSPhieuGiaoHang
     {
         /// <summary>
         /// Required designer variable.
@@ -32,73 +32,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvNoCus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvedit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvdel = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(800, 97);
-            this.guna2Panel1.TabIndex = 2;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.BorderColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Silver;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(730, 37);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox1.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(110, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(281, 32);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Danh sách phiếu đặt bàn";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.ErrorImage = null;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.reservation;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 75);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 2;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
             // 
             // guna2DataGridView1
             // 
@@ -119,8 +69,9 @@
             this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvstt,
             this.dgvId,
-            this.dgvCustomer,
-            this.dgvNoCus,
+            this.dgvCus,
+            this.dgvDate,
+            this.dgvAddress,
             this.dgvedit,
             this.dgvdel,
             this.dgvStatus});
@@ -133,7 +84,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(67, 134);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(97, 142);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -147,8 +98,8 @@
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 30;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(665, 388);
-            this.guna2DataGridView1.TabIndex = 7;
+            this.guna2DataGridView1.Size = new System.Drawing.Size(806, 388);
+            this.guna2DataGridView1.TabIndex = 10;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -173,31 +124,54 @@
             this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
             this.guna2DataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridView1_CellFormatting);
             // 
-            // dataGridViewImageColumn1
+            // guna2Panel1
             // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.FillWeight = 50F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Sushi_Restaurant.Properties.Resources.pencil;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 50;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 50;
+            this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
+            this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(969, 97);
+            this.guna2Panel1.TabIndex = 11;
             // 
-            // dataGridViewImageColumn2
+            // guna2ControlBox1
             // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn2.FillWeight = 50F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::Sushi_Restaurant.Properties.Resources.printer;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 50;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn2.Width = 50;
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.BorderColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.Silver;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(899, 37);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(110, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(307, 32);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Danh sách phiếu giao hàng";
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.ErrorImage = null;
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.restaurant_pink;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 75);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 2;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.UseTransparentBackground = true;
             // 
             // dgvstt
             // 
@@ -219,24 +193,29 @@
             this.dgvId.ReadOnly = true;
             this.dgvId.Width = 150;
             // 
-            // dgvCustomer
+            // dgvCus
             // 
-            this.dgvCustomer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvCustomer.HeaderText = "Khách hàng";
-            this.dgvCustomer.MinimumWidth = 100;
-            this.dgvCustomer.Name = "dgvCustomer";
-            this.dgvCustomer.ReadOnly = true;
-            this.dgvCustomer.Width = 125;
+            this.dgvCus.HeaderText = "Khách hàng";
+            this.dgvCus.MinimumWidth = 6;
+            this.dgvCus.Name = "dgvCus";
+            this.dgvCus.ReadOnly = true;
             // 
-            // dgvNoCus
+            // dgvDate
             // 
-            this.dgvNoCus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvNoCus.FillWeight = 200F;
-            this.dgvNoCus.HeaderText = "Số lượng khách";
-            this.dgvNoCus.MinimumWidth = 200;
-            this.dgvNoCus.Name = "dgvNoCus";
-            this.dgvNoCus.ReadOnly = true;
-            this.dgvNoCus.Width = 200;
+            this.dgvDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvDate.FillWeight = 150F;
+            this.dgvDate.HeaderText = "Thời điểm truy cập";
+            this.dgvDate.MinimumWidth = 150;
+            this.dgvDate.Name = "dgvDate";
+            this.dgvDate.ReadOnly = true;
+            this.dgvDate.Width = 150;
+            // 
+            // dgvAddress
+            // 
+            this.dgvAddress.HeaderText = "Địa chỉ";
+            this.dgvAddress.MinimumWidth = 6;
+            this.dgvAddress.Name = "dgvAddress";
+            this.dgvAddress.ReadOnly = true;
             // 
             // dgvedit
             // 
@@ -274,39 +253,38 @@
             this.dgvStatus.ReadOnly = true;
             this.dgvStatus.Visible = false;
             // 
-            // DsPhieuDatBan
+            // DSPhieuGiaoHang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 564);
-            this.Controls.Add(this.guna2DataGridView1);
+            this.ClientSize = new System.Drawing.Size(969, 599);
             this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.guna2DataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "DsPhieuDatBan";
+            this.Name = "DSPhieuGiaoHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DsPhieuDatBan";
-            this.Load += new System.EventHandler(this.DSPhieuDatBan_Load);
+            this.Text = "DSPhieuGiaoHang";
+            this.Load += new System.EventHandler(this.DSPhieuDatGiaoHang_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         public System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvstt;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustomer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvNoCus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAddress;
         private System.Windows.Forms.DataGridViewImageColumn dgvedit;
         private System.Windows.Forms.DataGridViewImageColumn dgvdel;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvStatus;

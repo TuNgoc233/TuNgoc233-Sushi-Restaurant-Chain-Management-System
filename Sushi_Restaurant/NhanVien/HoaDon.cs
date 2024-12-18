@@ -1,4 +1,4 @@
-﻿//using Sushi_Restaurant.Reports;
+﻿using Sushi_Restaurant.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,16 +19,16 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
         }
 
-        public string MainId = "";
+        public string MaHD = "";
+       
+        DateTime date = new DateTime(2024, 7, 30);
+
         private void HoaDon_Load(object sender, EventArgs e)
         {
             LoadData();
         }
         private void LoadData()
         {
-            string qry = @"SELECT HD.MaHoaDon, PD.Loai, HD.TongTien 
-                           FROM HOA_DON HD 
-                           JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon";
             guna2DataGridView1.AutoGenerateColumns = false;
 
             // Kết nối với cơ sở dữ liệu
@@ -36,29 +36,35 @@ namespace Sushi_Restaurant.NhanVien
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand(qry, con);
-                    cmd.CommandType = CommandType.Text;
+                    // Tạo SqlCommand để gọi stored procedure
+                    using (SqlCommand cmd = new SqlCommand("sp_LayDSHoaDon", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                        // Thêm tham số cho stored procedure
+                        cmd.Parameters.AddWithValue("@NgayLap", date);
+                        cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
 
-                    // Gán DataTable vào DataGridView
-                    guna2DataGridView1.DataSource = dt;
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                    // Đặt DataPropertyName cho các cột
-                    guna2DataGridView1.Columns["dgvId"].DataPropertyName = "MaHoaDon";
-                    guna2DataGridView1.Columns["dgvType"].DataPropertyName = "Loai";
-                    guna2DataGridView1.Columns["dgvTotal"].DataPropertyName = "TongTien";
+                        // Gán DataTable vào DataGridView
+                        guna2DataGridView1.DataSource = dt;
+
+                        // Đặt DataPropertyName cho các cột
+                        guna2DataGridView1.Columns["dgvId"].DataPropertyName = "MaHoaDon";
+                        guna2DataGridView1.Columns["dgvType"].DataPropertyName = "Loai";
+                        guna2DataGridView1.Columns["dgvTotal"].DataPropertyName = "TongTien";
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
                 }
             }
-
-
         }
+
 
         private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -72,24 +78,20 @@ namespace Sushi_Restaurant.NhanVien
 
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
-            {
-                MainId = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
-                this.Close();
-            }
+
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvprint")
             {
-                MainId = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
+                MaHD = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
                 string qry = @"SELECT * 
-                           FROM HOA_DON HD 
-                           JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon
-                           JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu=PD.MaPhieu
-                           JOIN MON_AN MA ON MA.MaMonAn=CT.MaMonAn
-                           WHERE HD.MaHoaDon = @MaHoaDon"; // Sử dụng parameter";
+                FROM HOA_DON HD 
+                JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon
+                JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu=PD.MaPhieu
+                JOIN MON_AN MA ON MA.MaMonAn=CT.MaMonAn
+                WHERE HD.MaHoaDon = @MaHoaDon"; // Sử dụng parameter";
 
                 SqlCommand cmd2 = new SqlCommand(qry, MainClass.con);
                 MainClass.con.Open();
-                cmd2.Parameters.AddWithValue("@MaHoaDon", MainId);
+                cmd2.Parameters.AddWithValue("@MaHoaDon", MaHD);
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
                 da.Fill(dt);
@@ -97,18 +99,14 @@ namespace Sushi_Restaurant.NhanVien
 
 
                 frmPrint frm = new frmPrint();
-                //rptHoadon rpt = new rptHoadon();
-                //rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
-                //frm.crystalReportViewer1.ReportSource = rpt;
-                //frm.crystalReportViewer1.Refresh();
+                MainClass.CurMaHD = MaHD;
+                rptHoadon rpt = new rptHoadon();
+                rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
+                frm.crystalReportViewer1.ReportSource = rpt;
+                frm.crystalReportViewer1.Refresh();
                 frm.Show();
 
-
-
             }
-
         }
-
-       
     }
 }

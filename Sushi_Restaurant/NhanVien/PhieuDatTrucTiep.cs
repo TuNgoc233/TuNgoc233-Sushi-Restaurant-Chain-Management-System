@@ -18,12 +18,18 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
         }
 
+        public string MaChiNhanh = MainClass.user.MaChiNhanh;
+        public string MaPhieu = "";
+
+        public string NhanVien = MainClass.user.MaNhanVien;
+        DateTime date = DateTime.Now;
+
         private void btnDong_Click(object sender, EventArgs e)
         {
+            MaPhieu = "";
             this.Close();
         }
-        DateTime date = DateTime.Now;
-        public string MainID = "";
+       
         private void btnLuu_Click(object sender, EventArgs e)
         {
 
@@ -43,14 +49,17 @@ namespace Sushi_Restaurant.NhanVien
                         // Thêm các tham số cho procedure
                         cmd.Parameters.AddWithValue("@MaPhieu", txtMaphieu.Text);
                         cmd.Parameters.AddWithValue("@SoBan", int.Parse(txtSoBan.Text));
-                        cmd.Parameters.AddWithValue("@NgayLap", guna2DateTimePicker1.Value.Date);
-                        //cmd.Parameters.AddWithValue("@NhanVienLap", txtNhanvien.Text);
+                        cmd.Parameters.AddWithValue("@NgayLap", date);
+                        cmd.Parameters.AddWithValue("@NhanVien", NhanVien);
+                        cmd.Parameters.AddWithValue("@MaChiNhanh", MaChiNhanh);
 
                         // Thực thi lệnh
                         cmd.ExecuteNonQuery();
 
                         // Thông báo lưu thành công
                         MessageBox.Show("Lưu thành công!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
                     }
                 }
                 catch (Exception ex)
@@ -80,9 +89,10 @@ namespace Sushi_Restaurant.NhanVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lấy mã hóa đơn: " + ex.Message);
+                MessageBox.Show("Lỗi khi lấy mã phiếu tiếp theo: " + ex.Message);
             }
-            MainID = nextId;
+            MaPhieu = nextId;
+            
 
             return nextId;
         }
@@ -95,28 +105,10 @@ namespace Sushi_Restaurant.NhanVien
                 e.Handled = true;
             }
         }
-        private void txtSoBan_Leave(object sender, EventArgs e)
-        {
-            if (int.TryParse(txtSoBan.Text, out int soBan))
-            {
-                if (soBan < 1 || soBan > 100)
-                {
-                    MessageBox.Show("Số bàn phải từ 1 đến 100!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtSoBan.Focus();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập một số hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSoBan.Focus();
-            }
-        }
-
-
-
         private void PhieuDatTrucTiep_Load(object sender, EventArgs e)
         {
             txtMaphieu.Text = LayMaPDTiepTheo();
+            txtNhanvien.Text = NhanVien;
             guna2DateTimePicker1.Value = date;
 
         }

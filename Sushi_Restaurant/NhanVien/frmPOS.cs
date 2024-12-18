@@ -252,6 +252,12 @@ namespace Sushi_Restaurant
                     // Nếu người dùng chọn Yes, xóa dòng
                     if (result == DialogResult.Yes)
                     {
+                        
+                        var maMonAnCell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvID"];
+                        string maMonAn = maMonAnCell.Value.ToString();
+
+                        // Gọi Stored Procedure để xóa dữ liệu trong database
+                        XoaCTDatMon(maMonAn);
                         guna2DataGridView1.Rows.RemoveAt(e.RowIndex);
 
                         // Cập nhật tổng giá trị sau khi xóa
@@ -325,38 +331,6 @@ namespace Sushi_Restaurant
             };
         }
 
-        //private void LoadProducts()
-        //{
-        //    using (SqlConnection conn = new SqlConnection(MainClass.con_string))
-        //    {
-        //        string query = "SELECT * FROM MON_AN";
-        //        SqlCommand cmd = new SqlCommand(query, conn);
-        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //        DataTable dt = new DataTable();
-
-        //        conn.Open();
-        //        da.Fill(dt);
-
-        //        ProductPanel.Controls.Clear(); // Xóa các sản phẩm cũ trong ProductPanel
-
-        //        foreach (DataRow row in dt.Rows)
-        //        {
-        //            string productCode = row["MaMonAn"].ToString(); // Lấy mã món ăn
-        //            Image productImage = LoadImageFromResources(productCode); // Tải hình ảnh từ Resources dựa trên mã món ăn
-
-        //            // Thêm sản phẩm vào panel
-        //            AddItems(
-        //                productCode,                       // Mã món ăn
-        //                row["TenMonAn"].ToString(),        // Tên món ăn
-        //                row["MaMuc"].ToString(),           // Danh mục món ăn
-        //                row["GiaHienTai"].ToString(),      // Giá của món ăn
-        //                productImage                       // Hình ảnh của món ăn
-        //            );
-        //        }
-        //    }
-        //}
-
-
         // Hàm tải ảnh từ đường dẫn
         private Image LoadImageFromResources(string productCode)
         {
@@ -390,8 +364,6 @@ namespace Sushi_Restaurant
 
                 var pro = (ucProduct)item;
                 pro.Visible = pro.PName.ToLower().Contains(txtTimKiem.Text.Trim().ToLower());
-
-
             }
         }
 
@@ -420,30 +392,27 @@ namespace Sushi_Restaurant
             lblTotal.Text = tot.ToString("N2");
         }
 
+        public string MaPhieuDangXet;
         private void btnDin_Click(object sender, EventArgs e)
         {
-
+            MaPhieuDangXet = "";
             DSPhieuDatTrucTiep frm = new DSPhieuDatTrucTiep();
             MainClass.BlurBackground(frm);
-            if (frm.MainId != "")
+            if (frm.MaPhieu_TT != "")
             {
-                id = frm.MainId;
-                LoadEntries_PDTT();
+                MaPhieuDangXet = frm.MaPhieu_TT;
+                LoadEntries_PhieuDat();
             }
         }
 
         private void LoadEntries_PDTT()
         {
-            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
-                   FROM PHIEU_DAT_TRUC_TIEP PD
-                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
-                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
-                   WHERE PD.MaPhieu = @MaPhieu"; // Sử dụng parameter
-
-            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
+            using (SqlCommand cmd2 = new SqlCommand("sp_LayCTDatMon", MainClass.con))
             {
-                // Thêm tham số để tránh SQL Injection
-                cmd2.Parameters.AddWithValue("@MaPhieu", id);
+                cmd2.CommandType = CommandType.StoredProcedure;
+
+                // Thêm tham số cho stored procedure
+                cmd2.Parameters.AddWithValue("@MaPhieu", MaPhieuDangXet);
 
                 DataTable dt2 = new DataTable();
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
@@ -463,7 +432,7 @@ namespace Sushi_Restaurant
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["Gia"].ToString();
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
                     }
                     GetTotal();
@@ -475,69 +444,30 @@ namespace Sushi_Restaurant
             }
         }
 
-        public string id = "";
+
 
         private void btnBill_Click(object sender, EventArgs e)
         {
             HoaDon frm = new HoaDon();
             MainClass.BlurBackground(frm);
-            if (frm.MainId != "")
-            {
-                id = frm.MainId;
-                
-                LoadEntries_HD();
-
-            }
         }
 
-        private void LoadEntries_HD()
-        {
-            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
-                   FROM HOA_DON HD
-                   JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon
-                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
-                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
-                   WHERE HD.MaHoaDon = @MaHoaDon"; // Sử dụng parameter
-
-            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
-            {
-                // Thêm tham số để tránh SQL Injection
-                cmd2.Parameters.AddWithValue("@MaHoaDon", id);
-
-                DataTable dt2 = new DataTable();
-                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
-
-                try
-                {
-                    da2.Fill(dt2);
-                    
-
-                    guna2DataGridView1.Rows.Clear();
-
-                    foreach (DataRow item in dt2.Rows)
-                    {
-                        // Thêm một hàng mới và lấy chỉ số của hàng đó
-                        int rowIndex = guna2DataGridView1.Rows.Add();
-
-                        // Gán giá trị cho từng ô cụ thể theo tên cột
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
-                    }
-                    GetTotal();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-                }
-            }
-        }
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            MainClass.BlurBackground(new PhieuDatTrucTiep());
+            MaPhieuDangXet = "";
+            PhieuDatTrucTiep frm = new PhieuDatTrucTiep();
+            MainClass.BlurBackground(frm);
+            if (frm.MaPhieu != "")
+            {
+                MaPhieuDangXet = frm.MaPhieu;
+                lblMaPhieu.Text = MaPhieuDangXet;
+                lblTotal.Text = "0";    
+                lblMaPhieu.Visible = true;
+                guna2DataGridView1.Rows.Clear();
+            }
+            
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -547,72 +477,124 @@ namespace Sushi_Restaurant
 
         private void btnThanhtoan_Click(object sender, EventArgs e)
         {
-            frmThanhtoan frm=new frmThanhtoan();
-            frm.MainID = id;
-            frm.amt=Convert.ToDouble(lblTotal.Text);
+            frmThanhtoan frm = new frmThanhtoan();
+            frm.MaPhieuCanTT = MaPhieuDangXet;
             MainClass.BlurBackground(frm);
-
             guna2DataGridView1.Rows.Clear();
-            lblTotal.Text = "0";    
-
+           
         }
-
-        
 
         private void btnReservation_Click(object sender, EventArgs e)
         {
+            MaPhieuDangXet = "";
             DsPhieuDatBan frm = new DsPhieuDatBan();
             MainClass.BlurBackground(frm);
-            if (frm.MainId != "")
+            if (frm.MaPhieu != "")
             {
-                id = frm.MainId;
-                LoadEntries_PDB();  
+                MaPhieuDangXet = frm.MaPhieu;
+                LoadEntries_PhieuDat();
+                lblMaPhieu.Text = frm.MaPhieu;
 
             }
         }
 
-        private void LoadEntries_PDB()
+        private void BtnGiaoHang_Click(object sender, EventArgs e)
         {
-            string qry = @"SELECT MA.TenMonAn, CT.SoLuong, MA.GiaHienTai, CT.SoLuong * MA.GiaHienTai AS ThanhTien, MA.MaMonAn
-                   FROM PHIEU_DAT_BAN PD
-                   JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
-                   JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
-                   WHERE PD.MaPhieu = @MaPhieu"; // Sử dụng parameter
-
-            using (SqlCommand cmd2 = new SqlCommand(qry, MainClass.con))
+            MaPhieuDangXet = "";
+            DSPhieuGiaoHang frm = new DSPhieuGiaoHang();
+            MainClass.BlurBackground(frm);
+            if (frm.MaPhieu != "")
             {
-                // Thêm tham số để tránh SQL Injection
-                cmd2.Parameters.AddWithValue("@MaPhieu", id);
+                MainClass.CurMaPhieuDat = frm.MaPhieu;
+                LoadEntries_PhieuDat();
+                lblMaPhieu.Text = frm.MaPhieu;
 
-                DataTable dt2 = new DataTable();
-                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+            }
+        }
+        private void btnLuuCTDatMon_Click(object sender, EventArgs e)
+        {
+            if (MaPhieuDangXet == "")
+            {
+                MessageBox.Show("Chưa chọn phiếu đặt món");
+                return;
+            }
+
+            using (SqlCommand cmd = new SqlCommand("sp_Them_CapNhat_CTDatMon", MainClass.con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
 
                 try
                 {
-                    da2.Fill(dt2);
-
-
-                    guna2DataGridView1.Rows.Clear();
-
-                    foreach (DataRow item in dt2.Rows)
+                    foreach (DataGridViewRow item in guna2DataGridView1.Rows)
                     {
-                        // Thêm một hàng mới và lấy chỉ số của hàng đó
-                        int rowIndex = guna2DataGridView1.Rows.Add();
+                        // Thêm tham số cho stored procedure
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@MaPhieu", MaPhieuDangXet);
+                        cmd.Parameters.AddWithValue("@MaMonAn", item.Cells["dgvId"].Value.ToString());
+                        cmd.Parameters.AddWithValue("@SoLuong", Convert.ToInt32(item.Cells["dgvQty"].Value));
+                        cmd.Parameters.AddWithValue("@Gia", Convert.ToInt32(item.Cells["dgvPrice"].Value));
+                        cmd.Parameters.AddWithValue("@ThanhTien", Convert.ToInt32(item.Cells["dgvAmount"].Value));
 
-                        // Gán giá trị cho từng ô cụ thể theo tên cột
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["GiaHienTai"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
+                        // Thực thi lệnh
+                        if(MainClass.con.State != ConnectionState.Open)
+                            MainClass.con.Open();
+                        cmd.ExecuteNonQuery();
+                        if(MainClass.con.State == ConnectionState.Open)
+                            MainClass.con.Close();
                     }
-                    GetTotal();
+                    // Thông báo thành công khi lưu xong tất cả dữ liệu
+                    MessageBox.Show("Dữ liệu đã được lưu thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Xóa dữ liệu trong DataGridView và reset các controls
+                    guna2DataGridView1.Rows.Clear();
+                    lblMaPhieu.Text = "";   
+                    lblMaPhieu.Visible = false;
+                    MaPhieuDangXet = "";
+
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                    MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+
+        private void XoaCTDatMon(string maMonAn)
+        {
+            try
+            {
+                
+                if (MainClass.con.State != ConnectionState.Open)
+                {
+                    MainClass.con.Open();
+                }
+
+                using (SqlCommand cmd = new SqlCommand("sp_XoaCTDatMon", MainClass.con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Thêm tham số
+                    cmd.Parameters.AddWithValue("@MaPhieu", MaPhieuDangXet);
+                    cmd.Parameters.AddWithValue("@MaMonAn", maMonAn);
+
+                    // Thực thi Stored Procedure
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xóa dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Đóng kết nối sau khi thực hiện xong
+                if (MainClass.con.State == ConnectionState.Open)
+                {
+                    MainClass.con.Close();
+                }
+            }
+        }
+
     }
 }
