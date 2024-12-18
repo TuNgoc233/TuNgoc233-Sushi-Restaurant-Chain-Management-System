@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using System.Drawing.Drawing2D;
+using System.Drawing;
 
 namespace Sushi_Restaurant
 {
@@ -147,6 +148,52 @@ namespace Sushi_Restaurant
                 }
             }
             return count;
+        }
+
+        // Hàm gọi SP thống kê doanh thu
+        public static DataTable GetRevenueReport(string thoiGian, string branchID, int quarter = 0, int month = 0, int year = 0)
+        {
+            DataTable dt = new DataTable();
+            string query = "SP_ThongKeDoanhThuTheoChiNhanh"; // Tên của Stored Procedure
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                SqlCommand cmd = new SqlCommand(query, con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                // Thêm các tham số cho SP
+                cmd.Parameters.AddWithValue("@ThoiGian", thoiGian);
+                cmd.Parameters.AddWithValue("@MaChiNhanh", branchID ?? (object)DBNull.Value);
+
+                if (thoiGian == "QUY")
+                    cmd.Parameters.AddWithValue("@Quy", quarter);
+
+                if (thoiGian == "THANG")
+                {
+                    cmd.Parameters.AddWithValue("@Thang", month);
+                    cmd.Parameters.AddWithValue("@Nam", year);
+                }
+
+                if (thoiGian == "NGAY" || thoiGian == "NAM")
+                {
+                    cmd.Parameters.AddWithValue("@Nam", year);
+                }
+
+                try
+                {
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt); // Đổ dữ liệu vào DataTable
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi nếu có
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            return dt;
         }
     }
     
