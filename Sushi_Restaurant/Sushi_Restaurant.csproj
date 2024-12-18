@@ -504,9 +504,6 @@
     <None Include="Resources\MA073.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MA074.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\MA075.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -637,6 +634,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_check_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA039.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA038.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA037.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA016.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA074.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
