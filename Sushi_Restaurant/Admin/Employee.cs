@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -71,10 +72,43 @@ namespace Sushi_Restaurant.Admin
                     tranfer.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == Dataview.Columns["XoaNhanVien"].Index) // Thay "XoaNhanVien" là tên cột
+            else if (e.ColumnIndex == Dataview.Columns["dgvDelete"].Index) // Thay "XoaNhanVien" là tên cột
             {
-                // Xử lý sự kiện xóa nhân viên
-                MessageBox.Show("Xóa nhân viên!");
+                int rowIndex = e.RowIndex;
+
+                if (rowIndex >= 0)
+                {
+                    string maNhanVien = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); // Thay "dgvID" bằng tên cột thực tế
+
+                    // Xác nhận xóa
+                    var result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        // Gọi proc xóa nhân viên
+                        using (SqlConnection conn = new SqlConnection("Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;")) // Thay "your_connection_string" bằng chuỗi kết nối của bạn
+                        {
+                            using (SqlCommand cmd = new SqlCommand("sp_XoaNhanVien", conn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@MaNhanVien", maNhanVien);
+
+                                try
+                                {
+                                    conn.Open();
+                                    cmd.ExecuteNonQuery();
+                                    MessageBox.Show("Xóa nhân viên thành công!");
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+                                }
+                            }
+                        }
+
+                        // Tải lại dữ liệu
+                        ReloadEmployeeData();
+                    }
+                }
             }
         }
     }

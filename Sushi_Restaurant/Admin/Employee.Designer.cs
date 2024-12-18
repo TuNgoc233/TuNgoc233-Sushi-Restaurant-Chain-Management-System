@@ -35,6 +35,7 @@
             this.Dataview = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.dgvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAdjust = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvOffice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +76,7 @@
             this.Dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.Dataview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvID,
+            this.dgvAdjust,
             this.dgvName,
             this.dgvDateOfBirth,
             this.dgvOffice,
@@ -143,6 +145,12 @@
             this.dgvID.HeaderText = "Mã nhân viên";
             this.dgvID.MinimumWidth = 6;
             this.dgvID.Name = "dgvID";
+            // 
+            // dgvAdjust
+            // 
+            this.dgvAdjust.HeaderText = "Cập nhật";
+            this.dgvAdjust.MinimumWidth = 6;
+            this.dgvAdjust.Name = "dgvAdjust";
             // 
             // dgvName
             // 
@@ -225,6 +233,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView Dataview;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAdjust;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDateOfBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvOffice;
