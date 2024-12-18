@@ -13,6 +13,8 @@ namespace Sushi_Restaurant.NhanVien
 {
     public partial class PhieuDatBan : Form
     {
+        // Khai báo sự kiện
+        public event EventHandler TrangThaiCapNhat;
         public string maPhieu; // Biến lưu mã phiếu
         public PhieuDatBan(string maPhieu)
         {
@@ -119,6 +121,9 @@ namespace Sushi_Restaurant.NhanVien
                         // Thực thi stored procedure
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Cập nhật tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Gọi sự kiện TrangThaiCapNhat nếu có người đăng ký
+                        TrangThaiCapNhat?.Invoke(this, EventArgs.Empty);
+                        this.Close(); // Đóng form
                     }
                 }
             }

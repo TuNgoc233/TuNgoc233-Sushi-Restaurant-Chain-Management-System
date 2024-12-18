@@ -129,8 +129,7 @@ namespace Sushi_Restaurant
             {
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
-                    // Gọi procedure
-                    string procedureName = "CheckMonAnForChiNhanhByMaChiNhanh";
+                    string procedureName = maMuc == "BestSeller" ? "GetBestSellerProducts" : "CheckMonAnForChiNhanhByMaChiNhanh";
 
                     using (SqlCommand cmd = new SqlCommand(procedureName, conn))
                     {
@@ -147,8 +146,8 @@ namespace Sushi_Restaurant
 
                         foreach (DataRow row in dt.Rows)
                         {
-                            // Lọc sản phẩm theo danh mục nếu cần
-                            if (maMuc != "All" && row["MaMuc"].ToString() != maMuc)
+                            // Nếu không phải Best-Seller, lọc sản phẩm theo danh mục
+                            if (maMuc != "BestSeller" && maMuc != "All" && row["MaMuc"].ToString() != maMuc)
                                 continue;
 
                             string productCode = row["MaMonAn"].ToString(); // Lấy mã món ăn
@@ -178,33 +177,118 @@ namespace Sushi_Restaurant
 
 
 
+
+        // Lưu trữ danh sách sản phẩm hiện tại (trong ProductPanel)
+        private List<ucProduct> allProducts = new List<ucProduct>();
+
         private void _Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
             string selectedCategory = b.Tag.ToString(); // Lấy giá trị Tag của button
 
-            foreach (var item in ProductPanel.Controls)
+            // Nếu chọn BestSeller, tải các sản phẩm bán chạy nhất
+            if (selectedCategory == "BestSeller")
             {
-                if (item is ucProduct pro)
+                LoadBestSellerProducts(); // Tải sản phẩm bán chạy nhất
+            }
+            else
+            {
+                // Lọc các sản phẩm theo danh mục đã chọn
+                ShowProductsByCategory(selectedCategory);
+            }
+        }
+
+        // Hàm để tải các sản phẩm bán chạy nhất và hiển thị trong ProductPanel
+        private void LoadBestSellerProducts()
+        {
+            try
+            {
+                string maChiNhanh = MainClass.user.MaChiNhanh; // Lấy mã chi nhánh của người dùng
+
+                // Tạo kết nối đến cơ sở dữ liệu
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
-                    if (selectedCategory == "All")
+                    string procedureName = "GetBestSellerProducts"; // Stored procedure để lấy sản phẩm bán chạy nhất
+
+                    // Chuẩn bị câu lệnh gọi stored procedure
+                    using (SqlCommand cmd = new SqlCommand(procedureName, conn))
                     {
-                        // Hiển thị tất cả các sản phẩm
-                        pro.Visible = true;
-                    }
-                    else if (selectedCategory == "BestSeller")
-                    {
-                        // Hiển thị sản phẩm Best-Seller (tùy logic của bạn, ví dụ dựa trên thuộc tính BestSeller của ucProduct)
-                        //pro.Visible = pro.IsBestSeller; // Giả sử ucProduct có thuộc tính IsBestSeller
-                    }
-                    else
-                    {
-                        // Hiển thị sản phẩm nếu danh mục khớp, ẩn nếu không khớp
-                        pro.Visible = pro.PCategory.Trim() == selectedCategory;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);
+
+                        // Thực thi câu lệnh và lấy kết quả
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+
+                        conn.Open();
+                        da.Fill(dt);
+
+                        // Lưu lại tất cả các sản phẩm hiện tại trong ProductPanel trước khi xóa
+                        allProducts.Clear(); // Xóa danh sách cũ
+                        foreach (var item in ProductPanel.Controls)
+                        {
+                            if (item is ucProduct pro)
+                            {
+                                allProducts.Add(pro); // Lưu lại các sản phẩm
+                            }
+                        }
+
+                        // Xóa các sản phẩm cũ trong ProductPanel để làm mới giao diện
+                        ProductPanel.Controls.Clear(); // Xóa các sản phẩm cũ
+
+                        // Duyệt qua các dòng dữ liệu từ cơ sở dữ liệu và hiển thị sản phẩm bán chạy nhất
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string productCode = row["MaMonAn"].ToString();
+                            Image productImage = LoadImageFromResources(productCode); // Tải ảnh từ Resources
+
+                            bool isAvailable = Convert.ToBoolean(row["TinhTrangPhucVu"]); // Kiểm tra tình trạng phục vụ
+
+                            // Thêm sản phẩm vào panel
+                            AddItems(
+                                productCode,                       // Mã món ăn
+                                row["TenMonAn"].ToString(),        // Tên món ăn
+                                row["MaMuc"].ToString(),           // Danh mục món ăn
+                                row["GiaHienTai"].ToString(),      // Giá món ăn
+                                productImage,                      // Hình ảnh món ăn
+                                isAvailable                        // Tình trạng phục vụ
+                            );
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu có lỗi
+                MessageBox.Show("Lỗi khi tải sản phẩm: " + ex.Message);
+            }
+        }
 
+        // Hàm để lọc các sản phẩm theo danh mục (All hoặc các danh mục khác)
+        private void ShowProductsByCategory(string selectedCategory)
+        {
+            // Xóa các sản phẩm hiện tại trong ProductPanel
+            ProductPanel.Controls.Clear();
+
+            // Hiển thị lại các sản phẩm đã lưu trong allProducts
+            foreach (var pro in allProducts)
+            {
+                if (pro is ucProduct product)
+                {
+                    if (selectedCategory == "All" || product.PCategory.Trim() == selectedCategory)
+                    {
+                        // Hiển thị sản phẩm nếu danh mục khớp
+                        product.Visible = true;
+                        ProductPanel.Controls.Add(product);
+                    }
+                    else
+                    {
+                        // Ẩn sản phẩm nếu danh mục không khớp
+                        product.Visible = false;
+                        ProductPanel.Controls.Add(product);
+                    }
+                }
+            }
         }
 
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -266,7 +350,6 @@ namespace Sushi_Restaurant
                 }
             }
         }
-
 
         private void AddItems(string id, string name, string cat, string price, Image pimage, bool isAvailable)
         {
@@ -346,13 +429,13 @@ namespace Sushi_Restaurant
                 else
                 {
                     Debug.WriteLine($"Image not found in Resources: {productCode}");
-                    return Properties.Resources.MA001; // Hình ảnh mặc định nếu không tìm thấy
+                    return Properties.Resources.anhmacdinh; // Hình ảnh mặc định nếu không tìm thấy
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error loading image from Resources: {ex.Message}");
-                return Properties.Resources.MA001; // Hình ảnh mặc định nếu có lỗi
+                return Properties.Resources.anhmacdinh; // Hình ảnh mặc định nếu có lỗi
             }
         }
 
@@ -446,8 +529,6 @@ namespace Sushi_Restaurant
                 }
             }
         }
-
-
 
         private void btnBill_Click(object sender, EventArgs e)
         {

@@ -201,19 +201,28 @@ namespace Sushi_Restaurant.NhanVien
 
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra nếu cột được nhấp không phải là cột Delete
             if (e.ColumnIndex != guna2DataGridView1.Columns["dgvDel"].Index && e.RowIndex >= 0)
             {
-                // Lấy mã phiếu từ cột dgvMaPhieu
                 string maPhieu = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvMaPhieu"].Value.ToString();
-                // Mở form PhieuDatBan nếu Loại là DB
-                // Truyền mã phiếu vào form PhieuDatBan
-                // Mở form PhieuDatBan và truyền mã phiếu
-                PhieuGiaoHangTanNoi formGH = new PhieuGiaoHangTanNoi(maPhieu);
-                formGH.StartPosition = FormStartPosition.CenterScreen;
-                MainClass.BlurBackground(formGH); // Làm mờ nền
+
+                // Mở form con
+                PhieuGiaoHangTanNoi formGiaoHang = new PhieuGiaoHangTanNoi(maPhieu);
+                formGiaoHang.StartPosition = FormStartPosition.CenterScreen;
+
+                // Đăng ký sự kiện TrangThaiCapNhat để reload dữ liệu
+                formGiaoHang.TrangThaiCapNhat += (s, ev) =>
+                {
+                    string machinhanh = MainClass.user.MaChiNhanh;
+                    string manhanvien = MainClass.user.MaNhanVien;
+
+                    // Reload danh sách phiếu
+                    LoadDanhSachPhieu(machinhanh, manhanvien);
+                };
+
+                MainClass.BlurBackground(formGiaoHang);
             }
         }
+
 
         private DataTable originalDataTable; // Lưu trữ DataTable gốc
 

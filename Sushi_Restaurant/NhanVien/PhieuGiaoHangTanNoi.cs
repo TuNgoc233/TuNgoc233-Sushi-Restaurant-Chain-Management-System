@@ -13,6 +13,7 @@ namespace Sushi_Restaurant.NhanVien
 {
     public partial class PhieuGiaoHangTanNoi : Form
     {
+        public event EventHandler TrangThaiCapNhat; // Sự kiện được kích hoạt khi trạng thái được cập nhật
         public string maPhieu; // Biến lưu mã phiếu
         public PhieuGiaoHangTanNoi(string maPhieu)
         {
@@ -160,7 +161,8 @@ namespace Sushi_Restaurant.NhanVien
                             MessageBox.Show("Cập nhật tình trạng xác nhận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-
+                    // Kích hoạt sự kiện sau khi cập nhật
+                    TrangThaiCapNhat?.Invoke(this, EventArgs.Empty);
                     // Đóng form sau khi lưu
                     this.Close();
                 }
@@ -185,14 +187,12 @@ namespace Sushi_Restaurant.NhanVien
                 cbttdh.Enabled = false; // Bật chỉnh sửa tình trạng đơn hàng
                 cbttxn.Enabled = true; // Bật chỉnh sửa tình trạng xác nhận
                 btnLuu.Enabled = true; // Cho phép lưu
-                btnLuu.BackColor = SystemColors.Control; // Màu mặc định
             }
             else if (tinhTrangXacNhan == "Đã xác nhận")
             {
                 cbttdh.Enabled = true; // Bật chỉnh sửa tình trạng đơn hàng
                 cbttxn.Enabled = false; // Khóa tình trạng xác nhận
                 btnLuu.Enabled = true; // Cho phép lưu
-                btnLuu.BackColor = SystemColors.Control; // Màu mặc định
             }
 
             // Điều kiện cho tình trạng đơn hàng
