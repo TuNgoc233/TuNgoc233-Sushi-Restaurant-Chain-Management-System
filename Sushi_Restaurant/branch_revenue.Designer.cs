@@ -76,7 +76,7 @@ namespace Sushi_Restaurant
             // dtpDate
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(150, 80);
+            this.dtpDate.Location = new System.Drawing.Point(153, 76);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(200, 22);
             this.dtpDate.TabIndex = 3;
@@ -130,25 +130,32 @@ namespace Sushi_Restaurant
             // 
             // cboMonth
             // 
-            this.cboMonth = new System.Windows.Forms.ComboBox();
             this.cboMonth.FormattingEnabled = true;
-            this.cboMonth.Location = new System.Drawing.Point(400, 90); // Điều chỉnh tọa độ phù hợp
+            this.cboMonth.Location = new System.Drawing.Point(400, 76);
             this.cboMonth.Name = "cboMonth";
             this.cboMonth.Size = new System.Drawing.Size(120, 24);
             this.cboMonth.TabIndex = 2;
-            this.cboMonth.Visible = false; // Ẩn mặc định
+            this.cboMonth.Visible = false;
             this.cboMonth.SelectedIndexChanged += new System.EventHandler(this.cboMonth_SelectedIndexChanged);
             // 
             // cboQuarter
             // 
-            this.cboQuarter = new System.Windows.Forms.ComboBox();
             this.cboQuarter.FormattingEnabled = true;
-            this.cboQuarter.Location = new System.Drawing.Point(400, 90); // Điều chỉnh tọa độ phù hợp
+            this.cboQuarter.Location = new System.Drawing.Point(400, 90);
             this.cboQuarter.Name = "cboQuarter";
             this.cboQuarter.Size = new System.Drawing.Size(120, 24);
             this.cboQuarter.TabIndex = 3;
-            this.cboQuarter.Visible = false; // Ẩn mặc định
+            this.cboQuarter.Visible = false;
             this.cboQuarter.SelectedIndexChanged += new System.EventHandler(this.cboQuarter_SelectedIndexChanged);
+            //
+            // cboBranchId
+            //
+            this.cboBranchId = new System.Windows.Forms.ComboBox();
+            this.cboBranchId.Location = new System.Drawing.Point(13, 120);
+            this.cboBranchId.Name = "cboBranchId";
+            this.cboBranchId.Size = new System.Drawing.Size(121, 24);
+            this.cboBranchId.TabIndex = 3;
+            this.Controls.Add(this.cboBranchId);
             // 
             // branch_revenue
             // 
@@ -186,7 +193,7 @@ namespace Sushi_Restaurant
         private DataGridView dgvRevenue;
         private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.ComboBox cboQuarter;
-
+        private System.Windows.Forms.ComboBox cboBranchId;
 
     }
 }

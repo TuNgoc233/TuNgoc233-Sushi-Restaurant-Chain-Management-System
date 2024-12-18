@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Drawing.Drawing2D;
 using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace Sushi_Restaurant
 {
@@ -13,7 +14,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
@@ -160,12 +161,13 @@ namespace Sushi_Restaurant
             {
                 SqlCommand cmd = new SqlCommand(query, con)
                 {
-                    CommandType = CommandType.StoredProcedure
+                    CommandType = CommandType.StoredProcedure,
+                    CommandTimeout = 120
                 };
 
                 // Thêm các tham số cho SP
                 cmd.Parameters.AddWithValue("@ThoiGian", thoiGian);
-                cmd.Parameters.AddWithValue("@MaChiNhanh", branchID ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@MaChiNhanh", branchID);
 
                 if (thoiGian == "QUY")
                     cmd.Parameters.AddWithValue("@Quy", quarter);

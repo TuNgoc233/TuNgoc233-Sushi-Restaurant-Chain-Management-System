@@ -11,46 +11,45 @@ using System.Windows.Forms;
 namespace Sushi_Restaurant
 {
     public partial class branch_revenue : Form
-    {
-        private bool isLoaded = false; // Biến kiểm soát
+    {       
         public branch_revenue()
         {
             InitializeComponent();
-          
-            // Thêm các mục vào ComboBox
+
+            // Thêm các mục vào ComboBox thời gian
             cboTimeSelection.Items.AddRange(new string[] { "NGAY", "THANG", "QUY", "NAM" });
-            cboTimeSelection.SelectedIndex = 0; // Chọn mục đầu tiên
+            cboTimeSelection.SelectedIndex = 0;
 
-            isLoaded = true; // Đánh dấu form đã load xong
+            // Load danh sách mã chi nhánh
+            cboBranchId.Items.AddRange(new string[] { "CN01", "CN02", "CN03" }); // Thay bằng dữ liệu thật từ DB
+            cboBranchId.SelectedIndex = 0;
         }
 
 
-        private void LoadRevenueData(string timeFrame, int quarter = 0, int month = 0, int year = 0, int day = 0)
+        private void LoadRevenueData(string timeFrame, int month = 0, int quarter = 0, int year = 0)
         {
-            try
+            year = (year == 0) ? dtpDate.Value.Year : year;
+
+            // Gọi stored procedure và truyền tham số
+            DataTable dt = Branch.GetRevenueReport(timeFrame, Branch.MaChiNhanh, month, year, quarter);
+
+            // Hiển thị dữ liệu lên DataGridView
+            dgvRevenue.DataSource = dt;
+
+            // Tính tổng doanh thu
+            if (dt.Rows.Count > 0)
             {
-                // Gọi hàm lấy dữ liệu từ Stored Procedure
-                DataTable dt = Branch.GetRevenueReport(timeFrame, Branch.MaChiNhanh, quarter, month, year);
-
-                // Đổ dữ liệu vào DataGridView
-                dgvRevenue.DataSource = dt;
-
-                // Tính tổng doanh thu
-                if (dt.Rows.Count > 0)
-                {
-                    decimal totalRevenue = dt.AsEnumerable().Sum(row => row.Field<decimal>("TongDoanhThu"));
-                    txtRevenue.Text = $"{totalRevenue:N0} VND"; // Định dạng tiền tệ
-                }
-                else
-                {
-                    txtRevenue.Text = "0 VND";
-                }
+                decimal totalRevenue = dt.AsEnumerable().Sum(row => row.Field<decimal>("TongDoanhThu"));
+                txtRevenue.Text = $"{totalRevenue:N0} VND";
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtRevenue.Text = "0 VND";
+                MessageBox.Show("Không có dữ liệu cho thời gian đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+
 
         private void cboTimeSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -73,7 +72,7 @@ namespace Sushi_Restaurant
                 cboMonth.Visible = true; // Hiển thị ComboBox chọn tháng
                 if (cboMonth.Items.Count == 0) // Thêm danh sách tháng nếu chưa có
                 {
-                    for (int i = 1; i <= 12; i++)
+                    for (int i = 3; i <= 11; i++)
                     {
                         cboMonth.Items.Add($"Tháng {i}");
                     }
@@ -120,29 +119,18 @@ namespace Sushi_Restaurant
 
         private void btnViewRevenue_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Lấy lựa chọn thời gian từ ComboBox
-                string selectedTime = cboTimeSelection.SelectedItem?.ToString().ToUpper();
-                int selectedMonth = 0, selectedQuarter = 0, selectedYear = dtpDate.Value.Year;
+            string selectedTime = cboTimeSelection.SelectedItem?.ToString().ToUpper();
 
-
-                if (selectedTime == "THANG")
-                {
-                    selectedMonth = cboMonth.SelectedIndex + 1;
-                    LoadRevenueData("THANG", month: selectedMonth, year: selectedYear);
-                }
-                else if (selectedTime == "QUÝ")
-                {
-                    selectedQuarter = cboQuarter.SelectedIndex + 1;
-                    LoadRevenueData("QUY", quarter: selectedQuarter, year: selectedYear);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi tính doanh thu: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            if (selectedTime == "NGAY")
+                LoadRevenueData("NGAY");
+            else if (selectedTime == "THANG")
+                LoadRevenueData("THANG");
+            else if (selectedTime == "QUY")
+                LoadRevenueData("QUY");
+            else if (selectedTime == "NAM")
+                LoadRevenueData("NAM");
         }
+
 
 
         private void btnClose_Click(object sender, EventArgs e)
