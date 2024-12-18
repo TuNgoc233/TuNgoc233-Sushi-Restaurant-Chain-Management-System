@@ -56,7 +56,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BranchMain.cs" />
+    <Compile Include="Admin\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminMain.cs" />
+    <Compile Include="Chi_Nhanh\BranchMain.cs" />
     <Compile Include="Chi_Nhanh\BranchRevenue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +151,9 @@
       <DependentUpon>SampleView.cs</DependentUpon>
     </Compile>
     <Compile Include="TienIch.cs" />
+    <EmbeddedResource Include="Admin\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\BranchRevenue.resx" />
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
@@ -262,8 +272,6 @@
     <Content Include="Resources\open_eyes.png" />
     <Content Include="Resources\restaurant.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
