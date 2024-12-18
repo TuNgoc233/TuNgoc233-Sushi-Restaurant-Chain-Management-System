@@ -17,7 +17,7 @@ namespace Sushi_Restaurant
         {
         // Chuỗi kết nối đến cơ sở dữ liệu
         //public static string con_string = @"Server=LTCUATUNGOC;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
-        public static string con_string = @"Server=DESKTOP-B1OU3RF;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
+        public static string con_string = @"Server=LTCUATUNGOC;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
 
         // Kết nối SQL
         public static SqlConnection con = new SqlConnection(con_string);
