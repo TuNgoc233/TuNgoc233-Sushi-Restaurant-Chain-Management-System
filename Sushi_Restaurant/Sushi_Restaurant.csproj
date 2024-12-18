@@ -75,6 +75,12 @@
     <Compile Include="Admin\Tranfer.Designer.cs">
       <DependentUpon>Tranfer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Update_Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Update_Employee.Designer.cs">
+      <DependentUpon>Update_Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chi_Nhanh\BranchMain.cs" />
     <Compile Include="branch_revenue.cs">
       <SubType>Form</SubType>
@@ -92,11 +98,11 @@
     <Compile Include="Chi_Nhanh\Load_Data\viewFood.Designer.cs">
       <DependentUpon>viewFood.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\Insert_update_delete\updateIDCard.cs">
+    <Compile Include="Admin\Adjust_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\Insert_update_delete\updateIDCard.Designer.cs">
-      <DependentUpon>updateIDCard.cs</DependentUpon>
+    <Compile Include="Admin\Adjust_Employee.Designer.cs">
+      <DependentUpon>Adjust_Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\Brand.cs">
       <SubType>Form</SubType>
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="Admin\Tranfer.resx">
       <DependentUpon>Tranfer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Update_Employee.resx">
+      <DependentUpon>Update_Employee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="branch_revenue.resx">
       <DependentUpon>branch_revenue.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,8 +200,8 @@
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\updateIDCard.resx">
-      <DependentUpon>updateIDCard.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\Adjust_Employee.resx">
+      <DependentUpon>Adjust_Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addFood.resx">
       <DependentUpon>addFood.cs</DependentUpon>

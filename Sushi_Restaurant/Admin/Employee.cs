@@ -79,9 +79,9 @@ namespace Sushi_Restaurant.Admin
                     string dgvID = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); 
 
                     // Tạo đối tượng Tranfer và truyền tham số
-                    Tranfer tranfer = new Tranfer(dgvID);
-                    tranfer.TransferCompleted += ReloadEmployeeData;
-                    tranfer.ShowDialog();
+                    Adjust_Employee adjust = new Adjust_Employee(dgvID);
+                    adjust.Adjust_Completed += ReloadEmployeeData;
+                    adjust.ShowDialog();
                 }
             }    
             else if (e.ColumnIndex == Dataview.Columns["dgvDelete"].Index) 

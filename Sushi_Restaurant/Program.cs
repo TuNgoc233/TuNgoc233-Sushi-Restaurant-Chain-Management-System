@@ -31,7 +31,7 @@ namespace Sushi_Restaurant
             //Application.Run(new viewEnvoice("CN1"));
             //Application.Run(new viewIDCard());
             //Application.Run(new Brand("CN1"));
-            //Application.Run(new RevenueStatistics()); chuan roi
+            //Application.Run(new RevenueStatistics()); //chuan roi
             //Application.Run(new Admin_Manage()); // Đây sẽ là lớp Admin
         }
     }

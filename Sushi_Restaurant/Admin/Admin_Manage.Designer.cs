@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.ADMIN = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.ADMIN = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
             this.guna2CustomGradientPanel1.Controls.Add(this.ADMIN);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
@@ -48,6 +49,17 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1262, 292);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
+            // 
+            // ADMIN
+            // 
+            this.ADMIN.AutoSize = true;
+            this.ADMIN.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.ADMIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ADMIN.Location = new System.Drawing.Point(12, 23);
+            this.ADMIN.Name = "ADMIN";
+            this.ADMIN.Size = new System.Drawing.Size(155, 54);
+            this.ADMIN.TabIndex = 2;
+            this.ADMIN.Text = "Admin";
             // 
             // guna2Button1
             // 
@@ -81,17 +93,6 @@
             this.guna2Button2.Text = "Nhân viên";
             this.guna2Button2.Click += new System.EventHandler(this.Employee);
             // 
-            // ADMIN
-            // 
-            this.ADMIN.AutoSize = true;
-            this.ADMIN.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.ADMIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ADMIN.Location = new System.Drawing.Point(12, 23);
-            this.ADMIN.Name = "ADMIN";
-            this.ADMIN.Size = new System.Drawing.Size(155, 54);
-            this.ADMIN.TabIndex = 2;
-            this.ADMIN.Text = "Admin";
-            // 
             // Admin_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -101,7 +102,7 @@
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2CustomGradientPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Admin_Manage";
             this.Text = "Admin";
