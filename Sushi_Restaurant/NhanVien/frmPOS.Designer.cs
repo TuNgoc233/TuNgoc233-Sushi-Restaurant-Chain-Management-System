@@ -161,6 +161,7 @@
             this.BtnGiaoHang.Size = new System.Drawing.Size(101, 68);
             this.BtnGiaoHang.TabIndex = 5;
             this.BtnGiaoHang.Text = "Giao hàng";
+            this.BtnGiaoHang.Click += new System.EventHandler(this.BtnGiaoHang_Click);
             // 
             // btnBill
             // 
@@ -452,7 +453,7 @@
             // 
             this.dgvDel.FillWeight = 20F;
             this.dgvDel.HeaderText = "";
-            this.dgvDel.Image = ((System.Drawing.Image)(resources.GetObject("dgvDel.Image")));
+            this.dgvDel.Image = global::Sushi_Restaurant.Properties.Resources.del;
             this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvDel.MinimumWidth = 20;
             this.dgvDel.Name = "dgvDel";
