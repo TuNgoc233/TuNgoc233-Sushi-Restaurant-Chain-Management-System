@@ -19,7 +19,6 @@ namespace Sushi_Restaurant
             public static string con_string = @"Server=LTCUATUNGOC;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
 
 
-
         // Kết nối SQL
         public static SqlConnection con = new SqlConnection(con_string);
 

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnttmonan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnGiaoHang = new Guna.UI2.WinForms.Guna2Button();
             this.btnDatBan = new Guna.UI2.WinForms.Guna2Button();
             this.btnDatMon = new Guna.UI2.WinForms.Guna2Button();
             this.btnTheTV = new Guna.UI2.WinForms.Guna2Button();
@@ -43,7 +45,6 @@
             this.btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.CenterPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnGiaoHang = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.gunaPanel1.SuspendLayout();
@@ -51,6 +52,7 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.btnttmonan);
             this.guna2Panel1.Controls.Add(this.btnGiaoHang);
             this.guna2Panel1.Controls.Add(this.btnDatBan);
             this.guna2Panel1.Controls.Add(this.btnDatMon);
@@ -63,8 +65,68 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(249, 542);
+            this.guna2Panel1.Size = new System.Drawing.Size(249, 700);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // btnttmonan
+            // 
+            this.btnttmonan.AutoRoundedCorners = true;
+            this.btnttmonan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnttmonan.BorderRadius = 28;
+            this.btnttmonan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnttmonan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnttmonan.CheckedState.Image = global::Sushi_Restaurant.Properties.Resources.home_1;
+            this.btnttmonan.CustomizableEdges.BottomRight = false;
+            this.btnttmonan.CustomizableEdges.TopRight = false;
+            this.btnttmonan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnttmonan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnttmonan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnttmonan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnttmonan.FillColor = System.Drawing.Color.Transparent;
+            this.btnttmonan.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnttmonan.ForeColor = System.Drawing.Color.White;
+            this.btnttmonan.Image = global::Sushi_Restaurant.Properties.Resources.home;
+            this.btnttmonan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnttmonan.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnttmonan.Location = new System.Drawing.Point(41, 525);
+            this.btnttmonan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnttmonan.Name = "btnttmonan";
+            this.btnttmonan.Size = new System.Drawing.Size(206, 58);
+            this.btnttmonan.TabIndex = 2;
+            this.btnttmonan.Text = "Món ăn";
+            this.btnttmonan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnttmonan.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnttmonan.Click += new System.EventHandler(this.btnttmonan_Click);
+            // 
+            // btnGiaoHang
+            // 
+            this.btnGiaoHang.AutoRoundedCorners = true;
+            this.btnGiaoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnGiaoHang.BorderRadius = 28;
+            this.btnGiaoHang.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnGiaoHang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnGiaoHang.CheckedState.Image = global::Sushi_Restaurant.Properties.Resources.home_1;
+            this.btnGiaoHang.CustomizableEdges.BottomRight = false;
+            this.btnGiaoHang.CustomizableEdges.TopRight = false;
+            this.btnGiaoHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGiaoHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGiaoHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGiaoHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGiaoHang.FillColor = System.Drawing.Color.Transparent;
+            this.btnGiaoHang.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnGiaoHang.ForeColor = System.Drawing.Color.White;
+            this.btnGiaoHang.Image = global::Sushi_Restaurant.Properties.Resources.home;
+            this.btnGiaoHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGiaoHang.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnGiaoHang.Location = new System.Drawing.Point(43, 452);
+            this.btnGiaoHang.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGiaoHang.Name = "btnGiaoHang";
+            this.btnGiaoHang.Size = new System.Drawing.Size(206, 58);
+            this.btnGiaoHang.TabIndex = 1;
+            this.btnGiaoHang.Text = "Giao hàng";
+            this.btnGiaoHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGiaoHang.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnGiaoHang.Click += new System.EventHandler(this.btnGiaoHang_Click);
             // 
             // btnDatBan
             // 
@@ -223,7 +285,7 @@
             this.gunaPanel1.Location = new System.Drawing.Point(249, 0);
             this.gunaPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.gunaPanel1.Name = "gunaPanel1";
-            this.gunaPanel1.Size = new System.Drawing.Size(809, 53);
+            this.gunaPanel1.Size = new System.Drawing.Size(951, 53);
             this.gunaPanel1.TabIndex = 1;
             // 
             // lblUser
@@ -246,7 +308,7 @@
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Gainsboro;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(677, 10);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(819, 10);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(38, 24);
@@ -259,7 +321,7 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Gainsboro;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(719, 10);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(861, 10);
             this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(38, 24);
@@ -272,7 +334,7 @@
             this.btnExit.CustomClick = true;
             this.btnExit.FillColor = System.Drawing.Color.Gainsboro;
             this.btnExit.IconColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(762, 10);
+            this.btnExit.Location = new System.Drawing.Point(904, 10);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(38, 24);
@@ -287,49 +349,20 @@
             // 
             // CenterPanel
             // 
+            this.CenterPanel.AutoSize = true;
             this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CenterPanel.Location = new System.Drawing.Point(249, 53);
             this.CenterPanel.Margin = new System.Windows.Forms.Padding(2);
             this.CenterPanel.Name = "CenterPanel";
-            this.CenterPanel.Size = new System.Drawing.Size(809, 489);
+            this.CenterPanel.Size = new System.Drawing.Size(951, 647);
             this.CenterPanel.TabIndex = 2;
-            // 
-            // btnGiaoHang
-            // 
-            this.btnGiaoHang.AutoRoundedCorners = true;
-            this.btnGiaoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnGiaoHang.BorderRadius = 28;
-            this.btnGiaoHang.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnGiaoHang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnGiaoHang.CheckedState.Image = global::Sushi_Restaurant.Properties.Resources.home_1;
-            this.btnGiaoHang.CustomizableEdges.BottomRight = false;
-            this.btnGiaoHang.CustomizableEdges.TopRight = false;
-            this.btnGiaoHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGiaoHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGiaoHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGiaoHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGiaoHang.FillColor = System.Drawing.Color.Transparent;
-            this.btnGiaoHang.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnGiaoHang.ForeColor = System.Drawing.Color.White;
-            this.btnGiaoHang.Image = global::Sushi_Restaurant.Properties.Resources.home;
-            this.btnGiaoHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGiaoHang.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnGiaoHang.Location = new System.Drawing.Point(43, 463);
-            this.btnGiaoHang.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGiaoHang.Name = "btnGiaoHang";
-            this.btnGiaoHang.Size = new System.Drawing.Size(206, 58);
-            this.btnGiaoHang.TabIndex = 1;
-            this.btnGiaoHang.Text = "Giao hàng";
-            this.btnGiaoHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGiaoHang.TextOffset = new System.Drawing.Point(10, 0);
-            this.btnGiaoHang.Click += new System.EventHandler(this.btnGiaoHang_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1058, 542);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.CenterPanel);
             this.Controls.Add(this.gunaPanel1);
             this.Controls.Add(this.guna2Panel1);
@@ -346,6 +379,7 @@
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -366,5 +400,6 @@
         private Guna.UI2.WinForms.Guna2Button btnDatBan;
         private Guna.UI2.WinForms.Guna2Panel CenterPanel;
         private Guna.UI2.WinForms.Guna2Button btnGiaoHang;
+        private Guna.UI2.WinForms.Guna2Button btnttmonan;
     }
 }

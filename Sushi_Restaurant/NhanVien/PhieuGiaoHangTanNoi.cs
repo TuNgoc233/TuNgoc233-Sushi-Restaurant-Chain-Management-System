@@ -79,11 +79,13 @@ namespace Sushi_Restaurant.NhanVien
                             {
                                 cbttdh.SelectedItem = "Chưa giao"; // Mặc định là "Chưa giao" nếu dữ liệu null
                             }
+                            UpdateControlStates();
                         }
                         else
                         {
                             MessageBox.Show("Không tìm thấy thông tin phiếu giao hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+
                     }
                 }
             }
@@ -104,30 +106,108 @@ namespace Sushi_Restaurant.NhanVien
         {
             try
             {
-                // Lấy giá trị từ ComboBox
-                bool tinhTrangXacNhan = cbttxn.SelectedItem.ToString() == "Đã xác nhận"; // Giả sử có ComboBox chứa các giá trị: "Đã xác nhận" và "Chưa xác nhận"
-
-                // Gọi thủ tục để cập nhật tình trạng xác nhận trong cơ sở dữ liệu
+                // Mở kết nối đến cơ sở dữ liệu
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_CapNhatTinhTrangXacNhan", conn))
+
+                    // Kiểm tra xem cbtinhtrangxacnhan đã enabled hay chưa
+                    if (!cbttxn.Enabled)
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
+                        // Nếu cbtinhtrangxacnhan enabled, xử lý tình trạng đơn hàng
+                        string tinhTrangDonHang = cbttdh.SelectedItem?.ToString(); // Lấy giá trị từ ComboBox tình trạng đơn hàng
 
-                        // Thêm tham số Mã Phiếu và Tình trạng xác nhận
-                        cmd.Parameters.AddWithValue("@MaPhieu", maPhieu);  // Mã phiếu giao hàng
-                        cmd.Parameters.AddWithValue("@TinhTrangXacNhan", tinhTrangXacNhan ? 1 : 0); // Chuyển đổi Boolean thành 1 (Đã xác nhận) hoặc 0 (Chưa xác nhận)
+                        if (tinhTrangDonHang == "Đã giao")
+                        {
+                            // Cập nhật thời gian nhận đơn hàng
+                            using (SqlCommand cmd = new SqlCommand("usp_CapNhatTinhTrangDonHang", conn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Cập nhật tình trạng xác nhận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                // Thêm tham số Mã Phiếu, Tình trạng đơn hàng và Thời gian nhận
+                                cmd.Parameters.AddWithValue("@MaPhieu", maPhieu); // Mã phiếu giao hàng
+                                cmd.Parameters.AddWithValue("@TinhTrangDonHang", "Đã giao");
+                                cmd.Parameters.AddWithValue("@ThoiGianNhan", DateTime.Now.ToString("HH:mm:ss")); // Chỉ lấy giờ, phút, giây
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Cập nhật tình trạng đơn hàng và thời gian nhận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else if (tinhTrangDonHang == "Chưa giao")
+                        {
+                            // Không làm gì thêm nếu chưa giao
+                            MessageBox.Show("Đơn hàng đã xác nhận nhưng vẫn trong trạng thái 'Chưa giao'.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
+                    else
+                    {
+                        // Nếu cbtinhtrangxacnhan không enabled, xử lý tình trạng xác nhận
+                        bool tinhTrangXacNhan = cbttxn.SelectedItem.ToString() == "Đã xác nhận";
+
+                        using (SqlCommand cmd = new SqlCommand("usp_CapNhatTinhTrangXacNhan", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            // Thêm tham số Mã Phiếu và Tình trạng xác nhận
+                            cmd.Parameters.AddWithValue("@MaPhieu", maPhieu); // Mã phiếu giao hàng
+                            cmd.Parameters.AddWithValue("@TinhTrangXacNhan", tinhTrangXacNhan ? 1 : 0); // Chuyển đổi Boolean thành 1 (Đã xác nhận) hoặc 0 (Chưa xác nhận)
+
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Cập nhật tình trạng xác nhận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+
+                    // Đóng form sau khi lưu
+                    this.Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi lưu tình trạng xác nhận: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi khi lưu dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        // Hàm cập nhật trạng thái các control dựa trên tình trạng
+        private void UpdateControlStates()
+        {
+            // Lấy giá trị hiện tại của các ComboBox
+            string tinhTrangXacNhan = cbttxn.SelectedItem?.ToString();
+            string tinhTrangDonHang = cbttdh.SelectedItem?.ToString();
+
+            // Điều kiện cho tình trạng xác nhận
+            if (tinhTrangXacNhan == "Chưa xác nhận")
+            {
+                cbttdh.Enabled = false; // Bật chỉnh sửa tình trạng đơn hàng
+                cbttxn.Enabled = true; // Bật chỉnh sửa tình trạng xác nhận
+                btnLuu.Enabled = true; // Cho phép lưu
+                btnLuu.BackColor = SystemColors.Control; // Màu mặc định
+            }
+            else if (tinhTrangXacNhan == "Đã xác nhận")
+            {
+                cbttdh.Enabled = true; // Bật chỉnh sửa tình trạng đơn hàng
+                cbttxn.Enabled = false; // Khóa tình trạng xác nhận
+                btnLuu.Enabled = true; // Cho phép lưu
+                btnLuu.BackColor = SystemColors.Control; // Màu mặc định
+            }
+
+            // Điều kiện cho tình trạng đơn hàng
+            if (tinhTrangDonHang == "Đã giao")
+            {
+                cbttdh.Enabled = true; // Bật chỉnh sửa tình trạng đơn hàng
+                btnLuu.Enabled = false; // Khóa nút Lưu
+                btnLuu.BackColor = Color.Gray; // Tô xám nút Lưu
+            }
+        }
+
+        // Thêm sự kiện thay đổi cho ComboBox
+        private void cbttxn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateControlStates();
+        }
+
+        private void cbttdh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateControlStates();
         }
     }
 }

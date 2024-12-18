@@ -77,5 +77,10 @@ namespace Sushi_Restaurant.NhanVien
         {
             AddControls(new CapNhatTrangThai_1());
         }
+
+        private void btnttmonan_Click(object sender, EventArgs e)
+        {
+            AddControls(new TrangThaiMonAn());
+        }
     }
 }

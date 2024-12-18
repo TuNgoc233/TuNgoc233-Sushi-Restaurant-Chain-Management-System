@@ -95,6 +95,7 @@ namespace Sushi_Restaurant.NhanVien
                         }
                         reader.Close();
                     }
+                    this.Close();
                 }
             }
             catch (Exception ex)

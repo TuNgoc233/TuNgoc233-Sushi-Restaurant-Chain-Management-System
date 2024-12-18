@@ -54,6 +54,7 @@ namespace Sushi_Restaurant.NhanVien
 
                         if (dialogResult == DialogResult.Yes)
                         {
+                            this.Close();
                             // If the user clicks Yes, open the "ThemTheKhachHang" form
                             ThemTheKhachHang frmThemThe = new ThemTheKhachHang();
                             frmThemThe.SoDienThoai = soDienThoai;
@@ -70,6 +71,7 @@ namespace Sushi_Restaurant.NhanVien
 
                         if (dialogResult == DialogResult.Yes)
                         {
+                            this.Close();
                             ThemTheKhachHang_1 frmThemThe = new ThemTheKhachHang_1();
                             frmThemThe.MaKhachHang = maKhachHang;
                             frmThemThe.StartPosition = FormStartPosition.CenterScreen;
@@ -86,6 +88,7 @@ namespace Sushi_Restaurant.NhanVien
 
                         if (dialogResult == DialogResult.Yes)
                         {
+                            this.Close();
                             // Giả sử bạn đã lấy được mã thẻ từ kết quả của stored procedure tìm kiếm
                             string maSoThe = reader.GetString(1); // Gán giá trị mã thẻ từ kết quả trước
 

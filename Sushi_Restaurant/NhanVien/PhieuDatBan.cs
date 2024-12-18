@@ -50,6 +50,13 @@ namespace Sushi_Restaurant.NhanVien
                             cbtt.Items.AddRange(new string[] { "Chưa xác nhận", "Đã xác nhận" });
                             bool tinhTrang = reader["TinhTrangXacNhan"] != DBNull.Value && (bool)reader["TinhTrangXacNhan"];
                             cbtt.SelectedItem = tinhTrang ? "Đã xác nhận" : "Chưa xác nhận";
+                            // Nếu phiếu đã được xác nhận, vô hiệu hóa ComboBox và nút Lưu
+                            if (tinhTrang)
+                            {
+                                cbtt.Enabled = false; // Vô hiệu hóa ComboBox
+                                btnLuu.Enabled = false; // Vô hiệu hóa nút Lưu
+                                btnLuu.BackColor = Color.Gray; // Tô xám nút Lưu
+                            }
                         }
                     }
                 }

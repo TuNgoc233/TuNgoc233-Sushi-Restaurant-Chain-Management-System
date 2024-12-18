@@ -21,6 +21,18 @@ namespace Sushi_Restaurant
         public frmPOS()
         {
             InitializeComponent();
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12);
+            this.guna2DataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11);
+
+            // Thiết lập màu nền và màu chữ cho Header
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 55, 89);
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.EnableHeadersVisualStyles = false; // Bắt buộc phải tắt thuộc tính này để màu tùy chỉnh có hiệu lực
+
+            // Tăng chiều cao Header
+            this.guna2DataGridView1.ColumnHeadersHeight = 40;
+            this.guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.guna2DataGridView1.RowTemplate.Height = 25; // Tăng chiều cao lên 50 (hoặc giá trị bạn muốn)
 
         }
         private void frmPOS_Load(object sender, EventArgs e)
