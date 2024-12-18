@@ -291,6 +291,14 @@ namespace Sushi_Restaurant
 
             w.onSelect += (SetStyle, ee) =>
             {
+                //Set lại giá trị lưu chi tiết phiếu
+                isSaved = false;
+                // Kiểm tra nếu maphieu rỗng hoặc null
+                if (string.IsNullOrEmpty(MaPhieuDangXet))
+                {
+                    MessageBox.Show("Bạn cần chọn phiếu đặt để thêm món!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Thoát hàm
+                }
                 if (!isAvailable) return; // Không xử lý nếu món ăn không khả dụng
 
                 var wdg = (ucProduct)SetStyle;
@@ -393,15 +401,21 @@ namespace Sushi_Restaurant
         }
 
         public string MaPhieuDangXet;
+        bool isSaved = false;
         private void btnDin_Click(object sender, EventArgs e)
         {
             MaPhieuDangXet = "";
+            MainClass.LoaiPhieu = "";
             DSPhieuDatTrucTiep frm = new DSPhieuDatTrucTiep();
             MainClass.BlurBackground(frm);
             if (frm.MaPhieu_TT != "")
             {
                 MaPhieuDangXet = frm.MaPhieu_TT;
                 LoadEntries_PhieuDat();
+                isSaved = true;
+                MainClass.LoaiPhieu = "TT";
+                lblMaPhieu.Text = MaPhieuDangXet;
+                lblMaPhieu.Visible = true;
             }
         }
 
@@ -431,13 +445,12 @@ namespace Sushi_Restaurant
                         // Gán giá trị cho từng ô cụ thể theo tên cột
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvId"].Value = item["MaMonAn"].ToString();
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvName"].Value = item["TenMonAn"].ToString();
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvTru"].Value = '-';
-                        guna2DataGridView1.Rows[rowIndex].Cells["dgvCong"].Value = '+';
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvTru"].Value = "-";
+                        guna2DataGridView1.Rows[rowIndex].Cells["dgvCong"].Value = "+";
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvQty"].Value = item["SoLuong"].ToString();
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvPrice"].Value = item["Gia"].ToString();
                         guna2DataGridView1.Rows[rowIndex].Cells["dgvAmount"].Value = item["ThanhTien"].ToString();
                     }
-
                     GetTotal();
                 }
                 catch (Exception ex)
@@ -459,17 +472,19 @@ namespace Sushi_Restaurant
         private void buttonThem_Click(object sender, EventArgs e)
         {
             MaPhieuDangXet = "";
+            MainClass.LoaiPhieu = "";
             PhieuDatTrucTiep frm = new PhieuDatTrucTiep();
             MainClass.BlurBackground(frm);
             if (frm.MaPhieu != "")
             {
                 MaPhieuDangXet = frm.MaPhieu;
                 lblMaPhieu.Text = MaPhieuDangXet;
-                lblTotal.Text = "0";    
+                MainClass.LoaiPhieu = "TT";
+                lblTotal.Text = "0";
                 lblMaPhieu.Visible = true;
                 guna2DataGridView1.Rows.Clear();
             }
-            
+
 
         }
 
@@ -480,40 +495,65 @@ namespace Sushi_Restaurant
 
         private void btnThanhtoan_Click(object sender, EventArgs e)
         {
+            if (isSaved == false)
+            {
+                MessageBox.Show("Chưa lưu chi tiết đặt món");
+                return;
+            }
+            if(MaPhieuDangXet=="")
+            {
+                MessageBox.Show("Chưa chọn phiếu đặt món");
+                return;
+            }
             frmThanhtoan frm = new frmThanhtoan();
             frm.MaPhieuCanTT = MaPhieuDangXet;
             MainClass.BlurBackground(frm);
             guna2DataGridView1.Rows.Clear();
-           
+            if(frm.DialogResult == DialogResult.OK)
+            {
+                lblMaPhieu.Text = "";
+                lblMaPhieu.Visible = false;
+                MaPhieuDangXet = "";
+                isSaved = true;
+            }
+
         }
 
         private void btnReservation_Click(object sender, EventArgs e)
         {
             MaPhieuDangXet = "";
+            MainClass.LoaiPhieu = "";
             DsPhieuDatBan frm = new DsPhieuDatBan();
             MainClass.BlurBackground(frm);
             if (frm.MaPhieu != "")
             {
                 MaPhieuDangXet = frm.MaPhieu;
                 LoadEntries_PhieuDat();
+                isSaved = true;
                 lblMaPhieu.Text = frm.MaPhieu;
+                lblMaPhieu.Visible = true;
+                MainClass.LoaiPhieu = "DB";
 
             }
         }
 
-        //private void BtnGiaoHang_Click(object sender, EventArgs e)
-        //{
-        //    MaPhieuDangXet = "";
-        //    DSPhieuGiaoHang frm = new DSPhieuGiaoHang();
-        //    MainClass.BlurBackground(frm);
-        //    if (frm.MaPhieu != "")
-        //    {
-        //        MainClass.CurMaPhieuDat = frm.MaPhieu;
-        //        LoadEntries_PhieuDat();
-        //        lblMaPhieu.Text = frm.MaPhieu;
+        private void BtnGiaoHang_Click(object sender, EventArgs e)
+        {
+            MaPhieuDangXet = "";
+            MainClass.LoaiPhieu = "";
+            DSPhieuGiaoHang frm = new DSPhieuGiaoHang();
+            MainClass.BlurBackground(frm);
+            if (frm.MaPhieu != "")
+            {
+                MaPhieuDangXet = frm.MaPhieu;
+                LoadEntries_PhieuDat();
+                isSaved = true;
+                lblMaPhieu.Text = MaPhieuDangXet;
+                lblMaPhieu.Visible = true;
+                MainClass.LoaiPhieu = "GH";
 
-        //    }
-        //}
+            }
+        }
         private void btnLuuCTDatMon_Click(object sender, EventArgs e)
         {
             if (MaPhieuDangXet == "")
@@ -539,10 +579,10 @@ namespace Sushi_Restaurant
                         cmd.Parameters.AddWithValue("@ThanhTien", Convert.ToInt32(item.Cells["dgvAmount"].Value));
 
                         // Thực thi lệnh
-                        if(MainClass.con.State != ConnectionState.Open)
+                        if (MainClass.con.State != ConnectionState.Open)
                             MainClass.con.Open();
                         cmd.ExecuteNonQuery();
-                        if(MainClass.con.State == ConnectionState.Open)
+                        if (MainClass.con.State == ConnectionState.Open)
                             MainClass.con.Close();
                     }
                     // Thông báo thành công khi lưu xong tất cả dữ liệu
@@ -550,9 +590,10 @@ namespace Sushi_Restaurant
 
                     // Xóa dữ liệu trong DataGridView và reset các controls
                     guna2DataGridView1.Rows.Clear();
-                    lblMaPhieu.Text = "";   
+                    lblMaPhieu.Text = "";
                     lblMaPhieu.Visible = false;
                     MaPhieuDangXet = "";
+                    isSaved = true;
 
                 }
                 catch (Exception ex)
@@ -567,7 +608,7 @@ namespace Sushi_Restaurant
         {
             try
             {
-                
+
                 if (MainClass.con.State != ConnectionState.Open)
                 {
                     MainClass.con.Open();

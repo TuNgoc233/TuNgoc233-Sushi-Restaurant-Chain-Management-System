@@ -20,9 +20,6 @@ namespace Sushi_Restaurant.NhanVien
         }
 
         public string MaHD = "";
-       
-        DateTime date = new DateTime(2024, 7, 30);
-
         private void HoaDon_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -31,6 +28,7 @@ namespace Sushi_Restaurant.NhanVien
         {
             guna2DataGridView1.AutoGenerateColumns = false;
 
+            // Kết nối với cơ sở dữ liệu
             using (SqlConnection con = new SqlConnection(MainClass.con_string))
             {
                 try
@@ -41,7 +39,7 @@ namespace Sushi_Restaurant.NhanVien
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         // Thêm tham số cho stored procedure
-                        cmd.Parameters.AddWithValue("@NgayLap", date);
+                        cmd.Parameters.AddWithValue("@NgayLap", MainClass.curDate);
                         cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -81,29 +79,56 @@ namespace Sushi_Restaurant.NhanVien
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvprint")
             {
                 MaHD = guna2DataGridView1.CurrentRow.Cells["dgvId"].Value.ToString();
-                string qry = @"SELECT * 
-                FROM HOA_DON HD 
-                JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon
-                JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu=PD.MaPhieu
-                JOIN MON_AN MA ON MA.MaMonAn=CT.MaMonAn
-                WHERE HD.MaHoaDon = @MaHoaDon"; // Sử dụng parameter";
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(MainClass.con_string))
+                    {
+                        // Mở kết nối
+                        con.Open();
 
-                SqlCommand cmd2 = new SqlCommand(qry, MainClass.con);
-                MainClass.con.Open();
-                cmd2.Parameters.AddWithValue("@MaHoaDon", MaHD);
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd2);
-                da.Fill(dt);
-                MainClass.con.Close();
+                        // Tạo SqlCommand để gọi stored procedure
+                        using (SqlCommand cmd = new SqlCommand("sp_InCTHoaDon", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            // Thêm tham số cho stored procedure
+                            cmd.Parameters.AddWithValue("@MaHoaDon", MaHD);
+
+                            // Thực thi và lấy dữ liệu
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+
+                            // Kiểm tra nếu không có dữ liệu
+                            if (dt.Rows.Count == 0)
+                            {
+                                MessageBox.Show("Không tìm thấy dữ liệu cho hóa đơn này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
+
+                            // Hiển thị báo cáo Crystal Report
+                            frmPrint frm = new frmPrint();
+                            MainClass.CurMaHD = MaHD;
+                            rptHoadon rpt = new rptHoadon();
+                            rpt.SetDataSource(dt);
+
+                            // Truyền tham số @MaHoaDon vào Crystal Report
+                            rpt.SetParameterValue("@MaHoaDon", MaHD);
+
+                            // Thiết lập report source và hiển thị
+                            frm.crystalReportViewer1.ReportSource = rpt;
+                            frm.crystalReportViewer1.Refresh();
+                            frm.Show();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Hiển thị thông báo lỗi
+                    MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
 
-                //frmPrint frm = new frmPrint();
-                //MainClass.CurMaHD = MaHD;
-                //rptHoadon rpt = new rptHoadon();
-                //rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
-                //frm.crystalReportViewer1.ReportSource = rpt;
-                //frm.crystalReportViewer1.Refresh();
-                //frm.Show();
 
             }
         }

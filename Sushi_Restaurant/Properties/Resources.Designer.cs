@@ -73,6 +73,26 @@ namespace Sushi_Restaurant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap appreciation {
+            get {
+                object obj = ResourceManager.GetObject("appreciation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap appreciation_white {
+            get {
+                object obj = ResourceManager.GetObject("appreciation_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bin {
             get {
                 object obj = ResourceManager.GetObject("bin", resourceCulture);
@@ -103,16 +123,6 @@ namespace Sushi_Restaurant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap chat {
-            get {
-                object obj = ResourceManager.GetObject("chat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap cong {
             get {
                 object obj = ResourceManager.GetObject("cong", resourceCulture);
@@ -136,6 +146,16 @@ namespace Sushi_Restaurant.Properties {
         internal static System.Drawing.Bitmap delivery {
             get {
                 object obj = ResourceManager.GetObject("delivery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap diskette {
+            get {
+                object obj = ResourceManager.GetObject("diskette", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +286,36 @@ namespace Sushi_Restaurant.Properties {
         internal static System.Drawing.Bitmap invoice {
             get {
                 object obj = ResourceManager.GetObject("invoice", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap invoice_DS {
+            get {
+                object obj = ResourceManager.GetObject("invoice_DS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap japan {
+            get {
+                object obj = ResourceManager.GetObject("japan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap japan_white {
+            get {
+                object obj = ResourceManager.GetObject("japan_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1313,6 +1363,16 @@ namespace Sushi_Restaurant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap order_food_white {
+            get {
+                object obj = ResourceManager.GetObject("order-food_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pencil {
             get {
                 object obj = ResourceManager.GetObject("pencil", resourceCulture);
@@ -1343,6 +1403,16 @@ namespace Sushi_Restaurant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rating {
+            get {
+                object obj = ResourceManager.GetObject("rating", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reservation {
             get {
                 object obj = ResourceManager.GetObject("reservation", resourceCulture);
@@ -1356,6 +1426,16 @@ namespace Sushi_Restaurant.Properties {
         internal static System.Drawing.Bitmap reservation__1_ {
             get {
                 object obj = ResourceManager.GetObject("reservation (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reserved__1_ {
+            get {
+                object obj = ResourceManager.GetObject("reserved (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1416,6 +1496,26 @@ namespace Sushi_Restaurant.Properties {
         internal static System.Drawing.Bitmap sushi1 {
             get {
                 object obj = ResourceManager.GetObject("sushi1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap take_away {
+            get {
+                object obj = ResourceManager.GetObject("take-away", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap take_away_white {
+            get {
+                object obj = ResourceManager.GetObject("take-away_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

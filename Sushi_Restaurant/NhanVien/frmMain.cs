@@ -89,6 +89,10 @@ namespace Sushi_Restaurant.NhanVien
             AddControls(new TrangThaiMonAn());
         }
 
+        private void btnDSDanhGia_Click(object sender, EventArgs e)
+        {
+            AddControls(new XemDanhGia());
+        }
         private void but_logOut_Click(object sender, EventArgs e)
         {
             // Tạo form đăng nhập mới

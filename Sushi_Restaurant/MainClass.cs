@@ -17,7 +17,7 @@ namespace Sushi_Restaurant
         {
         // Chuỗi kết nối đến cơ sở dữ liệu
         //public static string con_string = @"Server=LTCUATUNGOC;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
-        public static string con_string = @"Server=LTCUATUNGOC;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
+        public static string con_string = @"Server=DESKTOP-B1OU3RF;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
 
         // Kết nối SQL
         public static SqlConnection con = new SqlConnection(con_string);
@@ -26,9 +26,7 @@ namespace Sushi_Restaurant
         public static string CurMaPhieuDat { get; set; }
         public static string CurMaHD { get; set; }
         public static DateTime curDate = DateTime.Now.Date;
-       
-
-        //public static DateTime curDate = new DateTime(2024, 7, 30);
+        public static string LoaiPhieu= ""; 
 
 
         /// <summary>

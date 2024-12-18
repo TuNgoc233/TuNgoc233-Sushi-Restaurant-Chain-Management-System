@@ -133,7 +133,6 @@ namespace Sushi_Restaurant.NhanVien
                         MessageBox.Show("Lỗi khi xóa dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                this.Close();
 
 
             }

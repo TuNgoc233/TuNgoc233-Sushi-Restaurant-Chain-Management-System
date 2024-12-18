@@ -22,15 +22,14 @@ namespace Sushi_Restaurant.NhanVien
         {
             InitializeComponent();
         }
+  
 
         public string MaKH = "";
-        public string TheTV="";
+        public string TheTV = "";
 
         public string MaHD = "";
-        DateTime date = DateTime.Now;
-        public string MaChiNhanh = MainClass.user.MaChiNhanh;
+        DateTime dateTime = DateTime.Now;
         public string sdt = "";
-        public string MaNV = MainClass.user.MaNhanVien;
         public string MaPhieuCanTT = "";
         public string MaKM = "";
         public int TongTruocGiam = 0;
@@ -40,7 +39,7 @@ namespace Sushi_Restaurant.NhanVien
 
         public virtual void btnLuu_Click(object sender, EventArgs e)
         {
-
+            // Tạo hóa đơn cho phiếu đặt trực tiếp
             using (SqlConnection con = new SqlConnection(MainClass.con_string))
             {
                 try
@@ -48,70 +47,142 @@ namespace Sushi_Restaurant.NhanVien
                     // Mở kết nối
                     con.Open();
 
-                    // Tạo SqlCommand để gọi stored procedure
+                    // Tạo SqlCommand để gọi stored procedure tạo hóa đơn
                     using (SqlCommand cmd = new SqlCommand("sp_TaoHoaDon", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@MaHoaDon", MaHD);
-                        cmd.Parameters.AddWithValue("@NgayLap", date);
+                        cmd.Parameters.AddWithValue("@NgayLap", dateTime);
                         cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
-                        cmd.Parameters.AddWithValue("@MaNV", MaNV);
+                        cmd.Parameters.AddWithValue("@MaNV", MainClass.user.MaNhanVien);
                         cmd.Parameters.AddWithValue("@MaPhieu", MaPhieuCanTT);
-                        cmd.Parameters.AddWithValue("@MaKM", MaKM);
+                        cmd.Parameters.AddWithValue("@MaKM", string.IsNullOrEmpty(MaKM) ? (object)DBNull.Value : MaKM);
                         cmd.Parameters.AddWithValue("@TongTien", TongSauGiam);
                         cmd.Parameters.AddWithValue("@SoTienDuocGiam", TienGiam);
-                        cmd.Parameters.AddWithValue("@TheTV", TheTV);
+                        cmd.Parameters.AddWithValue("@SDT", string.IsNullOrEmpty(txtSDT.Text) || txtSDT.Text == "0" ? (object)DBNull.Value : txtSDT.Text.Trim());
 
                         cmd.ExecuteNonQuery();
 
-                        // Thông báo thành công
+                        // Lưu hóa đơn thành công
                         MessageBox.Show("Lưu hóa đơn thành công!");
                         MainClass.CurMaHD = MaHD;
-                    }
 
-                    // Tạo lệnh SQL để lấy dữ liệu cho báo cáo
-                    string qry = @"SELECT * 
-                       FROM HOA_DON HD 
-                       JOIN PHIEU_DAT_MON PD ON PD.MaPhieu = HD.MaPhieuDatMon
-                       JOIN CHI_TIET_DAT_MON CT ON CT.MaPhieu = PD.MaPhieu
-                       JOIN MON_AN MA ON MA.MaMonAn = CT.MaMonAn
-                       WHERE HD.MaHoaDon = @MaHoaDon";
-
-                    using (SqlCommand cmd2 = new SqlCommand(qry, con))
-                    {
-                        cmd2.Parameters.AddWithValue("@MaHoaDon", MaHD);
-
-                        DataTable dt = new DataTable();
-                        SqlDataAdapter da = new SqlDataAdapter(cmd2);
-                        da.Fill(dt);
-
-                        //// Hiển thị báo cáo
-                        //frmPrint frm = new frmPrint();
-                        //rptHoadon rpt = new rptHoadon();
-                        //rpt.SetDataSource(dt); // Không cần gọi rpt.SetDatabaseLogon cho Windows Authentication
-                        //frm.crystalReportViewer1.ReportSource = rpt;
-                        //frm.crystalReportViewer1.Refresh();
-                        //frm.Show();
+                        // Gọi hàm hiển thị hóa đơn
+                        InHoaDon(MaHD);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi tạo hóa đơn: " + ex.Message);
-                }
-                finally
-                {
-                    // Đảm bảo kết nối được đóng
-                    if (con.State == ConnectionState.Open)
-                    {
-                        con.Close();
-                    }
+                    MessageBox.Show("Lỗi khi tạo hóa đơn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-
         }
 
+        private void InHoaDon(string maHoaDon)
+        {
+            // Hiển thị hóa đơn sau khi lưu thành công
+            using (SqlConnection con = new SqlConnection(MainClass.con_string))
+            {
+                try
+                {
+                    // Mở kết nối
+                    con.Open();
+
+                    // Tạo SqlCommand để gọi stored procedure lấy chi tiết hóa đơn
+                    using (SqlCommand cmd = new SqlCommand("sp_InCTHoaDon", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Thêm tham số cho stored procedure
+                        cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+
+                        // Thực thi và lấy dữ liệu
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        // Kiểm tra nếu không có dữ liệu
+                        if (dt.Rows.Count == 0)
+                        {
+                            MessageBox.Show("Không tìm thấy dữ liệu cho hóa đơn này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Hiển thị báo cáo Crystal Report
+                        frmPrint frm = new frmPrint();
+                        rptHoadon rpt = new rptHoadon();
+                        rpt.SetDataSource(dt);
+
+                        // Truyền tham số @MaHoaDon vào Crystal Report (nếu cần)
+                        rpt.SetParameterValue("@MaHoaDon", maHoaDon);
+
+                        // Thiết lập report source và hiển thị
+                        frm.crystalReportViewer1.ReportSource = rpt;
+                        frm.crystalReportViewer1.Refresh();
+                        frm.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Hiển thị thông báo lỗi
+                    MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        public void XemThongTinHoaDon_TrucTuyen(string maPhieu, string maChiNhanh, DateTime ngayLap)
+        {
+            using (SqlConnection con = new SqlConnection(MainClass.con_string))
+            {
+                try
+                {
+
+                    con.Open();
+
+                    // Tạo SqlCommand để gọi stored procedure
+                    using (SqlCommand cmd = new SqlCommand("sp_XemThongTinHoaDon_TrucTuyen", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Thêm các tham số đầu vào
+                        cmd.Parameters.AddWithValue("@MaPhieu", maPhieu);
+                        cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);
+                        cmd.Parameters.AddWithValue("@NgayLap", ngayLap);
+
+                        // Thêm các tham số đầu ra
+                        cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 10) { Direction = ParameterDirection.Output });
+                        cmd.Parameters.Add(new SqlParameter("@MaKhuyenMai", SqlDbType.Char, 5) { Direction = ParameterDirection.Output });
+                        cmd.Parameters.Add(new SqlParameter("@MaSoThe", SqlDbType.Char, 8) { Direction = ParameterDirection.Output });
+                        cmd.Parameters.Add(new SqlParameter("@TongTien", SqlDbType.Int) { Direction = ParameterDirection.Output });
+                        cmd.Parameters.Add(new SqlParameter("@SoTienDuocGiam", SqlDbType.Int) { Direction = ParameterDirection.Output });
+                        cmd.Parameters.Add(new SqlParameter("@TienPhaiTra", SqlDbType.Int) { Direction = ParameterDirection.Output });
+                        cmd.Parameters.Add(new SqlParameter("@MaHoaDon", SqlDbType.Char, 8) { Direction = ParameterDirection.Output });
+
+                        // Thực thi stored procedure
+                        cmd.ExecuteNonQuery();
+
+                        // Gán kết quả từ các tham số OUTPUT vào các biến tương ứng
+                        sdt = cmd.Parameters["@SDT"].Value.ToString().Trim();
+                        MaKM = cmd.Parameters["@MaKhuyenMai"].Value.ToString().Trim();
+                        TheTV = cmd.Parameters["@MaSoThe"].Value.ToString().Trim();
+                        MaHD = cmd.Parameters["@MaHoaDon"].Value.ToString().Trim();
+                        TongTruocGiam = Convert.ToInt32(cmd.Parameters["@TongTien"].Value);
+                        TienGiam = Convert.ToInt32(cmd.Parameters["@SoTienDuocGiam"].Value);
+                        TongSauGiam = Convert.ToInt32(cmd.Parameters["@TienPhaiTra"].Value);
+
+                        // Hiển thị thông báo thành công
+                        MessageBox.Show("Thông tin hóa đơn đã được lấy thành công!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi
+                    MessageBox.Show($"Lỗi: {ex.Message}");
+                }
+            }
+        }
 
         private void LayMaHDTiepTheo()
         {
@@ -132,9 +203,9 @@ namespace Sushi_Restaurant.NhanVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lấy mã phiếu tiếp theo: " + ex.Message);
+                MessageBox.Show("Lỗi khi lấy mã hóa đơn tiếp theo: " + ex.Message);
             }
-           
+
 
         }
 
@@ -165,7 +236,7 @@ namespace Sushi_Restaurant.NhanVien
 
                         // Thêm tham số đầu vào
                         cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
-                        cmd.Parameters.AddWithValue("@NgayLap", date);
+                        cmd.Parameters.AddWithValue("@NgayLap", dateTime);
 
                         // Thêm tham số đầu ra
                         SqlParameter maKMParam = new SqlParameter("@MaKM", SqlDbType.Char, 5)
@@ -186,7 +257,7 @@ namespace Sushi_Restaurant.NhanVien
                         // Lấy giá trị từ tham số đầu ra
                         MaKM = maKMParam.Value.ToString();
                         PhanTramKM = Convert.ToInt32(phanTramKMParam.Value);
-                        txtKhuyenMai.Text = MaKM;   
+                        txtKhuyenMai.Text = MaKM;
                     }
                 }
             }
@@ -194,7 +265,7 @@ namespace Sushi_Restaurant.NhanVien
             {
                 MessageBox.Show("Lỗi khi tìm mã khuyến mãi: " + ex.Message);
             }
-            
+
         }
 
 
@@ -245,7 +316,7 @@ namespace Sushi_Restaurant.NhanVien
             {
                 MessageBox.Show("Lỗi khi tính tổng tiền trước giảm: " + ex.Message);
             }
-        
+
         }
 
         private void TinhTienDuocGiam()
@@ -277,23 +348,40 @@ namespace Sushi_Restaurant.NhanVien
 
         private void frmThanhtoan_Load(object sender, EventArgs e)
         {
-            TinhTongTienTruocGiam();
-            txtTongTien.Text = TongTruocGiam.ToString();
-            LayMaHDTiepTheo();
-            TimKhuyenMai(); 
+            if (MainClass.LoaiPhieu != "TT")
+            {
+                XemThongTinHoaDon_TrucTuyen(MaPhieuCanTT, MainClass.user.MaChiNhanh, MainClass.curDate);
+                txtSDT.Text = sdt;
+                txtSDT.Enabled = false;
+                btnTimTheTV.Visible = false;
+                txtTheTV.Text = TheTV;
+                txtKhuyenMai.Text = MaKM;
+                txtTongTien.Text = TongTruocGiam.ToString();
+                txtTienGiam.Text = TienGiam.ToString();
+                txtTongSauGiam.Text = TongSauGiam.ToString();
+            }
+            else
+            {
+                TinhTongTienTruocGiam();
+                txtTongTien.Text = TongTruocGiam.ToString();
+                LayMaHDTiepTheo();
+                TimKhuyenMai();
+            }
+
         }
 
         // Phương thức xử lý sự kiện khi nhấn nút "ĐÓNG"
         public virtual void btnDong_Click(object sender, EventArgs e)
         {
             // Đóng cửa sổ hiện tại
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void btnTimTheTV_Click(object sender, EventArgs e)
         {
             TimTheThanhVien();
-            txtTheTV.Text= TheTV;
+            txtTheTV.Text = TheTV;
             txtTongTien.Text = TongTruocGiam.ToString();
             txtKhuyenMai.Text = MaKM;
             TinhTienDuocGiam();
@@ -303,6 +391,6 @@ namespace Sushi_Restaurant.NhanVien
 
         }
 
-        
+
     }
 }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.NhanVien
 {
-    public partial class ThemDanhGia : SampleAdd
+    public partial class ThemDanhGia : Form
     {
         public ThemDanhGia()
         {
@@ -19,9 +19,9 @@ namespace Sushi_Restaurant.NhanVien
         }
         public string MaHD_DanhGia = "";
 
-        public override void btnLuu_Click(object sender, EventArgs e)
+        public void btnLuu_Click(object sender, EventArgs e)
         {
-            base.btnLuu_Click(sender, e);
+
             // Lấy giá trị từ các controls trên form
             string maHoaDon = MainClass.CurMaHD;
             int diemGiaCa = Convert.ToInt32(cmbDiemGiaCa.SelectedItem);
@@ -36,7 +36,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection con = new SqlConnection(MainClass.con_string))
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand("sp_ThemDanhGia", con))
+                    using (SqlCommand cmd = new SqlCommand("sp_TaoDanhGia", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
@@ -44,8 +44,8 @@ namespace Sushi_Restaurant.NhanVien
                         cmd.Parameters.AddWithValue("@MaHoaDon", MainClass.CurMaHD);
                         cmd.Parameters.AddWithValue("@DiemGiaCa", diemGiaCa);
                         cmd.Parameters.AddWithValue("@DiemPhucVu", diemPhucVu);
-                        cmd.Parameters.AddWithValue("@DiemViTri", diemViTri);
-                        cmd.Parameters.AddWithValue("@DiemMonAn", diemMonAn);
+                        cmd.Parameters.AddWithValue("@DiemViTriChiNhanh", diemViTri);
+                        cmd.Parameters.AddWithValue("@DiemChatLuongMonAn", diemMonAn);
                         cmd.Parameters.AddWithValue("@BinhLuan", binhLuan);
 
                         // Thực thi Stored Procedure
@@ -53,6 +53,7 @@ namespace Sushi_Restaurant.NhanVien
 
                         // Hiển thị thông báo thành công
                         MessageBox.Show("Lưu đánh giá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                 }
             }
@@ -114,6 +115,11 @@ namespace Sushi_Restaurant.NhanVien
         {
             txtMaHD.Text = MainClass.CurMaHD;
             KiemTraVaHienThiDanhGia();
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

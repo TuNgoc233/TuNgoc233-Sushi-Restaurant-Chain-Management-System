@@ -100,6 +100,12 @@
     <Compile Include="NhanVien\DSPhieuDatTrucTiep.Designer.cs">
       <DependentUpon>DSPhieuDatTrucTiep.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien\DSPhieuGiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\DSPhieuGiaoHang.Designer.cs">
+      <DependentUpon>DSPhieuGiaoHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhanVien\frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,12 @@
     </Compile>
     <Compile Include="NhanVien\frmPOS.Designer.cs">
       <DependentUpon>frmPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\frmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien\frmPrint.Designer.cs">
+      <DependentUpon>frmPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="NhanVien\frmThanhtoan.cs">
       <SubType>Form</SubType>
@@ -236,6 +248,9 @@
     <EmbeddedResource Include="NhanVien\DSPhieuDatTrucTiep.resx">
       <DependentUpon>DSPhieuDatTrucTiep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\DSPhieuGiaoHang.resx">
+      <DependentUpon>DSPhieuGiaoHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\frmPrint.resx">
+      <DependentUpon>frmPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\frmThanhtoan.resx">
       <DependentUpon>frmThanhtoan.cs</DependentUpon>
@@ -741,6 +759,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nha_hang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rating.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order-food1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\take-away.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\japan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reserved %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order-food_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\take-away_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\japan_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appreciation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appreciation_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoice_DS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

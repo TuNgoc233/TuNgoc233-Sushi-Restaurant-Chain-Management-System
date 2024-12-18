@@ -192,7 +192,7 @@
             this.BtnGiaoHang.Size = new System.Drawing.Size(101, 68);
             this.BtnGiaoHang.TabIndex = 5;
             this.BtnGiaoHang.Text = "Giao hàng";
-           // this.BtnGiaoHang.Click += new System.EventHandler(this.BtnGiaoHang_Click);
+            this.BtnGiaoHang.Click += new System.EventHandler(this.BtnGiaoHang_Click);
             // 
             // btnLuuCTDatMon
             // 
@@ -207,7 +207,7 @@
             this.btnLuuCTDatMon.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
             this.btnLuuCTDatMon.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLuuCTDatMon.ForeColor = System.Drawing.Color.White;
-            this.btnLuuCTDatMon.Image = global::Sushi_Restaurant.Properties.Resources._new;
+            this.btnLuuCTDatMon.Image = global::Sushi_Restaurant.Properties.Resources.diskette;
             this.btnLuuCTDatMon.Location = new System.Drawing.Point(301, 14);
             this.btnLuuCTDatMon.Name = "btnLuuCTDatMon";
             this.btnLuuCTDatMon.Size = new System.Drawing.Size(101, 68);

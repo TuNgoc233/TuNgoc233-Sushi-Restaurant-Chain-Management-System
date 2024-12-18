@@ -133,8 +133,6 @@ namespace Sushi_Restaurant.NhanVien
                     }
                 }
 
-                this.Close();
-
 
             }
 
