@@ -72,7 +72,7 @@ namespace Sushi_Restaurant
         {
             if (string.IsNullOrWhiteSpace(GlobalVariables.MaChiNhanh))
             {
-                MessageBox.Show("Vui lòng chọn khu vực và chi nhánh trước khi đặt món!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn chi nhánh!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 but_dat_mon.Checked = false;
                 but_Home.Checked = true;
                 return; // Dừng lại nếu chưa chọn khu vực và chi nhánh
@@ -99,7 +99,7 @@ namespace Sushi_Restaurant
         {
             if (string.IsNullOrWhiteSpace(GlobalVariables.MaChiNhanh))
             {
-                MessageBox.Show("Vui lòng chọn khu vực và chi nhánh trước khi đặt món!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn chi nhánh!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 but_DSDH.Checked = false;
                 but_Home.Checked = true;
                 return; // Dừng lại nếu chưa chọn khu vực và chi nhánh
@@ -111,7 +111,7 @@ namespace Sushi_Restaurant
         {
             if (string.IsNullOrWhiteSpace(GlobalVariables.MaChiNhanh))
             {
-                MessageBox.Show("Vui lòng chọn khu vực và chi nhánh trước khi đặt món!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn chi nhánh!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 but_mon_yeu_thich.Checked = false;
                 but_Home.Checked = true;
                 return; // Dừng lại nếu chưa chọn khu vực và chi nhánh
@@ -123,7 +123,7 @@ namespace Sushi_Restaurant
         {
             if (string.IsNullOrWhiteSpace(GlobalVariables.MaChiNhanh))
             {
-                MessageBox.Show("Vui lòng chọn khu vực và chi nhánh trước khi đặt món!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn chi nhánh!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 but_cap_nhat_info.Checked = false;
                 but_Home.Checked = true;
                 return; // Dừng lại nếu chưa chọn khu vực và chi nhánh

@@ -33,8 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new Guna.UI2.WinForms.Guna2Panel();
             this.label_title = new System.Windows.Forms.Label();
-            this.but_HuyDon = new Guna.UI2.WinForms.Guna2Button();
-            this.but_huy = new Guna.UI2.WinForms.Guna2Button();
             this.label_dsMon = new System.Windows.Forms.Label();
             this.panel_list_mon = new Guna.UI2.WinForms.Guna2DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +54,7 @@
             this.text_sl_KH = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.text_ngayDat = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ControlBoxThoat = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panel_list_mon)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +63,7 @@
             // 
             this.panel_Header.BorderColor = System.Drawing.Color.White;
             this.panel_Header.BorderThickness = 1;
+            this.panel_Header.Controls.Add(this.ControlBoxThoat);
             this.panel_Header.Controls.Add(this.label_title);
             this.panel_Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Header.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
@@ -84,41 +84,6 @@
             this.label_title.Size = new System.Drawing.Size(459, 45);
             this.label_title.TabIndex = 1;
             this.label_title.Text = "Thông tin chi tiết đơn đặt bàn";
-            // 
-            // but_HuyDon
-            // 
-            this.but_HuyDon.AutoRoundedCorners = true;
-            this.but_HuyDon.BorderRadius = 21;
-            this.but_HuyDon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.but_HuyDon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.but_HuyDon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.but_HuyDon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.but_HuyDon.FillColor = System.Drawing.Color.Red;
-            this.but_HuyDon.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.but_HuyDon.ForeColor = System.Drawing.Color.White;
-            this.but_HuyDon.Location = new System.Drawing.Point(588, 708);
-            this.but_HuyDon.Name = "but_HuyDon";
-            this.but_HuyDon.Size = new System.Drawing.Size(136, 45);
-            this.but_HuyDon.TabIndex = 97;
-            this.but_HuyDon.Text = "Hủy đơn";
-            // 
-            // but_huy
-            // 
-            this.but_huy.AutoRoundedCorners = true;
-            this.but_huy.BorderRadius = 21;
-            this.but_huy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.but_huy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.but_huy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.but_huy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.but_huy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.but_huy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.but_huy.ForeColor = System.Drawing.Color.White;
-            this.but_huy.Location = new System.Drawing.Point(746, 708);
-            this.but_huy.Name = "but_huy";
-            this.but_huy.Size = new System.Drawing.Size(136, 45);
-            this.but_huy.TabIndex = 96;
-            this.but_huy.Text = "Thoát";
-            this.but_huy.Click += new System.EventHandler(this.but_huy_Click_1);
             // 
             // label_dsMon
             // 
@@ -169,7 +134,7 @@
             this.panel_list_mon.RowHeadersWidth = 51;
             this.panel_list_mon.RowTemplate.Height = 24;
             this.panel_list_mon.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.panel_list_mon.Size = new System.Drawing.Size(498, 309);
+            this.panel_list_mon.Size = new System.Drawing.Size(498, 341);
             this.panel_list_mon.TabIndex = 94;
             this.panel_list_mon.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.panel_list_mon.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -308,7 +273,7 @@
             this.richBox_ghi_chu.Location = new System.Drawing.Point(554, 382);
             this.richBox_ghi_chu.Name = "richBox_ghi_chu";
             this.richBox_ghi_chu.ReadOnly = true;
-            this.richBox_ghi_chu.Size = new System.Drawing.Size(330, 311);
+            this.richBox_ghi_chu.Size = new System.Drawing.Size(330, 343);
             this.richBox_ghi_chu.TabIndex = 86;
             this.richBox_ghi_chu.Text = "";
             // 
@@ -472,13 +437,24 @@
             this.text_ngayDat.Size = new System.Drawing.Size(213, 35);
             this.text_ngayDat.TabIndex = 80;
             // 
+            // ControlBoxThoat
+            // 
+            this.ControlBoxThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ControlBoxThoat.CustomClick = true;
+            this.ControlBoxThoat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.ControlBoxThoat.IconColor = System.Drawing.Color.White;
+            this.ControlBoxThoat.Location = new System.Drawing.Point(888, 2);
+            this.ControlBoxThoat.Margin = new System.Windows.Forms.Padding(2);
+            this.ControlBoxThoat.Name = "ControlBoxThoat";
+            this.ControlBoxThoat.Size = new System.Drawing.Size(34, 29);
+            this.ControlBoxThoat.TabIndex = 96;
+            this.ControlBoxThoat.Click += new System.EventHandler(this.ControlBoxThoat_Click);
+            // 
             // xemLaiDatBanView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 757);
-            this.Controls.Add(this.but_HuyDon);
-            this.Controls.Add(this.but_huy);
             this.Controls.Add(this.label_dsMon);
             this.Controls.Add(this.panel_list_mon);
             this.Controls.Add(this.label_gioDen);
@@ -515,8 +491,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2Panel panel_Header;
         private System.Windows.Forms.Label label_title;
-        private Guna.UI2.WinForms.Guna2Button but_HuyDon;
-        private Guna.UI2.WinForms.Guna2Button but_huy;
         private System.Windows.Forms.Label label_dsMon;
         private Guna.UI2.WinForms.Guna2DataGridView panel_list_mon;
         private System.Windows.Forms.Label label_gioDen;
@@ -538,5 +512,6 @@
         private Guna.UI2.WinForms.Guna2TextBox text_sl_KH;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox text_ngayDat;
+        private Guna.UI2.WinForms.Guna2ControlBox ControlBoxThoat;
     }
 }

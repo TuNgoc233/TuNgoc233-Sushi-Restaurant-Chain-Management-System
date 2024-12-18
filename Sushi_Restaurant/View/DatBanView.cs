@@ -169,7 +169,7 @@ namespace Sushi_Restaurant.View
 
 
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Đơn đặt bàn đã được tạo thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Đặt bàn thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

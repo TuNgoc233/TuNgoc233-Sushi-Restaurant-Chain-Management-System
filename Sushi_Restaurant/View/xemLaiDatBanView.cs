@@ -22,14 +22,6 @@ namespace Sushi_Restaurant.View
 
             this.maDonHang = maDonHang;
 
-            if (trangThai == "Chờ xác nhận")
-            {
-                but_HuyDon.Visible = true;
-            }
-            else
-            {
-                but_HuyDon.Visible = false;
-            }
         }
 
         private void but_huy_Click(object sender, EventArgs e)
@@ -127,6 +119,11 @@ namespace Sushi_Restaurant.View
         }
 
         private void but_huy_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ControlBoxThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }

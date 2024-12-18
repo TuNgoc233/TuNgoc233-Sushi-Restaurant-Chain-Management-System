@@ -57,6 +57,14 @@ namespace Sushi_Restaurant
             // Lay chi nhanh da chon
             string selectedChiNhanh = cmb_ChiNhanh.SelectedItem.ToString();
 
+            if (selectedChiNhanh == "Chọn chi nhánh")
+            {
+                textBoxDiaChi.Text = "";
+                cmb_SDT.DataSource = null;
+                GlobalVariables.MaChiNhanh = "";
+                return;
+            }
+
             //Lay ma chi nhanh tu chi nhanh da chon luu vao bien toan cuc de su dung o form khac
             var maChiNhanhForTenChiNhanh = khuVucData.AsEnumerable()
                 .Where(row => row.Field<string>("TenChiNhanh") == selectedChiNhanh)

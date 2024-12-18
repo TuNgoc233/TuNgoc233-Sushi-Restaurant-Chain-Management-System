@@ -103,18 +103,6 @@ namespace Sushi_Restaurant
                 btnAll.Click += new EventHandler(_Click);
                 panel_Category.Controls.Add(btnAll);
 
-                // Thêm nút "Best-Seller"
-                Guna.UI2.WinForms.Guna2Button btnBestSeller = new Guna.UI2.WinForms.Guna2Button
-                {
-                    FillColor = Color.FromArgb(50, 55, 89),
-                    Size = new Size(134, 45), // Kích thước của button
-                    ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton,
-                    Text = "Best-Seller",
-                    Tag = "BestSeller" // Gán Tag đặc biệt
-                };
-                btnBestSeller.Click += new EventHandler(_Click);
-                panel_Category.Controls.Add(btnBestSeller);
-
                 // Kiểm tra nếu có dữ liệu từ bảng MUC
                 if (dt.Rows.Count > 0)
                 {

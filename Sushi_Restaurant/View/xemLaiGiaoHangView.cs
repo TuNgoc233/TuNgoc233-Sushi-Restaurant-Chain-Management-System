@@ -14,18 +14,15 @@ namespace Sushi_Restaurant.View
     public partial class xemLaiGiaoHangView : Form
     {
         private string maDonHang;
+        private string trangThai;
         public xemLaiGiaoHangView(string maDonHang, string trangThai)
         {
             InitializeComponent();
             this.maDonHang = maDonHang;
+            this.trangThai = trangThai;
 
             text_tenKH.Text = GlobalVariables.HoTenKH;
             text_SDT.Text = GlobalVariables.SDTKH;
-        }
-
-        private void but_huy_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void xemLaiGiaoHangView_Load(object sender, EventArgs e)
@@ -45,6 +42,13 @@ namespace Sushi_Restaurant.View
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaPhieu", maDonHang);
+
+                        // Thêm tham số output
+                        SqlParameter tongTienParam = new SqlParameter("@TongTien", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(tongTienParam);
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
@@ -67,12 +71,24 @@ namespace Sushi_Restaurant.View
                             panel_dat_hang.AutoGenerateColumns = false;
                             panel_dat_hang.DataSource = ds.Tables[1];
                         }
+                        // Kiểm tra trạng thái và hiển thị tổng tiền
+                        if (this.trangThai == "Chờ xử lý")
+                        {
+                            label_thanhTien.Visible = false;
+                            value_thanhTien.Visible = false;
+                        }
+                        else if (this.trangThai == "Đã xác nhận" || this.trangThai == "Đã giao")
+                        {
+                            int tongTien = Convert.ToInt32(tongTienParam.Value);
 
-                      
-                        value_tongTien.Text = string.Format("{0:N0} VNĐ", ds.Tables[2].Rows[0]["TongTien"]);
-                     
+                            value_thanhTien.Text = tongTien.ToString("N0", GlobalVariables.AppCultureInfo) + " VND";
+                            label_thanhTien.Visible = true;
+                            value_thanhTien.Visible = true;
+                        }
                     }
+
                 }
+                
             }
             catch (Exception ex)
             {
@@ -80,9 +96,9 @@ namespace Sushi_Restaurant.View
             }
         }
 
-        private void label_TTV_Click(object sender, EventArgs e)
+        private void ControlBoxThoat_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

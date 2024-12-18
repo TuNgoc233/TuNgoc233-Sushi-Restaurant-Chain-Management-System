@@ -26,12 +26,15 @@ namespace Sushi_Restaurant.View
         {
 
             // Kiểm tra các ComboBox không được để trống hoặc null
-            if (cmb_phucVu.SelectedItem == null ||
-                cmb_viTri.SelectedItem == null ||
-                cmb_monAn.SelectedItem == null ||
-                cmb_giaCa.SelectedItem == null)
+            if (cmb_monAn.SelectedItem == null)
             {
-                MessageBox.Show("Vui lòng chọn đầy đủ các mục đánh giá!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng đánh giá chất lượng món ăn", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmb_giaCa.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng đánh giá về giá của các món ăn", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -47,8 +50,6 @@ namespace Sushi_Restaurant.View
 
                         // Thêm các tham số đầu vào cho stored procedure
                         cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-                        cmd.Parameters.AddWithValue("@DiemPhucVu", int.Parse(cmb_phucVu.SelectedItem.ToString()));
-                        cmd.Parameters.AddWithValue("@DiemViTriChiNhanh", int.Parse(cmb_viTri.SelectedItem.ToString()));
                         cmd.Parameters.AddWithValue("@DiemChatLuongMonAn", int.Parse(cmb_monAn.SelectedItem.ToString()));
                         cmd.Parameters.AddWithValue("@DiemGiaCa", int.Parse(cmb_giaCa.SelectedItem.ToString()));
 

@@ -26,6 +26,9 @@ namespace Sushi_Restaurant.View
             //Tính tồng tiền hóa đơn
             CapNhatTongTien();
 
+            // Áp dụng khuyến mãi tốt nhất
+            LayKhuyenMaiTotNhat();
+
             // Xóa các mục cũ trong ComboBox (nếu có)
             cmb_ngayGiao.Items.Clear();
 
@@ -188,7 +191,7 @@ namespace Sushi_Restaurant.View
                         tvpParam.TypeName = "TVP_ChiTietDatMon";
 
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Đơn hàng giao hàng tận nơi đã được tạo thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Đặt hàng thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -198,7 +201,53 @@ namespace Sushi_Restaurant.View
             }
 
         }
+
+
+        private void LayKhuyenMaiTotNhat()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("NXHanh_LayKhuyenMaiTotNhat", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Thêm các tham số đầu vào
+                        cmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);
+                        cmd.Parameters.AddWithValue("@MaChiNhanh", GlobalVariables.MaChiNhanh);
+                        cmd.Parameters.AddWithValue("@TongTien", TinhTongTien());
+
+                        // Thêm các tham số đầu ra
+                        SqlParameter soTienGiamKM = new SqlParameter("@SoTienGiamKM", SqlDbType.Float) { Direction = ParameterDirection.Output };
+                        SqlParameter soTienGiamTTV = new SqlParameter("@SoTienGiamTTV", SqlDbType.Float) { Direction = ParameterDirection.Output };
+                        SqlParameter loaiThe = new SqlParameter("@LoaiThe", SqlDbType.NVarChar, 10) { Direction = ParameterDirection.Output };
+
+                        cmd.Parameters.Add(soTienGiamKM);
+                        cmd.Parameters.Add(soTienGiamTTV);
+                        cmd.Parameters.Add(loaiThe);
+
+                        // Thực thi procedure
+                        cmd.ExecuteNonQuery();
+
+                        // Lấy giá trị tham số trả về
+                        double giamKM = Convert.ToDouble(soTienGiamKM.Value);
+                        double giamTTV = Convert.ToDouble(soTienGiamTTV.Value);
+                        string loaiTheTV = loaiThe.Value.ToString();
+
+                        // Hiển thị lên giao diện
+                        value_giamGia.Text = " - "+ giamKM.ToString("N0", GlobalVariables.AppCultureInfo);
+                        value_TTV.Text = loaiTheTV;
+                        value_giamGiaTTV.Text = " - " + giamTTV.ToString("N0", GlobalVariables.AppCultureInfo);
+                        value_thanhTien.Text = (TinhTongTien() - giamKM - giamTTV).ToString("N0", GlobalVariables.AppCultureInfo) + " VND";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy khuyến mãi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
-
-
 }
