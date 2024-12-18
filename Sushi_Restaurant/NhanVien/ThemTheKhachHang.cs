@@ -11,9 +11,8 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.NhanVien
 {
-    public partial class ThemTheKhachHang : SampleAdd
+    public partial class ThemTheKhachHang : Form
     {
-
         public string SoDienThoai { get; set; }
 
         public ThemTheKhachHang()
@@ -21,13 +20,17 @@ namespace Sushi_Restaurant.NhanVien
             InitializeComponent();
             ThemTheKhachHang_Load();
         }
+        public void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         DateTime date = DateTime.Now;
         public string MaThe = "";
-        public override void btnLuu_Click(object sender, EventArgs e)
+        public void btnLuu_Click(object sender, EventArgs e)
         {
-            // Lấy thông tin từ form
-            string matKhau = "123456"; // Mặc định là "123456
+        // Lấy thông tin từ form
+        string matKhau = "123456"; // Mặc định là "123456
             string maKhachHang = txtmakh.Text.Trim();
             string tenKhachHang = txthoten.Text.Trim();
             string cccd = txtcccd.Text.Trim();
@@ -40,57 +43,67 @@ namespace Sushi_Restaurant.NhanVien
             DateTime ngayLap = guna2DateTimePicker1.Value;
             string maChiNhanh = MainClass.user.MaChiNhanh;
             string maNhanVien = MainClass.user.MaNhanVien;
-
-            try
+            if (string.IsNullOrWhiteSpace(txthoten.Text) ||
+                            string.IsNullOrWhiteSpace(txtcccd.Text) || string.IsNullOrWhiteSpace(txtemail.Text))
             {
-                using (SqlConnection conn = new SqlConnection(MainClass.con_string))
+
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);   
+            }
+            else
+            {
+                try
                 {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_LuuKhachHangVaTheThanhVien", conn))
+                    using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        // Thêm các tham số
-                        cmd.Parameters.AddWithValue("@MatKhau", matKhau);
-                        cmd.Parameters.AddWithValue("@MaKhachHang", maKhachHang);
-                        cmd.Parameters.AddWithValue("@HoTen", tenKhachHang);
-                        cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
-                        cmd.Parameters.AddWithValue("@CCCD", cccd);
-                        cmd.Parameters.AddWithValue("@SoDienThoai", soDienThoai);
-                        cmd.Parameters.AddWithValue("@Email", email);
-
-                        cmd.Parameters.AddWithValue("@MaSoThe", maSoThe);
-                        cmd.Parameters.AddWithValue("@LoaiThe", loaiThe);
-                        cmd.Parameters.AddWithValue("@TongDiemTichLuy", 0);
-                        cmd.Parameters.AddWithValue("@NgayLap", ngayLap);
-                        cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);
-                        cmd.Parameters.AddWithValue("@MaNhanVien", maNhanVien);
-
-                        // Thực thi Procedure
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        if (reader.Read())
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand("usp_LuuKhachHangVaTheThanhVien", conn))
                         {
-                            string result = reader["Result"].ToString();
-                            string message = reader["Message"].ToString();
+                            cmd.CommandType = CommandType.StoredProcedure;
 
-                            if (result == "Success")
+                            // Thêm các tham số
+                            cmd.Parameters.AddWithValue("@MatKhau", matKhau);
+                            cmd.Parameters.AddWithValue("@MaKhachHang", maKhachHang);
+                            cmd.Parameters.AddWithValue("@HoTen", tenKhachHang);
+                            cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+                            cmd.Parameters.AddWithValue("@CCCD", cccd);
+                            cmd.Parameters.AddWithValue("@SoDienThoai", soDienThoai);
+                            cmd.Parameters.AddWithValue("@Email", email);
+
+                            cmd.Parameters.AddWithValue("@MaSoThe", maSoThe);
+                            cmd.Parameters.AddWithValue("@LoaiThe", loaiThe);
+                            cmd.Parameters.AddWithValue("@TongDiemTichLuy", 0);
+                            cmd.Parameters.AddWithValue("@NgayLap", ngayLap);
+                            cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);
+                            cmd.Parameters.AddWithValue("@MaNhanVien", maNhanVien);
+
+                            // Thực thi Procedure
+                            SqlDataReader reader = cmd.ExecuteReader();
+                            if (reader.Read())
                             {
-                                MessageBox.Show(message, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                string result = reader["Result"].ToString();
+                                string message = reader["Message"].ToString();
+
+                                if (result == "Success")
+                                {
+                                    MessageBox.Show(message, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
-                            else
-                            {
-                                MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            reader.Close();
+
                         }
-                        reader.Close();
+                        this.Close();
                     }
-                    this.Close();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }    
+
         }
 
 

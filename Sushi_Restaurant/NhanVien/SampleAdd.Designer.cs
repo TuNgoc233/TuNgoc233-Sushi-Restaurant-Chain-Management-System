@@ -122,7 +122,7 @@ namespace Sushi_Restaurant.NhanVien
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 71);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 75);
             this.guna2PictureBox1.TabIndex = 4;
             this.guna2PictureBox1.TabStop = false;
             // 

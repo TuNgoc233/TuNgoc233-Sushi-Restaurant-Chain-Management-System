@@ -185,7 +185,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_XoaPhieu", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_XoaPhieuDatMon", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaPhieu", maPhieu);

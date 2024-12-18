@@ -96,7 +96,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(88, 147);
+            this.label1.Location = new System.Drawing.Point(109, 147);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(270, 23);
             this.label1.TabIndex = 2;
@@ -170,7 +170,7 @@
             this.bt_dn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.bt_dn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.bt_dn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.bt_dn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bt_dn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_dn.ForeColor = System.Drawing.Color.White;
             this.bt_dn.Location = new System.Drawing.Point(151, 491);
             this.bt_dn.Name = "bt_dn";
@@ -216,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 617);
+            this.ClientSize = new System.Drawing.Size(439, 570);
             this.Controls.Add(this.chinhanhname);
             this.Controls.Add(this.cnname);
             this.Controls.Add(this.bt_dn);

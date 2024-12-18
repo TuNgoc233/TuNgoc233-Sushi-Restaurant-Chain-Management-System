@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.NhanVien
 {
-    public partial class PhieuGiaoHangTanNoi : SampleAdd
+    public partial class PhieuGiaoHangTanNoi : Form
     {
         public string maPhieu; // Biến lưu mã phiếu
         public PhieuGiaoHangTanNoi(string maPhieu)
@@ -101,8 +101,12 @@ namespace Sushi_Restaurant.NhanVien
             txtMaPhieu.Text = maPhieu; // Hiển thị mã phiếu
             txtMaNV.Text = MainClass.user.MaNhanVien; // Hiển thị mã nhân viên
         }
-
-        public override void btnLuu_Click(object sender, EventArgs e)
+        public void btnDong_Click(object sender, EventArgs e)
+        {
+            // Đóng cửa sổ hiện tại
+            this.Close();
+        }
+        public void btnLuu_Click(object sender, EventArgs e)
         {
             try
             {
@@ -129,6 +133,7 @@ namespace Sushi_Restaurant.NhanVien
                                 cmd.Parameters.AddWithValue("@TinhTrangDonHang", "Đã giao");
                                 cmd.Parameters.AddWithValue("@ThoiGianNhan", DateTime.Now.ToString("HH:mm:ss")); // Chỉ lấy giờ, phút, giây
                                 cmd.ExecuteNonQuery();
+                                txttime.Text = DateTime.Now.ToString("HH:mm:ss"); // Hiển thị thời gian nhận
                                 MessageBox.Show("Cập nhật tình trạng đơn hàng và thời gian nhận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }

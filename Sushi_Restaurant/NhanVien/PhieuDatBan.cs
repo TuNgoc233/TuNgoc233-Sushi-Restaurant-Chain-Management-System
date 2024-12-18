@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.NhanVien
 {
-    public partial class PhieuDatBan : SampleAdd
+    public partial class PhieuDatBan : Form
     {
         public string maPhieu; // Biến lưu mã phiếu
         public PhieuDatBan(string maPhieu)
@@ -95,8 +95,12 @@ namespace Sushi_Restaurant.NhanVien
                 MessageBox.Show($"Lỗi khi tải thông tin nhân viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-        public override void btnLuu_Click(object sender, EventArgs e)
+        public void btnLuu_Click(object sender, EventArgs e)
         {
             try
             {

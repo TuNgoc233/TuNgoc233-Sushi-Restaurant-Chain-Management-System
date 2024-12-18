@@ -751,5 +751,20 @@
   <ItemGroup>
     <None Include="Resources\del.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_dat_ban.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_dish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nha_hang.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

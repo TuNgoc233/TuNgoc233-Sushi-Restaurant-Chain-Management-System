@@ -21,5 +21,12 @@ namespace Sushi_Restaurant.NhanVien
         {
             btnMax.PerformClick();
         }
+
+        
+        private void btnDanhGia_Click(object sender, EventArgs e)
+        {
+            ThemDanhGia frm = new ThemDanhGia();
+            MainClass.BlurBackground(frm);
+        }
     }
 }

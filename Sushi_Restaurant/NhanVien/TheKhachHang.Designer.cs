@@ -32,9 +32,9 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnDong = new Guna.UI2.WinForms.Guna2Button();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnDong = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,11 +53,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(76, 33);
+            this.label1.Location = new System.Drawing.Point(79, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(242, 32);
+            this.label1.Size = new System.Drawing.Size(298, 38);
             this.label1.TabIndex = 3;
             this.label1.Text = "Kiểm Tra Khách Hàng";
             // 
@@ -72,6 +72,26 @@
             this.guna2Panel2.Size = new System.Drawing.Size(400, 76);
             this.guna2Panel2.TabIndex = 1;
             // 
+            // btnDong
+            // 
+            this.btnDong.AutoRoundedCorners = true;
+            this.btnDong.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnDong.BorderRadius = 21;
+            this.btnDong.CustomizableEdges.TopRight = false;
+            this.btnDong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnDong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDong.ForeColor = System.Drawing.Color.White;
+            this.btnDong.Location = new System.Drawing.Point(242, 19);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(125, 45);
+            this.btnDong.TabIndex = 2;
+            this.btnDong.Text = "ĐÓNG";
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
             // btnLuu
             // 
             this.btnLuu.AutoRoundedCorners = true;
@@ -83,7 +103,7 @@
             this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Location = new System.Drawing.Point(41, 19);
             this.btnLuu.Name = "btnLuu";
@@ -112,26 +132,6 @@
             this.txtTimKiem.SelectedText = "";
             this.txtTimKiem.Size = new System.Drawing.Size(348, 48);
             this.txtTimKiem.TabIndex = 6;
-            // 
-            // btnDong
-            // 
-            this.btnDong.AutoRoundedCorners = true;
-            this.btnDong.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnDong.BorderRadius = 21;
-            this.btnDong.CustomizableEdges.TopRight = false;
-            this.btnDong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnDong.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDong.ForeColor = System.Drawing.Color.White;
-            this.btnDong.Location = new System.Drawing.Point(242, 19);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(125, 45);
-            this.btnDong.TabIndex = 2;
-            this.btnDong.Text = "ĐÓNG";
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // TheKhachHang
             // 

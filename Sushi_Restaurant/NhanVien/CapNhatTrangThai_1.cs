@@ -185,7 +185,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_XoaPhieu", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_XoaPhieuDatMon", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaPhieu", maPhieu);
@@ -290,7 +290,7 @@ namespace Sushi_Restaurant.NhanVien
                 string searchValue = txtTimKiem.Text.Trim().ToLower();
 
                 // Tạo biểu thức lọc (Filter Expression)
-                string filterExpression = string.Format("MaPhieu LIKE '%{0}%' OR MaKhachHang LIKE '%{0}%' OR TinhTrangXacNhanHienThi LIKE '%{0}%' OR TinhTrangDonHang LIKE '%{0}%'", searchValue);
+                string filterExpression = string.Format("MaPhieu LIKE '%{0}%' OR MaKhachHang LIKE '%{0}%'", searchValue);
 
                 // Áp dụng bộ lọc
                 dt.DefaultView.RowFilter = filterExpression;

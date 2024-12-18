@@ -53,6 +53,12 @@ namespace Sushi_Restaurant.NhanVien
             AddControls(new frmHome());
         }
 
+        public void ActivateHomeButton()
+        {
+            // Gọi trực tiếp sự kiện Click của nút btnHome
+            btnHome.PerformClick();
+        }
+
         private void btnTheTV_Click(object sender, EventArgs e)
         {
             TheKhachHang frm = new TheKhachHang
@@ -81,6 +87,19 @@ namespace Sushi_Restaurant.NhanVien
         private void btnttmonan_Click(object sender, EventArgs e)
         {
             AddControls(new TrangThaiMonAn());
+        }
+
+        private void but_logOut_Click(object sender, EventArgs e)
+        {
+            // Tạo form đăng nhập mới
+            FrmLogin loginForm = new FrmLogin();
+
+            // Ẩn form hiện tại
+            this.Close();
+
+            // Hiển thị form đăng nhập dưới dạng modal (ngăn các form khác hoạt động)
+            loginForm.ShowDialog();
+
         }
     }
 }

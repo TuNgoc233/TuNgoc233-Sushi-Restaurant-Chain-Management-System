@@ -72,6 +72,7 @@ namespace Sushi_Restaurant
                 // Mở form chính
                 NhanVien.frmMain formChinh = new NhanVien.frmMain();
                 formChinh.Show();
+                formChinh.ActivateHomeButton(); // Gọi hàm tự kích hoạt nút btnHome
                 this.Hide();
             }
             else
