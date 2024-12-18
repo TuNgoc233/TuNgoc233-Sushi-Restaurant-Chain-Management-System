@@ -35,7 +35,6 @@
             this.Dataview = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.dgvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvAdjust = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvOffice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,7 @@
             this.dgvDateEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUpdate = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvAdjust = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Dataview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +76,6 @@
             this.Dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.Dataview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvID,
-            this.dgvAdjust,
             this.dgvName,
             this.dgvDateOfBirth,
             this.dgvOffice,
@@ -85,7 +84,8 @@
             this.dgvDateStart,
             this.dgvDateEnd,
             this.dgvUpdate,
-            this.dgvDelete});
+            this.dgvDelete,
+            this.dgvAdjust});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,12 +95,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Dataview.DefaultCellStyle = dataGridViewCellStyle3;
             this.Dataview.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Dataview.Location = new System.Drawing.Point(12, 129);
+            this.Dataview.Location = new System.Drawing.Point(0, 129);
             this.Dataview.Name = "Dataview";
             this.Dataview.RowHeadersVisible = false;
             this.Dataview.RowHeadersWidth = 51;
             this.Dataview.RowTemplate.Height = 24;
-            this.Dataview.Size = new System.Drawing.Size(1240, 327);
+            this.Dataview.Size = new System.Drawing.Size(1281, 327);
             this.Dataview.TabIndex = 10;
             this.Dataview.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Dataview.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -145,12 +145,6 @@
             this.dgvID.HeaderText = "Mã nhân viên";
             this.dgvID.MinimumWidth = 6;
             this.dgvID.Name = "dgvID";
-            // 
-            // dgvAdjust
-            // 
-            this.dgvAdjust.HeaderText = "Cập nhật";
-            this.dgvAdjust.MinimumWidth = 6;
-            this.dgvAdjust.Name = "dgvAdjust";
             // 
             // dgvName
             // 
@@ -210,6 +204,14 @@
             this.dgvDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // dgvAdjust
+            // 
+            this.dgvAdjust.HeaderText = "Cập nhật";
+            this.dgvAdjust.MinimumWidth = 6;
+            this.dgvAdjust.Name = "dgvAdjust";
+            this.dgvAdjust.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAdjust.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -233,7 +235,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView Dataview;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAdjust;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDateOfBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvOffice;
@@ -243,5 +244,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDateEnd;
         private System.Windows.Forms.DataGridViewImageColumn dgvUpdate;
         private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
+        private System.Windows.Forms.DataGridViewImageColumn dgvAdjust;
     }
 }

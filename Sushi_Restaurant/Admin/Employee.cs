@@ -58,27 +58,39 @@ namespace Sushi_Restaurant.Admin
         }
         private void Dataview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == Dataview.Columns["dgvUpdate"].Index) // Thay "dgvUpdate" bằng tên cột thực tế
+            if (e.ColumnIndex == Dataview.Columns["dgvUpdate"].Index) 
             {
                 int rowIndex = e.RowIndex;
 
                 if (rowIndex >= 0)
                 {
-                    string dgvID = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); // Thay "dgvID" bằng tên cột thực tế
-
+                    string dgvID = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); 
                     // Tạo đối tượng Tranfer và truyền tham số
                     Tranfer tranfer = new Tranfer(dgvID);
                     tranfer.TransferCompleted += ReloadEmployeeData;
                     tranfer.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == Dataview.Columns["dgvDelete"].Index) // Thay "XoaNhanVien" là tên cột
+            else if (e.ColumnIndex == Dataview.Columns["dgvAdjust"].Index)
+            {
+                int rowIndex = e.RowIndex;
+                if (rowIndex >= 0)
+                {
+                    string dgvID = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); 
+
+                    // Tạo đối tượng Tranfer và truyền tham số
+                    Tranfer tranfer = new Tranfer(dgvID);
+                    tranfer.TransferCompleted += ReloadEmployeeData;
+                    tranfer.ShowDialog();
+                }
+            }    
+            else if (e.ColumnIndex == Dataview.Columns["dgvDelete"].Index) 
             {
                 int rowIndex = e.RowIndex;
 
                 if (rowIndex >= 0)
                 {
-                    string maNhanVien = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); // Thay "dgvID" bằng tên cột thực tế
+                    string maNhanVien = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); 
 
                     // Xác nhận xóa
                     var result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không?", "Xác nhận xóa", MessageBoxButtons.YesNo);
