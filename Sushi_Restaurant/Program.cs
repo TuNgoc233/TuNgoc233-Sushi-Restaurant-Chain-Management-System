@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sushi_Restaurant.Chi_Nhanh;
+using Sushi_Restaurant.Admin;
 
 namespace Sushi_Restaurant
 {
@@ -29,6 +31,7 @@ namespace Sushi_Restaurant
             //Application.Run(new viewEnvoice("CN1"));
             //Application.Run(new viewIDCard());
             //Application.Run(new Brand("CN1"));
+            //Application.Run(new Admin_Manage()); // Đây sẽ là lớp Admin
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Sushi_Restaurant.Chi_Nhanh;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,18 +10,26 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.Admin
 {
-    public partial class Admin : SampleView
+    public partial class Tranfer : Form
     {
-        public Admin()
+        public Tranfer()
         {
             InitializeComponent();
         }
 
-        private void Admin_Load(object sender, EventArgs e)
+        public void Tranfer_Load(object sender, EventArgs e)
         {
 
         }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
