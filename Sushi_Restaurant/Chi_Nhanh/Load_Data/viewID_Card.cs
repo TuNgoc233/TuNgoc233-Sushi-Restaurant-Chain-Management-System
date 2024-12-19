@@ -247,8 +247,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
-            // Confirm logout action
-            DialogResult result = MessageBox.Show("Do you want to logout?", "Logout", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Đăng xuất", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
