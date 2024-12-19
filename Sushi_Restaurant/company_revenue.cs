@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant
 {
-    public partial class CompanyRevenue : Form
+    public partial class company_revenue : Form
     {
-        public CompanyRevenue()
+        public company_revenue()
         {
             InitializeComponent();
 

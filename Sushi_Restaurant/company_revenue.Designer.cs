@@ -2,7 +2,7 @@
 
 namespace Sushi_Restaurant
 {
-    partial class CompanyRevenue
+    partial class company_revenue
     {
         private System.ComponentModel.IContainer components = null;
 
