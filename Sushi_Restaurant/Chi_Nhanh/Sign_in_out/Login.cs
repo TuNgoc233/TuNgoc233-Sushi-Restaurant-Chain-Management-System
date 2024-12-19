@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sushi_Restaurant.Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,28 +30,32 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void BtnLoginBranch(object sender, EventArgs e)
         {
-            //this.Hide();
-            //Brand branch = new Brand(); // Khởi tạo UserControl viewIDCard
-            //branch.Show();
             string username = TextUser.Text;
             string password = TextPassword.Text;
 
-            //// Băm mật khẩu
-            //string hashedPassword = SecurityUtils.HashPassword(password);
-
-            // Kết nối và kiểm tra đăng nhập
-            // Kết nối và kiểm tra đăng nhập
-            string branchId = Branch.CheckLogin(username, password);
-            if (!string.IsNullOrEmpty(branchId))
+            // Kiểm tra nếu tên đăng nhập và mật khẩu là "admin"
+            if (username == "admin" && password == "admin")
             {
-                this.Hide();
-                // Truyền branchId khi tạo form Brand
-                Brand branchForm = new Brand(branchId);
-                branchForm.Show();
+                // Nếu là admin, mở form quản lý admin
+                Admin_Manage adminManageForm = new Admin_Manage();
+                adminManageForm.Show();
+                this.Hide(); // Ẩn form hiện tại
             }
             else
             {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
+                // Kết nối và kiểm tra đăng nhập
+                string branchId = Branch.CheckLogin(username, password);
+                if (!string.IsNullOrEmpty(branchId))
+                {
+                    this.Hide();
+                    // Truyền branchId khi tạo form Brand
+                    Brand branchForm = new Brand(branchId);
+                    branchForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
+                }
             }
         }
 
