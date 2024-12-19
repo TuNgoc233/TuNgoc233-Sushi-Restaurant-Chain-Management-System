@@ -27,7 +27,9 @@ namespace Sushi_Restaurant
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close(); // Đóng form
+            this.Hide();
+            Brand brand = new Brand(Branch.MaChiNhanh);
+            brand.ShowDialog();
         }
 
         private void btnGenerateReport_Click(object sender, EventArgs e)

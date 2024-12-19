@@ -193,5 +193,15 @@ namespace Sushi_Restaurant
                 e.Cancel = true; // Prevent closing
             }
         }
+
+        private void lblTotalRevenue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Statistic_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

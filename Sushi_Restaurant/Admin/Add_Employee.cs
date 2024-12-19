@@ -14,6 +14,7 @@ namespace Sushi_Restaurant.Admin
             InitializeComponent();
             LoadTenBoPhan(); // Tải danh sách bộ phận khi khởi động form
             LoadBranches(); // Tải danh sách
+            txtID.Enabled = false; // Vô hiệu hóa trường nhập mã nhân viên
         }
         private void LoadBranches()
         {
@@ -41,42 +42,49 @@ namespace Sushi_Restaurant.Admin
                 }
             }
         }
-        
+        private void LoadNextEmployeeID()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SP_LayMaNhanVienTiepTheo", conn))
+                {
+                    conn.Open();
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        txtID.Text = result.ToString(); // Hiển thị mã nhân viên tiếp theo
+                    }
+                }
+            }
+        }
         private void Add_Employee_Load(object sender, EventArgs e)
         {
-            // Có thể thực hiện các hành động khác khi form được tải
+            LoadNextEmployeeID();
         }
 
         private void btnDong_Click_1(object sender, EventArgs e)
         {
-            this.Close(); // Đóng form
+            this.Close();
         }
 
         private void btnLuu_Click_1(object sender, EventArgs e)
         {
-            AddNewEmployee(); // Gọi phương thức thêm nhân viên mới
+            AddNewEmployee(); 
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
         {
-            // Xử lý sự kiện thay đổi mã nhân viên nếu cần
+           
         }
 
         private void texName_TextChanged(object sender, EventArgs e)
         {
-            // Xử lý sự kiện thay đổi tên nhân viên nếu cần
+           
         }
 
         private void AddNewEmployee()
         {
             // Kiểm tra xem tất cả các trường thông tin đã được điền đầy đủ chưa
-            if (string.IsNullOrWhiteSpace(txtID.Text))
-            {
-                MessageBox.Show("Vui lòng nhập mã nhân viên.");
-                txtID.Focus();
-                return;
-            }
-
             if (string.IsNullOrWhiteSpace(texName.Text))
             {
                 MessageBox.Show("Vui lòng nhập tên nhân viên.");
@@ -106,11 +114,20 @@ namespace Sushi_Restaurant.Admin
             }
 
             // Lấy mã chi nhánh đã chọn
-            var selectedBranch = ComboBoxBranch.SelectedItem;
-            if (selectedBranch == null)
+            var maChiNhanh = ComboBoxBranch.SelectedItem;
+            if (maChiNhanh == null)
             {
                 MessageBox.Show("Vui lòng chọn chi nhánh.");
                 ComboBoxBranch.Focus();
+                return;
+            }
+
+            // Lấy mã bộ phận từ tên bộ phận đã chọn
+            string maBoPhan = GetMaBoPhan(texRole.SelectedItem.ToString());
+            if (string.IsNullOrWhiteSpace(maBoPhan))
+            {
+                MessageBox.Show("Không tìm thấy mã bộ phận cho bộ phận đã chọn.");
+                texRole.Focus();
                 return;
             }
 
@@ -119,20 +136,29 @@ namespace Sushi_Restaurant.Admin
                 using (SqlCommand cmd = new SqlCommand("SP_ThemNhanVien", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@MaNhanVien", txtID.Text.Trim());
+
+                    // Thêm các tham số vào stored procedure
+                    cmd.Parameters.AddWithValue("@MaNhanVien", txtID.Text.Trim()); // Mã nhân viên đã được tự động tạo
                     cmd.Parameters.AddWithValue("@HoTen", texName.Text.Trim());
                     cmd.Parameters.AddWithValue("@NgaySinh", guna2DateTimePicker1.Value);
                     cmd.Parameters.AddWithValue("@GioiTinh", guna2RadioButton1.Checked ? "Nam" : "Nữ");
                     cmd.Parameters.AddWithValue("@DiaChi", texAddress.Text.Trim());
                     cmd.Parameters.AddWithValue("@SoDienThoai", texPhone.Text.Trim());
-                    cmd.Parameters.AddWithValue("@MaBoPhan", GetMaBoPhan(texRole.Text.Trim()));
-                    cmd.Parameters.AddWithValue("@MaChiNhanh", selectedBranch); // Thêm mã chi nhánh vào tham số
+                    cmd.Parameters.AddWithValue("@MaBoPhan", maBoPhan); // Mã bộ phận đã lấy
+                    cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh); // Mã bộ phận đã lấy
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Thêm nhân viên thành công!");
-                    Add_Completed?.Invoke();
-                    this.Close(); // Đóng form sau khi thêm thành công
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery(); // Thực thi câu lệnh
+                        MessageBox.Show("Thêm nhân viên thành công!");
+                        Add_Completed?.Invoke(); // Gọi sự kiện nếu có
+                        this.Close(); // Đóng form sau khi thêm thành công
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi thêm nhân viên: " + ex.Message);
+                    }
                 }
             }
         }

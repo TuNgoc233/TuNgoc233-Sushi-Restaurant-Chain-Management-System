@@ -15,12 +15,30 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
             InitializeComponent();
             this.Load += addFood_Load;
+            texID.Enabled = false; // Vô hiệu hóa trường nhập mã nhân viên
         }
 
         private void addFood_Load(object sender, EventArgs e)
         {
             // Tải danh sách mục vào ComboBox khi form được tải
             LoadRoles();
+            LoadNextFoodID(); // Gọi phương thức để lấy mã món ăn tiếp theo
+        }
+
+        private void LoadNextFoodID()
+        {
+            using (SqlConnection conn = new SqlConnection(con_string))
+            {
+                using (SqlCommand cmd = new SqlCommand("SP_LayMaMonAnTiepTheo", conn))
+                {
+                    conn.Open();
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        texID.Text = result.ToString(); // Hiển thị mã món ăn tiếp theo
+                    }
+                }
+            }
         }
 
         private void LoadRoles()

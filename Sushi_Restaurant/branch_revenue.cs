@@ -201,6 +201,9 @@ namespace Sushi_Restaurant
             this.Close();
         }
 
-        
+        private void branch_revenue_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

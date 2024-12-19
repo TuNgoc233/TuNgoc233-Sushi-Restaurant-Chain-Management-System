@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Dataview = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,16 +84,16 @@
             // 
             // Dataview
             // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            this.Dataview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dataview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.Dataview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dataview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dataview.ColumnHeadersHeight = 25;
             this.Dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.Dataview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -107,14 +107,14 @@
             this.dgv10,
             this.dgv11,
             this.dgvImage});
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dataview.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dataview.DefaultCellStyle = dataGridViewCellStyle3;
             this.Dataview.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.Dataview.Location = new System.Drawing.Point(199, 163);
             this.Dataview.Name = "Dataview";
@@ -218,7 +218,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(12, 382);
+            this.guna2Button1.Location = new System.Drawing.Point(12, 320);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(154, 45);
             this.guna2Button1.TabIndex = 0;
@@ -234,7 +234,7 @@
             this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(12, 444);
+            this.guna2Button3.Location = new System.Drawing.Point(12, 382);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(154, 45);
             this.guna2Button3.TabIndex = 1;
@@ -250,7 +250,7 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(12, 505);
+            this.guna2Button2.Location = new System.Drawing.Point(12, 443);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(154, 45);
             this.guna2Button2.TabIndex = 2;
@@ -266,7 +266,7 @@
             this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
             this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(12, 571);
+            this.guna2Button4.Location = new System.Drawing.Point(12, 509);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.Size = new System.Drawing.Size(154, 45);
             this.guna2Button4.TabIndex = 4;
@@ -283,7 +283,7 @@
             this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
             this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Location = new System.Drawing.Point(12, 312);
+            this.guna2Button5.Location = new System.Drawing.Point(12, 250);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(158, 45);
             this.guna2Button5.TabIndex = 10;
