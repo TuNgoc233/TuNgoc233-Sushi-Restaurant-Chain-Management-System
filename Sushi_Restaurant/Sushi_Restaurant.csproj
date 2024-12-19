@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Add_Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Add_Employee.Designer.cs">
+      <DependentUpon>Add_Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin_Manage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,17 +69,23 @@
       <DependentUpon>Admin_Manage.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminMain.cs" />
-    <Compile Include="Admin\Employee.cs">
+    <Compile Include="Admin\Load_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <Compile Include="Admin\Load_Employee.Designer.cs">
+      <DependentUpon>Load_Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Tranfer.cs">
+    <Compile Include="Admin\Tranfer_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Tranfer.Designer.cs">
-      <DependentUpon>Tranfer.cs</DependentUpon>
+    <Compile Include="Admin\Tranfer_Employee.Designer.cs">
+      <DependentUpon>Tranfer_Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateSalary_Employeee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdateSalary_Employeee.Designer.cs">
+      <DependentUpon>UpdateSalary_Employeee.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\BranchMain.cs" />
     <Compile Include="branch_revenue.cs">
@@ -88,11 +100,11 @@
     <Compile Include="Chi_Nhanh\Load_Data\viewFood.Designer.cs">
       <DependentUpon>viewFood.cs</DependentUpon>
     </Compile>
-    <Compile Include="Chi_Nhanh\Insert_update_delete\updateIDCard.cs">
+    <Compile Include="Admin\Adjust_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\Insert_update_delete\updateIDCard.Designer.cs">
-      <DependentUpon>updateIDCard.cs</DependentUpon>
+    <Compile Include="Admin\Adjust_Employee.Designer.cs">
+      <DependentUpon>Adjust_Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\Brand.cs">
       <SubType>Form</SubType>
@@ -126,12 +138,6 @@
     </Compile>
     <Compile Include="Chi_Nhanh\Load_Data\viewOrderForm.Designer.cs">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewSaleOff.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chi_Nhanh\viewSaleOff.Designer.cs">
-      <DependentUpon>viewSaleOff.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\Load_Data\viewStaff.cs">
       <SubType>Form</SubType>
@@ -177,14 +183,20 @@
       <DependentUpon>SampleView.cs</DependentUpon>
     </Compile>
     <Compile Include="TienIch.cs" />
+    <EmbeddedResource Include="Admin\Add_Employee.resx">
+      <DependentUpon>Add_Employee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Admin_Manage.resx">
       <DependentUpon>Admin_Manage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Employee.resx">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\Load_Employee.resx">
+      <DependentUpon>Load_Employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Tranfer.resx">
-      <DependentUpon>Tranfer.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\Tranfer_Employee.resx">
+      <DependentUpon>Tranfer_Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\UpdateSalary_Employeee.resx">
+      <DependentUpon>UpdateSalary_Employeee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="branch_revenue.resx">
       <DependentUpon>branch_revenue.cs</DependentUpon>
@@ -192,11 +204,14 @@
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addOrderForm.resx">
       <DependentUpon>addOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\updateIDCard.resx">
-      <DependentUpon>updateIDCard.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\Adjust_Employee.resx">
+      <DependentUpon>Adjust_Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addFood.resx">
       <DependentUpon>addFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\Load_Data\Staff_Score.resx">
+      <DependentUpon>Staff_Score.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Sign_in_out\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -209,9 +224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Load_Data\viewOrderForm.resx">
       <DependentUpon>viewOrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\viewSaleOff.resx">
-      <DependentUpon>viewSaleOff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Load_Data\viewStaff.resx">
       <DependentUpon>viewStaff.cs</DependentUpon>

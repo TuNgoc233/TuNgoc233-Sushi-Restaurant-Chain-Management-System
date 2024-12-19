@@ -1,6 +1,6 @@
-﻿namespace Sushi_Restaurant.Chi_Nhanh
+﻿namespace Sushi_Restaurant.Chi_Nhanh.Load_Data
 {
-    partial class viewSaleOff
+    partial class Staff_Score
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // viewSaleOff
+            // Staff_Score
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "viewSaleOff";
-            this.Text = "viewSaleOff";
-            this.Load += new System.EventHandler(this.viewSaleOff_Load);
+            this.Name = "Staff_Score";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Staff_Score_Load);
             this.ResumeLayout(false);
 
         }

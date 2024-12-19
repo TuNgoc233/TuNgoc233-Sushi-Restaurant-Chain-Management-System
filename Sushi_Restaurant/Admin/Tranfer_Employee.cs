@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace Sushi_Restaurant.Admin
 {
-    public partial class Tranfer : Form
+    public partial class Tranfer_Employee : Form
     {
         public event Action TransferCompleted;
 
         private string _dgvID;
         // Constructor nhận hai tham số
-        public Tranfer(string dgvID)
+        public Tranfer_Employee(string dgvID)
         {
             InitializeComponent();
             _dgvID = dgvID;

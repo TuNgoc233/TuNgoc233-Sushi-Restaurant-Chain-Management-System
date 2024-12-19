@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sushi_Restaurant.Chi_Nhanh
+namespace Sushi_Restaurant.Chi_Nhanh.Load_Data
 {
-    public partial class viewSaleOff : SampleView
+    public partial class Staff_Score : Form
     {
-        public viewSaleOff()
+        public Staff_Score()
         {
             InitializeComponent();
         }
 
-        private void viewSaleOff_Load(object sender, EventArgs e)
+        private void Staff_Score_Load(object sender, EventArgs e)
         {
 
         }

@@ -48,7 +48,7 @@
             this.dgv8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dataview)).BeginInit();
             this.SuspendLayout();
@@ -205,7 +205,7 @@
             this.dgv8,
             this.dgv10,
             this.dgv11,
-            this.dgv12});
+            this.dgvImage});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -299,11 +299,13 @@
             this.dgv11.MinimumWidth = 6;
             this.dgv11.Name = "dgv11";
             // 
-            // dgv12
+            // dgvImage
             // 
-            this.dgv12.HeaderText = "Điểm phục vụ";
-            this.dgv12.MinimumWidth = 6;
-            this.dgv12.Name = "dgv12";
+            this.dgvImage.HeaderText = "Điểm phục vụ";
+            this.dgvImage.MinimumWidth = 6;
+            this.dgvImage.Name = "dgvImage";
+            this.dgvImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // viewStaff
             // 
@@ -345,6 +347,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv12;
+        private System.Windows.Forms.DataGridViewImageColumn dgvImage;
     }
 }
