@@ -201,7 +201,6 @@ namespace Sushi_Restaurant.NhanVien
 
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra nếu cột được nhấp không phải là cột Delete
             if (e.ColumnIndex != guna2DataGridView1.Columns["dgvDel"].Index && e.RowIndex >= 0)
             {
                 // Lấy mã phiếu từ cột dgvMaPhieu
@@ -210,9 +209,20 @@ namespace Sushi_Restaurant.NhanVien
                 // Mở form PhieuDatBan và truyền mã phiếu
                 PhieuDatBan formDatBan = new PhieuDatBan(maPhieu);
                 formDatBan.StartPosition = FormStartPosition.CenterScreen;
+
+                // Đăng ký sự kiện để reload dữ liệu khi trạng thái được cập nhật
+                formDatBan.TrangThaiCapNhat += (s, ev) =>
+                {
+                    // Reload danh sách phiếu
+                    string machinhanh = MainClass.user.MaChiNhanh;
+                    string manhanvien = MainClass.user.MaNhanVien;
+                    LoadDanhSachPhieu(machinhanh, manhanvien);
+                };
+
                 MainClass.BlurBackground(formDatBan); // Làm mờ nền
             }
         }
+
 
         private void LoadTinhTrangComboBox()
         {

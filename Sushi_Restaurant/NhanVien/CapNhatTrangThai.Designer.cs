@@ -39,13 +39,13 @@ namespace Sushi_Restaurant.NhanVien
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cbtinhtrang = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvmkh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cbtinhtrang = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,21 +130,6 @@ namespace Sushi_Restaurant.NhanVien
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // cbtinhtrang
-            // 
-            this.cbtinhtrang.BackColor = System.Drawing.Color.Transparent;
-            this.cbtinhtrang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbtinhtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtinhtrang.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbtinhtrang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbtinhtrang.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbtinhtrang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbtinhtrang.ItemHeight = 30;
-            this.cbtinhtrang.Location = new System.Drawing.Point(36, 103);
-            this.cbtinhtrang.Name = "cbtinhtrang";
-            this.cbtinhtrang.Size = new System.Drawing.Size(200, 36);
-            this.cbtinhtrang.TabIndex = 8;
-            // 
             // dgvSno
             // 
             this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -197,6 +182,21 @@ namespace Sushi_Restaurant.NhanVien
             this.dgvDel.Name = "dgvDel";
             this.dgvDel.ReadOnly = true;
             this.dgvDel.Width = 50;
+            // 
+            // cbtinhtrang
+            // 
+            this.cbtinhtrang.BackColor = System.Drawing.Color.Transparent;
+            this.cbtinhtrang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbtinhtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbtinhtrang.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbtinhtrang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbtinhtrang.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbtinhtrang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbtinhtrang.ItemHeight = 30;
+            this.cbtinhtrang.Location = new System.Drawing.Point(36, 103);
+            this.cbtinhtrang.Name = "cbtinhtrang";
+            this.cbtinhtrang.Size = new System.Drawing.Size(200, 36);
+            this.cbtinhtrang.TabIndex = 8;
             // 
             // CapNhatTrangThai
             // 

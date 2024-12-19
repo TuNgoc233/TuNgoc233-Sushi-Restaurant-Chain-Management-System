@@ -419,9 +419,6 @@
     <None Include="Resources\MA041.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MA042.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\MA043.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -572,9 +569,6 @@
     <None Include="Resources\MA029.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MA030.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\MA031.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -582,9 +576,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MA033.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MA034.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MA035.jpg" />
@@ -663,9 +654,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MA049.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MA050.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MA051.jpg" />
@@ -795,6 +783,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\invoice_DS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA030.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA034.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA042.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MA050.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anhmacdinh.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

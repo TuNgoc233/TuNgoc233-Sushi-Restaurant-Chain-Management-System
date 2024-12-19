@@ -20,7 +20,8 @@ namespace Sushi_Restaurant.NhanVien
         }
 
         public string MaPhieu = "";
-        
+        DateTime date = DateTime.Now.Date;
+
         private void DSPhieuDatBan_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -37,7 +38,7 @@ namespace Sushi_Restaurant.NhanVien
                     // Gọi stored procedure
                     SqlCommand cmd = new SqlCommand("LayDsPhieuDatBan", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@NgayLap", MainClass.curDate);
+                    cmd.Parameters.AddWithValue("@NgayLap", date);
                     cmd.Parameters.AddWithValue("@MaChiNhanh", MainClass.user.MaChiNhanh);
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);

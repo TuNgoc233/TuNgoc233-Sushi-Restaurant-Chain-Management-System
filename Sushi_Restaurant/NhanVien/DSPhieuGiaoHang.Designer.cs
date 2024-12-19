@@ -92,7 +92,7 @@
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.ErrorImage = null;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.restaurant_pink;
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.icon_delivery;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
@@ -147,6 +147,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.guna2DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.guna2DataGridView1.RowHeadersVisible = false;
+            this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 30;
             this.guna2DataGridView1.Size = new System.Drawing.Size(875, 388);
             this.guna2DataGridView1.TabIndex = 10;
@@ -262,7 +263,7 @@
             this.dgvedit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvedit.FillWeight = 50F;
             this.dgvedit.HeaderText = "";
-            this.dgvedit.Image = global::Sushi_Restaurant.Properties.Resources.edit;
+            this.dgvedit.Image = global::Sushi_Restaurant.Properties.Resources.pencil;
             this.dgvedit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvedit.MinimumWidth = 50;
             this.dgvedit.Name = "dgvedit";

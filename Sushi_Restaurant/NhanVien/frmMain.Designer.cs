@@ -86,7 +86,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "SuShiX";
             // 
-            // gunaPanel1
+            // btnGiaoHang
             // 
             this.gunaPanel1.Controls.Add(this.lblUser);
             this.gunaPanel1.Controls.Add(this.guna2ControlBox3);
@@ -404,10 +404,23 @@
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(249, 70);
             this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Dashboard";
+            this.btnHome.Text = "Trang chủ";
             this.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHome.TextOffset = new System.Drawing.Point(10, 0);
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 14F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(61, 93);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "SuShiX";
             // 
             // guna2PictureBox1
             // 

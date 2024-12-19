@@ -14,6 +14,7 @@ namespace Sushi_Restaurant.NhanVien
 {
     public partial class CapNhatMonAn : Form
     {
+        public event Action DataUpdated;
         public CapNhatMonAn(string maMonAn, string tenMonAn, bool tinhTrang)
         {
             InitializeComponent();
@@ -75,6 +76,7 @@ namespace Sushi_Restaurant.NhanVien
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Cập nhật tình trạng phục vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DataUpdated?.Invoke();
                         this.Close(); // Đóng form
                     }
                 }

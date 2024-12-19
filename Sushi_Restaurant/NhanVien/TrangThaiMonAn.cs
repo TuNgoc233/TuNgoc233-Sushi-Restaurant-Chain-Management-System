@@ -207,18 +207,30 @@ namespace Sushi_Restaurant.NhanVien
                 bool tinhTrang = false; // Mặc định là false nếu có lỗi
                 if (selectedRow.Cells["dgvTinhTrang"].Value != null)
                 {
+                    // Xử lý tình trạng phục vụ
                     bool.TryParse(selectedRow.Cells["dgvTinhTrang"].Value.ToString(), out tinhTrang);
                 }
 
                 // Mở form cập nhật và truyền dữ liệu
                 if (!string.IsNullOrEmpty(maMonAn))
                 {
+                    // Tạo form cập nhật với dữ liệu dòng được chọn
                     CapNhatMonAn updateForm = new CapNhatMonAn(maMonAn, tenMonAn, tinhTrang);
+
+                    // Đăng ký sự kiện để reload form khi cập nhật xong
+                    updateForm.FormClosed += (s, args) =>
+                    {
+                        LoadMonAnData(MainClass.user.MaChiNhanh); // Reload lại DataGridView
+                    };
+
                     updateForm.StartPosition = FormStartPosition.CenterScreen;
+
+                    // Hiển thị form cập nhật với hiệu ứng mờ nền
                     MainClass.BlurBackground(updateForm);
                 }
             }
         }
+
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
