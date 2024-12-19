@@ -209,7 +209,6 @@ namespace Sushi_Restaurant
         public string NgayVaoLam { get; set; } // Ngày vào làm
         public string TenBoPhan { get; set; } // Tên bộ phận
         public int MucLuong { get; set; } // Mức lương
-        public int DiemPhucVu { get; set; } // Điểm phục vụ
 
         // Phương thức để lấy danh sách nhân viên từ stored procedure
         public static List<Employee> LoadEmployeeFromProcedure(string branchID)
@@ -238,8 +237,8 @@ namespace Sushi_Restaurant
                             SDT = reader["SoDienThoai"].ToString(),
                             NgayVaoLam = Convert.ToDateTime(reader["NgayGanNhat"]).ToString("dd/MM/yyyy"), // Định dạng ngày vào làm
                             TenBoPhan = reader["TenBoPhan"].ToString(),
-                            MucLuong = Convert.ToInt32(reader["MucLuong"]),
-                            DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"])
+                            MucLuong = Convert.ToInt32(reader["MucLuong"])
+                            //DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"])
                         };
                         employees.Add(emp);
                     }
@@ -279,8 +278,7 @@ namespace Sushi_Restaurant
                                 SDT = reader["SoDienThoai"].ToString(),
                                 NgayVaoLam = Convert.ToDateTime(reader["NgayGanNhat"]).ToString("dd/MM/yyyy"),
                                 TenBoPhan = reader["TenBoPhan"].ToString(),
-                                MucLuong = Convert.ToInt32(reader["MucLuong"]),
-                                DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"])
+                                MucLuong = Convert.ToInt32(reader["MucLuong"])
                             };
                             employees.Add(emp);
                         }

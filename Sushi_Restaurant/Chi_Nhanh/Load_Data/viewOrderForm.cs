@@ -132,5 +132,102 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewStaff staff = new viewStaff();
+            staff.Show();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewFood viewFood = new viewFood(); 
+            viewFood.Show();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewID_Card viewID_Card = new viewID_Card();
+            viewID_Card.Show();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RevenueStatistics revenueStatistics = new RevenueStatistics();
+            revenueStatistics.Show();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ControlMini_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlMax_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Brand branch = new Brand(Branch.MaChiNhanh);
+            branch.Show();
+        }
+
+        private void Exit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ControlMini_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlMax_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            // Confirm logout action
+            DialogResult result = MessageBox.Show("Do you want to logout?", "Logout", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Logout(); // Call the logout method
+            }
+        }
+
+        private void Logout()
+        {
+            Branch.MaChiNhanh = null; // Xóa dữ liệu phiên
+            Sushi_Restaurant.Chi_Nhanh.Login loginForm = new Sushi_Restaurant.Chi_Nhanh.Login(); // Sử dụng không gian tên đầy đủ
+            loginForm.Show();
+            this.Hide();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Logout();
+            }
+            else
+            {
+                e.Cancel = true; // Prevent closing
+            }
+        }
     }
 }

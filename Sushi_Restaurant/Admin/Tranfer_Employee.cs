@@ -115,5 +115,10 @@ namespace Sushi_Restaurant.Admin
         {
             this.Hide();
         }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
