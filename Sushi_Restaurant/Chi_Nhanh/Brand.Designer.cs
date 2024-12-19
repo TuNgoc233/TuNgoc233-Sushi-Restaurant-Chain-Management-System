@@ -356,7 +356,7 @@
             this.btn_Statistic.Size = new System.Drawing.Size(171, 45);
             this.btn_Statistic.TabIndex = 3;
             this.btn_Statistic.Text = "Doanh thu";
-            this.btn_Statistic.Click += new System.EventHandler(this.btn_Statistic_Click);
+            //this.btn_Statistic.Click += new System.EventHandler(this.btn_Statistic_Click);
             // 
             // guna2Panel3
             // 

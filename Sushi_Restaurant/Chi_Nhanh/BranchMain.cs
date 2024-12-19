@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Drawing.Drawing2D;
 using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace Sushi_Restaurant
 {
@@ -13,7 +14,7 @@ namespace Sushi_Restaurant
     internal class Branch
     {
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
@@ -151,32 +152,34 @@ namespace Sushi_Restaurant
         }
 
         // Hàm gọi SP thống kê doanh thu
-        public static DataTable GetRevenueReport(string thoiGian, string branchID, int quarter = 0, int month = 0, int year = 0)
+        public static DataTable GetRevenueReport(string timeFrame, string branchId, int? month = null, int year = 0, int? quarter = null)
         {
             DataTable dt = new DataTable();
-            string query = "SP_ThongKeDoanhThuTheoChiNhanh"; // Tên của Stored Procedure
+            string query = "SP_ThongKeDoanhThuTheoChiNhanh"; // Tên stored procedure
 
             using (SqlConnection con = new SqlConnection(con_string))
             {
                 SqlCommand cmd = new SqlCommand(query, con)
                 {
-                    CommandType = CommandType.StoredProcedure
+                    CommandType = CommandType.StoredProcedure,
+                    CommandTimeout = 120
                 };
 
-                // Thêm các tham số cho SP
-                cmd.Parameters.AddWithValue("@ThoiGian", thoiGian);
-                cmd.Parameters.AddWithValue("@MaChiNhanh", branchID ?? (object)DBNull.Value);
+                // Thêm tham số cho stored procedure
+                cmd.Parameters.AddWithValue("@ThoiGian", timeFrame);
+                cmd.Parameters.AddWithValue("@MaChiNhanh", branchId ?? (object)DBNull.Value);
 
-                if (thoiGian == "QUY")
-                    cmd.Parameters.AddWithValue("@Quy", quarter);
-
-                if (thoiGian == "THANG")
+                if (timeFrame == "THANG")
                 {
-                    cmd.Parameters.AddWithValue("@Thang", month);
+                    cmd.Parameters.AddWithValue("@Thang", month ?? 0);
                     cmd.Parameters.AddWithValue("@Nam", year);
                 }
-
-                if (thoiGian == "NGAY" || thoiGian == "NAM")
+                else if (timeFrame == "QUY")
+                {
+                    cmd.Parameters.AddWithValue("@Quy", quarter ?? 0);
+                    cmd.Parameters.AddWithValue("@Nam", year);
+                }
+                else if (timeFrame == "NAM")
                 {
                     cmd.Parameters.AddWithValue("@Nam", year);
                 }
@@ -185,18 +188,117 @@ namespace Sushi_Restaurant
                 {
                     con.Open();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt); // Đổ dữ liệu vào DataTable
+                    da.Fill(dt);
                 }
                 catch (Exception ex)
                 {
-                    // Xử lý lỗi nếu có
-                    MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return dt;
+        }
+
+
+        public static List<string> GetBranchIds()
+        {
+            List<string> branchIds = new List<string>();
+            string query = "SELECT MaChiNhanh FROM CHI_NHANH"; // Truy vấn SQL để lấy mã chi nhánh
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        branchIds.Add(reader["MaChiNhanh"].ToString()); // Thêm mã chi nhánh vào danh sách
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return branchIds;
+        }
+
+        public static List<string> GetMonths()
+        {
+            List<string> months = new List<string>();
+            string query = "SELECT DISTINCT MONTH(ThoiGianLap) AS Month FROM HOA_DON ORDER BY Month";
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        months.Add($"Tháng {reader["Month"]}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            return months;
+        }
+
+        // Phương thức lấy danh sách quý từ database hoặc sử dụng danh sách mặc định
+        public static List<string> GetQuarters()
+        {
+            // Đây là cách giả lập trả về danh sách các quý. Nếu bạn muốn lấy từ CSDL, bạn cần viết một truy vấn.
+            List<string> quarters = new List<string>
+        {
+            "Quý 1",
+            "Quý 2",
+            "Quý 3",
+            "Quý 4"
+        };
+
+            return quarters;
+        }
+
+        // Lấy doanh thu công ty theo khoảng thời gian
+        public static DataTable GetRevenueReportCompany(string timeFrame)
+        {
+            DataTable dt = new DataTable();
+            string storedProcedure = "SP_CongTyThongKeDoanhThu"; // Stored procedure trong SQL Server
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                SqlCommand cmd = new SqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Chỉ thêm tham số @ThoiGian
+                cmd.Parameters.AddWithValue("@ThoiGian", timeFrame);
+
+                try
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi lấy doanh thu: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             return dt;
         }
+
+
+
     }
-    
+
     // Phương thức để lấy danh sách nhân viên từ stored procedure
     public class Employee
     {
@@ -639,7 +741,7 @@ namespace Sushi_Restaurant
     public class Statistic
     {
         // Kết nối đến cơ sở dữ liệu
-        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        private string connectionString = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Hàm để gọi stored procedure và lấy doanh thu theo chi nhánh
         public decimal GetDoanhThuTheoChiNhanh(string thoiGian, string branchID)
