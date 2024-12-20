@@ -113,5 +113,15 @@ namespace Sushi_Restaurant.Admin
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

@@ -54,5 +54,51 @@ namespace Sushi_Restaurant.Admin
             updateSalary.Show();
 
         }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ControlMini_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlMax_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Đăng xuất", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Logout(); // Call the logout method
+            }
+        }
+
+        private void Logout()
+        {
+            Branch.MaChiNhanh = null; // Xóa dữ liệu phiên
+            Sushi_Restaurant.Chi_Nhanh.Login loginForm = new Sushi_Restaurant.Chi_Nhanh.Login(); // Sử dụng không gian tên đầy đủ
+            loginForm.Show();
+            this.Hide();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Logout();
+            }
+            else
+            {
+                e.Cancel = true; // Prevent closing
+            }
+        }
     }
 }

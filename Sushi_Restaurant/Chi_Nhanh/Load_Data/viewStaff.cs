@@ -148,7 +148,9 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         public void Btn_Staff(object sender, EventArgs e)
         {
-
+            viewFood viewFood = new viewFood();
+            this.Hide();
+            viewFood.Show();
         }
 
         public void Btn_Invoice(object sender, EventArgs e)
@@ -202,6 +204,51 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void Dataview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void guna2Button4_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            RevenueStatistics statistics = new RevenueStatistics();
+            statistics.Show();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Brand brand = new Brand(Branch.MaChiNhanh);
+            brand.Show();
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Đăng xuất", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Logout(); // Call the logout method
+            }
+        }
+
+        private void Logout()
+        {
+            Branch.MaChiNhanh = null; // Xóa dữ liệu phiên
+            Sushi_Restaurant.Chi_Nhanh.Login loginForm = new Sushi_Restaurant.Chi_Nhanh.Login(); // Sử dụng không gian tên đầy đủ
+            loginForm.Show();
+            this.Hide();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Logout();
+            }
+            else
+            {
+                e.Cancel = true; // Prevent closing
+            }
         }
     }
 }

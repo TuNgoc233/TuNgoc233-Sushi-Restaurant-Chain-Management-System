@@ -100,139 +100,12 @@ namespace Sushi_Restaurant.Chi_Nhanh
           
         }
 
-        private void Insert_Item_Click(object sender, EventArgs e)
-        {
-            // Kiểm tra xem các trường dữ liệu có rỗng không
-            if (string.IsNullOrWhiteSpace(texName.Text) ||
-                string.IsNullOrWhiteSpace(texID.Text) ||
-                string.IsNullOrWhiteSpace(texMark.Text) ||
-                texRole.SelectedItem == null)
-            {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Kiểm tra giá trị có hợp lệ không
-            if (!decimal.TryParse(texMark.Text, out decimal gia))
-            {
-                MessageBox.Show("Giá trị không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Lấy giá trị từ các trường nhập liệu
-            string maMonAn = texID.Text.Trim();
-            string tenMonAn = texName.Text.Trim();
-            string muc = texRole.SelectedItem.ToString();
-            // Chuyển đổi tình trạng phục vụ từ "Có"/"Không" thành 1/0
-            int giaoMon = guna2RadioButton1.Checked ? 1 : 0;
-
-            // Chuỗi kết nối với cơ sở dữ liệu
-            string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
-
-            // Tên thủ tục lưu trữ
-            string storedProcedure = "sp_ThemMonAn";
-            // Giá trị tham số
-            string branchID = Branch.MaChiNhanh; // Lấy mã chi nhánh từ lớp Branch
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(con_string))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(storedProcedure, conn))
-                    {
-                        // Chỉ định rằng đây là một thủ tục lưu trữ
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        // Thêm tham số cho thủ tục
-                        cmd.Parameters.AddWithValue("@MaChiNhanh", branchID);
-                        cmd.Parameters.AddWithValue("@MaMonAn", maMonAn);
-                        cmd.Parameters.AddWithValue("@TenMonAn", tenMonAn);
-                        cmd.Parameters.AddWithValue("@GiaHienTai", gia);
-                        cmd.Parameters.AddWithValue("@TenMuc", muc);
-                        cmd.Parameters.AddWithValue("@GiaoMon", giaoMon); // Gửi 1 hoặc 0
-
-                        // Thực thi lệnh SQL
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                // Hiển thị thông báo thành công
-                MessageBox.Show("Thêm món ăn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Thêm dữ liệu vào DataGridView
-                string formattedPrice = gia.ToString("N0", CultureInfo.InvariantCulture) + " VND";
-                Data_Load.Rows.Add(maMonAn, tenMonAn, muc, formattedPrice, giaoMon == 1 ? "Có" : "Không");
-
-                // Làm mới các trường nhập liệu
-                texName.Text = "";
-                texID.Text = "";
-                texMark.Text = "";
-                texRole.SelectedIndex = -1;
-                guna2RadioButton1.Checked = false;
-                //guna2RadioButton2.Checked = false; // Nếu cần, có thể bỏ comment dòng này
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi thêm món ăn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void texRole_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        private void AddRoles()
-        {
-            // Chuỗi kết nối với cơ sở dữ liệu
-            string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
-
-            // Truy vấn SQL
-            string query = @"
-                    SELECT 
-                        M.TenMuc
-                    FROM 
-                        CHI_NHANH CN
-                    JOIN 
-                        THUC_DON_MUC TDM ON CN.MaThucDon = TDM.MaThucDon AND CN.ThanhPho = TDM.KhuVuc
-                    JOIN 
-                        MUC M ON TDM.MaMuc = M.MaMuc
-                    WHERE 
-                        CN.MaChiNhanh = @MaChiNhanh";
-
-            // Giá trị tham số
-            string branchID = Branch.MaChiNhanh; // Lấy mã chi nhánh từ lớp Branch
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(con_string))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        // Thêm tham số cho truy vấn
-                        cmd.Parameters.AddWithValue("@MaChiNhanh", branchID);
-
-                        // Đọc dữ liệu
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            // Xóa dữ liệu cũ trong ComboBox (nếu có)
-                            texRole.Items.Clear();
-
-                            // Đổ dữ liệu vào ComboBox
-                            while (reader.Read())
-                            {
-                                texRole.Items.Add(reader["TenMuc"].ToString());
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-            }
-        }
+       
 
         private void guna2RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
@@ -265,9 +138,86 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
         {
-            AddRoles();
+            Application.Exit();
+        }
+
+        private void ControlMini_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlMax_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewID_Card viewID_Card = new viewID_Card();
+            viewID_Card.Show();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RevenueStatistics revenueStatistics = new RevenueStatistics();
+            revenueStatistics.Show();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewOrderForm viewOrderForm = new viewOrderForm(); 
+            viewOrderForm.Show();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Brand brand = new Brand(Branch.MaChiNhanh);
+            brand.Show();
+
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewStaff staff = new viewStaff();
+            staff.Show();  
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Đăng xuất", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Logout(); // Call the logout method
+            }
+        }
+
+        private void Logout()
+        {
+            Branch.MaChiNhanh = null; // Xóa dữ liệu phiên
+            Sushi_Restaurant.Chi_Nhanh.Login loginForm = new Sushi_Restaurant.Chi_Nhanh.Login(); // Sử dụng không gian tên đầy đủ
+            loginForm.Show();
+            this.Hide();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Logout();
+            }
+            else
+            {
+                e.Cancel = true; // Prevent closing
+            }
         }
     }
 }

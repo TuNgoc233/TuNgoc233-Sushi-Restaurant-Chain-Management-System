@@ -19,7 +19,8 @@ namespace Sushi_Restaurant.Chi_Nhanh.Load_Data
 
         private void Staff_Score_Load(object sender, EventArgs e)
         {
-
+            Staff_Score staff = new Staff_Score();
+            staff.Hide();
         }
     }
 }

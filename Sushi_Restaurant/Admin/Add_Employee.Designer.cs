@@ -120,7 +120,7 @@
             this.labName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labName.Location = new System.Drawing.Point(462, 84);
             this.labName.Name = "labName";
-            this.labName.Size = new System.Drawing.Size(62, 23);
+            this.labName.Size = new System.Drawing.Size(69, 25);
             this.labName.TabIndex = 18;
             this.labName.Text = "Họ tên";
             // 
@@ -149,7 +149,7 @@
             this.labPhone.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labPhone.Location = new System.Drawing.Point(462, 262);
             this.labPhone.Name = "labPhone";
-            this.labPhone.Size = new System.Drawing.Size(111, 23);
+            this.labPhone.Size = new System.Drawing.Size(126, 25);
             this.labPhone.TabIndex = 32;
             this.labPhone.Text = "Số điện thoại";
             // 
@@ -159,7 +159,7 @@
             this.labGener.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labGener.Location = new System.Drawing.Point(463, 170);
             this.labGener.Name = "labGener";
-            this.labGener.Size = new System.Drawing.Size(75, 23);
+            this.labGener.Size = new System.Drawing.Size(82, 25);
             this.labGener.TabIndex = 31;
             this.labGener.Text = "Giới tính";
             // 
@@ -200,7 +200,7 @@
             this.labRole.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labRole.Location = new System.Drawing.Point(25, 262);
             this.labRole.Name = "labRole";
-            this.labRole.Size = new System.Drawing.Size(74, 23);
+            this.labRole.Size = new System.Drawing.Size(85, 25);
             this.labRole.TabIndex = 39;
             this.labRole.Text = "Bộ phận";
             // 
@@ -249,7 +249,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 23);
+            this.label2.Size = new System.Drawing.Size(130, 25);
             this.label2.TabIndex = 43;
             this.label2.Text = "Mã nhân viên";
             // 
@@ -296,7 +296,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(208, 259);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 23);
+            this.label3.Size = new System.Drawing.Size(102, 25);
             this.label3.TabIndex = 45;
             this.label3.Text = "Chi nhánh";
             // 

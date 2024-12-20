@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Sushi_Restaurant.Chi_Nhanh;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -147,11 +148,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
                 }
             }
         }
-        
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ThemThe(string maChiNhanh)
         {
@@ -196,6 +192,88 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
             string maChiNhanh = Branch.MaChiNhanh;
             ThemThe(maChiNhanh);
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ControlMini_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlMax_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Brand branch = new Brand(Branch.MaChiNhanh);
+            branch.Show();  
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RevenueStatistics revenueStatistics = new RevenueStatistics();
+            revenueStatistics.Show();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewOrderForm oder = new viewOrderForm();
+            oder.Show();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewFood food = new viewFood();
+            food.Show();
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            viewStaff staff = new viewStaff();
+            staff.Show();
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Đăng xuất", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Logout(); // Call the logout method
+            }
+        }
+
+        private void Logout()
+        {
+            Branch.MaChiNhanh = null; // Xóa dữ liệu phiên
+            Sushi_Restaurant.Chi_Nhanh.Login loginForm = new Sushi_Restaurant.Chi_Nhanh.Login(); // Sử dụng không gian tên đầy đủ
+            loginForm.Show();
+            this.Hide();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Logout();
+            }
+            else
+            {
+                e.Cancel = true; // Prevent closing
+            }
         }
     }
     

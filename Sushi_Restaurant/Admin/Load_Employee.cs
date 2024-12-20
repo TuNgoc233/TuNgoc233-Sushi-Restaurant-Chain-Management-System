@@ -130,5 +130,27 @@ namespace Sushi_Restaurant.Admin
             add.Add_Completed += ReloadEmployeeData;
             add.ShowDialog();
         }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ControlMini_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlMax_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Admin_Manage admin_Manage = new Admin_Manage();
+            admin_Manage.Show();
+        }
     }
 }
