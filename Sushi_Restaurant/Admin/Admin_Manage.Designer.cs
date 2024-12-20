@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.ADMIN = new System.Windows.Forms.Label();
+            this.ControlMini = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ControlMini = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.labManage = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -64,17 +64,64 @@
             this.guna2CustomGradientPanel1.TabIndex = 0;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
+            // ControlMax
+            // 
+            this.ControlMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ControlMax.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.ControlMax.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.ControlMax.IconColor = System.Drawing.Color.White;
+            this.ControlMax.Location = new System.Drawing.Point(1103, 12);
+            this.ControlMax.Name = "ControlMax";
+            this.ControlMax.Size = new System.Drawing.Size(45, 29);
+            this.ControlMax.TabIndex = 42;
+            this.ControlMax.Click += new System.EventHandler(this.ControlMax_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.logo;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(95, 91);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 3;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // ADMIN
             // 
             this.ADMIN.AutoSize = true;
             this.ADMIN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.ADMIN.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.ADMIN.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ADMIN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ADMIN.Location = new System.Drawing.Point(579, 18);
             this.ADMIN.Name = "ADMIN";
             this.ADMIN.Size = new System.Drawing.Size(140, 54);
             this.ADMIN.TabIndex = 2;
             this.ADMIN.Text = "Admin";
+            // 
+            // ControlMini
+            // 
+            this.ControlMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ControlMini.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.ControlMini.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.ControlMini.IconColor = System.Drawing.Color.White;
+            this.ControlMini.Location = new System.Drawing.Point(1154, 12);
+            this.ControlMini.Name = "ControlMini";
+            this.ControlMini.Size = new System.Drawing.Size(45, 29);
+            this.ControlMini.TabIndex = 43;
+            this.ControlMini.Click += new System.EventHandler(this.ControlMini_Click);
+            // 
+            // Exit
+            // 
+            this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Exit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.Exit.IconColor = System.Drawing.Color.White;
+            this.Exit.Location = new System.Drawing.Point(1205, 12);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(45, 29);
+            this.Exit.TabIndex = 44;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // guna2Button1
             // 
@@ -130,16 +177,23 @@
             this.guna2Button3.Text = "Cập nhật lương";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
-            // guna2PictureBox1
+            // guna2Button4
             // 
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.logo;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(95, 91);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 3;
-            this.guna2PictureBox1.TabStop = false;
+            this.guna2Button4.AutoRoundedCorners = true;
+            this.guna2Button4.BorderRadius = 21;
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.FillColor = System.Drawing.Color.Silver;
+            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button4.Location = new System.Drawing.Point(574, 528);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button4.TabIndex = 3;
+            this.guna2Button4.Text = "Đăng xuất";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
             // guna2PictureBox2
             // 
@@ -163,68 +217,14 @@
             this.labManage.TabIndex = 4;
             this.labManage.Text = "Quản Lý";
             // 
-            // ControlMax
-            // 
-            this.ControlMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlMax.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.ControlMax.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.ControlMax.IconColor = System.Drawing.Color.White;
-            this.ControlMax.Location = new System.Drawing.Point(1103, 12);
-            this.ControlMax.Name = "ControlMax";
-            this.ControlMax.Size = new System.Drawing.Size(45, 29);
-            this.ControlMax.TabIndex = 42;
-            this.ControlMax.Click += new System.EventHandler(this.ControlMax_Click);
-            // 
-            // ControlMini
-            // 
-            this.ControlMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlMini.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.ControlMini.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.ControlMini.IconColor = System.Drawing.Color.White;
-            this.ControlMini.Location = new System.Drawing.Point(1154, 12);
-            this.ControlMini.Name = "ControlMini";
-            this.ControlMini.Size = new System.Drawing.Size(45, 29);
-            this.ControlMini.TabIndex = 43;
-            this.ControlMini.Click += new System.EventHandler(this.ControlMini_Click);
-            // 
-            // Exit
-            // 
-            this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Exit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.Exit.IconColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(1205, 12);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(45, 29);
-            this.Exit.TabIndex = 44;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.AutoRoundedCorners = true;
-            this.guna2Button4.BorderRadius = 21;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.Silver;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.Location = new System.Drawing.Point(1039, 507);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button4.TabIndex = 3;
-            this.guna2Button4.Text = "Đăng xuất";
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
-            // 
             // Admin_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1262, 510);
+            this.ClientSize = new System.Drawing.Size(1262, 585);
             this.Controls.Add(this.labManage);
             this.Controls.Add(this.guna2PictureBox2);
-            this.ClientSize = new System.Drawing.Size(1262, 585);
             this.Controls.Add(this.guna2Button4);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2Button2);
