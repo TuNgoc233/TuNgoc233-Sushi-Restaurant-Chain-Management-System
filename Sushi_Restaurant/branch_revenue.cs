@@ -7,46 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace Sushi_Restaurant
 {
     public partial class branch_revenue : Form
-    {       
-        public branch_revenue()
+    {
+        private string _branchId; // Khai báo biến lưu mã chi nhánh
+        public branch_revenue(string branchID)
         {
             InitializeComponent();
-
+            // Lưu mã chi nhánh vào biến tạm
+            _branchId = branchID;
             // Thêm các mục vào ComboBox thời gian
             cboTimeSelection.Items.AddRange(new string[] { "NGAY", "THANG", "QUY", "NAM" });
             cboTimeSelection.SelectedIndex = 0;
 
             // Load mã chi nhánh từ CSDL
-            List<string> branchIds = Branch.GetBranchIds();
-            if (branchIds.Count > 0)
-            {
-                cboBranchId.Items.Clear(); // Xóa dữ liệu cũ nếu có
-                cboBranchId.Items.AddRange(branchIds.ToArray());
-                cboBranchId.SelectedIndex = 0; // Chọn mục đầu tiên
-            }
-            else
-            {
-                MessageBox.Show("Không có chi nhánh nào được tìm thấy.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            //List<string> months = Branch.GetMonths();
-            //if (months == null || months.Count == 0)
+            //List<string> branchIds = Branch.GetBranchIds();
+            //if (branchIds.Count > 0)
             //{
-            //    MessageBox.Show("Danh sách tháng rỗng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
+            //    cboBranchId.Items.Clear(); // Xóa dữ liệu cũ nếu có
+            //    cboBranchId.Items.AddRange(branchIds.ToArray());
+            //    cboBranchId.SelectedIndex = 0; // Chọn mục đầu tiên
             //}
-            //cboMonth.Items.Clear();
-            //cboMonth.Items.AddRange(months.ToArray());
-            //cboMonth.SelectedIndex = 0; // Chọn mục đầu tiên
+            //else
+            //{
+            //    MessageBox.Show("Không có chi nhánh nào được tìm thấy.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+
+            List<string> months = Branch.GetMonths();
+            if (months == null || months.Count == 0)
+            {
+                MessageBox.Show("Danh sách tháng rỗng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            cboMonth.Items.Clear();
+            cboMonth.Items.AddRange(months.ToArray());
+            cboMonth.SelectedIndex = 0; // Chọn mục đầu tiên
 
         }
 
 
-        private void LoadRevenueData(string timeFrame, int? month = null, int? quarter = null, int? year = null)
+        
+        private void LoadRevenueData(string timeFrame, DateTime? specificDate = null, int? month = null, int? quarter = null, int? year = null)
         {
             // Nếu year chưa truyền vào, lấy năm từ DateTimePicker
             if (year == null)
@@ -55,13 +59,42 @@ namespace Sushi_Restaurant
             }
 
             // Lấy mã chi nhánh từ ComboBox
-            string branchId = cboBranchId.SelectedItem?.ToString();
+            //string branchId = cboBranchId.SelectedItem?.ToString();
 
             // Gọi stored procedure và truyền các tham số phù hợp
-            DataTable dt = Branch.GetRevenueReport(timeFrame, branchId, month ?? 0, year.Value, quarter ?? 0);
+            DataTable dt;
 
-            // Nếu là NGAY hoặc NAM, chỉ hiển thị tổng doanh thu
-            if (timeFrame == "NGAY" || timeFrame == "NAM")
+            if (timeFrame == "NGAY" && specificDate.HasValue)
+            {
+                // Gọi stored procedure với ngày cụ thể
+                dt = Branch.GetRevenueReport("NGAY", _branchId, null, year.Value, null, specificDate.Value);
+
+                // Debug dữ liệu trả về
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Stored Procedure không trả về dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtRevenue.Text = "0 VND";
+                    return;
+                }
+
+                // Kiểm tra cột "TongDoanhThu" có tồn tại không
+                if (!dt.Columns.Contains("TongDoanhThu"))
+                {
+                    MessageBox.Show("Cột 'TongDoanhThu' không tồn tại trong kết quả trả về.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                decimal totalRevenue = dt.Rows[0].Field<decimal?>("TongDoanhThu") ?? 0;
+                txtRevenue.Text = $"{totalRevenue:N0} VND";
+                return;
+            }
+            else
+            {
+                dt = Branch.GetRevenueReport(timeFrame, _branchId, month ?? 0, year.Value, quarter ?? 0);
+            }
+
+            // Trường hợp lấy doanh thu theo tháng, quý hoặc năm
+            if (timeFrame == "NAM")
             {
                 dgvRevenue.DataSource = null; // Ẩn DataGridView
                 dgvRevenue.Visible = false;
@@ -88,6 +121,7 @@ namespace Sushi_Restaurant
                 }
             }
         }
+
 
         private void cboTimeSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -147,7 +181,7 @@ namespace Sushi_Restaurant
         private void cboMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Xử lý logic khi người dùng chọn một tháng
-            int selectedMonth = cboMonth.SelectedIndex + 2; // Chỉ số tháng bắt đầu từ 0
+            int selectedMonth = cboMonth.SelectedIndex + 3; // Chỉ số tháng bắt đầu từ 0
             int year = dtpDate.Value.Year; // Lấy năm từ DateTimePicker
 
             // Gọi LoadRevenueData để tải dữ liệu theo tháng
@@ -156,43 +190,39 @@ namespace Sushi_Restaurant
 
 
 
+
+
         private void btnViewRevenue_Click(object sender, EventArgs e)
         {
             string selectedTime = cboTimeSelection.SelectedItem?.ToString().ToUpper();
 
-            int? month = null, quarter = null, year = null;
-
-            // Lấy năm từ DateTimePicker
-            year = dtpDate.Value.Year;
-
-            if (selectedTime == "NGAY" || selectedTime == "NAM")
+            if (selectedTime == "NGAY")
             {
-                if (selectedTime == "NGAY")
-                    LoadRevenueData("NGAY", year: year);
-                else
-                    LoadRevenueData("NAM", year: year);
+                DateTime selectedDate = dtpDate.Value.Date;
+                LoadRevenueData("NGAY", specificDate: selectedDate);
             }
             else if (selectedTime == "THANG")
             {
-                month = cboMonth.SelectedIndex + 1;
-                LoadRevenueData("THANG", month: month, year: year);
+                int selectedMonth = cboMonth.SelectedIndex + 1;
+                LoadRevenueData("THANG", month: selectedMonth, year: dtpDate.Value.Year);
             }
             else if (selectedTime == "QUY")
             {
-                quarter = cboQuarter.SelectedIndex + 1;
-                LoadRevenueData("QUY", quarter: quarter, year: year);
+                int selectedQuarter = cboQuarter.SelectedIndex + 1;
+                LoadRevenueData("QUY", quarter: selectedQuarter, year: dtpDate.Value.Year);
+            }
+            else if (selectedTime == "NAM")
+            {
+                LoadRevenueData("NAM", year: dtpDate.Value.Year);
             }
         }
 
 
-        private void cboBranchId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string branchId = cboBranchId.SelectedItem?.ToString();
-            //if (!string.IsNullOrEmpty(branchId))
-            //{
-            //    MessageBox.Show($"Mã chi nhánh được chọn: {branchId}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-        }
+
+        //private void cboBranchId_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string branchId = cboBranchId.SelectedItem?.ToString();
+        //}
 
 
 
@@ -201,6 +231,14 @@ namespace Sushi_Restaurant
             this.Close();
         }
 
-        
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            // Lấy ngày được chọn từ DateTimePicker
+            DateTime selectedDate = dtpDate.Value.Date;
+
+            // Gọi phương thức LoadRevenueData để tải doanh thu cho ngày được chọn
+            LoadRevenueData("NGAY", specificDate: selectedDate);
+        }
+
     }
 }

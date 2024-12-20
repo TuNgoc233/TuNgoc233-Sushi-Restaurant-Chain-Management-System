@@ -13,11 +13,14 @@ namespace Sushi_Restaurant
 
     internal class Branch
     {
+        public static string LoggedBranchId { get; set; }
         // Chuỗi kết nối với cơ sở dữ liệu
         public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
+
+        
 
         // Kiểm tra đăng nhập và lấy mã chi nhánh
         public static string CheckLogin(string username, string hashedPassword)
@@ -152,7 +155,7 @@ namespace Sushi_Restaurant
         }
 
         // Hàm gọi SP thống kê doanh thu
-        public static DataTable GetRevenueReport(string timeFrame, string branchId, int? month = null, int year = 0, int? quarter = null)
+        public static DataTable GetRevenueReport(string timeFrame, string branchId, int? month = null, int year = 0, int? quarter = null, DateTime? specificDate = null)
         {
             DataTable dt = new DataTable();
             string query = "SP_ThongKeDoanhThuTheoChiNhanh"; // Tên stored procedure
@@ -162,14 +165,23 @@ namespace Sushi_Restaurant
                 SqlCommand cmd = new SqlCommand(query, con)
                 {
                     CommandType = CommandType.StoredProcedure,
-                    CommandTimeout = 120
+                    //CommandTimeout = 120
                 };
 
                 // Thêm tham số cho stored procedure
                 cmd.Parameters.AddWithValue("@ThoiGian", timeFrame);
                 cmd.Parameters.AddWithValue("@MaChiNhanh", branchId ?? (object)DBNull.Value);
 
-                if (timeFrame == "THANG")
+
+                if (timeFrame == "NGAY" && specificDate.HasValue)
+                {
+                    // Lấy giá trị từ DateTimePicker
+
+                    //DateTime selectedDate = dtpDate.Value;
+                    //cmd.Parameters.AddWithValue("@NgayLap", SqlDbType.Date).Value = specificDate.Value.Date;
+                    cmd.Parameters.AddWithValue("@NgayLap", specificDate ?? (object)DBNull.Value);
+                }
+                else if (timeFrame == "THANG")
                 {
                     cmd.Parameters.AddWithValue("@Thang", month ?? 0);
                     cmd.Parameters.AddWithValue("@Nam", year);
@@ -269,18 +281,19 @@ namespace Sushi_Restaurant
         }
 
         // Lấy doanh thu công ty theo khoảng thời gian
-        public static DataTable GetRevenueReportCompany(string timeFrame)
+        public static DataTable GetRevenueReportCompany(string timeFrame, string branchId = null, DateTime? specificDate = null)
         {
             DataTable dt = new DataTable();
-            string storedProcedure = "SP_CongTyThongKeDoanhThu"; // Stored procedure trong SQL Server
+            string storedProcedure = "SP_CongTyThongKeDoanhThu";
 
             using (SqlConnection con = new SqlConnection(con_string))
             {
                 SqlCommand cmd = new SqlCommand(storedProcedure, con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // Chỉ thêm tham số @ThoiGian
                 cmd.Parameters.AddWithValue("@ThoiGian", timeFrame);
+                cmd.Parameters.AddWithValue("@MaChiNhanh", (object)branchId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@NgayLap", (object)specificDate ?? DBNull.Value);
 
                 try
                 {
@@ -294,7 +307,6 @@ namespace Sushi_Restaurant
             }
             return dt;
         }
-
 
 
     }

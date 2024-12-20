@@ -96,7 +96,7 @@ namespace Sushi_Restaurant.Admin
             // labAddress
             // 
             this.labAddress.AutoSize = true;
-            this.labAddress.Location = new System.Drawing.Point(37, 476);
+            this.labAddress.Location = new System.Drawing.Point(37, 466);
             this.labAddress.Name = "labAddress";
             this.labAddress.Size = new System.Drawing.Size(62, 23);
             this.labAddress.TabIndex = 15;
@@ -134,7 +134,7 @@ namespace Sushi_Restaurant.Admin
             this.texAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texAddress.Location = new System.Drawing.Point(39, 503);
+            this.texAddress.Location = new System.Drawing.Point(39, 493);
             this.texAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texAddress.Name = "texAddress";
             this.texAddress.PasswordChar = '\0';
@@ -155,7 +155,7 @@ namespace Sushi_Restaurant.Admin
             this.texPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texPhone.Location = new System.Drawing.Point(531, 383);
+            this.texPhone.Location = new System.Drawing.Point(531, 373);
             this.texPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texPhone.Name = "texPhone";
             this.texPhone.PasswordChar = '\0';
@@ -167,7 +167,7 @@ namespace Sushi_Restaurant.Admin
             // labRole
             // 
             this.labRole.AutoSize = true;
-            this.labRole.Location = new System.Drawing.Point(37, 333);
+            this.labRole.Location = new System.Drawing.Point(37, 346);
             this.labRole.Name = "labRole";
             this.labRole.Size = new System.Drawing.Size(74, 23);
             this.labRole.TabIndex = 24;
@@ -183,7 +183,7 @@ namespace Sushi_Restaurant.Admin
             this.texRole.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.texRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.texRole.ItemHeight = 30;
-            this.texRole.Location = new System.Drawing.Point(41, 382);
+            this.texRole.Location = new System.Drawing.Point(41, 372);
             this.texRole.Name = "texRole";
             this.texRole.Size = new System.Drawing.Size(140, 36);
             this.texRole.TabIndex = 25;
@@ -278,7 +278,7 @@ namespace Sushi_Restaurant.Admin
             // 
             // Adjust_Employee
             // 
-            this.ClientSize = new System.Drawing.Size(853, 685);
+            this.ClientSize = new System.Drawing.Size(853, 668);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2RadioButton2);
             this.Controls.Add(this.guna2RadioButton1);

@@ -13,29 +13,116 @@ namespace Sushi_Restaurant
         public company_revenue()
         {
             InitializeComponent();
+            LoadBranchIds();
 
             // Thêm các mục vào ComboBox thời gian
             cboTimeSelection.Items.AddRange(new string[] { "NGAY", "THANG", "QUY", "NAM" });
             cboTimeSelection.SelectedIndex = 0;
         }
 
-        private void LoadRevenueData(string timeFrame, int? month = null, int? quarter = null, int? year = null)
+        private void LoadRevenueData(string timeFrame, string branchId = null, int? month = null, int? quarter = null, int? year = null, DateTime? specificDate = null)
         {
-            // Gọi stored procedure và chỉ truyền tham số ThoiGian
-            DataTable dt = Branch.GetRevenueReportCompany(timeFrame);
-
-            // Hiển thị dữ liệu vào DataGridView
-            if (dt.Rows.Count > 0)
+            if (year == null)
             {
-                dgvRevenue.DataSource = dt;  // Hiển thị tất cả dữ liệu chi nhánh vào DataGridView
-                dgvRevenue.Visible = true;
+                year = DateTime.Now.Year; // Mặc định là năm hiện tại
             }
-            else
+
+            // Gọi Stored Procedure để lấy dữ liệu
+            DataTable dt = Branch.GetRevenueReportCompany(timeFrame, branchId, specificDate);
+
+            // Xử lý khi chọn "Tất cả" chi nhánh và lọc theo ngày
+            if (timeFrame == "NGAY" && specificDate.HasValue && branchId == null)
             {
-                dgvRevenue.DataSource = null;  // Nếu không có dữ liệu, ẩn DataGridView
-                MessageBox.Show("Không có dữ liệu cho thời gian đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var groupedRows = dt.AsEnumerable()
+                    .GroupBy(row => row.Field<string>("MaChiNhanh"))
+                    .Select(group => new
+                    {
+                        MaChiNhanh = group.Key,
+                        Ngay = specificDate.Value.ToString("dd/MM/yyyy"),
+                        TongDoanhThu = group.Sum(row => row.Field<decimal>("TongDoanhThu"))
+                    }).ToList();
+
+                // Chuyển dữ liệu nhóm vào DataTable
+                DataTable resultTable = new DataTable();
+                resultTable.Columns.Add("MaChiNhanh", typeof(string));
+                resultTable.Columns.Add("Ngay", typeof(string));
+                resultTable.Columns.Add("TongDoanhThu", typeof(decimal));
+
+                foreach (var row in groupedRows)
+                {
+                    resultTable.Rows.Add(row.MaChiNhanh, row.Ngay, row.TongDoanhThu);
+                }
+
+                dt = resultTable; // Gán kết quả vào DataTable chính
+            }
+
+            // Lọc theo tháng
+            if (month.HasValue)
+            {
+                var filteredRows = dt.AsEnumerable()
+                    .Where(row => row.Field<int>("Thang") == month.Value);
+
+                if (filteredRows.Any())
+                {
+                    dt = filteredRows.CopyToDataTable();
+                }
+                else
+                {
+                    MessageBox.Show($"Không tìm thấy dữ liệu cho tháng {month.Value}.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvRevenue.DataSource = null;
+                    txtRevenue.Text = "0 VND";
+                    return;
+                }
+            }
+
+            // Lọc theo quý
+            if (quarter.HasValue)
+            {
+                var filteredRows = dt.AsEnumerable()
+                    .Where(row => !row.IsNull("Quy") && Convert.ToInt32(row.Field<decimal>("Quy")) == quarter.Value);
+
+                if (filteredRows.Any())
+                {
+                    dt = filteredRows.CopyToDataTable();
+                }
+                else
+                {
+                    MessageBox.Show($"Không tìm thấy dữ liệu cho quý {quarter.Value}.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvRevenue.DataSource = null;
+                    txtRevenue.Text = "0 VND";
+                    return;
+                }
+            }
+
+            // Hiển thị dữ liệu lên DataGridView
+            dgvRevenue.DataSource = dt;
+
+            // Thêm cột "Mã Chi Nhánh" nếu chưa có
+            //if (!dgvRevenue.Columns.Contains("MaChiNhanh"))
+            //{
+            //    dgvRevenue.Columns.Insert(0, new DataGridViewTextBoxColumn
+            //    {
+            //        Name = "MaChiNhanh",
+            //        HeaderText = "Mã Chi Nhánh",
+            //        DataPropertyName = "MaChiNhanh"
+            //    });
+            //}
+
+            // Tính tổng doanh thu
+            decimal totalRevenue = dt.AsEnumerable()
+                .Where(row => !row.IsNull("TongDoanhThu"))
+                .Sum(row => row.Field<decimal>("TongDoanhThu"));
+
+            txtRevenue.Text = $"{totalRevenue:N0} VND";
+
+            // Hiển thị thông báo nếu không có dữ liệu
+            if (dt.Rows.Count == 0)
+            {
+                //MessageBox.Show("Không có dữ liệu để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtRevenue.Text = "0 VND";
             }
         }
+
 
         private void cboTimeSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -90,53 +177,118 @@ namespace Sushi_Restaurant
         }
 
 
-        private void cboQuarter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Xử lý logic khi người dùng chọn một quý
-            int selectedQuarter = cboQuarter.SelectedIndex + 1; // Quý bắt đầu từ 1
-            int year = dtpDate.Value.Year; // Lấy năm từ DateTimePicker
-
-            // Gọi LoadRevenueData để tải dữ liệu theo quý
-            LoadRevenueData("QUY", quarter: selectedQuarter, year: year);
-        }
-
         private void cboMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Xử lý logic khi người dùng chọn một tháng
-            int selectedMonth = cboMonth.SelectedIndex + 1; // Chỉ số tháng bắt đầu từ 0
-            int year = dtpDate.Value.Year; // Lấy năm từ DateTimePicker
-
-            // Gọi LoadRevenueData để tải dữ liệu theo tháng
-            LoadRevenueData("THANG", month: selectedMonth, year: year);
+            int selectedMonth = cboMonth.SelectedIndex + 3; // 
+            LoadRevenueData("THANG", month: selectedMonth);
         }
+
+        private void cboQuarter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedQuarter = cboQuarter.SelectedIndex + 1; // Chọn quý (bắt đầu từ 1)
+            LoadRevenueData("QUY", quarter: selectedQuarter);
+        }
+
 
         private void btnViewRevenue_Click(object sender, EventArgs e)
         {
             string selectedTime = cboTimeSelection.SelectedItem?.ToString().ToUpper();
 
             int? month = null, quarter = null, year = null;
+            DateTime? specificDate = null;
 
-            // Lấy năm từ DateTimePicker
+            // Lấy năm và ngày cụ thể từ DateTimePicker
             year = dtpDate.Value.Year;
+            specificDate = dtpDate.Value.Date;
 
-            if (selectedTime == "NGAY" || selectedTime == "NAM")
+            // Kiểm tra chi nhánh được chọn
+            string selectedBranch = cboBranch.SelectedItem?.ToString();
+
+            if (selectedTime == "NGAY")
             {
-                if (selectedTime == "NGAY")
-                    LoadRevenueData("NGAY", year: year);
+                if (selectedBranch == "Tất cả")
+                {
+                    // Hiển thị tổng doanh thu cho tất cả chi nhánh trong ngày đã chọn
+                    LoadRevenueData("NGAY", branchId: null, specificDate: specificDate);
+                }
                 else
-                    LoadRevenueData("NAM", year: year);
+                {
+                    // Hiển thị doanh thu cho chi nhánh cụ thể trong ngày đã chọn
+                    LoadRevenueData("NGAY", branchId: selectedBranch, specificDate: specificDate);
+                }
             }
             else if (selectedTime == "THANG")
             {
-                month = cboMonth.SelectedIndex + 1;
-                LoadRevenueData("THANG", month: month, year: year);
+                month = cboMonth.SelectedIndex + 3; // Chỉ số tháng bắt đầu từ 0
+                if (selectedBranch == "Tất cả")
+                {
+                    LoadRevenueData("THANG", branchId: null, month: month, year: year);
+                }
+                else
+                {
+                    LoadRevenueData("THANG", branchId: selectedBranch, month: month, year: year);
+                }
             }
             else if (selectedTime == "QUY")
             {
-                quarter = cboQuarter.SelectedIndex + 1;
-                LoadRevenueData("QUY", quarter: quarter, year: year);
+                quarter = cboQuarter.SelectedIndex + 1; // Chỉ số quý bắt đầu từ 1
+                if (selectedBranch == "Tất cả")
+                {
+                    LoadRevenueData("QUY", branchId: null, quarter: quarter, year: year);
+                }
+                else
+                {
+                    LoadRevenueData("QUY", branchId: selectedBranch, quarter: quarter, year: year);
+                }
+            }
+            else if (selectedTime == "NAM")
+            {
+                if (selectedBranch == "Tất cả")
+                {
+                    LoadRevenueData("NAM", branchId: null, year: year);
+                }
+                else
+                {
+                    LoadRevenueData("NAM", branchId: selectedBranch, year: year);
+                }
             }
         }
+
+
+        private void LoadBranchIds()
+        {
+            try
+            {
+                List<string> branchIds = Branch.GetBranchIds();
+                branchIds.Insert(0, "Tất cả"); // Thêm tùy chọn "Tất cả" để hiển thị tất cả chi nhánh
+                cboBranch.DataSource = branchIds;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải danh sách chi nhánh: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cboBranch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedBranch = cboBranch.SelectedItem?.ToString();
+
+            if (selectedBranch == "Tất cả")
+            {
+                LoadRevenueData(timeFrame: "NGAY"); // Hiển thị doanh thu của tất cả chi nhánh
+            }
+            else
+            {
+                LoadRevenueData(timeFrame: "NGAY", branchId: selectedBranch);
+            }
+        }
+
+        private void btnViewByDate_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dtpDate.Value.Date;
+            LoadRevenueData(timeFrame: "NGAY", branchId: cboBranch.SelectedItem.ToString());
+        }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {

@@ -30,40 +30,42 @@
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_Food = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Btn_Bill = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Btn_Customer = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Btn_Employee = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btn_Statistic = new Guna.UI2.WinForms.Guna2GradientButton();
             this.lblTotalRevenue = new System.Windows.Forms.Label();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lblTotalInvoices = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lblTotalCustomers = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lblTotalEmployees = new System.Windows.Forms.Label();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.MinimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.gunaExit = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.btn_Statistic = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2CustomGradientPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             this.guna2CustomGradientPanel4.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -97,17 +99,6 @@
             this.btn_Food.Text = "Món ăn";
             this.btn_Food.Click += new System.EventHandler(this.btn_Food_Click);
             // 
-            // guna2PictureBox3
-            // 
-            this.guna2PictureBox3.Image = global::Sushi_Restaurant.Properties.Resources.Screenshot_2024_11_29_063242;
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(50, 70);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(97, 86);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox3.TabIndex = 1;
-            this.guna2PictureBox3.TabStop = false;
-            // 
             // Btn_Bill
             // 
             this.Btn_Bill.AutoRoundedCorners = true;
@@ -120,7 +111,7 @@
             this.Btn_Bill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Btn_Bill.Font = new System.Drawing.Font("Segoe UI", 13.8F);
             this.Btn_Bill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.Btn_Bill.Location = new System.Drawing.Point(88, 13);
+            this.Btn_Bill.Location = new System.Drawing.Point(71, 13);
             this.Btn_Bill.Name = "Btn_Bill";
             this.Btn_Bill.Size = new System.Drawing.Size(171, 45);
             this.Btn_Bill.TabIndex = 3;
@@ -198,32 +189,39 @@
             this.guna2CustomGradientPanel5.Size = new System.Drawing.Size(245, 187);
             this.guna2CustomGradientPanel5.TabIndex = 0;
             // 
+            // btn_Statistic
+            // 
+            this.btn_Statistic.AutoRoundedCorners = true;
+            this.btn_Statistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btn_Statistic.BorderRadius = 21;
+            this.btn_Statistic.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Statistic.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Statistic.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Statistic.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Statistic.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Statistic.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.btn_Statistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btn_Statistic.Location = new System.Drawing.Point(71, 13);
+            this.btn_Statistic.Name = "btn_Statistic";
+            this.btn_Statistic.Size = new System.Drawing.Size(162, 45);
+            this.btn_Statistic.TabIndex = 3;
+            this.btn_Statistic.Text = "Doanh thu";
+            this.btn_Statistic.Click += new System.EventHandler(this.btn_Statistic_Click);
+            // 
             // lblTotalRevenue
             // 
             this.lblTotalRevenue.AutoSize = true;
             this.lblTotalRevenue.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotalRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalRevenue.Location = new System.Drawing.Point(3, 95);
+            this.lblTotalRevenue.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRevenue.Location = new System.Drawing.Point(34, 95);
             this.lblTotalRevenue.Name = "lblTotalRevenue";
-            this.lblTotalRevenue.Size = new System.Drawing.Size(147, 54);
+            this.lblTotalRevenue.Size = new System.Drawing.Size(178, 46);
             this.lblTotalRevenue.TabIndex = 3;
             this.lblTotalRevenue.Text = "Doanh thu";
             // 
-            // guna2PictureBox4
-            // 
-            this.guna2PictureBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.guna2PictureBox4.Image = global::Sushi_Restaurant.Properties.Resources.icon_money;
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(3, 3);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(62, 69);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox4.TabIndex = 0;
-            this.guna2PictureBox4.TabStop = false;
-            this.guna2PictureBox4.Click += new System.EventHandler(this.guna2PictureBox1_Click);
-            // 
             // guna2CustomGradientPanel4
             // 
+            this.guna2CustomGradientPanel4.Controls.Add(this.guna2PictureBox5);
             this.guna2CustomGradientPanel4.Controls.Add(this.Btn_Bill);
             this.guna2CustomGradientPanel4.Controls.Add(this.lblTotalInvoices);
             this.guna2CustomGradientPanel4.Location = new System.Drawing.Point(596, 10);
@@ -235,10 +233,10 @@
             // 
             this.lblTotalInvoices.AutoSize = true;
             this.lblTotalInvoices.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotalInvoices.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalInvoices.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalInvoices.Location = new System.Drawing.Point(55, 95);
             this.lblTotalInvoices.Name = "lblTotalInvoices";
-            this.lblTotalInvoices.Size = new System.Drawing.Size(147, 54);
+            this.lblTotalInvoices.Size = new System.Drawing.Size(149, 46);
             this.lblTotalInvoices.TabIndex = 3;
             this.lblTotalInvoices.Text = "Hoá đơn";
             // 
@@ -256,25 +254,12 @@
             // 
             this.lblTotalCustomers.AutoSize = true;
             this.lblTotalCustomers.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotalCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCustomers.Location = new System.Drawing.Point(62, 95);
+            this.lblTotalCustomers.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCustomers.Location = new System.Drawing.Point(24, 95);
             this.lblTotalCustomers.Name = "lblTotalCustomers";
-            this.lblTotalCustomers.Size = new System.Drawing.Size(147, 54);
+            this.lblTotalCustomers.Size = new System.Drawing.Size(195, 46);
             this.lblTotalCustomers.TabIndex = 1;
             this.lblTotalCustomers.Text = "Khách hàng";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources._2;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(62, 69);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // guna2CustomGradientPanel2
             // 
@@ -289,27 +274,14 @@
             // lblTotalEmployees
             // 
             this.lblTotalEmployees.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotalEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalEmployees.Location = new System.Drawing.Point(56, 95);
+            this.lblTotalEmployees.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEmployees.Location = new System.Drawing.Point(31, 95);
             this.lblTotalEmployees.MaximumSize = new System.Drawing.Size(200, 200);
             this.lblTotalEmployees.Name = "lblTotalEmployees";
-            this.lblTotalEmployees.Size = new System.Drawing.Size(149, 70);
+            this.lblTotalEmployees.Size = new System.Drawing.Size(186, 70);
             this.lblTotalEmployees.TabIndex = 1;
-            this.lblTotalEmployees.Text = "label1";
+            this.lblTotalEmployees.Text = "Nhân viên";
             this.lblTotalEmployees.Click += new System.EventHandler(this.lblTotalEmployees_Click);
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.guna2PictureBox2.Image = global::Sushi_Restaurant.Properties.Resources.ICON_Nhan_Vien;
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(3, 0);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(62, 69);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox2.TabIndex = 0;
-            this.guna2PictureBox2.TabStop = false;
-            this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // guna2CustomGradientPanel1
             // 
@@ -359,24 +331,67 @@
             this.gunaExit.TabIndex = 0;
             this.gunaExit.Click += new System.EventHandler(this.exit);
             // 
-            // btn_Statistic
+            // guna2PictureBox4
             // 
-            this.btn_Statistic.AutoRoundedCorners = true;
-            this.btn_Statistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btn_Statistic.BorderRadius = 21;
-            this.btn_Statistic.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Statistic.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Statistic.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Statistic.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Statistic.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Statistic.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.btn_Statistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btn_Statistic.Location = new System.Drawing.Point(62, 13);
-            this.btn_Statistic.Name = "btn_Statistic";
-            this.btn_Statistic.Size = new System.Drawing.Size(171, 45);
-            this.btn_Statistic.TabIndex = 3;
-            this.btn_Statistic.Text = "Doanh thu";
-            //this.btn_Statistic.Click += new System.EventHandler(this.btn_Statistic_Click);
+            this.guna2PictureBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.guna2PictureBox4.Image = global::Sushi_Restaurant.Properties.Resources.icon_money;
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(62, 69);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 0;
+            this.guna2PictureBox4.TabStop = false;
+            this.guna2PictureBox4.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            // 
+            // guna2PictureBox5
+            // 
+            this.guna2PictureBox5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.guna2PictureBox5.Image = global::Sushi_Restaurant.Properties.Resources.bill;
+            this.guna2PictureBox5.ImageRotate = 0F;
+            this.guna2PictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.guna2PictureBox5.Name = "guna2PictureBox5";
+            this.guna2PictureBox5.Size = new System.Drawing.Size(62, 69);
+            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox5.TabIndex = 4;
+            this.guna2PictureBox5.TabStop = false;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources._2;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(62, 69);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.guna2PictureBox2.Image = global::Sushi_Restaurant.Properties.Resources.ICON_Nhan_Vien;
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(3, 0);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(62, 69);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox2.TabIndex = 0;
+            this.guna2PictureBox2.TabStop = false;
+            this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.Image = global::Sushi_Restaurant.Properties.Resources.Screenshot_2024_11_29_063242;
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(50, 70);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Size = new System.Drawing.Size(97, 86);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox3.TabIndex = 1;
+            this.guna2PictureBox3.TabStop = false;
             // 
             // Brand
             // 
@@ -391,20 +406,21 @@
             this.Name = "Brand";
             this.Text = "Brand";
             this.guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2CustomGradientPanel5.ResumeLayout(false);
             this.guna2CustomGradientPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             this.guna2CustomGradientPanel4.ResumeLayout(false);
             this.guna2CustomGradientPanel4.PerformLayout();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2CustomGradientPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -436,5 +452,6 @@
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Food;
         private Guna.UI2.WinForms.Guna2GradientButton btn_Statistic;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
     }
 }

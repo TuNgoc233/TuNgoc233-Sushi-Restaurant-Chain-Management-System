@@ -41,38 +41,39 @@ namespace Sushi_Restaurant
             this.dgvRevenue = new System.Windows.Forms.DataGridView();
             this.cboMonth = new System.Windows.Forms.ComboBox();
             this.cboQuarter = new System.Windows.Forms.ComboBox();
-            this.cboBranchId = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labQuater = new System.Windows.Forms.Label();
             this.labMonth = new System.Windows.Forms.Label();
-            this.labBranch = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Crimson;
+            this.lblTitle.Location = new System.Drawing.Point(113, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(221, 37);
+            this.lblTitle.Size = new System.Drawing.Size(379, 41);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Xem Doanh Thu";
+            this.lblTitle.Text = "Xem Doanh Thu Chi Nhánh";
             // 
             // lblTimeSelection
             // 
             this.lblTimeSelection.AutoSize = true;
-            this.lblTimeSelection.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeSelection.Location = new System.Drawing.Point(150, 56);
+            this.lblTimeSelection.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeSelection.Location = new System.Drawing.Point(168, 58);
             this.lblTimeSelection.Name = "lblTimeSelection";
-            this.lblTimeSelection.Size = new System.Drawing.Size(96, 17);
+            this.lblTimeSelection.Size = new System.Drawing.Size(109, 20);
             this.lblTimeSelection.TabIndex = 1;
             this.lblTimeSelection.Text = "Chọn thời gian:";
             // 
             // cboTimeSelection
             // 
             this.cboTimeSelection.FormattingEnabled = true;
-            this.cboTimeSelection.Location = new System.Drawing.Point(13, 76);
+            this.cboTimeSelection.Location = new System.Drawing.Point(13, 138);
             this.cboTimeSelection.Name = "cboTimeSelection";
             this.cboTimeSelection.Size = new System.Drawing.Size(121, 24);
             this.cboTimeSelection.TabIndex = 2;
@@ -81,14 +82,15 @@ namespace Sushi_Restaurant
             // dtpDate
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(153, 76);
+            this.dtpDate.Location = new System.Drawing.Point(171, 80);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(200, 22);
             this.dtpDate.TabIndex = 3;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
             // 
             // txtRevenue
             // 
-            this.txtRevenue.Location = new System.Drawing.Point(432, 25);
+            this.txtRevenue.Location = new System.Drawing.Point(478, 140);
             this.txtRevenue.Name = "txtRevenue";
             this.txtRevenue.ReadOnly = true;
             this.txtRevenue.Size = new System.Drawing.Size(200, 22);
@@ -98,7 +100,7 @@ namespace Sushi_Restaurant
             // 
             this.lblRevenue.AutoSize = true;
             this.lblRevenue.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblRevenue.Location = new System.Drawing.Point(275, 23);
+            this.lblRevenue.Location = new System.Drawing.Point(348, 140);
             this.lblRevenue.Name = "lblRevenue";
             this.lblRevenue.Size = new System.Drawing.Size(96, 23);
             this.lblRevenue.TabIndex = 5;
@@ -106,17 +108,21 @@ namespace Sushi_Restaurant
             // 
             // btnViewRevenue
             // 
-            this.btnViewRevenue.Location = new System.Drawing.Point(12, 487);
+            this.btnViewRevenue.BackColor = System.Drawing.Color.White;
+            this.btnViewRevenue.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewRevenue.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnViewRevenue.Location = new System.Drawing.Point(13, 488);
             this.btnViewRevenue.Name = "btnViewRevenue";
-            this.btnViewRevenue.Size = new System.Drawing.Size(120, 30);
+            this.btnViewRevenue.Size = new System.Drawing.Size(151, 30);
             this.btnViewRevenue.TabIndex = 6;
             this.btnViewRevenue.Text = "Xem Doanh Thu";
-            this.btnViewRevenue.UseVisualStyleBackColor = true;
+            this.btnViewRevenue.UseVisualStyleBackColor = false;
             this.btnViewRevenue.Click += new System.EventHandler(this.btnViewRevenue_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(578, 487);
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(558, 487);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(120, 30);
             this.btnClose.TabIndex = 7;
@@ -130,7 +136,7 @@ namespace Sushi_Restaurant
             this.dgvRevenue.Location = new System.Drawing.Point(13, 193);
             this.dgvRevenue.Name = "dgvRevenue";
             this.dgvRevenue.RowHeadersWidth = 51;
-            this.dgvRevenue.Size = new System.Drawing.Size(693, 288);
+            this.dgvRevenue.Size = new System.Drawing.Size(665, 288);
             this.dgvRevenue.TabIndex = 1;
             // 
             // cboMonth
@@ -153,62 +159,54 @@ namespace Sushi_Restaurant
             this.cboQuarter.Visible = false;
             this.cboQuarter.SelectedIndexChanged += new System.EventHandler(this.cboQuarter_SelectedIndexChanged);
             // 
-            // cboBranchId
-            // 
-            this.cboBranchId.Location = new System.Drawing.Point(153, 139);
-            this.cboBranchId.Name = "cboBranchId";
-            this.cboBranchId.Size = new System.Drawing.Size(121, 24);
-            this.cboBranchId.TabIndex = 3;
-            this.cboBranchId.SelectedIndexChanged += new System.EventHandler(this.cboBranchId_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 56);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 17);
+            this.label1.Size = new System.Drawing.Size(107, 20);
             this.label1.TabIndex = 8;
             this.label1.Text = "Thống kê theo:";
             // 
             // labQuater
             // 
             this.labQuater.AutoSize = true;
-            this.labQuater.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labQuater.Location = new System.Drawing.Point(398, 58);
+            this.labQuater.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labQuater.Location = new System.Drawing.Point(397, 58);
             this.labQuater.Name = "labQuater";
-            this.labQuater.Size = new System.Drawing.Size(31, 17);
+            this.labQuater.Size = new System.Drawing.Size(35, 20);
             this.labQuater.TabIndex = 9;
             this.labQuater.Text = "Quý";
             // 
             // labMonth
             // 
             this.labMonth.AutoSize = true;
-            this.labMonth.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labMonth.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labMonth.Location = new System.Drawing.Point(555, 58);
             this.labMonth.Name = "labMonth";
-            this.labMonth.Size = new System.Drawing.Size(44, 17);
+            this.labMonth.Size = new System.Drawing.Size(50, 20);
             this.labMonth.TabIndex = 10;
             this.labMonth.Text = "Tháng";
             // 
-            // labBranch
+            // guna2PictureBox1
             // 
-            this.labBranch.AutoSize = true;
-            this.labBranch.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labBranch.Location = new System.Drawing.Point(27, 140);
-            this.labBranch.Name = "labBranch";
-            this.labBranch.Size = new System.Drawing.Size(89, 23);
-            this.labBranch.TabIndex = 11;
-            this.labBranch.Text = "Chi nhánh";
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.logo;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(12, 9);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(95, 88);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 11;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // branch_revenue
             // 
-            this.ClientSize = new System.Drawing.Size(710, 541);
-            this.Controls.Add(this.labBranch);
+            this.ClientSize = new System.Drawing.Size(696, 530);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.labMonth);
             this.Controls.Add(this.labQuater);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cboBranchId);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnViewRevenue);
             this.Controls.Add(this.lblRevenue);
@@ -223,6 +221,7 @@ namespace Sushi_Restaurant
             this.Name = "branch_revenue";
             this.Text = "Doanh Thu";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,10 +241,11 @@ namespace Sushi_Restaurant
         private DataGridView dgvRevenue;
         private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.ComboBox cboQuarter;
-        private System.Windows.Forms.ComboBox cboBranchId;
+        //private System.Windows.Forms.ComboBox cboBranchId;
         private Label label1;
         private Label labQuater;
         private Label labMonth;
-        private Label labBranch;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        //private Label labBranch;
     }
 }

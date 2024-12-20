@@ -44,12 +44,15 @@
             this.lblSlowestSelling = new System.Windows.Forms.Label();
             this.txtSlowestSelling = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.groupBoxFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxFilters
             // 
+            this.groupBoxFilters.Controls.Add(this.guna2PictureBox1);
             this.groupBoxFilters.Controls.Add(this.dtpStartDate);
             this.groupBoxFilters.Controls.Add(this.dtpEndDate);
             this.groupBoxFilters.Controls.Add(this.cboBranch);
@@ -71,43 +74,44 @@
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(120, 37);
+            this.dtpStartDate.Location = new System.Drawing.Point(270, 37);
             this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(265, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(188, 22);
             this.dtpStartDate.TabIndex = 0;
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(573, 37);
+            this.dtpEndDate.Location = new System.Drawing.Point(668, 39);
             this.dtpEndDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(265, 22);
+            this.dtpEndDate.Size = new System.Drawing.Size(194, 22);
             this.dtpEndDate.TabIndex = 1;
             // 
             // cboBranch
             // 
             this.cboBranch.FormattingEnabled = true;
-            this.cboBranch.Location = new System.Drawing.Point(120, 86);
+            this.cboBranch.Location = new System.Drawing.Point(270, 86);
             this.cboBranch.Margin = new System.Windows.Forms.Padding(4);
             this.cboBranch.Name = "cboBranch";
-            this.cboBranch.Size = new System.Drawing.Size(265, 24);
+            this.cboBranch.Size = new System.Drawing.Size(188, 24);
             this.cboBranch.TabIndex = 2;
             this.cboBranch.SelectedIndexChanged += new System.EventHandler(this.cboBranch_SelectedIndexChanged);
             // 
             // cboRegion
             // 
             this.cboRegion.FormattingEnabled = true;
-            this.cboRegion.Location = new System.Drawing.Point(573, 86);
+            this.cboRegion.Location = new System.Drawing.Point(668, 86);
             this.cboRegion.Margin = new System.Windows.Forms.Padding(4);
             this.cboRegion.Name = "cboRegion";
-            this.cboRegion.Size = new System.Drawing.Size(265, 24);
+            this.cboRegion.Size = new System.Drawing.Size(194, 24);
             this.cboRegion.TabIndex = 3;
             this.cboRegion.SelectedIndexChanged += new System.EventHandler(this.cboRegion_SelectedIndexChanged);
             // 
             // btnGenerateReport
             // 
-            this.btnGenerateReport.Location = new System.Drawing.Point(867, 62);
+            this.btnGenerateReport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateReport.Location = new System.Drawing.Point(880, 111);
             this.btnGenerateReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerateReport.Name = "btnGenerateReport";
             this.btnGenerateReport.Size = new System.Drawing.Size(133, 37);
@@ -119,40 +123,44 @@
             // lblFromDate
             // 
             this.lblFromDate.AutoSize = true;
-            this.lblFromDate.Location = new System.Drawing.Point(27, 37);
+            this.lblFromDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFromDate.Location = new System.Drawing.Point(183, 37);
             this.lblFromDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(59, 16);
+            this.lblFromDate.Size = new System.Drawing.Size(65, 20);
             this.lblFromDate.TabIndex = 5;
             this.lblFromDate.Text = "Từ ngày:";
             // 
             // lblToDate
             // 
             this.lblToDate.AutoSize = true;
-            this.lblToDate.Location = new System.Drawing.Point(467, 37);
+            this.lblToDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblToDate.Location = new System.Drawing.Point(583, 39);
             this.lblToDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(67, 16);
+            this.lblToDate.Size = new System.Drawing.Size(75, 20);
             this.lblToDate.TabIndex = 6;
             this.lblToDate.Text = "Đến ngày:";
             // 
             // lblBranch
             // 
             this.lblBranch.AutoSize = true;
-            this.lblBranch.Location = new System.Drawing.Point(27, 86);
+            this.lblBranch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBranch.Location = new System.Drawing.Point(183, 90);
             this.lblBranch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBranch.Name = "lblBranch";
-            this.lblBranch.Size = new System.Drawing.Size(68, 16);
+            this.lblBranch.Size = new System.Drawing.Size(77, 20);
             this.lblBranch.TabIndex = 7;
             this.lblBranch.Text = "Chi nhánh:";
             // 
             // lblRegion
             // 
             this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(467, 86);
+            this.lblRegion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegion.Location = new System.Drawing.Point(583, 90);
             this.lblRegion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegion.Name = "lblRegion";
-            this.lblRegion.Size = new System.Drawing.Size(56, 16);
+            this.lblRegion.Size = new System.Drawing.Size(64, 20);
             this.lblRegion.TabIndex = 8;
             this.lblRegion.Text = "Khu vực:";
             // 
@@ -170,10 +178,11 @@
             // lblBestSelling
             // 
             this.lblBestSelling.AutoSize = true;
+            this.lblBestSelling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBestSelling.Location = new System.Drawing.Point(16, 578);
             this.lblBestSelling.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBestSelling.Name = "lblBestSelling";
-            this.lblBestSelling.Size = new System.Drawing.Size(96, 16);
+            this.lblBestSelling.Size = new System.Drawing.Size(109, 20);
             this.lblBestSelling.TabIndex = 2;
             this.lblBestSelling.Text = "Món chạy nhất:";
             // 
@@ -188,10 +197,11 @@
             // lblSlowestSelling
             // 
             this.lblSlowestSelling.AutoSize = true;
+            this.lblSlowestSelling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSlowestSelling.Location = new System.Drawing.Point(467, 578);
             this.lblSlowestSelling.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSlowestSelling.Name = "lblSlowestSelling";
-            this.lblSlowestSelling.Size = new System.Drawing.Size(126, 16);
+            this.lblSlowestSelling.Size = new System.Drawing.Size(144, 20);
             this.lblSlowestSelling.TabIndex = 4;
             this.lblSlowestSelling.Text = "Món bán chậm nhất:";
             // 
@@ -205,7 +215,8 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(920, 640);
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(922, 640);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(107, 37);
@@ -213,6 +224,17 @@
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.logo;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(159, 148);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 9;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // RevenueStatistics
             // 
@@ -234,6 +256,7 @@
             this.groupBoxFilters.ResumeLayout(false);
             this.groupBoxFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,7 +280,6 @@
         private System.Windows.Forms.Label lblSlowestSelling;
         private System.Windows.Forms.TextBox txtSlowestSelling;
         private System.Windows.Forms.Button btnClose;
-        
-
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

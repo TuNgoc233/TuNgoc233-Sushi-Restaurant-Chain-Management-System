@@ -256,7 +256,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // 
             // addFood
             // 
-            this.ClientSize = new System.Drawing.Size(853, 685);
+            this.ClientSize = new System.Drawing.Size(853, 538);
             this.Controls.Add(this.textRole);
             this.Controls.Add(this.texMark);
             this.Controls.Add(this.label2);

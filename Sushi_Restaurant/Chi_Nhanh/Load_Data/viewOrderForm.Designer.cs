@@ -38,7 +38,9 @@
             this.dgvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Load_Invoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,8 +60,9 @@
             // 
             // label2
             // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(360, 97);
-            this.label2.Size = new System.Drawing.Size(221, 32);
+            this.label2.Size = new System.Drawing.Size(274, 41);
             this.label2.Text = "Danh sách hóa đơn";
             // 
             // Load_Invoice
@@ -166,11 +169,22 @@
             this.Date.Value = new System.DateTime(2024, 12, 15, 17, 25, 24, 399);
             this.Date.ValueChanged += new System.EventHandler(this.Date_ValueChanged);
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.nha_hang;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(1, 3);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(182, 687);
+            this.guna2PictureBox1.TabIndex = 7;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // viewOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1406, 689);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.Date);
             this.Controls.Add(this.Load_Invoice);
             this.Name = "viewOrderForm";
@@ -182,7 +196,9 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.Load_Invoice, 0);
             this.Controls.SetChildIndex(this.Date, 0);
+            this.Controls.SetChildIndex(this.guna2PictureBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.Load_Invoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +213,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }
