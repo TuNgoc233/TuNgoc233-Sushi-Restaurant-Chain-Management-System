@@ -42,6 +42,7 @@
             this.dgv10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
@@ -52,6 +53,7 @@
             this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dataview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,13 +68,13 @@
             this.btnThem.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.btnThem.Image = global::Sushi_Restaurant.Properties.Resources.icon_person;
             this.btnThem.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
-            this.btnThem.Location = new System.Drawing.Point(61, 38);
+            this.btnThem.Location = new System.Drawing.Point(217, 73);
             this.btnThem.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(25, 115);
+            this.label2.Location = new System.Drawing.Point(287, 86);
             this.label2.Size = new System.Drawing.Size(124, 32);
             this.label2.Text = "Nhân viên";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -121,7 +123,7 @@
             this.Dataview.RowHeadersVisible = false;
             this.Dataview.RowHeadersWidth = 51;
             this.Dataview.RowTemplate.Height = 24;
-            this.Dataview.Size = new System.Drawing.Size(1252, 412);
+            this.Dataview.Size = new System.Drawing.Size(1252, 438);
             this.Dataview.TabIndex = 9;
             this.Dataview.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Dataview.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -135,7 +137,7 @@
             this.Dataview.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dataview.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.Dataview.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.Dataview.ThemeStyle.HeaderStyle.Height = 25;
+            this.Dataview.ThemeStyle.HeaderStyle.Height = 40;
             this.Dataview.ThemeStyle.ReadOnly = false;
             this.Dataview.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.Dataview.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -207,6 +209,16 @@
             this.dgvImage.Name = "dgvImage";
             this.dgvImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.nha_hang;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(1, 0);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(180, 649);
+            this.guna2PictureBox1.TabIndex = 10;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // guna2Button1
             // 
@@ -345,7 +357,10 @@
             // viewStaff
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1463, 648);
+            this.Controls.Add(this.guna2PictureBox1);
+            this.Controls.Add(this.Dataview);
             this.Controls.Add(this.guna2Button6);
             this.Controls.Add(this.ControlMax);
             this.Controls.Add(this.ControlMini);
@@ -355,11 +370,9 @@
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.Dataview);
             this.Name = "viewStaff";
             this.Text = "viewIDCard";
             this.Load += new System.EventHandler(this.viewStaff_Load);
-            this.Controls.SetChildIndex(this.Dataview, 0);
             this.Controls.SetChildIndex(this.guna2Button1, 0);
             this.Controls.SetChildIndex(this.guna2Button3, 0);
             this.Controls.SetChildIndex(this.guna2Button2, 0);
@@ -373,7 +386,10 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.btnThem, 0);
             this.Controls.SetChildIndex(this.guna2Button6, 0);
+            this.Controls.SetChildIndex(this.Dataview, 0);
+            this.Controls.SetChildIndex(this.guna2PictureBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.Dataview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,6 +407,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv11;
         private System.Windows.Forms.DataGridViewImageColumn dgvImage;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;

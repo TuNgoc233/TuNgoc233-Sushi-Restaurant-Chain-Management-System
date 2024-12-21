@@ -231,6 +231,9 @@
     <EmbeddedResource Include="Chi_Nhanh\Brand.resx">
       <DependentUpon>Brand.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="company_revenue.resx">
+      <DependentUpon>company_revenue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -307,12 +310,16 @@
     <None Include="Resources\icon_sua1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bill.png" />
     <Content Include="Resources\close_eyes.jpg" />
     <None Include="Resources\restaurant1.jpg" />
     <None Include="Resources\logo1.png" />
     <None Include="Resources\open_eyes1.png" />
     <None Include="Resources\close_eyes1.jpg" />
     <Content Include="Resources\logo.png" />
+    <None Include="Resources\nhahang.jpg" />
+    <Content Include="Resources\nha_hang.png" />
+    <None Include="Resources\nha_hang1.png" />
     <Content Include="Resources\open_eyes.png" />
     <Content Include="Resources\restaurant.jpg" />
   </ItemGroup>

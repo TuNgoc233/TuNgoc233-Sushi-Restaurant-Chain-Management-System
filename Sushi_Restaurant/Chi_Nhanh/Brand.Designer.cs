@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            //this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            //this.btn_Food = new Guna.UI2.WinForms.Guna2GradientButton();
+            //this.Btn_Bill = new Guna.UI2.WinForms.Guna2GradientButton();
+            //this.Btn_Customer = new Guna.UI2.WinForms.Guna2GradientButton();
+            //this.Btn_Employee = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CustomGradientPanel6 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -415,6 +420,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Brand";
             this.Text = "Brand";
+            //this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2CustomGradientPanel6.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
@@ -460,5 +468,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox gunaExit;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel6;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
     }
 }

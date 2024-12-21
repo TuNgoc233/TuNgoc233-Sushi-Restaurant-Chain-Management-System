@@ -152,7 +152,7 @@ namespace Sushi_Restaurant
 
         private void btn_Statistic_Click(object sender, EventArgs e)
         {
-            branch_revenue form = new branch_revenue();
+            branch_revenue form = new branch_revenue(_branchId);
             form.Show();
             this.Hide(); // Ẩn form đăng nhập
         }
