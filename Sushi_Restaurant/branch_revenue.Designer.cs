@@ -220,7 +220,7 @@ namespace Sushi_Restaurant
             this.Controls.Add(this.cboQuarter);
             this.Name = "branch_revenue";
             this.Text = "Doanh Thu";
-            this.Load += new System.EventHandler(this.branch_revenue_Load);
+            //this.Load += new System.EventHandler(this.branch_revenue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);

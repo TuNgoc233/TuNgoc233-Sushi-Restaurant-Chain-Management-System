@@ -34,10 +34,7 @@ namespace Sushi_Restaurant
         }
 
         // Sự kiện khi nhấn vào PictureBox (nếu cần)
-        public virtual void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-            // TODO: Thêm logic xử lý (nếu có)
-        }
+     
 
         // Sự kiện khi form được tải
         private void SampleAdd_Load(object sender, EventArgs e)

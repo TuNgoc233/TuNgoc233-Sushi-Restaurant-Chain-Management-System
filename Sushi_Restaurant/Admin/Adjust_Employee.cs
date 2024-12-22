@@ -32,7 +32,7 @@ namespace Sushi_Restaurant.Admin
 
         public override void label1_Click(object sender, EventArgs e) { }
 
-        public override void guna2PictureBox1_Click(object sender, EventArgs e) { }
+        //public override void guna2PictureBox1_Click(object sender, EventArgs e) { }
 
         public void addStaff_Load(object sender, EventArgs e)
         {

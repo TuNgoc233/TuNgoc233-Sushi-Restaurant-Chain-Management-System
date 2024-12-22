@@ -35,10 +35,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         }
 
-        public override void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
+        //public override void guna2PictureBox1_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void addStaff_Load(object sender, EventArgs e)
         {
