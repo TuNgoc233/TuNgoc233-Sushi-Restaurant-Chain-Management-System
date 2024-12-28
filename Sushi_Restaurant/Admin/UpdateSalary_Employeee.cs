@@ -11,6 +11,7 @@ namespace Sushi_Restaurant.Admin
         public UpdateSalary_Employeee()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             LoadTenBoPhan(); // Tải danh sách bộ phận khi khởi động form
         }
 
@@ -42,11 +43,6 @@ namespace Sushi_Restaurant.Admin
         private void UpdateSalaryForDepartment(string departmentName, decimal newSalary)
         {
            
-            if (newSalary < 5000000 || newSalary > 40000000)
-            {
-                MessageBox.Show("Mức lương không hợp lệ. Mức lương phải nằm trong khoảng từ 5 triệu đến 40 triệu.");
-                return;
-            }
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -105,9 +101,10 @@ namespace Sushi_Restaurant.Admin
                 return;
             }
 
-            if (!decimal.TryParse(txtRole.Text, out decimal newSalary) || newSalary <= 0)
+          
+            if (!decimal.TryParse(txtRole.Text, out decimal newSalary) || newSalary <= 5000000|| newSalary > 40000000)
             {
-                MessageBox.Show("Vui lòng nhập số tiền hợp lệ và lớn hơn 0.");
+                MessageBox.Show("Mức lương không hợp lệ. Mức lương phải nằm trong khoảng từ 5 triệu đến 40 triệu.");
                 return;
             }
 

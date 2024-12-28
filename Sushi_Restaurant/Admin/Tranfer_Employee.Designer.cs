@@ -52,6 +52,7 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(337, 110);
             this.guna2CustomGradientPanel1.TabIndex = 0;
+            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
             // label2
             // 
@@ -61,7 +62,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(20, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(296, 46);
+            this.label2.Size = new System.Drawing.Size(293, 45);
             this.label2.TabIndex = 6;
             this.label2.Text = "Chuyển Nhân Viên";
             // 
@@ -144,6 +145,7 @@
             this.guna2Button3.Size = new System.Drawing.Size(140, 45);
             this.guna2Button3.TabIndex = 7;
             this.guna2Button3.Text = "Đóng";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // BtnUpdate
             // 
@@ -161,6 +163,7 @@
             this.BtnUpdate.Size = new System.Drawing.Size(140, 45);
             this.BtnUpdate.TabIndex = 6;
             this.BtnUpdate.Text = "Cập nhật";
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // Tranfer_Employee
             // 

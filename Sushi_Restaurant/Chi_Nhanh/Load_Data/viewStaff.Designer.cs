@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Dataview = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +42,6 @@
             this.dgv10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
@@ -64,7 +60,7 @@
             this.btnThem.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.btnThem.Image = global::Sushi_Restaurant.Properties.Resources.icon_person;
             this.btnThem.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
-            this.btnThem.Location = new System.Drawing.Point(61, 86);
+            this.btnThem.Location = new System.Drawing.Point(63, 38);
             this.btnThem.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
@@ -72,7 +68,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(28, 163);
+            this.label2.Location = new System.Drawing.Point(26, 111);
             this.label2.Size = new System.Drawing.Size(124, 32);
             this.label2.Text = "Nhân viên";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -84,16 +80,16 @@
             // 
             // Dataview
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.Dataview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dataview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.Dataview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dataview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.Dataview.ColumnHeadersHeight = 40;
             this.Dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.Dataview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -107,21 +103,21 @@
             this.dgv10,
             this.dgv11,
             this.dgvImage});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dataview.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dataview.DefaultCellStyle = dataGridViewCellStyle6;
             this.Dataview.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Dataview.Location = new System.Drawing.Point(199, 163);
+            this.Dataview.Location = new System.Drawing.Point(192, 163);
             this.Dataview.Name = "Dataview";
             this.Dataview.RowHeadersVisible = false;
             this.Dataview.RowHeadersWidth = 51;
             this.Dataview.RowTemplate.Height = 24;
-            this.Dataview.Size = new System.Drawing.Size(1252, 438);
+            this.Dataview.Size = new System.Drawing.Size(1202, 438);
             this.Dataview.TabIndex = 9;
             this.Dataview.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Dataview.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -208,83 +204,20 @@
             this.dgvImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(12, 320);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(154, 45);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Món ăn";
-            this.guna2Button1.Click += new System.EventHandler(this.Btn_Staff);
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(12, 382);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(154, 45);
-            this.guna2Button3.TabIndex = 1;
-            this.guna2Button3.Text = "Hóa đơn";
-            this.guna2Button3.Click += new System.EventHandler(this.Btn_Invoice);
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(12, 443);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(154, 45);
-            this.guna2Button2.TabIndex = 2;
-            this.guna2Button2.Text = "Khách hàng";
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(12, 509);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(154, 45);
-            this.guna2Button4.TabIndex = 4;
-            this.guna2Button4.Text = "Doanh thu";
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click_1);
-            // 
             // guna2Button5
             // 
+            this.guna2Button5.AutoRoundedCorners = true;
             this.guna2Button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2Button5.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button5.BorderRadius = 21;
             this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
             this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Location = new System.Drawing.Point(12, 250);
+            this.guna2Button5.Location = new System.Drawing.Point(16, 335);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(154, 45);
             this.guna2Button5.TabIndex = 10;
@@ -296,7 +229,7 @@
             this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Exit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.Exit.IconColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(1406, 12);
+            this.Exit.Location = new System.Drawing.Point(1349, 12);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(45, 29);
             this.Exit.TabIndex = 3;
@@ -314,7 +247,7 @@
             this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
             this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button6.ForeColor = System.Drawing.Color.White;
-            this.guna2Button6.Location = new System.Drawing.Point(12, 591);
+            this.guna2Button6.Location = new System.Drawing.Point(12, 410);
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.Size = new System.Drawing.Size(158, 45);
             this.guna2Button6.TabIndex = 17;
@@ -325,30 +258,22 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1463, 648);
+            this.ClientSize = new System.Drawing.Size(1406, 689);
             this.Controls.Add(this.Dataview);
             this.Controls.Add(this.guna2Button6);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.guna2Button5);
-            this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.guna2Button3);
-            this.Controls.Add(this.guna2Button1);
             this.Name = "viewStaff";
             this.Text = "viewIDCard";
             this.Load += new System.EventHandler(this.viewStaff_Load);
-            this.Controls.SetChildIndex(this.guna2Button1, 0);
-            this.Controls.SetChildIndex(this.guna2Button3, 0);
-            this.Controls.SetChildIndex(this.guna2Button2, 0);
-            this.Controls.SetChildIndex(this.guna2Button4, 0);
             this.Controls.SetChildIndex(this.guna2Button5, 0);
             this.Controls.SetChildIndex(this.Exit, 0);
+            this.Controls.SetChildIndex(this.guna2Button6, 0);
+            this.Controls.SetChildIndex(this.Dataview, 0);
             this.Controls.SetChildIndex(this.guna2Separator1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.btnThem, 0);
-            this.Controls.SetChildIndex(this.guna2Button6, 0);
-            this.Controls.SetChildIndex(this.Dataview, 0);
             ((System.ComponentModel.ISupportInitialize)(this.Dataview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -367,10 +292,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv11;
         private System.Windows.Forms.DataGridViewImageColumn dgvImage;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2ControlBox Exit;
         private Guna.UI2.WinForms.Guna2Button guna2Button6;

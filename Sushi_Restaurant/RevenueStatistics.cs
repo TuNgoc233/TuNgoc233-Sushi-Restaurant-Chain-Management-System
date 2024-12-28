@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sushi_Restaurant.Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace Sushi_Restaurant
         public RevenueStatistics()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void RevenueStatistics_Load(object sender, EventArgs e)
@@ -28,8 +30,8 @@ namespace Sushi_Restaurant
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Brand brand = new Brand(Branch.MaChiNhanh);
-            brand.ShowDialog();
+            Admin_Manage admin = new Admin_Manage();
+            admin.Show();
         }
 
         private void btnGenerateReport_Click(object sender, EventArgs e)

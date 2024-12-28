@@ -75,6 +75,18 @@
     <Compile Include="Admin\Load_Employee.Designer.cs">
       <DependentUpon>Load_Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Load_Food.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Load_Food.Designer.cs">
+      <DependentUpon>Load_Food.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chi_Nhanh\Load_Data\PointServiceStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chi_Nhanh\Load_Data\PointServiceStaff.Designer.cs">
+      <DependentUpon>PointServiceStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Tranfer_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +203,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Load_Employee.resx">
       <DependentUpon>Load_Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Load_Food.resx">
+      <DependentUpon>Load_Food.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chi_Nhanh\Load_Data\PointServiceStaff.resx">
+      <DependentUpon>PointServiceStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Tranfer_Employee.resx">
       <DependentUpon>Tranfer_Employee.cs</DependentUpon>

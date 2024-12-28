@@ -193,7 +193,7 @@
             this.texRole.Location = new System.Drawing.Point(28, 281);
             this.texRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.texRole.Name = "texRole";
-            this.texRole.Size = new System.Drawing.Size(125, 36);
+            this.texRole.Size = new System.Drawing.Size(209, 36);
             this.texRole.TabIndex = 40;
             this.texRole.SelectedIndexChanged += new System.EventHandler(this.texRole_SelectedIndexChanged);
             // 
@@ -289,10 +289,10 @@
             this.ComboBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.ComboBoxBranch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboBoxBranch.ItemHeight = 30;
-            this.ComboBoxBranch.Location = new System.Drawing.Point(212, 284);
+            this.ComboBoxBranch.Location = new System.Drawing.Point(273, 284);
             this.ComboBoxBranch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBoxBranch.Name = "ComboBoxBranch";
-            this.ComboBoxBranch.Size = new System.Drawing.Size(125, 36);
+            this.ComboBoxBranch.Size = new System.Drawing.Size(169, 36);
             this.ComboBoxBranch.TabIndex = 44;
             this.ComboBoxBranch.SelectedIndexChanged += new System.EventHandler(this.ComboBoxBranch_SelectedIndexChanged);
             // 
@@ -300,7 +300,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(208, 259);
+            this.label3.Location = new System.Drawing.Point(269, 259);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 23);
             this.label3.TabIndex = 45;

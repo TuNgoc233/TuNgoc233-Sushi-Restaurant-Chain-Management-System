@@ -56,7 +56,7 @@ namespace Sushi_Restaurant.Admin
             // labName
             // 
             this.labName.AutoSize = true;
-            this.labName.Location = new System.Drawing.Point(16, 81);
+            this.labName.Location = new System.Drawing.Point(22, 88);
             this.labName.Name = "labName";
             this.labName.Size = new System.Drawing.Size(46, 16);
             this.labName.TabIndex = 3;
@@ -65,7 +65,7 @@ namespace Sushi_Restaurant.Admin
             // labBirth
             // 
             this.labBirth.AutoSize = true;
-            this.labBirth.Location = new System.Drawing.Point(19, 269);
+            this.labBirth.Location = new System.Drawing.Point(23, 289);
             this.labBirth.Name = "labBirth";
             this.labBirth.Size = new System.Drawing.Size(67, 16);
             this.labBirth.TabIndex = 9;
@@ -75,7 +75,7 @@ namespace Sushi_Restaurant.Admin
             // labGener
             // 
             this.labGener.AutoSize = true;
-            this.labGener.Location = new System.Drawing.Point(443, 155);
+            this.labGener.Location = new System.Drawing.Point(349, 289);
             this.labGener.Name = "labGener";
             this.labGener.Size = new System.Drawing.Size(54, 16);
             this.labGener.TabIndex = 11;
@@ -85,16 +85,17 @@ namespace Sushi_Restaurant.Admin
             // labPhone
             // 
             this.labPhone.AutoSize = true;
-            this.labPhone.Location = new System.Drawing.Point(442, 237);
+            this.labPhone.Location = new System.Drawing.Point(23, 213);
             this.labPhone.Name = "labPhone";
             this.labPhone.Size = new System.Drawing.Size(85, 16);
             this.labPhone.TabIndex = 13;
             this.labPhone.Text = "Số điện thoại";
+            this.labPhone.Click += new System.EventHandler(this.labPhone_Click);
             // 
             // labAddress
             // 
             this.labAddress.AutoSize = true;
-            this.labAddress.Location = new System.Drawing.Point(19, 345);
+            this.labAddress.Location = new System.Drawing.Point(21, 357);
             this.labAddress.Name = "labAddress";
             this.labAddress.Size = new System.Drawing.Size(47, 16);
             this.labAddress.TabIndex = 15;
@@ -111,13 +112,13 @@ namespace Sushi_Restaurant.Admin
             this.texName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texName.Location = new System.Drawing.Point(18, 108);
+            this.texName.Location = new System.Drawing.Point(24, 108);
             this.texName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texName.Name = "texName";
             this.texName.PasswordChar = '\0';
             this.texName.PlaceholderText = "";
             this.texName.SelectedText = "";
-            this.texName.Size = new System.Drawing.Size(369, 33);
+            this.texName.Size = new System.Drawing.Size(461, 33);
             this.texName.TabIndex = 16;
             // 
             // texAddress
@@ -131,13 +132,13 @@ namespace Sushi_Restaurant.Admin
             this.texAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texAddress.Location = new System.Drawing.Point(21, 365);
+            this.texAddress.Location = new System.Drawing.Point(24, 377);
             this.texAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texAddress.Name = "texAddress";
             this.texAddress.PasswordChar = '\0';
             this.texAddress.PlaceholderText = "";
             this.texAddress.SelectedText = "";
-            this.texAddress.Size = new System.Drawing.Size(701, 33);
+            this.texAddress.Size = new System.Drawing.Size(563, 33);
             this.texAddress.TabIndex = 21;
             this.texAddress.TextChanged += new System.EventHandler(this.texAddress_TextChanged);
             // 
@@ -152,13 +153,13 @@ namespace Sushi_Restaurant.Admin
             this.texPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texPhone.Location = new System.Drawing.Point(443, 264);
+            this.texPhone.Location = new System.Drawing.Point(25, 233);
             this.texPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texPhone.Name = "texPhone";
             this.texPhone.PasswordChar = '\0';
             this.texPhone.PlaceholderText = "";
             this.texPhone.SelectedText = "";
-            this.texPhone.Size = new System.Drawing.Size(267, 33);
+            this.texPhone.Size = new System.Drawing.Size(321, 33);
             this.texPhone.TabIndex = 22;
             this.texPhone.UseWaitCursor = true;
             this.texPhone.TextChanged += new System.EventHandler(this.texPhone_TextChanged);
@@ -166,7 +167,7 @@ namespace Sushi_Restaurant.Admin
             // labRole
             // 
             this.labRole.AutoSize = true;
-            this.labRole.Location = new System.Drawing.Point(20, 168);
+            this.labRole.Location = new System.Drawing.Point(22, 145);
             this.labRole.Name = "labRole";
             this.labRole.Size = new System.Drawing.Size(57, 16);
             this.labRole.TabIndex = 24;
@@ -182,10 +183,11 @@ namespace Sushi_Restaurant.Admin
             this.texRole.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.texRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.texRole.ItemHeight = 30;
-            this.texRole.Location = new System.Drawing.Point(24, 194);
+            this.texRole.Location = new System.Drawing.Point(24, 164);
             this.texRole.Name = "texRole";
-            this.texRole.Size = new System.Drawing.Size(140, 36);
+            this.texRole.Size = new System.Drawing.Size(234, 36);
             this.texRole.TabIndex = 25;
+            this.texRole.SelectedIndexChanged += new System.EventHandler(this.texRole_SelectedIndexChanged);
             // 
             // guna2DateTimePicker1
             // 
@@ -193,7 +195,7 @@ namespace Sushi_Restaurant.Admin
             this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
             this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(23, 295);
+            this.guna2DateTimePicker1.Location = new System.Drawing.Point(25, 308);
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
@@ -209,7 +211,7 @@ namespace Sushi_Restaurant.Admin
             this.guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.guna2RadioButton1.CheckedState.InnerOffset = -4;
-            this.guna2RadioButton1.Location = new System.Drawing.Point(446, 187);
+            this.guna2RadioButton1.Location = new System.Drawing.Point(352, 308);
             this.guna2RadioButton1.Name = "guna2RadioButton1";
             this.guna2RadioButton1.Size = new System.Drawing.Size(57, 20);
             this.guna2RadioButton1.TabIndex = 29;
@@ -218,6 +220,7 @@ namespace Sushi_Restaurant.Admin
             this.guna2RadioButton1.UncheckedState.BorderThickness = 2;
             this.guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton1.CheckedChanged += new System.EventHandler(this.guna2RadioButton1_CheckedChanged);
             // 
             // guna2RadioButton2
             // 
@@ -227,7 +230,7 @@ namespace Sushi_Restaurant.Admin
             this.guna2RadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2RadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.guna2RadioButton2.CheckedState.InnerOffset = -4;
-            this.guna2RadioButton2.Location = new System.Drawing.Point(577, 187);
+            this.guna2RadioButton2.Location = new System.Drawing.Point(483, 308);
             this.guna2RadioButton2.Name = "guna2RadioButton2";
             this.guna2RadioButton2.Size = new System.Drawing.Size(45, 20);
             this.guna2RadioButton2.TabIndex = 30;
@@ -236,6 +239,7 @@ namespace Sushi_Restaurant.Admin
             this.guna2RadioButton2.UncheckedState.BorderThickness = 2;
             this.guna2RadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton2.CheckedChanged += new System.EventHandler(this.guna2RadioButton2_CheckedChanged);
             // 
             // guna2CustomGradientPanel1
             // 
@@ -247,7 +251,7 @@ namespace Sushi_Restaurant.Admin
             this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(753, 67);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(621, 67);
             this.guna2CustomGradientPanel1.TabIndex = 51;
             this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
@@ -277,7 +281,7 @@ namespace Sushi_Restaurant.Admin
             this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(41, 428);
+            this.btnLuu.Location = new System.Drawing.Point(84, 436);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(125, 49);
@@ -298,7 +302,7 @@ namespace Sushi_Restaurant.Admin
             this.btnDong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.btnDong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDong.ForeColor = System.Drawing.Color.White;
-            this.btnDong.Location = new System.Drawing.Point(579, 428);
+            this.btnDong.Location = new System.Drawing.Point(394, 436);
             this.btnDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(134, 49);
@@ -309,7 +313,7 @@ namespace Sushi_Restaurant.Admin
             // Adjust_Employee
             // 
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(753, 488);
+            this.ClientSize = new System.Drawing.Size(621, 521);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.btnDong);

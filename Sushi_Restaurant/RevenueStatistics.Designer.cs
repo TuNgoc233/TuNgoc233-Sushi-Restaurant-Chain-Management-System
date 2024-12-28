@@ -44,15 +44,15 @@
             this.lblSlowestSelling = new System.Windows.Forms.Label();
             this.txtSlowestSelling = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.groupBoxFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxFilters
             // 
-            this.groupBoxFilters.Controls.Add(this.guna2PictureBox1);
             this.groupBoxFilters.Controls.Add(this.dtpStartDate);
             this.groupBoxFilters.Controls.Add(this.dtpEndDate);
             this.groupBoxFilters.Controls.Add(this.cboBranch);
@@ -62,7 +62,7 @@
             this.groupBoxFilters.Controls.Add(this.lblToDate);
             this.groupBoxFilters.Controls.Add(this.lblBranch);
             this.groupBoxFilters.Controls.Add(this.lblRegion);
-            this.groupBoxFilters.Location = new System.Drawing.Point(16, 15);
+            this.groupBoxFilters.Location = new System.Drawing.Point(19, 68);
             this.groupBoxFilters.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxFilters.Name = "groupBoxFilters";
             this.groupBoxFilters.Padding = new System.Windows.Forms.Padding(4);
@@ -166,8 +166,9 @@
             // 
             // dgvRevenue
             // 
+            this.dgvRevenue.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRevenue.Location = new System.Drawing.Point(16, 185);
+            this.dgvRevenue.Location = new System.Drawing.Point(19, 238);
             this.dgvRevenue.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRevenue.Name = "dgvRevenue";
             this.dgvRevenue.RowHeadersWidth = 51;
@@ -179,7 +180,7 @@
             // 
             this.lblBestSelling.AutoSize = true;
             this.lblBestSelling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBestSelling.Location = new System.Drawing.Point(16, 578);
+            this.lblBestSelling.Location = new System.Drawing.Point(19, 631);
             this.lblBestSelling.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBestSelling.Name = "lblBestSelling";
             this.lblBestSelling.Size = new System.Drawing.Size(109, 20);
@@ -188,7 +189,7 @@
             // 
             // txtBestSelling
             // 
-            this.txtBestSelling.Location = new System.Drawing.Point(133, 578);
+            this.txtBestSelling.Location = new System.Drawing.Point(136, 631);
             this.txtBestSelling.Margin = new System.Windows.Forms.Padding(4);
             this.txtBestSelling.Name = "txtBestSelling";
             this.txtBestSelling.Size = new System.Drawing.Size(265, 22);
@@ -198,7 +199,7 @@
             // 
             this.lblSlowestSelling.AutoSize = true;
             this.lblSlowestSelling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSlowestSelling.Location = new System.Drawing.Point(467, 578);
+            this.lblSlowestSelling.Location = new System.Drawing.Point(470, 631);
             this.lblSlowestSelling.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSlowestSelling.Name = "lblSlowestSelling";
             this.lblSlowestSelling.Size = new System.Drawing.Size(144, 20);
@@ -207,7 +208,7 @@
             // 
             // txtSlowestSelling
             // 
-            this.txtSlowestSelling.Location = new System.Drawing.Point(613, 578);
+            this.txtSlowestSelling.Location = new System.Drawing.Point(616, 631);
             this.txtSlowestSelling.Margin = new System.Windows.Forms.Padding(4);
             this.txtSlowestSelling.Name = "txtSlowestSelling";
             this.txtSlowestSelling.Size = new System.Drawing.Size(265, 22);
@@ -225,23 +226,38 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // guna2PictureBox1
+            // guna2CustomGradientPanel1
             // 
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.logo;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(159, 148);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 9;
-            this.guna2PictureBox1.TabStop = false;
+            this.guna2CustomGradientPanel1.Controls.Add(this.lblTitle);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1045, 61);
+            this.guna2CustomGradientPanel1.TabIndex = 7;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitle.Location = new System.Drawing.Point(16, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(332, 41);
+            this.lblTitle.TabIndex = 8;
+            this.lblTitle.Text = "Xem doanh thu món ăn";
             // 
             // RevenueStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1045, 690);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtSlowestSelling);
             this.Controls.Add(this.lblSlowestSelling);
@@ -249,6 +265,7 @@
             this.Controls.Add(this.lblBestSelling);
             this.Controls.Add(this.dgvRevenue);
             this.Controls.Add(this.groupBoxFilters);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RevenueStatistics";
             this.Text = "Thống kê doanh thu theo món";
@@ -256,7 +273,8 @@
             this.groupBoxFilters.ResumeLayout(false);
             this.groupBoxFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,6 +298,7 @@
         private System.Windows.Forms.Label lblSlowestSelling;
         private System.Windows.Forms.TextBox txtSlowestSelling;
         private System.Windows.Forms.Button btnClose;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

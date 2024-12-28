@@ -51,8 +51,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(131, 32);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Size = new System.Drawing.Size(176, 45);
             this.label1.Text = "Thêm món";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // labName
             // 
@@ -120,7 +122,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.texID.PasswordChar = '\0';
             this.texID.PlaceholderText = "";
             this.texID.SelectedText = "";
-            this.texID.Size = new System.Drawing.Size(297, 48);
+            this.texID.Size = new System.Drawing.Size(259, 48);
             this.texID.TabIndex = 17;
             this.texID.TextChanged += new System.EventHandler(this.texID_TextChanged);
             // 
@@ -200,7 +202,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(783, 20);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(786, 20);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 31;
@@ -217,7 +219,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.texMark.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texMark.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texMark.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texMark.Location = new System.Drawing.Point(492, 253);
+            this.texMark.Location = new System.Drawing.Point(495, 268);
             this.texMark.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texMark.Name = "texMark";
             this.texMark.PasswordChar = '\0';
@@ -256,7 +258,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // 
             // addFood
             // 
-            this.ClientSize = new System.Drawing.Size(853, 538);
+            this.ClientSize = new System.Drawing.Size(856, 538);
             this.Controls.Add(this.textRole);
             this.Controls.Add(this.texMark);
             this.Controls.Add(this.label2);

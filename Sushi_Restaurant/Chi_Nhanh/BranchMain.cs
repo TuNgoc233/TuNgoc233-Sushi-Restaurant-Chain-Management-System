@@ -20,7 +20,6 @@ namespace Sushi_Restaurant
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
 
-        
 
         // Kiểm tra đăng nhập và lấy mã chi nhánh
         public static string CheckLogin(string username, string hashedPassword)
@@ -679,6 +678,7 @@ namespace Sushi_Restaurant
     }
 
 
+
     //public class Statistic
     //{
 
@@ -753,7 +753,7 @@ namespace Sushi_Restaurant
     public class Statistic
     {
         // Kết nối đến cơ sở dữ liệu
-        private string connectionString = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120";
 
         // Hàm để gọi stored procedure và lấy doanh thu theo chi nhánh
         public decimal GetDoanhThuTheoChiNhanh(string thoiGian, string branchID)

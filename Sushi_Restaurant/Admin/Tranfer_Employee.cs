@@ -20,6 +20,7 @@ namespace Sushi_Restaurant.Admin
         public Tranfer_Employee(string dgvID)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             _dgvID = dgvID;
             LoadBranchIds(); // Gọi phương thức để tải mã chi nhánh
         }
@@ -71,6 +72,20 @@ namespace Sushi_Restaurant.Admin
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+          
+        }
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
             // Giả sử bạn đã có mã nhân viên và mã chi nhánh hiện tại
             string employeeId = _dgvID; // Thay thế bằng mã nhân viên thực tế
             string targetBranchId = guna2ComboBox2.SelectedItem?.ToString(); // Mã chi nhánh muốn chuyển
@@ -110,13 +125,15 @@ namespace Sushi_Restaurant.Admin
                 }
             }
             this.Hide();
+
         }
-        private void guna2Button2_Click(object sender, EventArgs e)
+
+        private void guna2Button3_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
-        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

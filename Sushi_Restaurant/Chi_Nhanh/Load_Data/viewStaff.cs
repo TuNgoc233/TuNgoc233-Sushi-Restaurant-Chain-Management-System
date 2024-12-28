@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 using System.Globalization;
+using Sushi_Restaurant.Admin;
 
 namespace Sushi_Restaurant.Chi_Nhanh
 {
@@ -18,6 +19,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         public viewStaff()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Load += new EventHandler(viewStaff_Load); // Đăng ký sự kiện Load
         }
 
@@ -204,13 +206,17 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void Dataview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string maNhanVien = Dataview.Rows[e.RowIndex].Cells[0].Value.ToString();
+            PointServiceStaff pointServiceStaff = new PointServiceStaff(maNhanVien);
+            pointServiceStaff.ShowDialog();
         }
 
         private void guna2Button4_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            RevenueStatistics statistics = new RevenueStatistics();
-            statistics.Show();
+            branch_revenue brand = new branch_revenue(Branch.MaChiNhanh);
+            brand.Show();
+
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
@@ -226,14 +232,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
             if (result == DialogResult.Yes)
             {
-                Logout(); // Call the logout method
+                Logout(); 
             }
         }
 
         private void Logout()
         {
-            Branch.MaChiNhanh = null; // Xóa dữ liệu phiên
-            Sushi_Restaurant.Chi_Nhanh.Login loginForm = new Sushi_Restaurant.Chi_Nhanh.Login(); // Sử dụng không gian tên đầy đủ
+            Branch.MaChiNhanh = null; 
+            Sushi_Restaurant.Chi_Nhanh.Login loginForm = new Sushi_Restaurant.Chi_Nhanh.Login(); 
             loginForm.Show();
             this.Hide();
         }
@@ -247,7 +253,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
             }
             else
             {
-                e.Cancel = true; // Prevent closing
+                e.Cancel = true; 
             }
         }
 

@@ -16,6 +16,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         public Login()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)

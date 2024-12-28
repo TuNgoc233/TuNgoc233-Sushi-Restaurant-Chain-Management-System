@@ -12,6 +12,7 @@ namespace Sushi_Restaurant.Admin
         public Add_Employee()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             LoadTenBoPhan(); // Tải danh sách bộ phận khi khởi động form
             LoadBranches(); // Tải danh sách
             txtID.Enabled = false; // Vô hiệu hóa trường nhập mã nhân viên

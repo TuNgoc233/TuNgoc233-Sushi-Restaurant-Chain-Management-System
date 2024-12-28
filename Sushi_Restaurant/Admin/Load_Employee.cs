@@ -17,6 +17,20 @@ namespace Sushi_Restaurant.Admin
         public Load_Employee()
         {
             InitializeComponent();
+            // Thiết lập font chữ cho Header
+            this.Dataview.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.Dataview.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 16);
+
+            // Thiết lập màu nền và màu chữ cho Header
+            this.Dataview.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 55, 89);
+            this.Dataview.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.Dataview.EnableHeadersVisualStyles = false; // Bắt buộc phải tắt thuộc tính này để màu tùy chỉnh có hiệu lực
+
+            // Tăng chiều cao Header
+            this.Dataview.ColumnHeadersHeight = 60;
+            this.Dataview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Dataview.RowTemplate.Height = 35; // Tăng chiều cao lên 50 (hoặc giá trị bạn muốn)
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Load += new EventHandler(Employee_Load); // Đăng ký sự kiện Load
 
         }
@@ -67,8 +81,11 @@ namespace Sushi_Restaurant.Admin
                     string dgvID = Dataview.Rows[rowIndex].Cells["dgvID"].Value.ToString(); 
                     // Tạo đối tượng Tranfer và truyền tham số
                     Tranfer_Employee tranfer = new Tranfer_Employee(dgvID);
+                    this.Opacity = 0.9;
+                  
                     tranfer.TransferCompleted += ReloadEmployeeData;
                     tranfer.ShowDialog();
+                    this.Opacity = 1.0;
                 }
             }
             else if (e.ColumnIndex == Dataview.Columns["dgvAdjust"].Index)
@@ -127,6 +144,12 @@ namespace Sushi_Restaurant.Admin
         private void AddEmp_Click(object sender, EventArgs e)
         {
             Add_Employee add = new Add_Employee();
+            this.Opacity = 0.9;
+            add.FormClosed += (s, args) =>
+            {
+  
+                this.Opacity = 1.0;
+            };
             add.Add_Completed += ReloadEmployeeData;
             add.ShowDialog();
         }
@@ -151,6 +174,39 @@ namespace Sushi_Restaurant.Admin
             this.Hide();
             Admin_Manage admin_Manage = new Admin_Manage();
             admin_Manage.Show();
+        }
+
+        private void guna2CustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string searchTerm = txtTimKiem.Text.Trim(); // Lấy chuỗi tìm kiếm từ TextBox
+          
+            // Gọi phương thức tìm kiếm
+            List<Employee_> employees = Employee_.SearchEmployees(searchTerm);
+
+            // Xóa các dòng hiện có trong DataGridView
+            Dataview.Rows.Clear();
+
+            // Hiển thị kết quả tìm kiếm
+            // Lặp qua danh sách nhân viên và thêm vào DataGridView
+            foreach (var emp in employees)
+            {
+                // Thêm dữ liệu vào DataGridView
+                Dataview.Rows.Add(
+                    emp.MaNhanVien,         // Mã nhân viên
+                    emp.HoTen,              // Họ tên
+                    emp.NgaySinh,           // Ngày sinh (đã định dạng)
+                    emp.TenBoPhan,          // Tên bộ phận
+                    emp.MucLuong.ToString("N0"), // Mức lương (định dạng theo số có dấu phẩy)
+                    emp.MaChiNhanh,       // Mã chi nhánh
+                    emp.NgayBatDau,         // Ngày bắt đầu làm việc (đã định dạng)
+                    emp.NgayKetThuc       // Ngày kết thúc làm việc (đã định dạng hoặc "Chưa xác định")
+                );
+            }
         }
     }
 }

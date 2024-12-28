@@ -17,6 +17,7 @@ namespace Sushi_Restaurant.Admin
         public Admin_Manage()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
 
         }
 
@@ -39,8 +40,10 @@ namespace Sushi_Restaurant.Admin
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            addFood food = new addFood();
-            food.Show();
+            //viewFood viewFood = new viewFood();
+            //viewFood.Show();
+            //addFood food = new addFood();
+            //food.Show();
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
@@ -50,9 +53,11 @@ namespace Sushi_Restaurant.Admin
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
+            
             UpdateSalary_Employeee updateSalary = new UpdateSalary_Employeee();
-            updateSalary.Show();
-
+            this.Enabled = false;
+            updateSalary.ShowDialog();
+            this.Enabled = true;
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -99,6 +104,20 @@ namespace Sushi_Restaurant.Admin
             {
                 e.Cancel = true; // Prevent closing
             }
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            company_revenue company_Revenue = new company_revenue();
+            company_Revenue.Show();
+        }
+
+        private void guna2Button5_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            RevenueStatistics revenueStatistics = new RevenueStatistics();
+            revenueStatistics.Show();
         }
     }
 }

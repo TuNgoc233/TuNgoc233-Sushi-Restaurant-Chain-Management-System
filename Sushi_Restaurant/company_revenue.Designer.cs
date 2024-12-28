@@ -17,7 +17,6 @@ namespace Sushi_Restaurant
 
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
             this.lblTimeSelection = new System.Windows.Forms.Label();
             this.cboTimeSelection = new System.Windows.Forms.ComboBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
@@ -33,21 +32,12 @@ namespace Sushi_Restaurant
             this.txtRevenue = new System.Windows.Forms.TextBox();
             this.labBranch = new System.Windows.Forms.Label();
             this.labRevenue = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.Crimson;
-            this.lblTitle.Location = new System.Drawing.Point(125, 10);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(349, 41);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Xem Doanh Thu Công Ty";
             // 
             // lblTimeSelection
             // 
@@ -100,6 +90,7 @@ namespace Sushi_Restaurant
             // 
             // dgvRevenue
             // 
+            this.dgvRevenue.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRevenue.Location = new System.Drawing.Point(13, 188);
             this.dgvRevenue.Name = "dgvRevenue";
@@ -189,21 +180,48 @@ namespace Sushi_Restaurant
             this.labRevenue.TabIndex = 14;
             this.labRevenue.Text = "Doanh thu";
             // 
-            // guna2PictureBox1
+            // guna2CustomGradientPanel1
             // 
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.logo;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(12, 10);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(93, 88);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 15;
-            this.guna2PictureBox1.TabStop = false;
+            this.guna2CustomGradientPanel1.Controls.Add(this.lblTitle);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(710, 53);
+            this.guna2CustomGradientPanel1.TabIndex = 16;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitle.Location = new System.Drawing.Point(16, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(332, 41);
+            this.lblTitle.TabIndex = 8;
+            this.lblTitle.Text = "Xem doanh thu món ăn";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(763, 568);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 29);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Đóng";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // company_revenue
             // 
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(710, 532);
-            this.Controls.Add(this.guna2PictureBox1);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labRevenue);
             this.Controls.Add(this.labBranch);
             this.Controls.Add(this.cboBranch);
@@ -219,17 +237,17 @@ namespace Sushi_Restaurant
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.cboTimeSelection);
             this.Controls.Add(this.lblTimeSelection);
-            this.Controls.Add(this.lblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "company_revenue";
             this.Text = "Doanh Thu Công Ty";
+            this.Load += new System.EventHandler(this.company_revenue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblTimeSelection;
         private System.Windows.Forms.ComboBox cboTimeSelection;
         private System.Windows.Forms.DateTimePicker dtpDate;
@@ -245,6 +263,8 @@ namespace Sushi_Restaurant
         private System.Windows.Forms.TextBox txtRevenue;
         private Label labBranch;
         private Label labRevenue;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Label lblTitle;
+        private Button button1;
     }
 }

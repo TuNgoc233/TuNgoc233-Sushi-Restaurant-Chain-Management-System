@@ -17,6 +17,7 @@ namespace Sushi_Restaurant
         public branch_revenue(string branchID)
         {
             InitializeComponent();
+             this.StartPosition = FormStartPosition.CenterScreen;
             // Lưu mã chi nhánh vào biến tạm
             _branchId = branchID;
             // Thêm các mục vào ComboBox thời gian
@@ -181,7 +182,7 @@ namespace Sushi_Restaurant
         private void cboMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Xử lý logic khi người dùng chọn một tháng
-            int selectedMonth = cboMonth.SelectedIndex + 3; // Chỉ số tháng bắt đầu từ 0
+            int selectedMonth = cboMonth.SelectedIndex + 2; // Chỉ số tháng bắt đầu từ 0
             int year = dtpDate.Value.Year; // Lấy năm từ DateTimePicker
 
             // Gọi LoadRevenueData để tải dữ liệu theo tháng
@@ -203,7 +204,7 @@ namespace Sushi_Restaurant
             }
             else if (selectedTime == "THANG")
             {
-                int selectedMonth = cboMonth.SelectedIndex + 1;
+                int selectedMonth = cboMonth.SelectedIndex + 2;
                 LoadRevenueData("THANG", month: selectedMonth, year: dtpDate.Value.Year);
             }
             else if (selectedTime == "QUY")
@@ -228,7 +229,11 @@ namespace Sushi_Restaurant
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
+            this.Hide();
+            // Truyền branchId khi tạo form Brand
+            Brand branchForm = new Brand(Branch.MaChiNhanh);
+            branchForm.Show();
         }
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)
@@ -240,5 +245,9 @@ namespace Sushi_Restaurant
             LoadRevenueData("NGAY", specificDate: selectedDate);
         }
 
+        private void branch_revenue_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

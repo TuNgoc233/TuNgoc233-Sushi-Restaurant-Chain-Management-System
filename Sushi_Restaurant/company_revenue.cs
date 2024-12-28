@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sushi_Restaurant.Admin;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Sushi_Restaurant
         public company_revenue()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             LoadBranchIds();
 
             // Thêm các mục vào ComboBox thời gian
@@ -292,7 +294,14 @@ namespace Sushi_Restaurant
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            Admin_Manage admin = new Admin_Manage();
+            admin.Show();
+        }
+
+        private void company_revenue_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

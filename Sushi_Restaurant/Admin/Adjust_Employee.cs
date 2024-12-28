@@ -16,9 +16,11 @@ namespace Sushi_Restaurant.Admin
         public Adjust_Employee(string maNhanVien)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.maNhanVien = maNhanVien;
             LoadEmployeeData(maNhanVien);
             LoadTenBoPhan();
+     
         }
 
      
@@ -56,6 +58,15 @@ namespace Sushi_Restaurant.Admin
                 return;
             }
 
+            // Lấy mã bộ phận từ tên bộ phận đã chọn
+            string maBoPhan = GetMaBoPhan(texRole.SelectedItem.ToString());
+            if (string.IsNullOrWhiteSpace(maBoPhan))
+            {
+                MessageBox.Show("Không tìm thấy mã bộ phận cho bộ phận đã chọn.");
+                texRole.Focus();
+                return;
+            }
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -66,17 +77,10 @@ namespace Sushi_Restaurant.Admin
                         cmd.Parameters.AddWithValue("@MaNhanVien", maNhanVien);
                         cmd.Parameters.AddWithValue("@HoTen", texName.Text.Trim());
                         cmd.Parameters.AddWithValue("@NgaySinh", guna2DateTimePicker1.Value);
-                        cmd.Parameters.AddWithValue("@GioiTinh", guna2RadioButton1.Checked ? "Nam" : "Nữ");
+                        cmd.Parameters.AddWithValue("@GioiTinh", GetSelectedGender());
                         cmd.Parameters.AddWithValue("@DiaChi", texAddress.Text.Trim());
                         cmd.Parameters.AddWithValue("@SoDienThoai", texPhone.Text.Trim());
-
-                        string maBoPhan = GetMaBoPhan(texRole.SelectedItem.ToString());
-                        if (string.IsNullOrEmpty(maBoPhan))
-                        {
-                            MessageBox.Show("Không tìm thấy mã bộ phận phù hợp.");
-                            return;
-                        }
-                        cmd.Parameters.AddWithValue("@MaBoPhan", maBoPhan);
+                        cmd.Parameters.AddWithValue("@MaBoPhan", maBoPhan); 
 
                         conn.Open();
                         cmd.ExecuteNonQuery();
@@ -89,6 +93,7 @@ namespace Sushi_Restaurant.Admin
             catch (Exception ex)
             {
                 MessageBox.Show("Có lỗi xảy ra khi cập nhật: " + ex.Message);
+                return;
             }
         }
 
@@ -112,24 +117,30 @@ namespace Sushi_Restaurant.Admin
             return maBoPhan;
         }
 
+        private string GetSelectedGender()
+        {
+            return guna2RadioButton1.Checked ? "Nam" : "Nữ";
+        }
+
+
         private void LoadEmployeeData(string maNhanVien)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-                SELECT 
-                    NV.HoTen, 
-                    NV.NgaySinh, 
-                    NV.GioiTinh, 
-                    NV.DiaChi, 
-                    NV.SoDienThoai, 
-                    BP.TenBoPhan 
-                FROM 
-                    NHAN_VIEN NV
-                JOIN 
-                    BO_PHAN BP ON NV.MaBoPhan = BP.MaBoPhan 
-                WHERE 
-                    NV.MaNhanVien = @MaNhanVien";
+                    SELECT 
+                        NV.HoTen, 
+                        NV.NgaySinh, 
+                        NV.GioiTinh, 
+                        NV.DiaChi, 
+                        NV.SoDienThoai, 
+                        BP.TenBoPhan 
+                    FROM 
+                        NHAN_VIEN NV
+                    JOIN 
+                        BO_PHAN BP ON NV.MaBoPhan = BP.MaBoPhan 
+                    WHERE 
+                        NV.MaNhanVien = @MaNhanVien";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -140,16 +151,23 @@ namespace Sushi_Restaurant.Admin
                     {
                         texName.Text = reader["HoTen"].ToString();
                         guna2DateTimePicker1.Value = Convert.ToDateTime(reader["NgaySinh"]);
-                        if (reader["GioiTinh"].ToString() == "Nam")
+                        string gioiTinh = reader["GioiTinh"].ToString().Trim();
+                        if (gioiTinh == "Nam")
+                        {
                             guna2RadioButton1.Checked = true;
+                        }
                         else
-                            guna2RadioButton2.Checked = false;
+                        {
+                            guna2RadioButton2.Checked = true;
+                        }
 
                         texAddress.Text = reader["DiaChi"].ToString();
                         texPhone.Text = reader["SoDienThoai"].ToString();
-                        LoadTenBoPhan();
+
+                        // Chọn bộ phận hiện tại
                         string tenBoPhan = reader["TenBoPhan"].ToString();
-                        texRole.SelectedItem = texRole.Items.Cast<string>().FirstOrDefault(item => item == tenBoPhan);
+                        LoadTenBoPhan();
+                        texRole.SelectedItem = tenBoPhan;
                     }
                     else
                     {
@@ -158,6 +176,7 @@ namespace Sushi_Restaurant.Admin
                 }
             }
         }
+
 
         private void LoadTenBoPhan()
         {
@@ -170,7 +189,7 @@ namespace Sushi_Restaurant.Admin
                     {
                         conn.Open();
                         SqlDataReader reader = cmd.ExecuteReader();
-                        texRole.Items.Clear();
+                        texRole.Items.Clear(); // Xóa các mục cũ trong ComboBox
                         while (reader.Read())
                         {
                             texRole.Items.Add(reader["TenBoPhan"].ToString());
@@ -183,6 +202,7 @@ namespace Sushi_Restaurant.Admin
                 }
             }
         }
+
         private void texAddress_TextChanged(object sender, EventArgs e)
         {
             
@@ -195,7 +215,8 @@ namespace Sushi_Restaurant.Admin
 
         private void Adjust_Employee_Load(object sender, EventArgs e)
         {
-            LoadTenBoPhan();
+            LoadTenBoPhan(); 
+            LoadEmployeeData(maNhanVien); 
         }
 
         private void labBirth_Click(object sender, EventArgs e)
@@ -229,6 +250,27 @@ namespace Sushi_Restaurant.Admin
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void texRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedRole = texRole.SelectedItem.ToString();
+           
+        }
+
+        private void guna2RadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labPhone_Click(object sender, EventArgs e)
         {
 
         }

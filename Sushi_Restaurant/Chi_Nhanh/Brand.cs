@@ -19,6 +19,7 @@ namespace Sushi_Restaurant
         public Brand(string branchId)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             _branchId = branchId; // Lưu giá trị ID vào biến toàn cục
             this.Load += Brand_Load; // Gán sự kiện Load
         }
@@ -200,6 +201,35 @@ namespace Sushi_Restaurant
         }
 
         private void btn_Statistic_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            branch_revenue brand = new branch_revenue(Branch.MaChiNhanh);   
+            brand.Show();
+
+
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblTotalCustomers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

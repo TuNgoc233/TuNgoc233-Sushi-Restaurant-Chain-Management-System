@@ -17,6 +17,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         public viewOrderForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Load += new EventHandler(viewOrderForm_Load); // Đăng ký sự kiện Load
 
         }
@@ -157,8 +158,9 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void guna2Button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RevenueStatistics revenueStatistics = new RevenueStatistics();
-            revenueStatistics.Show();
+            branch_revenue brand = new branch_revenue(Branch.MaChiNhanh);
+            brand.Show();
+
         }
 
         private void Exit_Click(object sender, EventArgs e)
