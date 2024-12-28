@@ -53,7 +53,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_LayDanhSachPhieuGiaoHangTanNoi", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayDanhSachPhieuGiaoHangTanNoi", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ChiNhanhId", string.IsNullOrEmpty(chiNhanhId) ? (object)DBNull.Value : chiNhanhId);

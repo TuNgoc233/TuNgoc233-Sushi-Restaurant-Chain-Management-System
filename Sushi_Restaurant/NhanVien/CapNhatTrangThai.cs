@@ -31,6 +31,7 @@ namespace Sushi_Restaurant.NhanVien
             this.guna2DataGridView1.ColumnHeadersHeight = 60;
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.guna2DataGridView1.RowTemplate.Height = 35; // Tăng chiều cao lên 50 (hoặc giá trị bạn muốn)
+
             string machinhanh = MainClass.user.MaChiNhanh;
             string manhanvien = MainClass.user.MaNhanVien;
             LoadDanhSachPhieu(machinhanh, manhanvien);
@@ -56,7 +57,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_LayDanhSachPhieuDatBan", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayDanhSachPhieuDatBan", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ChiNhanhId", string.IsNullOrEmpty(chiNhanhId) ? (object)DBNull.Value : chiNhanhId);

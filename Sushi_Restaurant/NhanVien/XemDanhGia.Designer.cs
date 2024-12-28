@@ -49,6 +49,8 @@
             // 
             this.guna2DataGridView1.AllowUserToAddRows = false;
             this.guna2DataGridView1.AllowUserToDeleteRows = false;
+            this.guna2DataGridView1.AllowUserToResizeColumns = false;
+            this.guna2DataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -94,7 +96,7 @@
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1094, 371);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1400, 500);
             this.guna2DataGridView1.TabIndex = 6;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -132,48 +134,49 @@
             // 
             // dgvId
             // 
-            this.dgvId.FillWeight = 60F;
+            this.dgvId.FillWeight = 150F;
             this.dgvId.HeaderText = "Mã Hóa Đơn";
-            this.dgvId.MinimumWidth = 60;
+            this.dgvId.MinimumWidth = 150;
             this.dgvId.Name = "dgvId";
             this.dgvId.ReadOnly = true;
             // 
             // dgvServed
             // 
-            this.dgvServed.FillWeight = 60F;
+            this.dgvServed.FillWeight = 140F;
             this.dgvServed.HeaderText = "Điểm Phục Vụ";
-            this.dgvServed.MinimumWidth = 60;
+            this.dgvServed.MinimumWidth = 140;
             this.dgvServed.Name = "dgvServed";
             this.dgvServed.ReadOnly = true;
             // 
             // dgvLocation
             // 
-            this.dgvLocation.FillWeight = 60F;
+            this.dgvLocation.FillWeight = 120F;
             this.dgvLocation.HeaderText = "Điểm Vị Trí";
-            this.dgvLocation.MinimumWidth = 60;
+            this.dgvLocation.MinimumWidth = 120;
             this.dgvLocation.Name = "dgvLocation";
             this.dgvLocation.ReadOnly = true;
             // 
             // dgvMonAn
             // 
-            this.dgvMonAn.FillWeight = 60F;
+            this.dgvMonAn.FillWeight = 140F;
             this.dgvMonAn.HeaderText = "Điểm Món Ăn";
-            this.dgvMonAn.MinimumWidth = 60;
+            this.dgvMonAn.MinimumWidth = 140;
             this.dgvMonAn.Name = "dgvMonAn";
             this.dgvMonAn.ReadOnly = true;
             // 
             // dgvgia
             // 
-            this.dgvgia.FillWeight = 60F;
+            this.dgvgia.FillWeight = 120F;
             this.dgvgia.HeaderText = "Điểm Giá Cả";
-            this.dgvgia.MinimumWidth = 60;
+            this.dgvgia.MinimumWidth = 120;
             this.dgvgia.Name = "dgvgia";
             this.dgvgia.ReadOnly = true;
             // 
             // dgvCmt
             // 
+            this.dgvCmt.FillWeight = 300F;
             this.dgvCmt.HeaderText = "Bình Luận";
-            this.dgvCmt.MinimumWidth = 6;
+            this.dgvCmt.MinimumWidth = 300;
             this.dgvCmt.Name = "dgvCmt";
             this.dgvCmt.ReadOnly = true;
             // 
@@ -192,19 +195,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(38, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 31);
+            this.label2.Size = new System.Drawing.Size(301, 41);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Danh sách đánh giá";
+            this.label2.Text = "Danh Sách Đánh Giá";
             // 
             // XemDanhGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1195, 613);
+            this.ClientSize = new System.Drawing.Size(1800, 900);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2DataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -222,6 +225,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        public System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSno;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvServed;
@@ -230,6 +234,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvgia;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCmt;
         private System.Windows.Forms.DataGridViewImageColumn dgvDel;
-        public System.Windows.Forms.Label label2;
     }
 }

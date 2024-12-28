@@ -34,8 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.UserName = new System.Windows.Forms.Label();
             this.text_User = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.text_pass = new Guna.UI2.WinForms.Guna2TextBox();
             this.bt_dn = new Guna.UI2.WinForms.Guna2Button();
             this.err_noFullInfor_Login = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.cnname = new System.Windows.Forms.Label();
@@ -105,11 +103,11 @@
             // UserName
             // 
             this.UserName.AutoSize = true;
-            this.UserName.Location = new System.Drawing.Point(54, 281);
+            this.UserName.Location = new System.Drawing.Point(58, 293);
             this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(129, 23);
+            this.UserName.Size = new System.Drawing.Size(120, 23);
             this.UserName.TabIndex = 5;
-            this.UserName.Text = "Tên Đăng Nhập";
+            this.UserName.Text = "Mã Nhân Viên";
             // 
             // text_User
             // 
@@ -122,7 +120,7 @@
             this.text_User.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_User.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.text_User.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_User.Location = new System.Drawing.Point(58, 308);
+            this.text_User.Location = new System.Drawing.Point(62, 320);
             this.text_User.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.text_User.Name = "text_User";
             this.text_User.PasswordChar = '\0';
@@ -130,36 +128,6 @@
             this.text_User.SelectedText = "";
             this.text_User.Size = new System.Drawing.Size(321, 48);
             this.text_User.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 378);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Mật Khẩu ";
-            // 
-            // text_pass
-            // 
-            this.text_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_pass.DefaultText = "";
-            this.text_pass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.text_pass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.text_pass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.text_pass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.text_pass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_pass.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.text_pass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_pass.Location = new System.Drawing.Point(58, 405);
-            this.text_pass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.text_pass.Name = "text_pass";
-            this.text_pass.PasswordChar = '●';
-            this.text_pass.PlaceholderText = "";
-            this.text_pass.SelectedText = "";
-            this.text_pass.Size = new System.Drawing.Size(321, 48);
-            this.text_pass.TabIndex = 1;
-            this.text_pass.UseSystemPasswordChar = true;
             // 
             // bt_dn
             // 
@@ -172,7 +140,7 @@
             this.bt_dn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
             this.bt_dn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_dn.ForeColor = System.Drawing.Color.White;
-            this.bt_dn.Location = new System.Drawing.Point(151, 491);
+            this.bt_dn.Location = new System.Drawing.Point(150, 432);
             this.bt_dn.Name = "bt_dn";
             this.bt_dn.Size = new System.Drawing.Size(140, 45);
             this.bt_dn.TabIndex = 2;
@@ -216,13 +184,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 570);
+            this.ClientSize = new System.Drawing.Size(439, 520);
             this.Controls.Add(this.chinhanhname);
             this.Controls.Add(this.cnname);
             this.Controls.Add(this.bt_dn);
-            this.Controls.Add(this.text_pass);
             this.Controls.Add(this.text_User);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.UserName);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,7 +197,6 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
@@ -245,8 +210,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label UserName;
         private Guna.UI2.WinForms.Guna2TextBox text_User;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2TextBox text_pass;
         private Guna.UI2.WinForms.Guna2Button bt_dn;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;

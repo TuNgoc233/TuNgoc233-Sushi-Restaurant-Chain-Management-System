@@ -20,11 +20,6 @@ namespace Sushi_Restaurant
             LoadData();
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -43,7 +38,6 @@ namespace Sushi_Restaurant
 
             string maChiNhanh = chinhanhname.SelectedValue.ToString();
             string maNhanVien = text_User.Text;
-            string matKhau = text_pass.Text;
 
             string query = "SELECT * FROM LICH_SU_LAM_VIEC WHERE MaChiNhanh = @MaChiNhanh AND MaNhanVien = @MaNhanVien AND NgayKetThuc IS NULL";
 
@@ -55,8 +49,7 @@ namespace Sushi_Restaurant
             DataTable dt = new DataTable();
             da.Fill(dt);
             // Kiểm tra các trường thông tin có bị bỏ trống hay không
-            if (string.IsNullOrWhiteSpace(text_User.Text) ||
-                string.IsNullOrWhiteSpace(text_pass.Text))
+            if (string.IsNullOrWhiteSpace(text_User.Text))
             {
                 err_noFullInfor_Login.Show("Vui lòng nhập đầy đủ thông tin");
             }

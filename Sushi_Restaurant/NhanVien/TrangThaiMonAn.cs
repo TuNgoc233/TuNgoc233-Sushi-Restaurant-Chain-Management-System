@@ -51,7 +51,7 @@ namespace Sushi_Restaurant.NhanVien
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("GetMucByKhuVucAndThucDon", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayMucMonAn", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
@@ -98,7 +98,7 @@ namespace Sushi_Restaurant.NhanVien
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("CheckMonAnForChiNhanhByMaChiNhanh", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayMonAnChoChiNhanh", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);

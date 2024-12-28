@@ -33,7 +33,7 @@ namespace Sushi_Restaurant.NhanVien
 
             using (SqlConnection conn = new SqlConnection(MainClass.con_string))
             {
-                SqlCommand cmd = new SqlCommand("usp_TimKiemKhachHangCoThe", conn);
+                SqlCommand cmd = new SqlCommand("sp_TimKiemKhachHangCoThe", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@SoDienThoai", txtTimKiem.Text); // txtTimKiem là textbox nhập số điện thoại
 
@@ -99,7 +99,7 @@ namespace Sushi_Restaurant.NhanVien
                             }
 
                             // Thực hiện đóng thẻ (gọi stored procedure để cập nhật trạng thái thẻ)
-                            using (SqlCommand cmdDongThe = new SqlCommand("usp_DongTheKhachHang", conn))
+                            using (SqlCommand cmdDongThe = new SqlCommand("sp_DongTheKhachHang", conn))
                             {
                                 cmdDongThe.CommandType = CommandType.StoredProcedure;
                                 cmdDongThe.Parameters.AddWithValue("@MaSoThe", maSoThe); // Truyền mã thẻ vào

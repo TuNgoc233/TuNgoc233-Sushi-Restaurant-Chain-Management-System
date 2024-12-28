@@ -95,15 +95,22 @@ namespace Sushi_Restaurant.NhanVien
         }
         private void but_logOut_Click(object sender, EventArgs e)
         {
-            // Tạo form đăng nhập mới
-            FrmLogin loginForm = new FrmLogin();
+            // Hiển thị hộp thoại xác nhận
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Ẩn form hiện tại
-            this.Close();
+            // Kiểm tra người dùng chọn "Yes" (Đồng ý đăng xuất)
+            if (result == DialogResult.Yes)
+            {
+                // Tạo form đăng nhập mới
+                FrmLogin loginForm = new FrmLogin();
 
-            // Hiển thị form đăng nhập dưới dạng modal (ngăn các form khác hoạt động)
-            loginForm.ShowDialog();
+                // Ẩn form hiện tại
+                this.Close();
 
+                // Hiển thị form đăng nhập dưới dạng modal (ngăn các form khác hoạt động)
+                loginForm.ShowDialog();
+            }
         }
+
     }
 }

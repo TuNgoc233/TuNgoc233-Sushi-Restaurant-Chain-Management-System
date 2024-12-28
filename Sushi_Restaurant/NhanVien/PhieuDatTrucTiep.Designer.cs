@@ -79,9 +79,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(110, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(264, 38);
+            this.label1.Size = new System.Drawing.Size(275, 38);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Phiếu đặt trực tiếp";
+            this.label1.Text = "Phiếu Đặt Trực Tiếp";
             // 
             // guna2PictureBox1
             // 
@@ -153,9 +153,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(426, 125);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(164, 23);
+            this.label8.Size = new System.Drawing.Size(171, 23);
             this.label8.TabIndex = 22;
-            this.label8.Text = "Nhân viên lập phiếu";
+            this.label8.Text = "Nhân Viên Lập Phiếu";
             // 
             // txtNhanvien
             // 
@@ -227,7 +227,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 125);
+            this.label2.Location = new System.Drawing.Point(58, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 23);
             this.label2.TabIndex = 17;
@@ -240,7 +240,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 23);
             this.label4.TabIndex = 24;
-            this.label4.Text = "Số bàn";
+            this.label4.Text = "Số Bàn";
             // 
             // txtSoBan
             // 

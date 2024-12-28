@@ -1,4 +1,7 @@
-﻿namespace Sushi_Restaurant.NhanVien
+﻿using System.Windows.Forms.VisualStyles;
+using System.Windows.Forms;
+
+namespace Sushi_Restaurant.NhanVien
 {
     partial class PhieuGiaoHangTanNoi
     {
@@ -167,7 +170,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(578, 268);
+            this.label9.Location = new System.Drawing.Point(578, 269);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(170, 23);
             this.label9.TabIndex = 33;
@@ -215,6 +218,7 @@
             // 
             // txtDiaChi
             // 
+            this.txtDiaChi.AllowDrop = true;
             this.txtDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiaChi.DefaultText = "";
             this.txtDiaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -227,7 +231,9 @@
             this.txtDiaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDiaChi.Location = new System.Drawing.Point(324, 209);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(5);
             this.txtDiaChi.PasswordChar = '\0';
             this.txtDiaChi.PlaceholderText = "";
             this.txtDiaChi.ReadOnly = true;
@@ -291,7 +297,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 268);
+            this.label4.Location = new System.Drawing.Point(22, 264);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(176, 23);
             this.label4.TabIndex = 21;
@@ -300,7 +306,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 183);
+            this.label3.Location = new System.Drawing.Point(22, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 23);
             this.label3.TabIndex = 20;
@@ -309,7 +315,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 103);
+            this.label2.Location = new System.Drawing.Point(22, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 23);
             this.label2.TabIndex = 19;
@@ -337,7 +343,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(578, 339);
+            this.label10.Location = new System.Drawing.Point(578, 347);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(174, 23);
             this.label10.TabIndex = 35;
@@ -386,7 +392,7 @@
             this.txttime.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttime.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txttime.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttime.Location = new System.Drawing.Point(26, 295);
+            this.txttime.Location = new System.Drawing.Point(26, 291);
             this.txttime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txttime.Name = "txttime";
             this.txttime.PasswordChar = '\0';

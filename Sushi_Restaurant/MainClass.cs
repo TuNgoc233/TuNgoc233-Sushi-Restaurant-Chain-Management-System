@@ -16,8 +16,9 @@ namespace Sushi_Restaurant
         public static class MainClass
         {
         // Chuỗi kết nối đến cơ sở dữ liệu
+        public static string con_string = @"Server=sql1001.site4now.net;Database=db_ab108c_sushisystem;User Id=db_ab108c_sushisystem_admin;Password=Hanhspring123;";
         //public static string con_string = @"Server=LTCUATUNGOC;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
-        public static string con_string = @"Server=DESKTOP-B1OU3RF;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
+        //public static string con_string = @"Server=DESKTOP-B1OU3RF;Database=QLNH_SUSHI_2024_FINAL;Trusted_Connection=True;";
 
         // Kết nối SQL
         public static SqlConnection con = new SqlConnection(con_string);

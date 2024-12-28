@@ -51,7 +51,7 @@ namespace Sushi_Restaurant
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     // Gọi procedure
-                    string procedureName = "GetMucByKhuVucAndThucDon";
+                    string procedureName = "sp_LayMucMonAn";
 
                     using (SqlCommand cmd = new SqlCommand(procedureName, conn))
                     {
@@ -129,7 +129,7 @@ namespace Sushi_Restaurant
             {
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
-                    string procedureName = maMuc == "BestSeller" ? "GetBestSellerProducts" : "CheckMonAnForChiNhanhByMaChiNhanh";
+                    string procedureName = maMuc == "BestSeller" ? "sp_LayMonBestSeller" : "sp_LayMonAnChoChiNhanh";
 
                     using (SqlCommand cmd = new SqlCommand(procedureName, conn))
                     {
@@ -143,6 +143,7 @@ namespace Sushi_Restaurant
                         da.Fill(dt);
 
                         ProductPanel.Controls.Clear(); // Xóa các sản phẩm cũ trong ProductPanel
+                        allProducts.Clear(); // Xóa danh sách cũ trong `allProducts`
 
                         foreach (DataRow row in dt.Rows)
                         {
@@ -156,7 +157,8 @@ namespace Sushi_Restaurant
                             // Kiểm tra tình trạng phục vụ
                             bool isAvailable = Convert.ToBoolean(row["TinhTrangPhucVu"]);
 
-                            // Thêm sản phẩm vào panel
+                            // Thêm sản phẩm vào panel và danh sách
+                            // Thêm sản phẩm vào panel và danh sách
                             AddItems(
                                 productCode,                       // Mã món ăn
                                 row["TenMonAn"].ToString(),        // Tên món ăn
@@ -165,6 +167,14 @@ namespace Sushi_Restaurant
                                 productImage,                      // Hình ảnh của món ăn
                                 isAvailable                        // Tình trạng phục vụ
                             );
+
+                            // Lưu vào danh sách allProducts sau khi thêm sản phẩm vào panel
+                            var productControl = ProductPanel.Controls[ProductPanel.Controls.Count - 1] as ucProduct;
+                            if (productControl != null)
+                            {
+                                allProducts.Add(productControl); // Lưu vào danh sách `allProducts`
+                            }
+
                         }
                     }
                 }
@@ -184,74 +194,62 @@ namespace Sushi_Restaurant
         private void _Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
-            string selectedCategory = b.Tag.ToString(); // Lấy giá trị Tag của button
+            string selectedCategory = b.Tag?.ToString(); // Lấy giá trị Tag của button
 
-            // Nếu chọn BestSeller, tải các sản phẩm bán chạy nhất
             if (selectedCategory == "BestSeller")
             {
-                LoadBestSellerProducts(); // Tải sản phẩm bán chạy nhất
+                // Hiển thị sản phẩm bán chạy nhất
+                LoadBestSellerProducts();
             }
             else
             {
-                // Lọc các sản phẩm theo danh mục đã chọn
+                // Lọc sản phẩm theo danh mục
                 ShowProductsByCategory(selectedCategory);
             }
         }
+
 
         // Hàm để tải các sản phẩm bán chạy nhất và hiển thị trong ProductPanel
         private void LoadBestSellerProducts()
         {
             try
             {
-                string maChiNhanh = MainClass.user.MaChiNhanh; // Lấy mã chi nhánh của người dùng
+                string maChiNhanh = MainClass.user.MaChiNhanh;
 
-                // Tạo kết nối đến cơ sở dữ liệu
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
-                    string procedureName = "GetBestSellerProducts"; // Stored procedure để lấy sản phẩm bán chạy nhất
+                    string procedureName = "sp_LayMonBestSeller";
 
-                    // Chuẩn bị câu lệnh gọi stored procedure
                     using (SqlCommand cmd = new SqlCommand(procedureName, conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh);
 
-                        // Thực thi câu lệnh và lấy kết quả
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
 
                         conn.Open();
                         da.Fill(dt);
 
-                        // Lưu lại tất cả các sản phẩm hiện tại trong ProductPanel trước khi xóa
-                        allProducts.Clear(); // Xóa danh sách cũ
-                        foreach (var item in ProductPanel.Controls)
-                        {
-                            if (item is ucProduct pro)
-                            {
-                                allProducts.Add(pro); // Lưu lại các sản phẩm
-                            }
-                        }
+                        // Xóa sản phẩm cũ khỏi ProductPanel
+                        ProductPanel.Controls.Clear();
 
-                        // Xóa các sản phẩm cũ trong ProductPanel để làm mới giao diện
-                        ProductPanel.Controls.Clear(); // Xóa các sản phẩm cũ
-
-                        // Duyệt qua các dòng dữ liệu từ cơ sở dữ liệu và hiển thị sản phẩm bán chạy nhất
+                        // Duyệt qua kết quả và thêm sản phẩm bán chạy nhất vào panel
                         foreach (DataRow row in dt.Rows)
                         {
                             string productCode = row["MaMonAn"].ToString();
-                            Image productImage = LoadImageFromResources(productCode); // Tải ảnh từ Resources
+                            Image productImage = LoadImageFromResources(productCode);
 
-                            bool isAvailable = Convert.ToBoolean(row["TinhTrangPhucVu"]); // Kiểm tra tình trạng phục vụ
+                            bool isAvailable = Convert.ToBoolean(row["TinhTrangPhucVu"]);
 
-                            // Thêm sản phẩm vào panel
+                            // Thêm sản phẩm bán chạy nhất vào panel
                             AddItems(
-                                productCode,                       // Mã món ăn
-                                row["TenMonAn"].ToString(),        // Tên món ăn
-                                row["MaMuc"].ToString(),           // Danh mục món ăn
-                                row["GiaHienTai"].ToString(),      // Giá món ăn
-                                productImage,                      // Hình ảnh món ăn
-                                isAvailable                        // Tình trạng phục vụ
+                                productCode,
+                                row["TenMonAn"].ToString(),
+                                row["MaMuc"].ToString(),
+                                row["GiaHienTai"].ToString(),
+                                productImage,
+                                isAvailable
                             );
                         }
                     }
@@ -259,34 +257,28 @@ namespace Sushi_Restaurant
             }
             catch (Exception ex)
             {
-                // Xử lý ngoại lệ nếu có lỗi
-                MessageBox.Show("Lỗi khi tải sản phẩm: " + ex.Message);
+                MessageBox.Show("Lỗi khi tải sản phẩm bán chạy: " + ex.Message);
             }
         }
+
 
         // Hàm để lọc các sản phẩm theo danh mục (All hoặc các danh mục khác)
         private void ShowProductsByCategory(string selectedCategory)
         {
-            // Xóa các sản phẩm hiện tại trong ProductPanel
+            // Xóa tất cả sản phẩm hiện tại trong ProductPanel
             ProductPanel.Controls.Clear();
 
-            // Hiển thị lại các sản phẩm đã lưu trong allProducts
-            foreach (var pro in allProducts)
+            // Duyệt qua danh sách sản phẩm trong `allProducts`
+            foreach (var product in allProducts)
             {
-                if (pro is ucProduct product)
+                if (selectedCategory == "All" || product.PCategory.Trim() == selectedCategory)
                 {
-                    if (selectedCategory == "All" || product.PCategory.Trim() == selectedCategory)
-                    {
-                        // Hiển thị sản phẩm nếu danh mục khớp
-                        product.Visible = true;
-                        ProductPanel.Controls.Add(product);
-                    }
-                    else
-                    {
-                        // Ẩn sản phẩm nếu danh mục không khớp
-                        product.Visible = false;
-                        ProductPanel.Controls.Add(product);
-                    }
+                    ProductPanel.Controls.Add(product); // Chỉ thêm sản phẩm cần hiển thị
+                    product.Visible = true; // Hiển thị sản phẩm
+                }
+                else
+                {
+                    product.Visible = false; // Ẩn sản phẩm
                 }
             }
         }

@@ -17,6 +17,18 @@ namespace Sushi_Restaurant.NhanVien
         public XemDanhGia()
         {
             InitializeComponent();
+            // Vô hiệu hóa Theme mặc định để toàn quyền điều chỉnh
+            // Thiết lập font chữ cho Header
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.guna2DataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 16);
+
+            // Thiết lập màu nền và màu chữ cho Header
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 55, 89);
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+
+            // Tăng chiều cao Header
+            this.guna2DataGridView1.ColumnHeadersHeight = 60;
+            this.guna2DataGridView1.RowTemplate.Height = 35; // Tăng chiều cao lên 50 (hoặc giá trị bạn muốn)
         }
         string MaHD = "";   
         private void XemDanhGia_Load(object sender, EventArgs e)

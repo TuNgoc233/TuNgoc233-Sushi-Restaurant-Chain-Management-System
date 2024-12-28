@@ -30,7 +30,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_LayThongTinPhieuGiaoHang", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayThongTinPhieuGiaoHang", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaPhieu", maPhieu);
@@ -39,7 +39,7 @@ namespace Sushi_Restaurant.NhanVien
                         if (reader.Read())
                         {
                             // Hiển thị các thông tin lấy từ stored procedure
-                            txtdate.Text = reader["NgayDat"].ToString();
+                            txtdate.Text = Convert.ToDateTime(reader["NgayDat"]).ToString("dd/MM/yyyy");
                             // Hình thức thanh toán: 1 -> Chuyển khoản, 0 -> Trực tiếp
                             if (reader["HinhThucThanhToan"] != DBNull.Value)
                             {
@@ -49,7 +49,7 @@ namespace Sushi_Restaurant.NhanVien
                             txtDiaChi.Text = reader["DiaChiGiaoHang"].ToString();
                             txtmakh.Text = reader["MaKhachHang"].ToString();
                             txtsdt.Text = reader["SoDienThoai"].ToString(); // Hiển thị số điện thoại
-
+                            txttime.Text = reader["ThoiGianNhanHang"].ToString(); // Hiển thị thời gian nhận
                             // Tình trạng xác nhận
                             cbttxn.Items.Clear();
                             cbttxn.Items.AddRange(new string[] { "Chưa xác nhận", "Đã xác nhận" });
@@ -125,7 +125,7 @@ namespace Sushi_Restaurant.NhanVien
                         if (tinhTrangDonHang == "Đã giao")
                         {
                             // Cập nhật thời gian nhận đơn hàng
-                            using (SqlCommand cmd = new SqlCommand("usp_CapNhatTinhTrangDonHang", conn))
+                            using (SqlCommand cmd = new SqlCommand("sp_CapNhatTinhTrangDonHang", conn))
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -134,7 +134,6 @@ namespace Sushi_Restaurant.NhanVien
                                 cmd.Parameters.AddWithValue("@TinhTrangDonHang", "Đã giao");
                                 cmd.Parameters.AddWithValue("@ThoiGianNhan", DateTime.Now.ToString("HH:mm:ss")); // Chỉ lấy giờ, phút, giây
                                 cmd.ExecuteNonQuery();
-                                txttime.Text = DateTime.Now.ToString("HH:mm:ss"); // Hiển thị thời gian nhận
                                 MessageBox.Show("Cập nhật tình trạng đơn hàng và thời gian nhận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
@@ -149,13 +148,14 @@ namespace Sushi_Restaurant.NhanVien
                         // Nếu cbtinhtrangxacnhan không enabled, xử lý tình trạng xác nhận
                         bool tinhTrangXacNhan = cbttxn.SelectedItem.ToString() == "Đã xác nhận";
 
-                        using (SqlCommand cmd = new SqlCommand("usp_CapNhatTinhTrangXacNhan", conn))
+                        using (SqlCommand cmd = new SqlCommand("sp_CapNhatTinhTrangXacNhan", conn))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
 
                             // Thêm tham số Mã Phiếu và Tình trạng xác nhận
                             cmd.Parameters.AddWithValue("@MaPhieu", maPhieu); // Mã phiếu giao hàng
                             cmd.Parameters.AddWithValue("@TinhTrangXacNhan", tinhTrangXacNhan ? 1 : 0); // Chuyển đổi Boolean thành 1 (Đã xác nhận) hoặc 0 (Chưa xác nhận)
+                            cmd.Parameters.AddWithValue("@MaNhanVien", MainClass.user.MaNhanVien);
 
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Cập nhật tình trạng xác nhận thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -198,7 +198,7 @@ namespace Sushi_Restaurant.NhanVien
             // Điều kiện cho tình trạng đơn hàng
             if (tinhTrangDonHang == "Đã giao")
             {
-                cbttdh.Enabled = true; // Bật chỉnh sửa tình trạng đơn hàng
+                cbttdh.Enabled = false; // Khóa ComboBox tình trạng đơn hàng
                 btnLuu.Enabled = false; // Khóa nút Lưu
                 btnLuu.BackColor = Color.Gray; // Tô xám nút Lưu
             }
@@ -214,5 +214,6 @@ namespace Sushi_Restaurant.NhanVien
         {
             UpdateControlStates();
         }
+
     }
 }

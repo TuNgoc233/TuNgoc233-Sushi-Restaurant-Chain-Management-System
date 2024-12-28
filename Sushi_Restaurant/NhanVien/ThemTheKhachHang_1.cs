@@ -64,7 +64,7 @@ namespace Sushi_Restaurant.NhanVien
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("usp_ThemTheThanhVien", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_ThemTheThanhVien", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 

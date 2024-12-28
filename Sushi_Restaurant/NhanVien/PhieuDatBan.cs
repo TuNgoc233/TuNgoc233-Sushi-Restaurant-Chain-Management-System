@@ -31,7 +31,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_LayThongTinPhieuDatBan", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayThongTinPhieuDatBan", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaPhieu", maPhieu);
@@ -42,7 +42,7 @@ namespace Sushi_Restaurant.NhanVien
                             // Hiển thị dữ liệu lên các control
                             txtMaKH.Text = reader["MaKhachHang"].ToString();
                             txtsdt.Text = reader["SoDienThoai"].ToString();
-                            txtdate.Text = reader["NgayDat"].ToString();
+                            txtdate.Text = Convert.ToDateTime(reader["NgayDat"]).ToString("dd/MM/yyyy");
                             txttime.Text = reader["GioDen"].ToString();
                             txtSL.Text = reader["SoLuongKhach"].ToString();
                             txtGhiChu.Text = reader["GhiChu"].ToString();
@@ -79,7 +79,7 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_LayThongTinNhanVien", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayThongTinNhanVien", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaNhanVien", MainClass.user.MaNhanVien);
@@ -112,12 +112,12 @@ namespace Sushi_Restaurant.NhanVien
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("usp_CapNhatTinhTrangPhieu", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_CapNhatTinhTrangPhieu", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaPhieu", maPhieu); // Mã phiếu hiện tại
                         cmd.Parameters.AddWithValue("@TinhTrang", tinhTrang); // true hoặc false
-
+                        cmd.Parameters.AddWithValue("@MaNhanVien", MainClass.user.MaNhanVien); // true hoặc false
                         // Thực thi stored procedure
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Cập nhật tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
