@@ -14,14 +14,14 @@ namespace Sushi_Restaurant.Admin
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        public override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //public override void Dispose(bool disposing)
+        //{
+        //    if (disposing && (components != null))
+        //    {
+        //        components.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
         #region Windows Form Designer generated code
 
@@ -42,64 +42,61 @@ namespace Sushi_Restaurant.Admin
             this.texPhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.labRole = new System.Windows.Forms.Label();
             this.texRole = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.chooseBranch = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.labBranch = new System.Windows.Forms.Label();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.labAddStaff = new System.Windows.Forms.Label();
+            this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDong = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Size = new System.Drawing.Size(226, 32);
-            this.label1.Text = "Chỉnh sửa thông tin";
             // 
             // labName
             // 
             this.labName.AutoSize = true;
-            this.labName.Location = new System.Drawing.Point(37, 125);
+            this.labName.Location = new System.Drawing.Point(16, 81);
             this.labName.Name = "labName";
-            this.labName.Size = new System.Drawing.Size(62, 23);
+            this.labName.Size = new System.Drawing.Size(46, 16);
             this.labName.TabIndex = 3;
             this.labName.Text = "Họ tên";
-            this.labName.Click += new System.EventHandler(this.label2_Click);
             // 
             // labBirth
             // 
             this.labBirth.AutoSize = true;
-            this.labBirth.Location = new System.Drawing.Point(35, 228);
+            this.labBirth.Location = new System.Drawing.Point(19, 269);
             this.labBirth.Name = "labBirth";
-            this.labBirth.Size = new System.Drawing.Size(86, 23);
+            this.labBirth.Size = new System.Drawing.Size(67, 16);
             this.labBirth.TabIndex = 9;
             this.labBirth.Text = "Ngày sinh";
+            this.labBirth.Click += new System.EventHandler(this.labBirth_Click);
             // 
             // labGener
             // 
             this.labGener.AutoSize = true;
-            this.labGener.Location = new System.Drawing.Point(527, 228);
+            this.labGener.Location = new System.Drawing.Point(443, 155);
             this.labGener.Name = "labGener";
-            this.labGener.Size = new System.Drawing.Size(75, 23);
+            this.labGener.Size = new System.Drawing.Size(54, 16);
             this.labGener.TabIndex = 11;
             this.labGener.Text = "Giới tính";
+            this.labGener.Click += new System.EventHandler(this.labGener_Click);
             // 
             // labPhone
             // 
             this.labPhone.AutoSize = true;
-            this.labPhone.Location = new System.Drawing.Point(530, 346);
+            this.labPhone.Location = new System.Drawing.Point(442, 237);
             this.labPhone.Name = "labPhone";
-            this.labPhone.Size = new System.Drawing.Size(111, 23);
+            this.labPhone.Size = new System.Drawing.Size(85, 16);
             this.labPhone.TabIndex = 13;
             this.labPhone.Text = "Số điện thoại";
             // 
             // labAddress
             // 
             this.labAddress.AutoSize = true;
-            this.labAddress.Location = new System.Drawing.Point(37, 466);
+            this.labAddress.Location = new System.Drawing.Point(19, 345);
             this.labAddress.Name = "labAddress";
-            this.labAddress.Size = new System.Drawing.Size(62, 23);
+            this.labAddress.Size = new System.Drawing.Size(47, 16);
             this.labAddress.TabIndex = 15;
             this.labAddress.Text = "Địa chỉ";
             // 
@@ -114,15 +111,14 @@ namespace Sushi_Restaurant.Admin
             this.texName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texName.Location = new System.Drawing.Point(39, 152);
+            this.texName.Location = new System.Drawing.Point(18, 108);
             this.texName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texName.Name = "texName";
             this.texName.PasswordChar = '\0';
             this.texName.PlaceholderText = "";
             this.texName.SelectedText = "";
-            this.texName.Size = new System.Drawing.Size(369, 48);
+            this.texName.Size = new System.Drawing.Size(369, 33);
             this.texName.TabIndex = 16;
-            this.texName.TextChanged += new System.EventHandler(this.texName_TextChanged);
             // 
             // texAddress
             // 
@@ -135,19 +131,19 @@ namespace Sushi_Restaurant.Admin
             this.texAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texAddress.Location = new System.Drawing.Point(39, 493);
+            this.texAddress.Location = new System.Drawing.Point(21, 365);
             this.texAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texAddress.Name = "texAddress";
             this.texAddress.PasswordChar = '\0';
             this.texAddress.PlaceholderText = "";
             this.texAddress.SelectedText = "";
-            this.texAddress.Size = new System.Drawing.Size(789, 48);
+            this.texAddress.Size = new System.Drawing.Size(701, 33);
             this.texAddress.TabIndex = 21;
             this.texAddress.TextChanged += new System.EventHandler(this.texAddress_TextChanged);
             // 
             // texPhone
             // 
-            this.texPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.texPhone.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.texPhone.DefaultText = "";
             this.texPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.texPhone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -156,21 +152,23 @@ namespace Sushi_Restaurant.Admin
             this.texPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.texPhone.Location = new System.Drawing.Point(531, 373);
+            this.texPhone.Location = new System.Drawing.Point(443, 264);
             this.texPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texPhone.Name = "texPhone";
             this.texPhone.PasswordChar = '\0';
             this.texPhone.PlaceholderText = "";
             this.texPhone.SelectedText = "";
-            this.texPhone.Size = new System.Drawing.Size(297, 48);
+            this.texPhone.Size = new System.Drawing.Size(267, 33);
             this.texPhone.TabIndex = 22;
+            this.texPhone.UseWaitCursor = true;
+            this.texPhone.TextChanged += new System.EventHandler(this.texPhone_TextChanged);
             // 
             // labRole
             // 
             this.labRole.AutoSize = true;
-            this.labRole.Location = new System.Drawing.Point(37, 346);
+            this.labRole.Location = new System.Drawing.Point(20, 168);
             this.labRole.Name = "labRole";
-            this.labRole.Size = new System.Drawing.Size(74, 23);
+            this.labRole.Size = new System.Drawing.Size(57, 16);
             this.labRole.TabIndex = 24;
             this.labRole.Text = "Bộ phận";
             // 
@@ -184,35 +182,10 @@ namespace Sushi_Restaurant.Admin
             this.texRole.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.texRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.texRole.ItemHeight = 30;
-            this.texRole.Location = new System.Drawing.Point(41, 372);
+            this.texRole.Location = new System.Drawing.Point(24, 194);
             this.texRole.Name = "texRole";
             this.texRole.Size = new System.Drawing.Size(140, 36);
             this.texRole.TabIndex = 25;
-            this.texRole.SelectedIndexChanged += new System.EventHandler(this.texRole_SelectedIndexChanged);
-            // 
-            // chooseBranch
-            // 
-            this.chooseBranch.BackColor = System.Drawing.Color.Transparent;
-            this.chooseBranch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.chooseBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.chooseBranch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chooseBranch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chooseBranch.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.chooseBranch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.chooseBranch.ItemHeight = 30;
-            this.chooseBranch.Location = new System.Drawing.Point(591, 46);
-            this.chooseBranch.Name = "chooseBranch";
-            this.chooseBranch.Size = new System.Drawing.Size(161, 36);
-            this.chooseBranch.TabIndex = 26;
-            // 
-            // labBranch
-            // 
-            this.labBranch.AutoSize = true;
-            this.labBranch.Location = new System.Drawing.Point(587, 20);
-            this.labBranch.Name = "labBranch";
-            this.labBranch.Size = new System.Drawing.Size(89, 23);
-            this.labBranch.TabIndex = 27;
-            this.labBranch.Text = "Chi nhánh";
             // 
             // guna2DateTimePicker1
             // 
@@ -220,14 +193,13 @@ namespace Sushi_Restaurant.Admin
             this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
             this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(39, 254);
+            this.guna2DateTimePicker1.Location = new System.Drawing.Point(23, 295);
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(251, 48);
+            this.guna2DateTimePicker1.Size = new System.Drawing.Size(251, 33);
             this.guna2DateTimePicker1.TabIndex = 28;
             this.guna2DateTimePicker1.Value = new System.DateTime(2024, 11, 29, 8, 59, 22, 173);
-            this.guna2DateTimePicker1.ValueChanged += new System.EventHandler(this.guna2DateTimePicker1_ValueChanged);
             // 
             // guna2RadioButton1
             // 
@@ -237,16 +209,15 @@ namespace Sushi_Restaurant.Admin
             this.guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.guna2RadioButton1.CheckedState.InnerOffset = -4;
-            this.guna2RadioButton1.Location = new System.Drawing.Point(531, 275);
+            this.guna2RadioButton1.Location = new System.Drawing.Point(446, 187);
             this.guna2RadioButton1.Name = "guna2RadioButton1";
-            this.guna2RadioButton1.Size = new System.Drawing.Size(68, 27);
+            this.guna2RadioButton1.Size = new System.Drawing.Size(57, 20);
             this.guna2RadioButton1.TabIndex = 29;
             this.guna2RadioButton1.Text = "Nam";
             this.guna2RadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2RadioButton1.UncheckedState.BorderThickness = 2;
             this.guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.guna2RadioButton1.CheckedChanged += new System.EventHandler(this.guna2RadioButton1_CheckedChanged);
             // 
             // guna2RadioButton2
             // 
@@ -256,9 +227,9 @@ namespace Sushi_Restaurant.Admin
             this.guna2RadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2RadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.guna2RadioButton2.CheckedState.InnerOffset = -4;
-            this.guna2RadioButton2.Location = new System.Drawing.Point(662, 275);
+            this.guna2RadioButton2.Location = new System.Drawing.Point(577, 187);
             this.guna2RadioButton2.Name = "guna2RadioButton2";
-            this.guna2RadioButton2.Size = new System.Drawing.Size(54, 27);
+            this.guna2RadioButton2.Size = new System.Drawing.Size(45, 20);
             this.guna2RadioButton2.TabIndex = 30;
             this.guna2RadioButton2.Text = "Nữ";
             this.guna2RadioButton2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -266,38 +237,85 @@ namespace Sushi_Restaurant.Admin
             this.guna2RadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(783, 20);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox1.TabIndex = 31;
-            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
-            // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.labAddStaff);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(11, 0);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(100, 93);
-            this.guna2CustomGradientPanel1.TabIndex = 32;
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(753, 67);
+            this.guna2CustomGradientPanel1.TabIndex = 51;
+            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
+            // 
+            // labAddStaff
+            // 
+            this.labAddStaff.AutoSize = true;
+            this.labAddStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.labAddStaff.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labAddStaff.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labAddStaff.Location = new System.Drawing.Point(12, 21);
+            this.labAddStaff.Name = "labAddStaff";
+            this.labAddStaff.Size = new System.Drawing.Size(260, 38);
+            this.labAddStaff.TabIndex = 47;
+            this.labAddStaff.Text = "Chỉnh sửa thông tin";
+            this.labAddStaff.Click += new System.EventHandler(this.labAddStaff_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.AutoRoundedCorners = true;
+            this.btnLuu.BackColor = System.Drawing.Color.Transparent;
+            this.btnLuu.BorderRadius = 23;
+            this.btnLuu.CustomizableEdges.TopRight = false;
+            this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Location = new System.Drawing.Point(41, 428);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(125, 49);
+            this.btnLuu.TabIndex = 49;
+            this.btnLuu.Text = "LƯU";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // btnDong
+            // 
+            this.btnDong.AutoRoundedCorners = true;
+            this.btnDong.BackColor = System.Drawing.Color.Transparent;
+            this.btnDong.BorderRadius = 23;
+            this.btnDong.CustomizableEdges.TopRight = false;
+            this.btnDong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnDong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDong.ForeColor = System.Drawing.Color.White;
+            this.btnDong.Location = new System.Drawing.Point(579, 428);
+            this.btnDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(134, 49);
+            this.btnDong.TabIndex = 48;
+            this.btnDong.Text = "ĐÓNG";
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // Adjust_Employee
             // 
-            this.ClientSize = new System.Drawing.Size(853, 685);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(753, 488);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.guna2CustomGradientPanel1);
-            this.Controls.Add(this.guna2ControlBox1);
+            this.Controls.Add(this.btnDong);
             this.Controls.Add(this.guna2RadioButton2);
             this.Controls.Add(this.guna2RadioButton1);
             this.Controls.Add(this.guna2DateTimePicker1);
-            this.Controls.Add(this.labBranch);
-            this.Controls.Add(this.chooseBranch);
             this.Controls.Add(this.texRole);
             this.Controls.Add(this.labRole);
             this.Controls.Add(this.texPhone);
@@ -308,8 +326,11 @@ namespace Sushi_Restaurant.Admin
             this.Controls.Add(this.labGener);
             this.Controls.Add(this.labBirth);
             this.Controls.Add(this.labName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Adjust_Employee";
-            this.Load += new System.EventHandler(this.addStaff_Load);
+            this.Load += new System.EventHandler(this.Adjust_Employee_Load);
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,13 +413,13 @@ namespace Sushi_Restaurant.Admin
         public Guna.UI2.WinForms.Guna2TextBox texAddress;
         public System.Windows.Forms.Label labRole;
         public Guna.UI2.WinForms.Guna2ComboBox texRole;
-        private Guna.UI2.WinForms.Guna2ComboBox chooseBranch;
-        private System.Windows.Forms.Label labBranch;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Label labAddStaff;
+        public Guna.UI2.WinForms.Guna2Button btnLuu;
+        public Guna.UI2.WinForms.Guna2Button btnDong;
     }
 }

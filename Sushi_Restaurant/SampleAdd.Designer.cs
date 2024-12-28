@@ -37,21 +37,18 @@ namespace Sushi_Restaurant
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnDong = new Guna.UI2.WinForms.Guna2Button();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(853, 97);
+            this.guna2Panel1.Size = new System.Drawing.Size(753, 97);
             this.guna2Panel1.TabIndex = 0;
             // 
             // label1
@@ -73,9 +70,9 @@ namespace Sushi_Restaurant
             this.guna2Panel2.Controls.Add(this.btnLuu);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel2.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 599);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 402);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(853, 86);
+            this.guna2Panel2.Size = new System.Drawing.Size(753, 86);
             this.guna2Panel2.TabIndex = 1;
             this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
@@ -92,7 +89,7 @@ namespace Sushi_Restaurant
             this.btnDong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.btnDong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDong.ForeColor = System.Drawing.Color.White;
-            this.btnDong.Location = new System.Drawing.Point(663, 19);
+            this.btnDong.Location = new System.Drawing.Point(602, 19);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(125, 45);
             this.btnDong.TabIndex = 1;
@@ -119,24 +116,11 @@ namespace Sushi_Restaurant
             this.btnLuu.Text = "LƯU";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.ErrorImage = null;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(29, 12);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 75);
-            this.guna2PictureBox1.TabIndex = 2;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
-  
-            // 
             // SampleAdd
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(853, 685);
+            this.ClientSize = new System.Drawing.Size(753, 488);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,7 +132,6 @@ namespace Sushi_Restaurant
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -158,7 +141,6 @@ namespace Sushi_Restaurant
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         public System.Windows.Forms.Label label1;
-        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         public Guna.UI2.WinForms.Guna2Button btnDong;
         public Guna.UI2.WinForms.Guna2Button btnLuu;
     }

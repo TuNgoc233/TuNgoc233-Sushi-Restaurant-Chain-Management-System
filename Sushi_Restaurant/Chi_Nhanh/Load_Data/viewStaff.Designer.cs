@@ -42,18 +42,14 @@
             this.dgv10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ControlMini = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ControlMax = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dataview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,13 +64,15 @@
             this.btnThem.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.btnThem.Image = global::Sushi_Restaurant.Properties.Resources.icon_person;
             this.btnThem.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
-            this.btnThem.Location = new System.Drawing.Point(217, 73);
+            this.btnThem.Location = new System.Drawing.Point(61, 86);
             this.btnThem.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(287, 86);
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(28, 163);
             this.label2.Size = new System.Drawing.Size(124, 32);
             this.label2.Text = "Nhân viên";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -96,7 +94,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Dataview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.Dataview.ColumnHeadersHeight = 25;
+            this.Dataview.ColumnHeadersHeight = 40;
             this.Dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.Dataview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgv,
@@ -210,16 +208,6 @@
             this.dgvImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.nha_hang;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(1, 0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(180, 649);
-            this.guna2PictureBox1.TabIndex = 10;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
@@ -227,7 +215,7 @@
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(12, 320);
@@ -243,8 +231,8 @@
             this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.Location = new System.Drawing.Point(12, 382);
             this.guna2Button3.Name = "guna2Button3";
@@ -259,8 +247,8 @@
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Location = new System.Drawing.Point(12, 443);
             this.guna2Button2.Name = "guna2Button2";
@@ -275,7 +263,7 @@
             this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
+            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button4.ForeColor = System.Drawing.Color.White;
             this.guna2Button4.Location = new System.Drawing.Point(12, 509);
@@ -288,16 +276,17 @@
             // guna2Button5
             // 
             this.guna2Button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2Button5.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
+            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.guna2Button5.ForeColor = System.Drawing.Color.White;
             this.guna2Button5.Location = new System.Drawing.Point(12, 250);
             this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(158, 45);
+            this.guna2Button5.Size = new System.Drawing.Size(154, 45);
             this.guna2Button5.TabIndex = 10;
             this.guna2Button5.Text = "Trang chủ";
             this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
@@ -313,28 +302,6 @@
             this.Exit.TabIndex = 3;
             this.Exit.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
-            // ControlMini
-            // 
-            this.ControlMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlMini.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.ControlMini.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.ControlMini.IconColor = System.Drawing.Color.White;
-            this.ControlMini.Location = new System.Drawing.Point(1355, 12);
-            this.ControlMini.Name = "ControlMini";
-            this.ControlMini.Size = new System.Drawing.Size(45, 29);
-            this.ControlMini.TabIndex = 3;
-            // 
-            // ControlMax
-            // 
-            this.ControlMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlMax.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.ControlMax.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.ControlMax.IconColor = System.Drawing.Color.White;
-            this.ControlMax.Location = new System.Drawing.Point(1304, 12);
-            this.ControlMax.Name = "ControlMax";
-            this.ControlMax.Size = new System.Drawing.Size(45, 29);
-            this.ControlMax.TabIndex = 3;
-            // 
             // guna2Button6
             // 
             this.guna2Button6.AutoRoundedCorners = true;
@@ -344,9 +311,9 @@
             this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.FillColor = System.Drawing.Color.Silver;
+            this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
             this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.guna2Button6.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button6.ForeColor = System.Drawing.Color.White;
             this.guna2Button6.Location = new System.Drawing.Point(12, 591);
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.Size = new System.Drawing.Size(158, 45);
@@ -357,13 +324,10 @@
             // viewStaff
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1463, 648);
-            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.Dataview);
             this.Controls.Add(this.guna2Button6);
-            this.Controls.Add(this.ControlMax);
-            this.Controls.Add(this.ControlMini);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.guna2Button5);
             this.Controls.Add(this.guna2Button4);
@@ -379,17 +343,13 @@
             this.Controls.SetChildIndex(this.guna2Button4, 0);
             this.Controls.SetChildIndex(this.guna2Button5, 0);
             this.Controls.SetChildIndex(this.Exit, 0);
-            this.Controls.SetChildIndex(this.ControlMini, 0);
-            this.Controls.SetChildIndex(this.ControlMax, 0);
             this.Controls.SetChildIndex(this.guna2Separator1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.btnThem, 0);
             this.Controls.SetChildIndex(this.guna2Button6, 0);
             this.Controls.SetChildIndex(this.Dataview, 0);
-            this.Controls.SetChildIndex(this.guna2PictureBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.Dataview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,15 +367,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv11;
         private System.Windows.Forms.DataGridViewImageColumn dgvImage;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2ControlBox Exit;
-        private Guna.UI2.WinForms.Guna2ControlBox ControlMini;
-        private Guna.UI2.WinForms.Guna2ControlBox ControlMax;
         private Guna.UI2.WinForms.Guna2Button guna2Button6;
     }
 }

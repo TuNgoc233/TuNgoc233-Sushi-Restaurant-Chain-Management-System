@@ -138,14 +138,14 @@ namespace Sushi_Restaurant.Admin
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Thêm các tham số vào stored procedure
-                    cmd.Parameters.AddWithValue("@MaNhanVien", txtID.Text.Trim()); // Mã nhân viên đã được tự động tạo
+                    cmd.Parameters.AddWithValue("@MaNhanVien", txtID.Text.Trim()); 
                     cmd.Parameters.AddWithValue("@HoTen", texName.Text.Trim());
                     cmd.Parameters.AddWithValue("@NgaySinh", guna2DateTimePicker1.Value);
                     cmd.Parameters.AddWithValue("@GioiTinh", guna2RadioButton1.Checked ? "Nam" : "Nữ");
                     cmd.Parameters.AddWithValue("@DiaChi", texAddress.Text.Trim());
                     cmd.Parameters.AddWithValue("@SoDienThoai", texPhone.Text.Trim());
-                    cmd.Parameters.AddWithValue("@MaBoPhan", maBoPhan); // Mã bộ phận đã lấy
-                    cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh); // Mã bộ phận đã lấy
+                    cmd.Parameters.AddWithValue("@MaBoPhan", maBoPhan); 
+                    cmd.Parameters.AddWithValue("@MaChiNhanh", maChiNhanh); 
 
                     try
                     {
@@ -153,7 +153,7 @@ namespace Sushi_Restaurant.Admin
                         cmd.ExecuteNonQuery(); // Thực thi câu lệnh
                         MessageBox.Show("Thêm nhân viên thành công!");
                         Add_Completed?.Invoke(); // Gọi sự kiện nếu có
-                        this.Close(); // Đóng form sau khi thêm thành công
+                        this.Close();
                     }
                     catch (Exception ex)
                     {
@@ -210,7 +210,7 @@ namespace Sushi_Restaurant.Admin
 
         private void texAddress_TextChanged(object sender, EventArgs e)
         {
-            // Xử lý sự kiện thay đổi địa chỉ nếu cần
+          
         }
 
         private void ComboBoxBranch_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,6 +218,14 @@ namespace Sushi_Restaurant.Admin
 
         }
 
-        
+        private void texRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labRole_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

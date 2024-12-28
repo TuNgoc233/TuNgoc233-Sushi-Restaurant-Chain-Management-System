@@ -41,6 +41,13 @@ namespace Sushi_Restaurant.Admin
 
         private void UpdateSalaryForDepartment(string departmentName, decimal newSalary)
         {
+           
+            if (newSalary < 5000000 || newSalary > 40000000)
+            {
+                MessageBox.Show("Mức lương không hợp lệ. Mức lương phải nằm trong khoảng từ 5 triệu đến 40 triệu.");
+                return;
+            }
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "UPDATE BO_PHAN SET MucLuong = @NewSalary WHERE TenBoPhan = @DepartmentName";
@@ -70,14 +77,15 @@ namespace Sushi_Restaurant.Admin
             }
         }
 
+
         private void Combox__SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Có thể thực hiện các hành động khác khi người dùng chọn bộ phận
+          
         }
 
         private void txtRole_TextChanged(object sender, EventArgs e)
         {
-            // Nếu bạn có một TextBox để nhập lương mới, xử lý ở đây
+           
         }
 
         private void BtnUpdate_Click_1(object sender, EventArgs e)
@@ -122,6 +130,11 @@ namespace Sushi_Restaurant.Admin
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

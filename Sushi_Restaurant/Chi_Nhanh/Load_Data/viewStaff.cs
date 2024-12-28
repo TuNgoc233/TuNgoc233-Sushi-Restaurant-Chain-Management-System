@@ -250,5 +250,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
                 e.Cancel = true; // Prevent closing
             }
         }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

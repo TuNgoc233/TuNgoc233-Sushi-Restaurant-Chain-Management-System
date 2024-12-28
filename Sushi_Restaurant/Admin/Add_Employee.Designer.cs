@@ -45,17 +45,17 @@
             this.txtID = new Guna.UI2.WinForms.Guna2TextBox();
             this.ComboBoxBranch = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.labAddStaff = new System.Windows.Forms.Label();
             this.guna2RadioButton3 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnDong
             // 
             this.btnDong.AutoRoundedCorners = true;
-            this.btnDong.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnDong.BackColor = System.Drawing.Color.Transparent;
             this.btnDong.BorderRadius = 23;
             this.btnDong.CustomizableEdges.TopRight = false;
             this.btnDong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -76,7 +76,7 @@
             // btnLuu
             // 
             this.btnLuu.AutoRoundedCorners = true;
-            this.btnLuu.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnLuu.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu.BorderRadius = 23;
             this.btnLuu.CustomizableEdges.TopRight = false;
             this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -106,6 +106,7 @@
             this.texName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texName.Location = new System.Drawing.Point(466, 110);
+            this.texName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texName.Name = "texName";
             this.texName.PasswordChar = '\0';
             this.texName.PlaceholderText = "";
@@ -120,7 +121,7 @@
             this.labName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labName.Location = new System.Drawing.Point(462, 84);
             this.labName.Name = "labName";
-            this.labName.Size = new System.Drawing.Size(69, 25);
+            this.labName.Size = new System.Drawing.Size(62, 23);
             this.labName.TabIndex = 18;
             this.labName.Text = "Họ tên";
             // 
@@ -136,6 +137,7 @@
             this.texPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texPhone.Location = new System.Drawing.Point(466, 287);
+            this.texPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texPhone.Name = "texPhone";
             this.texPhone.PasswordChar = '\0';
             this.texPhone.PlaceholderText = "";
@@ -149,7 +151,7 @@
             this.labPhone.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labPhone.Location = new System.Drawing.Point(462, 262);
             this.labPhone.Name = "labPhone";
-            this.labPhone.Size = new System.Drawing.Size(126, 25);
+            this.labPhone.Size = new System.Drawing.Size(111, 23);
             this.labPhone.TabIndex = 32;
             this.labPhone.Text = "Số điện thoại";
             // 
@@ -159,7 +161,7 @@
             this.labGener.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labGener.Location = new System.Drawing.Point(463, 170);
             this.labGener.Name = "labGener";
-            this.labGener.Size = new System.Drawing.Size(82, 25);
+            this.labGener.Size = new System.Drawing.Size(75, 23);
             this.labGener.TabIndex = 31;
             this.labGener.Text = "Giới tính";
             // 
@@ -188,21 +190,23 @@
             this.texRole.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.texRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.texRole.ItemHeight = 30;
-            this.texRole.Location = new System.Drawing.Point(28, 284);
+            this.texRole.Location = new System.Drawing.Point(28, 281);
             this.texRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.texRole.Name = "texRole";
             this.texRole.Size = new System.Drawing.Size(125, 36);
             this.texRole.TabIndex = 40;
+            this.texRole.SelectedIndexChanged += new System.EventHandler(this.texRole_SelectedIndexChanged);
             // 
             // labRole
             // 
             this.labRole.AutoSize = true;
             this.labRole.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labRole.Location = new System.Drawing.Point(25, 262);
+            this.labRole.Location = new System.Drawing.Point(25, 259);
             this.labRole.Name = "labRole";
-            this.labRole.Size = new System.Drawing.Size(85, 25);
+            this.labRole.Size = new System.Drawing.Size(74, 23);
             this.labRole.TabIndex = 39;
             this.labRole.Text = "Bộ phận";
+            this.labRole.Click += new System.EventHandler(this.labRole_Click);
             // 
             // texAddress
             // 
@@ -216,6 +220,7 @@
             this.texAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.texAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.texAddress.Location = new System.Drawing.Point(26, 369);
+            this.texAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.texAddress.Name = "texAddress";
             this.texAddress.PasswordChar = '\0';
             this.texAddress.PlaceholderText = "";
@@ -249,7 +254,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 25);
+            this.label2.Size = new System.Drawing.Size(114, 23);
             this.label2.TabIndex = 43;
             this.label2.Text = "Mã nhân viên";
             // 
@@ -265,6 +270,7 @@
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Location = new System.Drawing.Point(26, 110);
+            this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtID.Name = "txtID";
             this.txtID.PasswordChar = '\0';
             this.txtID.PlaceholderText = "";
@@ -296,32 +302,21 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(208, 259);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 25);
+            this.label3.Size = new System.Drawing.Size(89, 23);
             this.label3.TabIndex = 45;
             this.label3.Text = "Chi nhánh";
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = global::Sushi_Restaurant.Properties.Resources.logo;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(29, 12);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 46;
-            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // labAddStaff
             // 
             this.labAddStaff.AutoSize = true;
+            this.labAddStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.labAddStaff.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labAddStaff.ForeColor = System.Drawing.Color.Crimson;
-            this.labAddStaff.Location = new System.Drawing.Point(122, 30);
+            this.labAddStaff.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labAddStaff.Location = new System.Drawing.Point(12, 21);
             this.labAddStaff.Name = "labAddStaff";
-            this.labAddStaff.Size = new System.Drawing.Size(334, 38);
+            this.labAddStaff.Size = new System.Drawing.Size(225, 38);
             this.labAddStaff.TabIndex = 47;
-            this.labAddStaff.Text = "Quản Lý Thêm Nhân Viên";
+            this.labAddStaff.Text = "Thêm Nhân Viên";
             // 
             // guna2RadioButton3
             // 
@@ -361,16 +356,27 @@
             this.guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.labAddStaff);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(753, 67);
+            this.guna2CustomGradientPanel1.TabIndex = 50;
+            // 
             // Add_Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(753, 488);
             this.Controls.Add(this.guna2RadioButton1);
             this.Controls.Add(this.guna2RadioButton3);
-            this.Controls.Add(this.labAddStaff);
-            this.Controls.Add(this.guna2CirclePictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ComboBoxBranch);
             this.Controls.Add(this.label2);
@@ -388,11 +394,14 @@
             this.Controls.Add(this.texName);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnDong);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Add_Employee";
             this.Text = "Add_Employee";
             this.Load += new System.EventHandler(this.Add_Employee_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,9 +426,9 @@
         public Guna.UI2.WinForms.Guna2TextBox txtID;
         public Guna.UI2.WinForms.Guna2ComboBox ComboBoxBranch;
         public System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label labAddStaff;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton3;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
     }
 }
