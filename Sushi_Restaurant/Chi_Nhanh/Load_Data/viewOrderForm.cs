@@ -18,6 +18,20 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            // Vô hiệu hóa Theme mặc định để toàn quyền điều chỉnh
+            // Thiết lập font chữ cho Header
+            this.Load_Invoice.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.Load_Invoice.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 16);
+
+            // Thiết lập màu nền và màu chữ cho Header
+            this.Load_Invoice.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 55, 89);
+            this.Load_Invoice.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.Load_Invoice.EnableHeadersVisualStyles = false; // Bắt buộc phải tắt thuộc tính này để màu tùy chỉnh có hiệu lực
+
+            // Tăng chiều cao Header
+            this.Load_Invoice.ColumnHeadersHeight = 60;
+            this.Load_Invoice.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Load_Invoice.RowTemplate.Height = 35; // Tăng chiều cao lên 50 (hoặc giá trị bạn muốn)
             this.Load += new EventHandler(viewOrderForm_Load); // Đăng ký sự kiện Load
 
         }

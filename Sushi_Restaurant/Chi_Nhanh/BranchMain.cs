@@ -15,7 +15,7 @@ namespace Sushi_Restaurant
     {
         public static string LoggedBranchId { get; set; }
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_index; Trusted_Connection=True; Connection Timeout=120;";
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
@@ -278,6 +278,29 @@ namespace Sushi_Restaurant
 
             return quarters;
         }
+
+
+        public static List<int> GetYearsFromDatabase()
+        {
+            List<int> years = new List<int>();
+
+            // Kết nối cơ sở dữ liệu và lấy danh sách năm
+            using (SqlConnection conn = new SqlConnection(con_string))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT DISTINCT Year(ThoiGianLap) FROM Hoa_Don", conn); // Thay bằng câu truy vấn phù hợp
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    years.Add(reader.GetInt32(0));
+                }
+            }
+
+            return years;
+        }
+
 
         // Lấy doanh thu công ty theo khoảng thời gian
         public static DataTable GetRevenueReportCompany(string timeFrame, string branchId = null, DateTime? specificDate = null)
