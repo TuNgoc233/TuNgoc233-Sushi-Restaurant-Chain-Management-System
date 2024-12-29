@@ -233,5 +233,15 @@ namespace Sushi_Restaurant
         {
 
         }
+
+        private void lblTotalInvoices_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

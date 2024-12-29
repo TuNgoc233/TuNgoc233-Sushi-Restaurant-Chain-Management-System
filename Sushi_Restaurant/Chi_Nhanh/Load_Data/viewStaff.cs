@@ -207,8 +207,11 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void Dataview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string maNhanVien = Dataview.Rows[e.RowIndex].Cells[0].Value.ToString();
-            PointServiceStaff pointServiceStaff = new PointServiceStaff(maNhanVien);
+            PointServiceStaff pointServiceStaff = new PointServiceStaff(maNhanVien,Branch.MaChiNhanh);
+            this.Opacity = 0.9;
             pointServiceStaff.ShowDialog();
+            this.Opacity = 1.0;
+
         }
 
         private void guna2Button4_Click_1(object sender, EventArgs e)

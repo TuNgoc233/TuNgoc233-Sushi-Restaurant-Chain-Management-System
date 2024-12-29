@@ -97,8 +97,10 @@ namespace Sushi_Restaurant.Admin
 
                     // Tạo đối tượng Tranfer và truyền tham số
                     Adjust_Employee adjust = new Adjust_Employee(dgvID);
+                    this.Opacity = 0.9;
                     adjust.Adjust_Completed += ReloadEmployeeData;
                     adjust.ShowDialog();
+                    this.Opacity = 1.0;
                 }
             }    
             else if (e.ColumnIndex == Dataview.Columns["dgvDelete"].Index) 

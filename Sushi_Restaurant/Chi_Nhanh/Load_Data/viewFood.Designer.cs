@@ -32,17 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Data_Load = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Data_Load)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,36 +122,6 @@
             this.Data_Load.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.Data_Load.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_Load);
             // 
-            // dgv
-            // 
-            this.dgv.HeaderText = "Mã món ăn";
-            this.dgv.MinimumWidth = 6;
-            this.dgv.Name = "dgv";
-            // 
-            // dgv1
-            // 
-            this.dgv1.HeaderText = "Tên món ăn";
-            this.dgv1.MinimumWidth = 6;
-            this.dgv1.Name = "dgv1";
-            // 
-            // dgv2
-            // 
-            this.dgv2.HeaderText = "Mã mục";
-            this.dgv2.MinimumWidth = 6;
-            this.dgv2.Name = "dgv2";
-            // 
-            // dgv3
-            // 
-            this.dgv3.HeaderText = "Giá hiện tại";
-            this.dgv3.MinimumWidth = 6;
-            this.dgv3.Name = "dgv3";
-            // 
-            // dgv4
-            // 
-            this.dgv4.HeaderText = "Tình trạng phục vụ";
-            this.dgv4.MinimumWidth = 6;
-            this.dgv4.Name = "dgv4";
-            // 
             // guna2CustomGradientPanel2
             // 
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(683, 28);
@@ -216,7 +186,7 @@
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 48;
-
+            // 
             // guna2ContextMenuStrip1
             // 
             this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -230,7 +200,37 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(211, 32);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // dgv
+            // 
+            this.dgv.HeaderText = "Mã món ăn";
+            this.dgv.MinimumWidth = 6;
+            this.dgv.Name = "dgv";
+            // 
+            // dgv1
+            // 
+            this.dgv1.HeaderText = "Tên món ăn";
+            this.dgv1.MinimumWidth = 6;
+            this.dgv1.Name = "dgv1";
+            // 
+            // dgv2
+            // 
+            this.dgv2.HeaderText = "Tên mục";
+            this.dgv2.MinimumWidth = 6;
+            this.dgv2.Name = "dgv2";
+            // 
+            // dgv3
+            // 
+            this.dgv3.HeaderText = "Giá hiện tại";
+            this.dgv3.MinimumWidth = 6;
+            this.dgv3.Name = "dgv3";
+            // 
+            // dgv4
+            // 
+            this.dgv4.HeaderText = "Tình trạng phục vụ";
+            this.dgv4.MinimumWidth = 6;
+            this.dgv4.Name = "dgv4";
             // 
             // viewFood
             // 
@@ -265,16 +265,16 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView Data_Load;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgv4;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private Guna.UI2.WinForms.Guna2ControlBox Exit;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv4;
     }
 }

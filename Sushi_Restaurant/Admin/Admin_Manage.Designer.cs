@@ -55,7 +55,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(306, 170);
             this.guna2Button1.TabIndex = 1;
-            this.guna2Button1.Text = "Thêm món ăn";
+            this.guna2Button1.Text = "Quản lý món ăn";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2

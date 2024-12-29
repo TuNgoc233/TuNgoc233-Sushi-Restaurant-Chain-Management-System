@@ -231,6 +231,7 @@
             this.guna2CustomGradientPanel4.Name = "guna2CustomGradientPanel4";
             this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(436, 187);
             this.guna2CustomGradientPanel4.TabIndex = 0;
+            this.guna2CustomGradientPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel4_Paint);
             // 
             // guna2PictureBox6
             // 
@@ -275,6 +276,7 @@
             this.lblTotalInvoices.Size = new System.Drawing.Size(218, 85);
             this.lblTotalInvoices.TabIndex = 3;
             this.lblTotalInvoices.Text = "Label";
+            this.lblTotalInvoices.Click += new System.EventHandler(this.lblTotalInvoices_Click);
             // 
             // guna2CustomGradientPanel3
             // 

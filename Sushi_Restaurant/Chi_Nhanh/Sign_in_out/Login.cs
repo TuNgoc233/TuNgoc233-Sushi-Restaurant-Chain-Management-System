@@ -52,6 +52,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
                     // Truyền branchId khi tạo form Brand
                     Brand branchForm = new Brand(branchId);
                     branchForm.Show();
+                    this.Hide(); // Ẩn form hiện tại
                 }
                 else
                 {

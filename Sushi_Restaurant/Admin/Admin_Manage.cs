@@ -40,8 +40,8 @@ namespace Sushi_Restaurant.Admin
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            //viewFood viewFood = new viewFood();
-            //viewFood.Show();
+            Load_Food load  = new Load_Food();
+            load.Show();
             //addFood food = new addFood();
             //food.Show();
         }

@@ -204,7 +204,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void addFood_Load_1(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
 
         private void label1_Click_1(object sender, EventArgs e)

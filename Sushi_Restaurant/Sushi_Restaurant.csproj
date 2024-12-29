@@ -121,16 +121,10 @@
     <Compile Include="Chi_Nhanh\Brand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\Insert_update_delete\addOrderForm.cs">
+    <Compile Include="Admin\addFood.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Chi_Nhanh\Insert_update_delete\addOrderForm.Designer.cs">
-      <DependentUpon>addOrderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chi_Nhanh\Insert_update_delete\addFood.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chi_Nhanh\Insert_update_delete\addFood.Designer.cs">
+    <Compile Include="Admin\addFood.Designer.cs">
       <DependentUpon>addFood.cs</DependentUpon>
     </Compile>
     <Compile Include="Chi_Nhanh\Sign_in_out\Login.cs">
@@ -219,13 +213,10 @@
     <EmbeddedResource Include="branch_revenue.resx">
       <DependentUpon>branch_revenue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addOrderForm.resx">
-      <DependentUpon>addOrderForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Adjust_Employee.resx">
       <DependentUpon>Adjust_Employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Chi_Nhanh\Insert_update_delete\addFood.resx">
+    <EmbeddedResource Include="Admin\addFood.resx">
       <DependentUpon>addFood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chi_Nhanh\Load_Data\Staff_Score.resx">
