@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.gunaPanel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblUser = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblChiNhanh = new System.Windows.Forms.Label();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -49,7 +50,6 @@
             this.btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.CenterPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblUser = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.gunaPanel1.SuspendLayout();
@@ -357,6 +357,17 @@
             this.gunaPanel1.Size = new System.Drawing.Size(1005, 53);
             this.gunaPanel1.TabIndex = 1;
             // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(30, 17);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(152, 28);
+            this.lblUser.TabIndex = 6;
+            this.lblUser.Text = "Đoàn Chí Công";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -440,17 +451,6 @@
             this.CenterPanel.Size = new System.Drawing.Size(1005, 757);
             this.CenterPanel.TabIndex = 2;
             // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(30, 17);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(152, 28);
-            this.lblUser.TabIndex = 6;
-            this.lblUser.Text = "Đoàn Chí Công";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -462,6 +462,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.Text = " ";
