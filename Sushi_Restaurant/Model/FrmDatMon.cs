@@ -76,7 +76,7 @@ namespace Sushi_Restaurant
                 con.Open(); // Mở kết nối
 
                 // Khai báo lệnh SQL gọi stored procedure
-                SqlCommand cmd = new SqlCommand("NXHanh_LayDanhMucMonAnCuaChiNhanh", con);
+                SqlCommand cmd = new SqlCommand("sp_LayDanhMucMonAnCuaChiNhanh", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Thêm tham số cho stored procedure
@@ -178,7 +178,7 @@ namespace Sushi_Restaurant
                         }
 
                         // Thêm món ăn vào danh sách yêu thích
-                        using (SqlCommand cmd = new SqlCommand("NXHanh_ThemMonAnYeuThich", conn))
+                        using (SqlCommand cmd = new SqlCommand("sp_ThemMonAnYeuThich", conn))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);
@@ -301,7 +301,7 @@ namespace Sushi_Restaurant
 
                 // Lấy danh sách Best Seller từ stored procedure
                 DataTable dtBestSeller = new DataTable();
-                SqlCommand cmdBestSeller = new SqlCommand("GetBestSellerProducts", conn)
+                SqlCommand cmdBestSeller = new SqlCommand("sp_LayMonBestSeller", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };

@@ -142,7 +142,7 @@ namespace Sushi_Restaurant.View
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("NXHanh_CapNhatKhachHang", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_CapNhatKhachHang", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 

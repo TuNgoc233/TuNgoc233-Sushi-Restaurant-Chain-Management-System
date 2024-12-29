@@ -147,7 +147,7 @@ namespace Sushi_Restaurant.View
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("NXHanh_TaoDonHangDatBan", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_TaoDonHangDatBan", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 

@@ -38,7 +38,7 @@ namespace Sushi_Restaurant.View
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("NXHanh_LayThongTinGiaoHang", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayThongTinGiaoHang", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaPhieu", maDonHang);
@@ -99,6 +99,11 @@ namespace Sushi_Restaurant.View
         private void ControlBoxThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel_dat_hang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

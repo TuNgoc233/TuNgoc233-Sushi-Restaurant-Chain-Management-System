@@ -67,7 +67,7 @@ namespace Sushi_Restaurant.Model
                     conn.Open();
 
                     // Gọi procedure
-                    using (SqlCommand cmd = new SqlCommand("NXHanh_LayDSDonHang", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayDSDonHang", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaKhachHang", GlobalVariables.MaKH);

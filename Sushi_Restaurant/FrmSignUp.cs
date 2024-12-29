@@ -61,7 +61,7 @@ namespace Sushi_Restaurant
                 {
                     con.Open();
 
-                    SqlCommand cmd = new SqlCommand("NXHanh_ThemKhachHang", con);
+                    SqlCommand cmd = new SqlCommand("sp_ThemKhachHang", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Thêm tham số

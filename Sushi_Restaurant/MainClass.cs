@@ -10,8 +10,8 @@ namespace Sushi_Restaurant
 {
     internal class MainClass
     {
-        //public static readonly string con_string = "Server=DESKTOP-TJGBBGQ\\HANHSPRING; Database=QLNH_SUSHI_1; Trusted_Connection=True;";
-        public static readonly string con_string = "Server=sql1001.site4now.net; Database=db_ab108c_sushisystem; User Id=db_ab108c_sushisystem_admin; Password=Hanhspring123; TrustServerCertificate=True;";
+        public static readonly string con_string = "Server=DESKTOP-TJGBBGQ\\HANHSPRING; Database=QLNH_SUSHI_1; Trusted_Connection=True;";
+        //public static readonly string con_string = "Server=sql1001.site4now.net; Database=db_ab108c_sushisystem; User Id=db_ab108c_sushisystem_admin; Password=Hanhspring123; TrustServerCertificate=True;";
 
 
         public static SqlConnection con = new SqlConnection(con_string);
@@ -50,7 +50,7 @@ namespace Sushi_Restaurant
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("NXHanh_LayThongTinVaSDTChiNhanh", con)
+                SqlCommand cmd = new SqlCommand("sp_LayThongTinVaSDTChiNhanh", con)
                 {
                     CommandType = CommandType.StoredProcedure
                 };

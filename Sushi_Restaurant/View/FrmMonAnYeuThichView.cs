@@ -34,7 +34,7 @@ namespace Sushi_Restaurant.View
                 using (SqlConnection conn = new SqlConnection(MainClass.con_string))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("NXHanh_LayMonAnYeuThichKH", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_LayMonAnYeuThichKH", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@MaKhachHang", maKhachHang);
@@ -154,7 +154,7 @@ namespace Sushi_Restaurant.View
                 {
                     conn.Open();
 
-                    using (SqlCommand cmd = new SqlCommand("NXHanh_XoaMonAnYeuThich", conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_XoaMonAnYeuThich", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
