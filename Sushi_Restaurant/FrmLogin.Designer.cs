@@ -38,6 +38,8 @@
             this.err_noFullInfor_Login = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.cnname = new System.Windows.Forms.Label();
             this.chinhanhname = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.text_pass = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(439, 178);
+            this.guna2Panel1.Size = new System.Drawing.Size(440, 178);
             this.guna2Panel1.TabIndex = 4;
             // 
             // guna2Button1
@@ -103,7 +105,7 @@
             // UserName
             // 
             this.UserName.AutoSize = true;
-            this.UserName.Location = new System.Drawing.Point(58, 293);
+            this.UserName.Location = new System.Drawing.Point(54, 273);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(120, 23);
             this.UserName.TabIndex = 5;
@@ -120,7 +122,7 @@
             this.text_User.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_User.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.text_User.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_User.Location = new System.Drawing.Point(62, 320);
+            this.text_User.Location = new System.Drawing.Point(58, 300);
             this.text_User.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.text_User.Name = "text_User";
             this.text_User.PasswordChar = '\0';
@@ -140,7 +142,7 @@
             this.bt_dn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
             this.bt_dn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_dn.ForeColor = System.Drawing.Color.White;
-            this.bt_dn.Location = new System.Drawing.Point(150, 432);
+            this.bt_dn.Location = new System.Drawing.Point(140, 494);
             this.bt_dn.Name = "bt_dn";
             this.bt_dn.Size = new System.Drawing.Size(140, 45);
             this.bt_dn.TabIndex = 2;
@@ -180,11 +182,42 @@
             this.chinhanhname.Size = new System.Drawing.Size(321, 36);
             this.chinhanhname.TabIndex = 8;
             // 
+            // text_pass
+            // 
+            this.text_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.text_pass.DefaultText = "";
+            this.text_pass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.text_pass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.text_pass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_pass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_pass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_pass.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.text_pass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_pass.Location = new System.Drawing.Point(62, 402);
+            this.text_pass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.text_pass.Name = "text_pass";
+            this.text_pass.PasswordChar = '*';
+            this.text_pass.PlaceholderText = "";
+            this.text_pass.SelectedText = "";
+            this.text_pass.Size = new System.Drawing.Size(321, 48);
+            this.text_pass.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(58, 375);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 23);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Mật khẩu";
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 520);
+            this.ClientSize = new System.Drawing.Size(440, 570);
+            this.Controls.Add(this.text_pass);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.chinhanhname);
             this.Controls.Add(this.cnname);
             this.Controls.Add(this.bt_dn);
@@ -217,6 +250,8 @@
         private Guna.UI2.WinForms.Guna2MessageDialog err_noFullInfor_Login;
         private Guna.UI2.WinForms.Guna2ComboBox chinhanhname;
         private System.Windows.Forms.Label cnname;
+        private Guna.UI2.WinForms.Guna2TextBox text_pass;
+        private System.Windows.Forms.Label label2;
     }
 }
 

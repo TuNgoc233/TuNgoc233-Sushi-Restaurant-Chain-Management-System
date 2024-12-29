@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,9 +45,11 @@ namespace Sushi_Restaurant.NhanVien
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //lbl.UserName.Text = MainClass.USER
-            _obj=this;
+            lblUser.Text = MainClass.user.TenNhanVien;
+            lblChiNhanh.Text = MainClass.user.TenChiNhanh;
+            _obj = this;
         }
+
 
         private void btnHome_Click(object sender, EventArgs e)
         {

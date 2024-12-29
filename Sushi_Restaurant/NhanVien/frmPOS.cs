@@ -375,6 +375,11 @@ namespace Sushi_Restaurant
                     return; // Thoát hàm
                 }
                 if (!isAvailable) return; // Không xử lý nếu món ăn không khả dụng
+                if (MainClass.LoaiPhieu == "GH")
+                {
+                    MessageBox.Show("Không thể thêm món ăn vào phiếu giao hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 var wdg = (ucProduct)SetStyle;
                 Debug.WriteLine($"Selected: {wdg.PName}");
@@ -568,12 +573,12 @@ namespace Sushi_Restaurant
 
         private void btnThanhtoan_Click(object sender, EventArgs e)
         {
-            if (isSaved == false)
+            if (isSaved == false && MainClass.LoaiPhieu != "GH")
             {
                 MessageBox.Show("Chưa lưu chi tiết đặt món");
                 return;
             }
-            if(MaPhieuDangXet=="")
+            if (MaPhieuDangXet=="")
             {
                 MessageBox.Show("Chưa chọn phiếu đặt món");
                 return;
