@@ -20,7 +20,7 @@ namespace Sushi_Restaurant.Admin
         public static List<Employee_> LoadEmployeeFromProcedure()
         {
             List<Employee_> employees = new List<Employee_>();
-            string query = "LayNhanVien"; // Tên stored procedure
+            string query = "sp_QuanLyLichSuLamViec"; // Tên stored procedure
 
             using (SqlConnection con = new SqlConnection(Branch.con_string))
             {
@@ -56,7 +56,7 @@ namespace Sushi_Restaurant.Admin
         public static List<Employee_> SearchEmployees(string searchTerm)
         {
             List<Employee_> employees = new List<Employee_>();
-            string query = "LayNhanVien"; // Tên stored procedure
+            string query = "sp_QuanLyLichSuLamViec"; // Tên stored procedure
 
             using (SqlConnection con = new SqlConnection(Branch.con_string))
             {
@@ -71,6 +71,7 @@ namespace Sushi_Restaurant.Admin
                         // Kiểm tra xem tên nhân viên, mã nhân viên, hoặc tên bộ phận có chứa searchTerm không
                         if (reader["MaNhanVien"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0 ||
                             reader["HoTen"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            reader["MaChiNhanh"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0 ||
                             reader["TenBoPhan"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
                         {
                             Employee_ emp = new Employee_
@@ -106,7 +107,7 @@ namespace Sushi_Restaurant.Admin
         public static List<FoodItem> LoadFoodItemsFromProcedure(string branchID)
         {
             List<FoodItem> foodItems = new List<FoodItem>();
-            string query = "CheckMonAnForChiNhanhByMaChiNhanh"; 
+            string query = "sp_TimKiemMonAnTheoChiNhanh"; 
 
             using (SqlConnection con = new SqlConnection(Branch.con_string))
             {
@@ -137,7 +138,7 @@ namespace Sushi_Restaurant.Admin
         public static List<FoodItem> SearchFoodItems(string searchTerm, string branchID)
         {
             List<FoodItem> foodItems = new List<FoodItem>();
-            string query = "CheckMonAnForChiNhanhByMaChiNhanh"; // Tên stored procedure cho tìm kiếm món ăn
+            string query = "sp_TimKiemMonAnTheoChiNhanh"; // Tên stored procedure cho tìm kiếm món ăn
 
             using (SqlConnection con = new SqlConnection(Branch.con_string))
             {

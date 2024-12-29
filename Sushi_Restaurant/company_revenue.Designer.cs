@@ -97,6 +97,7 @@ namespace Sushi_Restaurant
             this.dgvRevenue.RowHeadersWidth = 51;
             this.dgvRevenue.Size = new System.Drawing.Size(693, 293);
             this.dgvRevenue.TabIndex = 1;
+            this.dgvRevenue.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRevenue_CellContentClick);
             // 
             // cboMonth
             // 
@@ -201,9 +202,9 @@ namespace Sushi_Restaurant
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTitle.Location = new System.Drawing.Point(16, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(332, 41);
+            this.lblTitle.Size = new System.Drawing.Size(360, 41);
             this.lblTitle.TabIndex = 8;
-            this.lblTitle.Text = "Xem doanh thu món ăn";
+            this.lblTitle.Text = "Xem doanh thu chi nhánh";
             // 
             // button1
             // 

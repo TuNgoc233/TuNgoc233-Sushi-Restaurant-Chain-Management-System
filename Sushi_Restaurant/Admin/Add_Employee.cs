@@ -7,7 +7,7 @@ namespace Sushi_Restaurant.Admin
 {
     public partial class Add_Employee : Form
     {
-        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;"; // Chuỗi kết nối CSDL
+        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_; Trusted_Connection=True; Connection Timeout=120;"; // Chuỗi kết nối CSDL
         public event Action Add_Completed;
         public Add_Employee()
         {
@@ -142,7 +142,7 @@ namespace Sushi_Restaurant.Admin
                     cmd.Parameters.AddWithValue("@MaNhanVien", txtID.Text.Trim()); 
                     cmd.Parameters.AddWithValue("@HoTen", texName.Text.Trim());
                     cmd.Parameters.AddWithValue("@NgaySinh", guna2DateTimePicker1.Value);
-                    cmd.Parameters.AddWithValue("@GioiTinh", guna2RadioButton1.Checked ? "Nam" : "Nữ");
+                    cmd.Parameters.AddWithValue("@GioiTinh", guna2RadioButton3.Checked ? "Nam" : "Nữ");
                     cmd.Parameters.AddWithValue("@DiaChi", texAddress.Text.Trim());
                     cmd.Parameters.AddWithValue("@SoDienThoai", texPhone.Text.Trim());
                     cmd.Parameters.AddWithValue("@MaBoPhan", maBoPhan); 
@@ -225,6 +225,16 @@ namespace Sushi_Restaurant.Admin
         }
 
         private void labRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2RadioButton3_CheckedChanged(object sender, EventArgs e)
         {
 
         }

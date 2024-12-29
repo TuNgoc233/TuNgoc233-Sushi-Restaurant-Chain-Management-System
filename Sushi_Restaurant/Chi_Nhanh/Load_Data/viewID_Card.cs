@@ -70,7 +70,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
                     card.MaSoThe,
                     card.LoaiThe,
                     card.TongDiemTichLuy,
-                    card.NgayLap.ToString("dd/MM/yyyy"), // Định dạng ngày
+                    card.NgayCapNhat.ToString("dd/MM/yyyy"), // Định dạng ngày
                     card.HoTenKhachHang,
                     card.HoTenNhanVien
                 );
@@ -95,7 +95,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
                     card.MaSoThe,
                     card.LoaiThe,
                     card.TongDiemTichLuy,
-                    card.NgayLap.ToString("dd/MM/yyyy"),
+                    card.NgayCapNhat.ToString("dd/MM/yyyy"),
                     card.HoTenKhachHang,
                     card.HoTenNhanVien
                 );
@@ -129,7 +129,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private void XoaThe(string maChiNhanh, string maSoThe)
         {
             // Kết nối đến cơ sở dữ liệu
-            string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+            string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_; Trusted_Connection=True; Connection Timeout=120;";
 
             using (SqlConnection connection = new SqlConnection(con_string))
             {
@@ -166,7 +166,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         private void ThemThe(string maChiNhanh)
         {
-            string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+            string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_; Trusted_Connection=True; Connection Timeout=120;";
 
             using (SqlConnection connection = new SqlConnection(con_string))
             {

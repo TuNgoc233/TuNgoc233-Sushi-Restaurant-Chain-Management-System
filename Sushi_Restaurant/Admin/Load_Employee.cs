@@ -116,7 +116,7 @@ namespace Sushi_Restaurant.Admin
                     if (result == DialogResult.Yes)
                     {
                         // Gọi proc xóa nhân viên
-                        using (SqlConnection conn = new SqlConnection("Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;")) // Thay "your_connection_string" bằng chuỗi kết nối của bạn
+                        using (SqlConnection conn = new SqlConnection("Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_; Trusted_Connection=True; Connection Timeout=120;")) // Thay "your_connection_string" bằng chuỗi kết nối của bạn
                         {
                             using (SqlCommand cmd = new SqlCommand("sp_XoaNhanVien", conn))
                             {
@@ -209,6 +209,11 @@ namespace Sushi_Restaurant.Admin
                     emp.NgayKetThuc       // Ngày kết thúc làm việc (đã định dạng hoặc "Chưa xác định")
                 );
             }
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

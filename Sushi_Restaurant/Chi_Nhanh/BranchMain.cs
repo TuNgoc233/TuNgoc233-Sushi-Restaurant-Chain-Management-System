@@ -15,7 +15,7 @@ namespace Sushi_Restaurant
     {
         public static string LoggedBranchId { get; set; }
         // Chuỗi kết nối với cơ sở dữ liệu
-        public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_index; Trusted_Connection=True; Connection Timeout=120;";
+        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_; Trusted_Connection=True; Connection Timeout=120;";
 
         // Thuộc tính tĩnh chung cho lớp (Mã chi nhánh)
         public static string MaChiNhanh { get; set; }
@@ -85,8 +85,18 @@ namespace Sushi_Restaurant
         // Lấy tổng số nhân viên của chi nhánh
         public static int GetTotalEmployees(string branchId)
         {
-            return ExecuteScalarCount("SELECT COUNT(MaNhanVien) FROM LICH_SU_LAM_VIEC WHERE MaChiNhanh = @BranchID", branchId);
+            // Định nghĩa câu truy vấn SQL
+            string query = @"
+    SELECT COUNT(DISTINCT MaNhanVien) AS SoLuongNhanVien
+    FROM LICH_SU_LAM_VIEC
+    WHERE MaChiNhanh = @BranchID
+      AND NgayKetThuc IS NULL;
+";
+
+            // Gọi phương thức ExecuteScalarCount để thực thi truy vấn
+            return ExecuteScalarCount(query, branchId);
         }
+
 
         // Lấy tổng số khách hàng của chi nhánh
         public static int GetTotalCustomers(string branchId)
@@ -350,7 +360,7 @@ namespace Sushi_Restaurant
         public static List<Employee> LoadEmployeeFromProcedure(string branchID)
         {
             List<Employee> employees = new List<Employee>();
-            string query = "LayNhanVienCuaChiNhanhTheoLichSu"; // Tên stored procedure
+            string query = "sp_LayNhanVienCuaChiNhanhTheoLichSu"; // Tên stored procedure
 
             using (SqlConnection con = new SqlConnection(Branch.con_string))
             {
@@ -374,7 +384,6 @@ namespace Sushi_Restaurant
                             NgayVaoLam = Convert.ToDateTime(reader["NgayGanNhat"]).ToString("dd/MM/yyyy"), // Định dạng ngày vào làm
                             TenBoPhan = reader["TenBoPhan"].ToString(),
                             MucLuong = Convert.ToInt32(reader["MucLuong"])
-                            //DiemPhucVu = Convert.ToInt32(reader["DiemPhucVu"])
                         };
                         employees.Add(emp);
                     }
@@ -386,7 +395,7 @@ namespace Sushi_Restaurant
         public static List<Employee> SearchEmployees(string searchTerm, string branchID)
         {
             List<Employee> employees = new List<Employee>();
-            string query = "LayNhanVienCuaChiNhanhTheoLichSu"; // Tên stored procedure
+            string query = "sp_LayNhanVienCuaChiNhanhTheoLichSu"; // Tên stored procedure
 
             using (SqlConnection con = new SqlConnection(Branch.con_string))
             {
@@ -548,7 +557,7 @@ namespace Sushi_Restaurant
         public string MaSoThe { get; set; } // Mã số thẻ
         public string LoaiThe { get; set; } // Loại thẻ
         public int TongDiemTichLuy { get; set; } // Tổng điểm tích lũy
-        public DateTime NgayLap { get; set; } // Ngày lập thẻ
+        public DateTime NgayCapNhat { get; set; } // Ngày lập thẻ
         public string HoTenKhachHang { get; set; } // Họ tên khách hàng
         public string HoTenNhanVien { get; set; } // Họ tên nhân viên lập thẻ
 
@@ -573,7 +582,7 @@ namespace Sushi_Restaurant
                             MaSoThe = reader["MaSoThe"].ToString(),
                             LoaiThe = reader["LoaiThe"].ToString(),
                             TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]), // Tổng điểm tích lũy  
-                            NgayLap = Convert.ToDateTime(reader["NgayLap"]), // Ngày lập thẻ                         
+                            NgayCapNhat = Convert.ToDateTime(reader["NgayCapNhat"]), // Ngày lập thẻ                         
                             HoTenKhachHang = reader["HoTenKhachHang"].ToString(),
                             HoTenNhanVien = reader["TenNhanVienLap"].ToString() // Họ tên nhân viên lập thẻ
                         };
@@ -610,7 +619,7 @@ namespace Sushi_Restaurant
                                 MaSoThe = reader["MaSoThe"].ToString(),
                                 LoaiThe = reader["LoaiThe"].ToString(),
                                 TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]), // Tổng điểm tích lũy  
-                                NgayLap = Convert.ToDateTime(reader["NgayLap"]), // Ngày lập thẻ                         
+                                NgayCapNhat = Convert.ToDateTime(reader["NgayLap"]), // Ngày lập thẻ                         
                                 HoTenKhachHang = reader["HoTenKhachHang"].ToString(),
                                 HoTenNhanVien = reader["TenNhanVienLap"].ToString() // Họ tên nhân viên lập thẻ
                             };
@@ -634,7 +643,7 @@ namespace Sushi_Restaurant
         public static List<FoodItem> LoadFoodItemsFromProcedure(string branchID)
         {
             List<FoodItem> foodItems = new List<FoodItem>();
-            string query = "CheckMonAnForChiNhanhByMaChiNhanh"; // Tên stored procedure
+            string query = "sp_TimKiemMonAnTheoChiNhanh"; // Tên stored procedure
 
             using (SqlConnection con = new SqlConnection(Branch.con_string))
             {
@@ -665,7 +674,7 @@ namespace Sushi_Restaurant
         public static List<FoodItem> SearchFoodItems(string searchTerm, string branchID)
         {
             List<FoodItem> foodItems = new List<FoodItem>();
-            string query = "CheckMonAnForChiNhanhByMaChiNhanh"; // Tên stored procedure cho tìm kiếm món ăn
+            string query = "sp_TimKiemMonAnTheoChiNhanh"; // Tên stored procedure cho tìm kiếm món ăn
 
             using (SqlConnection con = new SqlConnection(Branch.con_string))
             {
@@ -702,7 +711,7 @@ namespace Sushi_Restaurant
     public class Statistic
     {
         // Kết nối đến cơ sở dữ liệu
-        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120";
+        private string connectionString = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_; Trusted_Connection=True; Connection Timeout=120";
 
         // Hàm để gọi stored procedure và lấy doanh thu theo chi nhánh
         public decimal GetDoanhThuTheoChiNhanh(string thoiGian, string branchID)

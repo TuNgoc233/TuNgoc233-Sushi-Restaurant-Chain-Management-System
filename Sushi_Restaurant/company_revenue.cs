@@ -303,5 +303,10 @@ namespace Sushi_Restaurant
         {
 
         }
+
+        private void dgvRevenue_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Sushi_Restaurant.Chi_Nhanh
     public partial class addFood : SampleAdd
     {
        
-        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_2024_FINAL; Trusted_Connection=True; Connection Timeout=120;";
+        public static readonly string con_string = "Server=NHU\\SQLEXPRESS; Database=QLNH_SUSHI_; Trusted_Connection=True; Connection Timeout=120;";
 
         public addFood()
         {

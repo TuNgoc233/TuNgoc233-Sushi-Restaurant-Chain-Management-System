@@ -19,20 +19,7 @@ namespace Sushi_Restaurant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new addStaff());
-            //Application.Run(new Brand());
-            //Application.Run(new Login());
-            //Application.Run(new viewEnvoice());
-            //Application.Run(new viewIDCard());
-            //Application.Run(new Brand("CN001"));
-            //Application.Run(new branch_revenue("cn001"));
             Application.Run(new Login());
-            //Application.Run(new viewEnvoice("CN1"));
-            //Application.Run(new viewIDCard());
-            //Application.Run(new Brand("CN1"));
-            //Application.Run(new RevenueStatistics()); //chuan roi
-            //Application.Run(new Admin_Manage()); // Đây sẽ là lớp Admin
-            //Application.Run(new company_revenue());
         }
     }
 }

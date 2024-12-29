@@ -23,18 +23,6 @@ namespace Sushi_Restaurant
             // Thêm các mục vào ComboBox thời gian
             cboTimeSelection.Items.AddRange(new string[] { "NGAY", "THANG", "QUY", "NAM" });
             cboTimeSelection.SelectedIndex = 0;
-
-
-            //List<string> months = Branch.GetMonths();
-            //if (months == null || months.Count == 0)
-            //{
-            //    MessageBox.Show("Danh sách tháng rỗng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //cboMonth.Items.Clear();
-            //cboMonth.Items.AddRange(months.ToArray());
-            //cboMonth.SelectedIndex = 0; // Chọn mục đầu tiên
-
             
         }
 
@@ -86,8 +74,8 @@ namespace Sushi_Restaurant
             // Trường hợp lấy doanh thu theo tháng, quý hoặc năm
             if (timeFrame == "NAM")
             {
-                dgvRevenue.DataSource = null; // Ẩn DataGridView
-                dgvRevenue.Visible = false;
+                //dgvRevenue.DataSource = null; // Ẩn DataGridView
+                //dgvRevenue.Visible = false;
 
                 decimal totalRevenue = dt.AsEnumerable().Sum(row => row.Field<decimal>("TongDoanhThu"));
                 txtRevenue.Text = $"{totalRevenue:N0} VND";
@@ -95,8 +83,8 @@ namespace Sushi_Restaurant
             else
             {
                 // Hiển thị dữ liệu lên DataGridView
-                dgvRevenue.DataSource = dt;
-                dgvRevenue.Visible = true;
+                //dgvRevenue.DataSource = dt;
+                //dgvRevenue.Visible = true;
 
                 // Tính tổng doanh thu
                 if (dt.Rows.Count > 0)
@@ -218,41 +206,6 @@ namespace Sushi_Restaurant
                 LoadRevenueData("NAM", year: selectedYear);
             }
         }
-
-
-
-        //private void btnViewRevenue_Click(object sender, EventArgs e)
-        //{
-        //    string selectedTime = cboTimeSelection.SelectedItem?.ToString().ToUpper();
-
-        //    if (selectedTime == "NGAY")
-        //    {
-        //        DateTime selectedDate = dtpDate.Value.Date;
-        //        LoadRevenueData("NGAY", specificDate: selectedDate);
-        //    }
-        //    else if (selectedTime == "THANG")
-        //    {
-        //        int selectedMonth = cboMonth.SelectedIndex + 3;
-        //        LoadRevenueData("THANG", month: selectedMonth, year: dtpDate.Value.Year);
-        //    }
-        //    else if (selectedTime == "QUY")
-        //    {
-        //        int selectedQuarter = cboQuarter.SelectedIndex + 1;
-        //        LoadRevenueData("QUY", quarter: selectedQuarter, year: dtpDate.Value.Year);
-        //    }
-        //    else if (selectedTime == "NAM")
-        //    {
-        //        LoadRevenueData("NAM", year: dtpDate.Value.Year);
-        //    }
-        //}
-
-
-
-        //private void cboBranchId_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    string branchId = cboBranchId.SelectedItem?.ToString();
-        //}
-
 
 
         private void btnClose_Click(object sender, EventArgs e)
