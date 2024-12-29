@@ -25,7 +25,7 @@ namespace Sushi_Restaurant
             //Application.Run(new viewEnvoice());
             //Application.Run(new viewIDCard());
             //Application.Run(new Brand("CN001"));
-            // Application.Run(new branch_revenue());
+            //Application.Run(new branch_revenue("cn001"));
             Application.Run(new Login());
             //Application.Run(new viewEnvoice("CN1"));
             //Application.Run(new viewIDCard());

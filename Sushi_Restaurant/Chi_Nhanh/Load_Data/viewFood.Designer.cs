@@ -65,13 +65,14 @@
             // 
             // Data_Load
             // 
+            this.Data_Load.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.Data_Load.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Data_Load.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -201,36 +202,6 @@
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // dgv
-            // 
-            this.dgv.HeaderText = "Mã món ăn";
-            this.dgv.MinimumWidth = 6;
-            this.dgv.Name = "dgv";
-            // 
-            // dgv1
-            // 
-            this.dgv1.HeaderText = "Tên món ăn";
-            this.dgv1.MinimumWidth = 6;
-            this.dgv1.Name = "dgv1";
-            // 
-            // dgv2
-            // 
-            this.dgv2.HeaderText = "Tên mục";
-            this.dgv2.MinimumWidth = 6;
-            this.dgv2.Name = "dgv2";
-            // 
-            // dgv3
-            // 
-            this.dgv3.HeaderText = "Giá hiện tại";
-            this.dgv3.MinimumWidth = 6;
-            this.dgv3.Name = "dgv3";
-            // 
-            // dgv4
-            // 
-            this.dgv4.HeaderText = "Tình trạng phục vụ";
-            this.dgv4.MinimumWidth = 6;
-            this.dgv4.Name = "dgv4";
             // 
             // viewFood
             // 

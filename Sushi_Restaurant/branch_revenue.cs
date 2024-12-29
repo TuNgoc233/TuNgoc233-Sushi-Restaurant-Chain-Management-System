@@ -24,29 +24,18 @@ namespace Sushi_Restaurant
             cboTimeSelection.Items.AddRange(new string[] { "NGAY", "THANG", "QUY", "NAM" });
             cboTimeSelection.SelectedIndex = 0;
 
-            // Load mã chi nhánh từ CSDL
-            //List<string> branchIds = Branch.GetBranchIds();
-            //if (branchIds.Count > 0)
-            //{
-            //    cboBranchId.Items.Clear(); // Xóa dữ liệu cũ nếu có
-            //    cboBranchId.Items.AddRange(branchIds.ToArray());
-            //    cboBranchId.SelectedIndex = 0; // Chọn mục đầu tiên
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Không có chi nhánh nào được tìm thấy.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
 
-            List<string> months = Branch.GetMonths();
-            if (months == null || months.Count == 0)
-            {
-                MessageBox.Show("Danh sách tháng rỗng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            cboMonth.Items.Clear();
-            cboMonth.Items.AddRange(months.ToArray());
-            cboMonth.SelectedIndex = 0; // Chọn mục đầu tiên
+            //List<string> months = Branch.GetMonths();
+            //if (months == null || months.Count == 0)
+            //{
+            //    MessageBox.Show("Danh sách tháng rỗng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //cboMonth.Items.Clear();
+            //cboMonth.Items.AddRange(months.ToArray());
+            //cboMonth.SelectedIndex = 0; // Chọn mục đầu tiên
 
+            
         }
 
 
@@ -115,11 +104,11 @@ namespace Sushi_Restaurant
                     decimal totalRevenue = dt.AsEnumerable().Sum(row => row.Field<decimal>("TongDoanhThu"));
                     txtRevenue.Text = $"{totalRevenue:N0} VND";
                 }
-                else
-                {
-                    txtRevenue.Text = "0 VND";
-                    MessageBox.Show("Không có dữ liệu cho thời gian đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                //else
+                //{
+                //    txtRevenue.Text = "0 VND";
+                //    MessageBox.Show("Không có dữ liệu cho thời gian đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
             }
         }
 
@@ -132,13 +121,22 @@ namespace Sushi_Restaurant
             dtpDate.Visible = false;
             cboMonth.Visible = false;
             cboQuarter.Visible = false;
+            cboYear.Visible = false;
 
-            if (selectedTime == "NGAY" || selectedTime == "NAM")
+            //if (selectedTime == "NGAY" || selectedTime == "NAM")
+            //{
+            //    dtpDate.Visible = true;
+            //    dtpDate.Format = (selectedTime == "NAM") ? DateTimePickerFormat.Custom : DateTimePickerFormat.Short;
+            //    dtpDate.CustomFormat = (selectedTime == "NAM") ? "yyyy" : "dd/MM/yyyy";
+            //}
+            if (selectedTime == "NGAY")
             {
                 dtpDate.Visible = true;
-                dtpDate.Format = (selectedTime == "NAM") ? DateTimePickerFormat.Custom : DateTimePickerFormat.Short;
-                dtpDate.CustomFormat = (selectedTime == "NAM") ? "yyyy" : "dd/MM/yyyy";
+                dtpDate.Format = DateTimePickerFormat.Short;
+                dtpDate.CustomFormat = "dd/MM/yyyy";
+                LoadRevenueData("NGAY", specificDate: dtpDate.Value.Date);
             }
+
             else if (selectedTime == "THANG")
             {
                 cboMonth.Visible = true;
@@ -151,10 +149,10 @@ namespace Sushi_Restaurant
                     cboMonth.Items.AddRange(months.ToArray());
                     cboMonth.SelectedIndex = 0; // Chọn tháng đầu tiên
                 }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu tháng để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                //else
+                //{
+                //    MessageBox.Show("Không có dữ liệu tháng để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //}
             }
 
             else if (selectedTime == "QUY")
@@ -165,7 +163,29 @@ namespace Sushi_Restaurant
                 cboQuarter.Items.AddRange(new string[] { "Quý 1", "Quý 2", "Quý 3", "Quý 4" });
                 cboQuarter.SelectedIndex = 0;
             }
+
+            else if (selectedTime == "NAM")
+            {
+                cboYear.Visible = true;
+                cboQuarter.Items.Clear();
+
+                //// Thêm danh sách các năm vào ComboBox năm
+                //List<int> years = Enumerable.Range(2000, DateTime.Now.Year - 1999).ToList();
+                //cboYear.Items.Clear();
+                //cboYear.Items.AddRange(years.Select(y => y.ToString()).ToArray());
+                //cboYear.SelectedIndex = years.IndexOf(DateTime.Now.Year);
+                // Load danh sách năm từ cơ sở dữ liệu
+                List<int> years = Branch.GetYearsFromDatabase(); // Thay bằng phương thức thực tế
+                if (years != null && years.Count > 0)
+                {
+                    cboYear.Items.Clear();
+                    cboYear.Items.AddRange(years.Select(y => y.ToString()).ToArray());
+                    cboYear.SelectedIndex = 0; // Chọn năm đầu tiên mặc định
+                }
+            }
         }
+
+
 
 
         private void cboQuarter_SelectedIndexChanged(object sender, EventArgs e)
@@ -182,7 +202,7 @@ namespace Sushi_Restaurant
         private void cboMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Xử lý logic khi người dùng chọn một tháng
-            int selectedMonth = cboMonth.SelectedIndex + 2; // Chỉ số tháng bắt đầu từ 0
+            int selectedMonth = cboMonth.SelectedIndex + 3; // Chỉ số tháng bắt đầu từ 0
             int year = dtpDate.Value.Year; // Lấy năm từ DateTimePicker
 
             // Gọi LoadRevenueData để tải dữ liệu theo tháng
@@ -190,33 +210,41 @@ namespace Sushi_Restaurant
         }
 
 
-
-
-
-        private void btnViewRevenue_Click(object sender, EventArgs e)
+        private void cboYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedTime = cboTimeSelection.SelectedItem?.ToString().ToUpper();
-
-            if (selectedTime == "NGAY")
+            if (cboYear.SelectedItem != null)
             {
-                DateTime selectedDate = dtpDate.Value.Date;
-                LoadRevenueData("NGAY", specificDate: selectedDate);
-            }
-            else if (selectedTime == "THANG")
-            {
-                int selectedMonth = cboMonth.SelectedIndex + 2;
-                LoadRevenueData("THANG", month: selectedMonth, year: dtpDate.Value.Year);
-            }
-            else if (selectedTime == "QUY")
-            {
-                int selectedQuarter = cboQuarter.SelectedIndex + 1;
-                LoadRevenueData("QUY", quarter: selectedQuarter, year: dtpDate.Value.Year);
-            }
-            else if (selectedTime == "NAM")
-            {
-                LoadRevenueData("NAM", year: dtpDate.Value.Year);
+                int selectedYear = int.Parse(cboYear.SelectedItem.ToString());
+                LoadRevenueData("NAM", year: selectedYear);
             }
         }
+
+
+
+        //private void btnViewRevenue_Click(object sender, EventArgs e)
+        //{
+        //    string selectedTime = cboTimeSelection.SelectedItem?.ToString().ToUpper();
+
+        //    if (selectedTime == "NGAY")
+        //    {
+        //        DateTime selectedDate = dtpDate.Value.Date;
+        //        LoadRevenueData("NGAY", specificDate: selectedDate);
+        //    }
+        //    else if (selectedTime == "THANG")
+        //    {
+        //        int selectedMonth = cboMonth.SelectedIndex + 3;
+        //        LoadRevenueData("THANG", month: selectedMonth, year: dtpDate.Value.Year);
+        //    }
+        //    else if (selectedTime == "QUY")
+        //    {
+        //        int selectedQuarter = cboQuarter.SelectedIndex + 1;
+        //        LoadRevenueData("QUY", quarter: selectedQuarter, year: dtpDate.Value.Year);
+        //    }
+        //    else if (selectedTime == "NAM")
+        //    {
+        //        LoadRevenueData("NAM", year: dtpDate.Value.Year);
+        //    }
+        //}
 
 
 
@@ -243,7 +271,10 @@ namespace Sushi_Restaurant
 
             // Gọi phương thức LoadRevenueData để tải doanh thu cho ngày được chọn
             LoadRevenueData("NGAY", specificDate: selectedDate);
+
+
         }
+
 
         private void branch_revenue_Load(object sender, EventArgs e)
         {

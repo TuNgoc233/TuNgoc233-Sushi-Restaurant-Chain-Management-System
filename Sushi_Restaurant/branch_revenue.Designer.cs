@@ -36,7 +36,6 @@ namespace Sushi_Restaurant
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.txtRevenue = new System.Windows.Forms.TextBox();
             this.lblRevenue = new System.Windows.Forms.Label();
-            this.btnViewRevenue = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.dgvRevenue = new System.Windows.Forms.DataGridView();
             this.cboMonth = new System.Windows.Forms.ComboBox();
@@ -45,6 +44,8 @@ namespace Sushi_Restaurant
             this.labQuater = new System.Windows.Forms.Label();
             this.labMonth = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.cboYear = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,9 +68,9 @@ namespace Sushi_Restaurant
             this.lblTimeSelection.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeSelection.Location = new System.Drawing.Point(15, 130);
             this.lblTimeSelection.Name = "lblTimeSelection";
-            this.lblTimeSelection.Size = new System.Drawing.Size(109, 20);
+            this.lblTimeSelection.Size = new System.Drawing.Size(44, 20);
             this.lblTimeSelection.TabIndex = 1;
-            this.lblTimeSelection.Text = "Chọn thời gian:";
+            this.lblTimeSelection.Text = "Ngày";
             // 
             // cboTimeSelection
             // 
@@ -108,23 +109,10 @@ namespace Sushi_Restaurant
             this.lblRevenue.TabIndex = 5;
             this.lblRevenue.Text = "Doanh thu:";
             // 
-            // btnViewRevenue
-            // 
-            this.btnViewRevenue.BackColor = System.Drawing.Color.White;
-            this.btnViewRevenue.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewRevenue.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnViewRevenue.Location = new System.Drawing.Point(13, 488);
-            this.btnViewRevenue.Name = "btnViewRevenue";
-            this.btnViewRevenue.Size = new System.Drawing.Size(151, 30);
-            this.btnViewRevenue.TabIndex = 6;
-            this.btnViewRevenue.Text = "Xem Doanh Thu";
-            this.btnViewRevenue.UseVisualStyleBackColor = false;
-            this.btnViewRevenue.Click += new System.EventHandler(this.btnViewRevenue_Click);
-            // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(558, 487);
+            this.btnClose.Location = new System.Drawing.Point(558, 313);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(120, 30);
             this.btnClose.TabIndex = 7;
@@ -139,7 +127,7 @@ namespace Sushi_Restaurant
             this.dgvRevenue.Location = new System.Drawing.Point(13, 193);
             this.dgvRevenue.Name = "dgvRevenue";
             this.dgvRevenue.RowHeadersWidth = 51;
-            this.dgvRevenue.Size = new System.Drawing.Size(665, 288);
+            this.dgvRevenue.Size = new System.Drawing.Size(665, 103);
             this.dgvRevenue.TabIndex = 1;
             // 
             // cboMonth
@@ -205,17 +193,34 @@ namespace Sushi_Restaurant
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(696, 55);
             this.guna2CustomGradientPanel1.TabIndex = 11;
             // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(515, 130);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(36, 16);
+            this.lblYear.TabIndex = 12;
+            this.lblYear.Text = "Năm";
+            // 
+            // cboYear
+            // 
+            this.cboYear.FormattingEnabled = true;
+            this.cboYear.Location = new System.Drawing.Point(518, 150);
+            this.cboYear.Name = "cboYear";
+            this.cboYear.Size = new System.Drawing.Size(121, 24);
+            this.cboYear.TabIndex = 13;
+            this.cboYear.SelectedIndexChanged += new System.EventHandler(this.cboYear_SelectedIndexChanged);
+            // 
             // branch_revenue
             // 
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(696, 530);
+            this.ClientSize = new System.Drawing.Size(696, 363);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.lblRevenue);
             this.Controls.Add(this.labMonth);
             this.Controls.Add(this.labQuater);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnViewRevenue);
             this.Controls.Add(this.txtRevenue);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.cboTimeSelection);
@@ -223,6 +228,8 @@ namespace Sushi_Restaurant
             this.Controls.Add(this.dgvRevenue);
             this.Controls.Add(this.cboMonth);
             this.Controls.Add(this.cboQuarter);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.cboYear);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "branch_revenue";
             this.Text = "Doanh Thu";
@@ -243,7 +250,7 @@ namespace Sushi_Restaurant
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.TextBox txtRevenue;
         private System.Windows.Forms.Label lblRevenue;
-        private System.Windows.Forms.Button btnViewRevenue;
+        //private System.Windows.Forms.Button btnViewRevenue;
         private System.Windows.Forms.Button btnClose;
         // Khai báo DataGridView
         private DataGridView dgvRevenue;
@@ -255,5 +262,8 @@ namespace Sushi_Restaurant
         private Label labMonth;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         //private Label labBranch;
+        private System.Windows.Forms.ComboBox cboYear;
+        private System.Windows.Forms.Label lblYear;
+
     }
 }

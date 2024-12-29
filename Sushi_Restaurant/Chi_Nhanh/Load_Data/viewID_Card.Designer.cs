@@ -34,6 +34,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DataLoad = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
             this.dgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,10 +45,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.dgv1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.Exit = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataLoad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,13 +67,14 @@ namespace Sushi_Restaurant.Chi_Nhanh
             // 
             // DataLoad
             // 
+            this.DataLoad.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.DataLoad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataLoad.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -125,50 +126,6 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.DataLoad.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataLoad.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.DataLoad.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.icon_Delete_click);
-            // 
-            // dgv
-            // 
-            this.dgv.HeaderText = "Mã số thẻ";
-            this.dgv.MinimumWidth = 6;
-            this.dgv.Name = "dgv";
-            // 
-            // dgv2
-            // 
-            this.dgv2.HeaderText = "Loại thẻ";
-            this.dgv2.MinimumWidth = 6;
-            this.dgv2.Name = "dgv2";
-            // 
-            // dgv3
-            // 
-            this.dgv3.HeaderText = "Tổng điểm tích lũy";
-            this.dgv3.MinimumWidth = 6;
-            this.dgv3.Name = "dgv3";
-            // 
-            // dgv4
-            // 
-            this.dgv4.HeaderText = "Ngày lập";
-            this.dgv4.MinimumWidth = 6;
-            this.dgv4.Name = "dgv4";
-            // 
-            // dgv1
-            // 
-            this.dgv1.HeaderText = "Họ tên khách hàng";
-            this.dgv1.MinimumWidth = 6;
-            this.dgv1.Name = "dgv1";
-            // 
-            // dgv5
-            // 
-            this.dgv5.HeaderText = "Họ tên nhân viên";
-            this.dgv5.MinimumWidth = 6;
-            this.dgv5.Name = "dgv5";
-            // 
-            // dgvImage
-            // 
-            this.dgvImage.HeaderText = "Xóa";
-            this.dgvImage.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
-            this.dgvImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvImage.MinimumWidth = 6;
-            this.dgvImage.Name = "dgvImage";
             // 
             // guna2Button1
             // 
@@ -238,6 +195,52 @@ namespace Sushi_Restaurant.Chi_Nhanh
             this.guna2Button7.Text = "Đăng xuất";
             this.guna2Button7.Click += new System.EventHandler(this.guna2Button7_Click);
             // 
+            // dgv
+            // 
+            this.dgv.HeaderText = "Mã số thẻ";
+            this.dgv.MinimumWidth = 6;
+            this.dgv.Name = "dgv";
+            // 
+            // dgv2
+            // 
+            this.dgv2.HeaderText = "Loại thẻ";
+            this.dgv2.MinimumWidth = 6;
+            this.dgv2.Name = "dgv2";
+            // 
+            // dgv3
+            // 
+            this.dgv3.FillWeight = 130F;
+            this.dgv3.HeaderText = "Tổng điểm tích lũy";
+            this.dgv3.MinimumWidth = 130;
+            this.dgv3.Name = "dgv3";
+            // 
+            // dgv4
+            // 
+            this.dgv4.HeaderText = "Ngày lập";
+            this.dgv4.MinimumWidth = 6;
+            this.dgv4.Name = "dgv4";
+            // 
+            // dgv1
+            // 
+            this.dgv1.HeaderText = "Tên khách hàng";
+            this.dgv1.MinimumWidth = 6;
+            this.dgv1.Name = "dgv1";
+            // 
+            // dgv5
+            // 
+            this.dgv5.HeaderText = "Tên nhân viên";
+            this.dgv5.MinimumWidth = 6;
+            this.dgv5.Name = "dgv5";
+            // 
+            // dgvImage
+            // 
+            this.dgvImage.FillWeight = 50F;
+            this.dgvImage.HeaderText = "Xóa";
+            this.dgvImage.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
+            this.dgvImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvImage.MinimumWidth = 50;
+            this.dgvImage.Name = "dgvImage";
+            // 
             // viewID_Card
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -269,6 +272,10 @@ namespace Sushi_Restaurant.Chi_Nhanh
 
         #endregion
         private Guna.UI2.WinForms.Guna2DataGridView DataLoad;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ControlBox Exit;
+        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button guna2Button7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv3;
@@ -276,9 +283,5 @@ namespace Sushi_Restaurant.Chi_Nhanh
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv5;
         private System.Windows.Forms.DataGridViewImageColumn dgvImage;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2ControlBox Exit;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button7;
     }
 }

@@ -20,6 +20,20 @@ namespace Sushi_Restaurant.Chi_Nhanh
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            // Vô hiệu hóa Theme mặc định để toàn quyền điều chỉnh
+            // Thiết lập font chữ cho Header
+            this.Dataview.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.Dataview.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 16);
+
+            // Thiết lập màu nền và màu chữ cho Header
+            this.Dataview.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(50, 55, 89);
+            this.Dataview.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.Dataview.EnableHeadersVisualStyles = false; // Bắt buộc phải tắt thuộc tính này để màu tùy chỉnh có hiệu lực
+
+            // Tăng chiều cao Header
+            this.Dataview.ColumnHeadersHeight = 60;
+            this.Dataview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Dataview.RowTemplate.Height = 35; // Tăng chiều cao lên 50 (hoặc giá trị bạn muốn)
             this.Load += new EventHandler(viewStaff_Load); // Đăng ký sự kiện Load
         }
 
