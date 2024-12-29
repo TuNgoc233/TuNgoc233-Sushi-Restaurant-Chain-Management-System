@@ -131,6 +131,7 @@
             this.cmb_ngayGiao.Name = "cmb_ngayGiao";
             this.cmb_ngayGiao.Size = new System.Drawing.Size(294, 36);
             this.cmb_ngayGiao.TabIndex = 87;
+            this.cmb_ngayGiao.SelectedIndexChanged += new System.EventHandler(this.cmb_ngayGiao_SelectedIndexChanged);
             // 
             // label_gioDen
             // 
