@@ -12,6 +12,7 @@ namespace Sushi_Restaurant
     {
         public static readonly string con_string = "Server=DESKTOP-TJGBBGQ\\HANHSPRING; Database=QLNH_SUSHI_1; Trusted_Connection=True;";
         //public static readonly string con_string = "Server=sql1001.site4now.net; Database=db_ab108c_sushisystem; User Id=db_ab108c_sushisystem_admin; Password=Hanhspring123; TrustServerCertificate=True;";
+        //public static readonly string con_string = "Server=LAPTOP-80T8CRON; Database=QLNH_SUSHI_NO_INDEX; Trusted_Connection=True; Connection Timeout=120;";
 
 
         public static SqlConnection con = new SqlConnection(con_string);
