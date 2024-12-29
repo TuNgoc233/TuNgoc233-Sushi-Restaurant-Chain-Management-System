@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,16 +35,13 @@ namespace Sushi_Restaurant.View
             text_NgayDen.Items.Add("Hôm nay - " + DateTime.Now.ToString("dd/MM/yyyy"));
             text_NgayDen.Items.Add("Ngày mai - " + DateTime.Now.AddDays(1).ToString("dd/MM/yyyy"));
 
-            // Đặt giá trị mặc định là ngày hôm nay
-            text_NgayDen.SelectedIndex = 0;
 
-            // Set giờ mặc định là 8:00 sáng
-            text_GioDat.Value = DateTime.Today.AddHours(8);
+            text_sl_KH.Minimum = 1; 
+            text_sl_KH.Maximum = 50; 
 
-            // Giới hạn giờ từ 8:00 đến 21:30
-            text_GioDat.MinDate = DateTime.Today.AddHours(8);
-            text_GioDat.MaxDate = DateTime.Today.AddHours(21).AddMinutes(30);
         }
+
+
 
         public string TenKhachHang
         {
@@ -178,6 +176,23 @@ namespace Sushi_Restaurant.View
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void text_GioDat_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedTime = text_GioDat.Value;
+            TimeSpan minTime = new TimeSpan(9, 0, 0);  // 09:00
+            TimeSpan maxTime = new TimeSpan(20, 0, 0); // 20:00
+
+            if (selectedTime.TimeOfDay < minTime || selectedTime.TimeOfDay > maxTime)
+            {
+                warning_gioDen_DBView.Show("Giờ đến phải nằm trong khoảng từ 09:00 đến 20:00.");
+
+                // Đặt lại giá trị mặc định
+                text_GioDat.ValueChanged -= text_GioDat_ValueChanged; // Hủy đăng ký sự kiện tạm thời
+                text_GioDat.Value = DateTime.Today.Add(minTime);
+                text_GioDat.ValueChanged += text_GioDat_ValueChanged; // Đăng ký lại sự kiện
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Sushi_Restaurant.View
     public partial class CapNhatThongTinView : Form
     {
         // Biến tạm để lưu trữ thông tin ban đầu
-        private string _fullName, _idNumber, _email, _phoneNumber, _password, _gender;
+        private string _fullName, _idNumber, _email, _phoneNumber, _password, _gender, _membershipType, _totalPoints;
         public CapNhatThongTinView()
         {
             InitializeComponent();
@@ -123,6 +123,16 @@ namespace Sushi_Restaurant.View
                    text_CCCD.Text.Trim() == _idNumber;
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //Hàm thực hiện gọi stored procedure để cập nhật thông tin
         private bool UpdateCustomerInfo()
         {
@@ -209,9 +219,18 @@ namespace Sushi_Restaurant.View
                     conn.Open();
 
                     // Truy vấn lấy thông tin khách hàng dựa trên một điều kiện (ví dụ: ID khách hàng)
-                    string query = @"SELECT HoTen, CCCD, Email, SoDienThoai, MatKhau, GioiTinh 
-                                FROM KHACH_HANG 
-                                WHERE MaKhachHang = @MaKhachHang"; // MaKhachHang là ID khách hàng cần lấy
+                    string query = @"SELECT 
+                                        kh.HoTen, 
+                                        kh.CCCD, 
+                                        kh.Email, 
+                                        kh.SoDienThoai, 
+                                        kh.MatKhau, 
+                                        kh.GioiTinh, 
+                                        ttv.LoaiThe, 
+                                        ttv.TongDiemTichLuy
+                                    FROM KHACH_HANG kh
+                                    LEFT JOIN THE_THANH_VIEN ttv ON kh.MaKhachHang = ttv.MaKhachHang
+                                    WHERE kh.MaKhachHang = @MaKhachHang;";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -229,6 +248,23 @@ namespace Sushi_Restaurant.View
                                 _phoneNumber = reader["SoDienThoai"].ToString();
                                 _password = reader["MatKhau"].ToString();
                                 _gender = reader["GioiTinh"].ToString();
+                                // Kiểm tra thông tin thẻ thành viên
+                                if (reader["LoaiThe"] == DBNull.Value)
+                                {
+                                    _membershipType = "Chưa đăng kí thẻ thành viên";
+                                    label_TongTichLuy.Visible = false; // Ẩn label Tổng điểm tích lũy
+                                    textBox_TongTichLuy.Visible = false; // Ẩn textbox Tổng điểm tích lũy
+                                }
+                                else
+                                {
+                                    _membershipType = reader["LoaiThe"].ToString();
+                                    _totalPoints = reader["TongDiemTichLuy"].Equals(DBNull.Value)
+                                    ? "0"
+                                    : reader["TongDiemTichLuy"].ToString();
+
+                                    textBox_TongTichLuy.Visible = true; // Hiện textbox Tổng điểm tích lũy
+                                    textBox_TongTichLuy.Text = _totalPoints.ToString(); // Hiển thị tổng điểm tích lũy
+                                }
 
                                 // Hiển thị thông tin lên các TextBox và ComboBox
                                 text_User.Text = _fullName;
@@ -237,6 +273,7 @@ namespace Sushi_Restaurant.View
                                 text_SDT.Text = _phoneNumber;
                                 text_pass.Text = _password;
                                 text_gioiTinh.Text = _gender;
+                                textbox_LoaiTTV.Text = _membershipType;
                             }
                             else
                             {

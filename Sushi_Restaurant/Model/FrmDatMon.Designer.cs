@@ -39,7 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Header = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.text_timKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.label_Dat_Mon = new System.Windows.Forms.Label();
             this.but_Nguon = new Guna.UI2.WinForms.Guna2PictureBox();
             this.icon_Dat_Mon = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -49,12 +49,6 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_dat_hang = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.panel_Product = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel_Category = new System.Windows.Forms.FlowLayoutPanel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ten_mon = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +59,12 @@
             this.don_gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanh_tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.but_Xoa = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel_Product = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel_Category = new System.Windows.Forms.FlowLayoutPanel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.but_Nguon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_Dat_Mon)).BeginInit();
@@ -76,7 +76,7 @@
             // 
             this.panel_Header.BorderColor = System.Drawing.Color.White;
             this.panel_Header.BorderThickness = 1;
-            this.panel_Header.Controls.Add(this.guna2TextBox1);
+            this.panel_Header.Controls.Add(this.text_timKiem);
             this.panel_Header.Controls.Add(this.label_Dat_Mon);
             this.panel_Header.Controls.Add(this.but_Nguon);
             this.panel_Header.Controls.Add(this.icon_Dat_Mon);
@@ -87,31 +87,31 @@
             this.panel_Header.Size = new System.Drawing.Size(1472, 95);
             this.panel_Header.TabIndex = 0;
             // 
-            // guna2TextBox1
+            // text_timKiem
             // 
-            this.guna2TextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.text_timKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2TextBox1.AutoSize = true;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBox1.IconLeft")));
-            this.guna2TextBox1.Location = new System.Drawing.Point(341, 38);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "tìm kiếm món ăn ở đây";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(525, 41);
-            this.guna2TextBox1.TabIndex = 2;
-            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.text_timKiem.AutoSize = true;
+            this.text_timKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.text_timKiem.DefaultText = "";
+            this.text_timKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.text_timKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.text_timKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_timKiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_timKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_timKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.text_timKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_timKiem.IconLeft = ((System.Drawing.Image)(resources.GetObject("text_timKiem.IconLeft")));
+            this.text_timKiem.Location = new System.Drawing.Point(341, 38);
+            this.text_timKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.text_timKiem.Name = "text_timKiem";
+            this.text_timKiem.PasswordChar = '\0';
+            this.text_timKiem.PlaceholderText = "tìm kiếm món ăn ở đây";
+            this.text_timKiem.SelectedText = "";
+            this.text_timKiem.Size = new System.Drawing.Size(525, 41);
+            this.text_timKiem.TabIndex = 2;
+            this.text_timKiem.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
             // label_Dat_Mon
             // 
@@ -316,50 +316,6 @@
             this.panel_dat_hang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.panel_dat_hang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.panel_dat_hang_CellClick);
             // 
-            // panel_Product
-            // 
-            this.panel_Product.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Product.AutoScroll = true;
-            this.panel_Product.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_Product.Location = new System.Drawing.Point(168, 101);
-            this.panel_Product.Name = "panel_Product";
-            this.panel_Product.Size = new System.Drawing.Size(698, 624);
-            this.panel_Product.TabIndex = 4;
-            // 
-            // panel_Category
-            // 
-            this.panel_Category.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Category.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_Category.Location = new System.Drawing.Point(7, 101);
-            this.panel_Category.Name = "panel_Category";
-            this.panel_Category.Size = new System.Drawing.Size(140, 624);
-            this.panel_Category.TabIndex = 5;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.FillWeight = 50F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Sushi_Restaurant.Properties.Resources.icon_sua;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 50;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn2.FillWeight = 50F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
-            this.dataGridViewImageColumn2.MinimumWidth = 50;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 50;
-            // 
             // STT
             // 
             this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -469,6 +425,50 @@
             this.but_Xoa.Name = "but_Xoa";
             this.but_Xoa.Width = 40;
             // 
+            // panel_Product
+            // 
+            this.panel_Product.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Product.AutoScroll = true;
+            this.panel_Product.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Product.Location = new System.Drawing.Point(168, 101);
+            this.panel_Product.Name = "panel_Product";
+            this.panel_Product.Size = new System.Drawing.Size(698, 624);
+            this.panel_Product.TabIndex = 4;
+            // 
+            // panel_Category
+            // 
+            this.panel_Category.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Category.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Category.Location = new System.Drawing.Point(7, 101);
+            this.panel_Category.Name = "panel_Category";
+            this.panel_Category.Size = new System.Drawing.Size(140, 624);
+            this.panel_Category.TabIndex = 5;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 50F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Sushi_Restaurant.Properties.Resources.icon_sua;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 50;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 50;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn2.FillWeight = 50F;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::Sushi_Restaurant.Properties.Resources.icon_xoa;
+            this.dataGridViewImageColumn2.MinimumWidth = 50;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 50;
+            // 
             // FrmDatMon
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -509,7 +509,7 @@
         private System.Windows.Forms.FlowLayoutPanel panel_Category;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox text_timKiem;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TileButton but_dat_ban;

@@ -42,6 +42,8 @@ namespace Sushi_Restaurant.NhanVien
             set { txtImage.Image = value; }
         }
 
+        public bool IsBestSeller { get; set; } = false;
+
 
         // Hàm xử lý khi `ucProduct` được nhấn
         protected void OnClickHandler(object sender, EventArgs e)

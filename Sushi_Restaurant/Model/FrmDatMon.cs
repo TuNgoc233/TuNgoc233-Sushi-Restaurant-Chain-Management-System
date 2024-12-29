@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Web.UI.HtmlControls;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
+using System.IO;
 
 namespace Sushi_Restaurant
 {
@@ -52,11 +53,11 @@ namespace Sushi_Restaurant
                         // Hiển thị tất cả các sản phẩm
                         pro.Visible = true;
                     }
-                    //else if (selectedCategory == "BestSeller")
-                    //{
-                    //    // Hiển thị sản phẩm Best-Seller (tùy logic của bạn, ví dụ dựa trên thuộc tính BestSeller của ucProduct)
-                    //    //pro.Visible = pro.IsBestSeller; // Giả sử ucProduct có thuộc tính IsBestSeller
-                    //}
+                    else if (selectedCategory == "BestSeller")
+                    {
+                        // Hiển thị sản phẩm Best-Seller 
+                        pro.Visible = pro.IsBestSeller; 
+                    }
                     else
                     {
                         // Hiển thị sản phẩm nếu danh mục khớp, ẩn nếu không khớp
@@ -103,6 +104,19 @@ namespace Sushi_Restaurant
                 btnAll.Click += new EventHandler(_Click);
                 panel_Category.Controls.Add(btnAll);
 
+                // Thêm nút "Best-Seller"
+                Guna.UI2.WinForms.Guna2Button btnBestSeller = new Guna.UI2.WinForms.Guna2Button
+                {
+                    FillColor = Color.FromArgb(50, 55, 89),
+                    Size = new Size(134, 45),
+                    ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton,
+                    Text = "Best-Seller",
+                    Tag = "BestSeller"
+                };
+                btnBestSeller.Click += new EventHandler(_Click);
+                panel_Category.Controls.Add(btnBestSeller);
+
+
                 // Kiểm tra nếu có dữ liệu từ bảng MUC
                 if (dt.Rows.Count > 0)
                 {
@@ -126,7 +140,7 @@ namespace Sushi_Restaurant
             }
         }
 
-        private void AddItems(string id, string name, string cat, string price, Image pimage)
+        private void AddItems(string id, string name, string cat, string price, Image pimage, bool isBestSeller = false)
         {
             var w = new ucProduct()
             {
@@ -134,7 +148,9 @@ namespace Sushi_Restaurant
                 PPrice = price,
                 PCategory = cat,
                 PImage = pimage,
-                id = id
+                id = id,
+                IsBestSeller = isBestSeller
+
             };
 
             // Gắn event "onAddFavorite" một lần duy nhất
@@ -257,44 +273,106 @@ namespace Sushi_Restaurant
         {
             using (SqlConnection conn = new SqlConnection(MainClass.con_string))
             {
-                string query = @"
-                    SELECT MA.*
-                    FROM MON_AN MA
-                    JOIN CHI_NHANH_MON_AN CNMA ON MA.MaMonAn = CNMA.MaMonAn
-                    WHERE CNMA.MaChiNhanh = @MaChiNhanh AND MA.GiaoMon = 1";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@MaChiNhanh", GlobalVariables.MaChiNhanh); // Truyền tham số mã chi nhánh
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
                 conn.Open();
-                da.Fill(dt);
 
-                panel_Product.Controls.Clear(); // Xóa các sản phẩm cũ trong ProductPanel
+                // Tạo DataTable để chứa dữ liệu tất cả món ăn (cả thường và Best Seller)
+                DataTable dtAllProducts = new DataTable();
 
-                foreach (DataRow row in dt.Rows)
+                // Truy vấn các món ăn thông thường
+                string queryAllProducts = @"
+                SELECT MA.*
+                FROM MON_AN MA
+                JOIN CHI_NHANH_MON_AN CNMA ON MA.MaMonAn = CNMA.MaMonAn
+                WHERE CNMA.MaChiNhanh = @MaChiNhanh AND MA.GiaoMon = 1";
+
+                SqlCommand cmdAllProducts = new SqlCommand(queryAllProducts, conn);
+                cmdAllProducts.Parameters.AddWithValue("@MaChiNhanh", GlobalVariables.MaChiNhanh);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmdAllProducts))
                 {
-                    string productCode = row["MaMonAn"].ToString(); // Lấy mã món ăn
-                    Image productImage = LoadImageFromResources(productCode); // Tải hình ảnh từ Resources dựa trên mã món ăn
+                    da.Fill(dtAllProducts); // Đổ dữ liệu món ăn thường vào DataTable
+                }
 
-                    // Lấy và định dạng giá hiện tại
-                    string formattedPrice = "0"; // Giá mặc định nếu không hợp lệ
+                string columnNames = "Columns in dtBestSeller:\n";
+                foreach (DataColumn column in dtAllProducts.Columns)
+                {
+                    columnNames += $"Column: {column.ColumnName}\n";
+                }
+
+                // Lấy danh sách Best Seller từ stored procedure
+                DataTable dtBestSeller = new DataTable();
+                SqlCommand cmdBestSeller = new SqlCommand("GetBestSellerProducts", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmdBestSeller.Parameters.AddWithValue("@MaChiNhanh", GlobalVariables.MaChiNhanh);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmdBestSeller))
+                {
+                    da.Fill(dtBestSeller); // Đổ dữ liệu Best Seller vào DataTable
+                }
+
+
+                //Kết hợp dữ liệu vào giao diện
+                panel_Product.Controls.Clear(); // Xóa sản phẩm cũ
+
+                //Hiển thị các món Best Seller (ưu tiên trước)
+                foreach (DataRow row in dtBestSeller.Rows)
+                {
+                    string productCode = row["MaMonAn"].ToString(); // Mã món ăn
+                    Image productImage = LoadImageFromResources(productCode); // Lấy hình ảnh món ăn
+
+                    // Lấy và định dạng giá
+                    string formattedPrice = "0";
                     if (double.TryParse(row["GiaHienTai"].ToString(), out double price))
                     {
-                        formattedPrice = price.ToString("N0", GlobalVariables.AppCultureInfo); // Định dạng giá với dấu phân cách
+                        formattedPrice = price.ToString("N0", GlobalVariables.AppCultureInfo); // Định dạng giá
                     }
 
-                    // Thêm sản phẩm vào panel
+                    // Thêm món ăn Best Seller vào giao diện (có thể thêm đánh dấu Best Seller)
                     AddItems(
-                        productCode,                       // Mã món ăn
-                        row["TenMonAn"].ToString(),        // Tên món ăn
-                        row["MaMuc"].ToString(),           // Danh mục món ăn
-                        formattedPrice,         // Giá của món ăn
-                        productImage                       // Hình ảnh của món ăn
+                        productCode,
+                        $"{row["TenMonAn"]} (Best Seller)", // Ghi chú "Best Seller"
+                        row["MaMuc"].ToString(),
+                        formattedPrice,
+                        productImage,
+                        true
+                    );
+                }
+
+                //Hiển thị các món ăn thông thường
+                foreach (DataRow row in dtAllProducts.Rows)
+                {
+                    // Kiểm tra món ăn này có nằm trong danh sách Best Seller không (tránh lặp)
+                    if (dtBestSeller.Select($"MaMonAn = '{row["MaMonAn"].ToString()}'").Length > 0)
+                    {
+                        continue; // Nếu món ăn đã là Best Seller, bỏ qua
+                    }
+
+                    string productCode = row["MaMonAn"].ToString(); // Mã món ăn
+                    Image productImage = LoadImageFromResources(productCode); // Lấy hình ảnh món ăn
+
+
+
+                    // Lấy và định dạng giá
+                    string formattedPrice = "0";
+                    if (double.TryParse(row["GiaHienTai"].ToString(), out double price))
+                    {
+                        formattedPrice = price.ToString("N0", GlobalVariables.AppCultureInfo); // Định dạng giá
+                    }
+
+                    // Thêm món ăn thông thường vào giao diện
+                    AddItems(
+                        productCode,
+                        row["TenMonAn"].ToString(),
+                        row["MaMuc"].ToString(),
+                        formattedPrice,
+                        productImage
                     );
                 }
             }
         }
+
 
         private void but_Nguon_Click(object sender, EventArgs e)
         {
@@ -453,46 +531,18 @@ namespace Sushi_Restaurant
         {
             using (SqlConnection conn = new SqlConnection(MainClass.con_string))
             {
-                string query = @"
-                SELECT MA.*
-                FROM MON_AN MA
-                JOIN CHI_NHANH_MON_AN CNMA ON MA.MaMonAn = CNMA.MaMonAn
-                WHERE CNMA.MaChiNhanh = @MaChiNhanh 
-                AND MA.GiaoMon = 1
-                AND (MA.TenMonAn LIKE @SearchTerm OR MA.MaMonAn LIKE @SearchTerm)";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@MaChiNhanh", GlobalVariables.MaChiNhanh);
-                cmd.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%"); // Tìm kiếm mờ với LIKE
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                conn.Open();
-                da.Fill(dt);
-
-                panel_Product.Controls.Clear(); // Xóa kết quả cũ
-
-                foreach (DataRow row in dt.Rows)
+                foreach (var item in panel_Product.Controls)
                 {
-                    string productCode = row["MaMonAn"].ToString();
-                    Image productImage = LoadImageFromResources(productCode);
-                    string formattedPrice = double.TryParse(row["GiaHienTai"].ToString(), out double price)
-                                            ? price.ToString("N0", GlobalVariables.AppCultureInfo) : "0";
 
-                    AddItems(
-                        productCode,
-                        row["TenMonAn"].ToString(),
-                        row["MaMuc"].ToString(),
-                        formattedPrice,
-                        productImage
-                    );
+                    var pro = (ucProduct)item;
+                    pro.Visible = pro.PName.ToLower().Contains(text_timKiem.Text.Trim().ToLower());
                 }
             }
         }   
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
 
-            string searchTerm = guna2TextBox1.Text.Trim(); // Lấy từ khóa tìm kiếm
+            string searchTerm = text_timKiem.Text.Trim(); // Lấy từ khóa tìm kiếm
             SearchProducts(searchTerm); // Gọi hàm tìm kiếm
         }
        

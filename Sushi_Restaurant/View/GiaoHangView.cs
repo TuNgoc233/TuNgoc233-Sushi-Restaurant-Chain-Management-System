@@ -36,12 +36,7 @@ namespace Sushi_Restaurant.View
             cmb_ngayGiao.Items.Add("Hôm nay - " + DateTime.Now.ToString("dd/MM/yyyy"));
             cmb_ngayGiao.Items.Add("Ngày mai - " + DateTime.Now.AddDays(1).ToString("dd/MM/yyyy"));
 
-            // Đặt giá trị mặc định là ngày hôm nay
-            cmb_ngayGiao.SelectedIndex = 0;
-
-            // Giới hạn giờ từ 8:00 đến 21:30
-            text_GioDat.MinDate = DateTime.Today.AddHours(9);
-            text_GioDat.MaxDate = DateTime.Today.AddHours(21);
+        
         }
 
         // Thêm tên số điện thoại khách hàng vào phiếu giao hàng
@@ -247,6 +242,22 @@ namespace Sushi_Restaurant.View
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi lấy khuyến mãi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void text_GioDat_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedTime = text_GioDat.Value;
+            TimeSpan minTime = new TimeSpan(9, 0, 0);  // 09:00
+            TimeSpan maxTime = new TimeSpan(21, 0, 0); // 20:00
+
+            if (selectedTime.TimeOfDay < minTime || selectedTime.TimeOfDay > maxTime)
+            {
+                warning_gioGH_GHView.Show("Giờ giao hàng phải nằm trong khoảng từ 09:00 đến 21:00.");
+                // Đặt lại giá trị mặc định
+                text_GioDat.Value = DateTime.Today.Add(minTime);
+                text_GioDat.ValueChanged -= text_GioDat_ValueChanged; // Hủy đăng ký sự kiện tạm thời
+                text_GioDat.ValueChanged += text_GioDat_ValueChanged; // Đăng ký lại sự kiện
             }
         }
     }
